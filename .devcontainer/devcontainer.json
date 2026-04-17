@@ -1,0 +1,38 @@
+//.devcontainer/devcontainer.json
+{
+    "name": "LLM",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "PYTHON_VER": "3.11"
+        }
+    },
+    "containerEnv": { 
+        "PYTHON_VER": "3.11" 
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:1": {
+            "installZsh": false,
+            "configureZshAsDefaultShell": false
+        },
+        "ghcr.io/devcontainers/features/git:1": "latest"
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+                "python.terminal.activateEnvInSelectedTerminal": true,
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "jupyter.notebookEditor.defaultKernel": "venv",
+                "git.ignoreLimitWarning": true 
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-toolsai.jupyter",
+                "ms-python.pylance"
+            ]
+        }
+    },
+    "remoteUser": "root",
+    "postCreateCommand": "bash .devcontainer/setup.sh"
+}
