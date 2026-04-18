@@ -1,16 +1,23 @@
-from langchain_openrouter import ChatOpenRouter
-from dotenv import load_dotenv
 import os
+import requests
+from dotenv import load_dotenv
 
 load_dotenv()
+api_key = os.getenv("OPENROUTER_API_KEY")
 
-# If you haven't set the env var yet, you can also pass it directly for a quick test:
-# llm = ChatOpenRouter(openrouter_api_key="your_key", model="google/gemini-2.0-flash-001")
+print("--- DEBUG START ---")
+print(f"API Key found: {api_key[:8]}...")
 
-llm = ChatOpenRouter(model="google/gemma-4-26b-a4b-it:free")
+# Using a standard 'requests' call to see the RAW output
+response = requests.post(
+    url="https://openrouter.ai",
+    headers={"Authorization": f"Bearer {api_key}"},
+    json={
+        "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
+        "messages": [{"role": "user", "content": "hi"}]
+    }
+)
 
-try:
-    res = llm.invoke("Say 'LangChain is ready!'")
-    print(res.content)
-except Exception as e:
-    print(f"Error: {e}")
+print(f"Status Code: {response.status_code}")
+print(f"Raw Content: {response.text}")
+print("--- DEBUG END ---")

@@ -841,6 +841,7 @@ dependencies = [
     { name = "langchain-community" },
     { name = "langchain-openai" },
     { name = "langchain-openrouter" },
+    { name = "openai" },
     { name = "pypdf" },
     { name = "python-dotenv" },
 ]
@@ -852,6 +853,7 @@ requires-dist = [
     { name = "langchain-community", specifier = ">=0.4.1" },
     { name = "langchain-openai", specifier = ">=1.1.14" },
     { name = "langchain-openrouter", specifier = ">=0.2.1" },
+    { name = "openai", specifier = ">=2.32.0" },
     { name = "pypdf", specifier = ">=6.10.2" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
 ]
