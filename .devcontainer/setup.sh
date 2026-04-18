@@ -1,17 +1,13 @@
 #!/bin/bash
 
-PROJECT_ROOT=$(pwd)
+# Cleanup legacy venv artifacts
+rm -rf .venv
 
-if ! python3 -c "import sys; exit(0 if sys.version.startswith('${PYTHON_VER}') else 1)" 2>/dev/null; then
-    echo "ERROR: Python version ${PYTHON_VER} not found."
-    exit 1
-fi
-git config --global --add safe.directory "$PROJECT_ROOT"
-if [ ! -f .env ] && [ -f .env.example ]; then
-    cp .env.example .env
-fi
-python -m venv .venv
-. .venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
-. .venv/bin/activate && python -m ipykernel install --user --name venv --display-name "Python ${PYTHON_VER} (venv)"
-sed -i '/.venv\/bin\/activate/d' ~/.bashrc
-echo "source $PROJECT_ROOT/.venv/bin/activate" >> ~/.bashrc
+# Git permissions
+git config --global --add safe.directory "${containerWorkspaceFolder:-$(pwd)}"
+
+# Env setup
+[ -f .env.example ] && [ ! -f .env ] && cp .env.example .env
+
+# Force kernel registration to the specific 3.11.15 path
+/usr/local/bin/python3 -m ipykernel install --user --name python3 --display-name "Python 3.11 (System)"
