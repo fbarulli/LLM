@@ -12,26 +12,31 @@ print(f"Testing key: {api_key[:10]}...")
 headers = {
     "Authorization": f"Bearer {api_key}",
     "Content-Type": "application/json",
-    "HTTP-Referer": "http://localhost:3000", 
+    "HTTP-Referrer": "http://localhost:3000", 
 }
 
 data = {
-    "model": "google/gemini-2.0-flash-lite-preview-02-05:free",
-    "messages": [{"role": "user", "content": "Say hello"}]
+"model": "google/gemma-3n-e2b-it:free",
+
+"messages": [{"role": "user", "content": "Say hello"}]
 }
 
 response = requests.post(
-    url="https://openrouter.ai",
+    url="https://openrouter.ai/api/v1/chat/completions",
     headers=headers,
     json=data
 )
 
+
 print(f"Status Code: {response.status_code}")
 
-try:
-    json_data = response.json()
-    print("✅ Success!")
-    print(json_data['choices'][0]['message']['content'])
-except Exception as e:
-    print("❌ Still failing to get JSON.")
-    print(f"First 100 chars of response: {response.text[:100]}")
+if response.status_code == 200:
+    try:
+        json_data = response.json()
+        print("✅ Success!")
+        print(json_data['choices'][0]['message']['content'])
+    except Exception as e:
+        print(f"❌ Failed to parse JSON: {e}")
+else:
+    print(f"❌ Request failed with status {response.status_code}")
+    print(response.text)
