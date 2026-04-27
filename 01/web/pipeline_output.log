@@ -1,0 +1,7 @@
+2026-04-27 16:07:26,355 [INFO] - Loaded external settings from settings.json
+2026-04-27 16:07:26,356 [INFO] - Securely loaded .env from: /home/admin/LLM/LLM/.env
+2026-04-27 16:07:26,518 [INFO] - GET http://localhost:9200/ [status:200 request:0.005s]
+2026-04-27 16:07:26,520 [INFO] - HEAD http://localhost:9200/ [status:200 request:0.001s]
+2026-04-27 16:07:26,520 [INFO] - Successfully connected to Elasticsearch cluster.
+2026-04-27 16:07:26,822 [INFO] - Starting local Gradio web server...
+2026-04-27 16:07:26,846 [INFO] - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"

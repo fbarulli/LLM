@@ -1,0 +1,6 @@
+{
+    "llm_model": "google/gemma-3n-e2b-it:free",
+    "search_size": 3,
+    "tokenizer_encoding": "cl100k_base",
+    "course_name": "machine-learning-zoomcamp"
+}
