@@ -1102,6 +1102,7 @@ dependencies = [
     { name = "python-docx" },
     { name = "python-dotenv" },
     { name = "tdqm" },
+    { name = "tiktoken" },
 ]
 
 [package.metadata]
@@ -1119,6 +1120,7 @@ requires-dist = [
     { name = "python-docx", specifier = ">=1.2.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
     { name = "tdqm", specifier = ">=0.0.1" },
+    { name = "tiktoken", specifier = ">=0.12.0" },
 ]
 
 [[package]]
