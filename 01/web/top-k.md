@@ -10,6 +10,7 @@ Filters out documents that fall below a strict similarity score before sending t
 * **Scalability & Throughput**: High. Leverages native database speeds without bottlenecks.
 * **Maintainability & Cold Starts**: Low. Cutoff thresholds require periodic manual tuning as document distributions change.
 * **Security & Access Control**: Strong. Traditional metadata filters applied at the database layer remain perfectly intact.
+* **Factual Fit**: High. Excellent at surfacing singular, precise facts without polluting the context prompt with irrelevant chunks.
 
 ---
 
@@ -25,6 +26,7 @@ Pulls a large candidate pool and runs matrix math to pick items that are highly 
 * **Scalability & Throughput**: Moderate. Heavy concurrent requests will spike CPU usage due to the Python matrix math execution.
 * **Maintainability & Cold Starts**: Moderate. Needs baseline recalibration for the diversity lambda weight parameter.
 * **Security & Access Control**: Strong. The post-processing MMR loop handles already-filtered secure documents.
+* **Factual Fit**: Moderate. The drive for diversity might omit the exact factual document in favor of pushing different topical angles.
 
 ---
 
@@ -40,6 +42,7 @@ Pulls a wide net of candidates (e.g., K=50) via fast search, then runs a dense C
 * **Scalability & Throughput**: Low to Moderate. Throughput is strictly bottlenecked by the concurrency limits of your reranker infrastructure.
 * **Maintainability & Cold Starts**: High. Excellent generalization means it adapts to new curriculum data automatically without manual score tuning.
 * **Security & Access Control**: Strong. Rerankers score candidates that have already been authorized and pulled by the initial retriever.
+* **Factual Fit**: Peak. Evaluates documents twice to ensure the hyper-specific answer to the query makes it into the top slots.
 
 ---
 
@@ -55,3 +58,4 @@ An LLM analyzes the user's prompt before searching to decide exactly how many do
 * **Scalability & Throughput**: Low. Strictly bound by the strict rate limits imposed by your large language model API provider.
 * **Maintainability & Cold Starts**: High. Prompts dictating the agent behavior can break or hallucinate when system structures are updated.
 * **Security & Access Control**: Risky. Relying on an LLM to enforce data boundaries can fail via prompt injection attacks.
+* **Factual Fit**: Peak. Can analyze complex reasoning trees to target several different datasets to hunt down fragmented facts.
