@@ -4,10 +4,9 @@ from core import (
     load_settings, 
     load_secure_env, 
     build_prompt, 
-    query_openrouter, 
-    logging, 
-    time_logger
+    query_openrouter
 )
+from logger_config import logger, time_logger
 import traceback
 import tiktoken
 
@@ -15,20 +14,20 @@ settings: dict = load_settings(filename="settings.json")
 api_key: str | None = load_secure_env()
 
 if not api_key:
-    logging.error("CRITICAL: Secure environment API key not found!")
+    logger.error("CRITICAL: Secure environment API key not found!")
 
 rag: CourseRAGManager = CourseRAGManager(settings=settings)
 
 try:
     rag.connect_elasticsearch(host="http://localhost:9200")
 except Exception as e:
-    logging.error(f"Failed to connect to Elasticsearch on startup: {str(e)}")
+    logger.error(f"Failed to connect to Elasticsearch on startup: {str(e)}")
 
 try:
     tokenizer_name: str = settings.get("tokenizer_encoding", "cl100k_base")
     tokenizer: tiktoken.Encoding = tiktoken.get_encoding(tokenizer_name)
 except Exception:
-    logging.error("Failed to load tokenizer. Defaulting to cl100k_base.")
+    logger.error("Failed to load tokenizer. Defaulting to cl100k_base.")
     tokenizer = tiktoken.get_encoding("cl100k_base")
 
 @time_logger
@@ -53,7 +52,7 @@ def glass_box_agent(user_question: str) -> tuple[str, str]:
             raw_context_output = "No matching documents found in Elasticsearch!"
             
     except Exception:
-        logging.error(f"Elasticsearch retrieval error:\n{traceback.format_exc()}")
+        logger.error(f"Elasticsearch retrieval error:\n{traceback.format_exc()}")
         raw_context_output = "An error occurred retrieving documents from Elasticsearch."
         records = []
 
@@ -76,7 +75,7 @@ def glass_box_agent(user_question: str) -> tuple[str, str]:
         return raw_context_output, answer
         
     except Exception:
-        logging.error(f"OpenRouter LLM error:\n{traceback.format_exc()}")
+        logger.error(f"OpenRouter LLM error:\n{traceback.format_exc()}")
         return raw_context_output, "An error occurred generating response from the LLM."
 
 with gr.Blocks(title="Course RAG Assistant - Developer View") as demo:
@@ -123,5 +122,5 @@ with gr.Blocks(title="Course RAG Assistant - Developer View") as demo:
     gr.Markdown("Check `pipeline_output.log` to audit behind-the-scenes metrics and token overhead.")
 
 if __name__ == "__main__":
-    logging.info("Starting local Gradio web server...")
+    logger.info("Starting local Gradio web server...")
     demo.launch(server_name="127.0.0.1")
