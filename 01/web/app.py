@@ -123,4 +123,5 @@ with gr.Blocks(title="Course RAG Assistant - Developer View") as demo:
 
 if __name__ == "__main__":
     logger.info("Starting local Gradio web server...")
-    demo.launch(server_name="127.0.0.1")
+    demo.launch(server_name="127.0.0.1", server_port=7870)
+

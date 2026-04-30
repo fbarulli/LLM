@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from elasticsearch import Elasticsearch
 from typing import Optional
 
-# Functional Import: Offloading logging and timing collision handlers
+
 from logger_config import logger, time_logger
 
 def load_settings(filename: str) -> dict:

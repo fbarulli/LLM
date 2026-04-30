@@ -1,7 +1,4 @@
-2026-04-30 18:34:46,283 [INFO] - Loaded external settings from settings.json
-2026-04-30 18:34:46,284 [INFO] - Securely loaded environment variables.
-2026-04-30 18:34:46,291 [INFO] - GET http://localhost:9200/ [status:200 request:0.006s]
-2026-04-30 18:34:46,293 [INFO] - HEAD http://localhost:9200/ [status:200 request:0.002s]
-2026-04-30 18:34:46,293 [INFO] - Successfully connected to Elasticsearch cluster.
-2026-04-30 18:34:46,714 [INFO] - Starting local Gradio web server...
-2026-04-30 18:34:46,770 [INFO] - HTTP Request: HEAD https://huggingface.co/api/telemetry/https%3A/api.gradio.app/gradio-initiated-analytics "HTTP/1.1 200 OK"
+2026-04-30 19:19:23,644 [INFO] - Loaded external settings from settings.json
+2026-04-30 19:19:23,645 [INFO] - Securely loaded environment variables.
+2026-04-30 19:19:23,652 [INFO] - Successfully connected to Elasticsearch cluster.
+2026-04-30 19:19:24,064 [INFO] - Starting local Gradio web server...
