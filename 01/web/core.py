@@ -1,89 +1,53 @@
-import json
-import os
-import litellm
+import time
 from typing import Optional, Tuple
 from litellm import completion
-from dotenv import load_dotenv
 from logger_config import logger, time_logger
-from prompt_manager import build_prompt
+from langfuse.decorators import observe, langfuse_context
 
-def track_usage(kwargs, response_obj, start_time, end_time):
-    usage = getattr(response_obj, 'usage', {})
-    model = kwargs["model"]
-    logger.info(f"LLM Success | Model: {model} | Tokens: {usage} | Latency: {end_time - start_time:.2f}s")
-
-litellm.success_callback = [track_usage]
-
-def load_settings(filename="settings.json"):
-    try:
-        with open(filename, "r") as f:
-            settings = json.load(f)
-            return settings
-    except Exception as e:
-        logger.error(f"Failed to load settings: {e}")
-        raise
-
-def load_secure_keys():
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    env_path = os.path.join(current_dir, "..", "..", ".env")
-    
-    if os.path.exists(env_path):
-        load_dotenv(dotenv_path=env_path)
-    
-    os.environ["NVIDIA_NIM_API_KEY"] = os.getenv("NVIDIA_API_KEY", "")
-    os.environ["OPENROUTER_API_KEY"] = os.getenv("OPENROUTER_API_KEY", "")
-    os.environ["OR_SITE_URL"] = "http://localhost:3000"
-    
-    os.environ["LANGFUSE_PUBLIC_KEY"] = os.getenv("LANGFUSE_PUBLIC_KEY", "")
-    os.environ["LANGFUSE_SECRET_KEY"] = os.getenv("LANGFUSE_SECRET_KEY", "")
-    os.environ["LANGFUSE_HOST"] = os.getenv("LANGFUSE_HOST", "https://langfuse.com")
-        
-    return os.environ["NVIDIA_NIM_API_KEY"], os.environ["OPENROUTER_API_KEY"]
-
+@observe()
 @time_logger
-def query_llm_provider(prompt: str, model_name: str, provider_prefix: str, metadata: dict) -> Optional[str]:
+def query_llm_provider(prompt: str, model_name: str, provider_prefix: str, metadata: dict, tags: list) -> Optional[str]:
+    short_name = model_name.split('/')[-1][:20]
+    
+    langfuse_context.update_current_trace(
+        name=f"LLM_{provider_prefix}_{short_name}",
+        metadata={**metadata, "model": model_name, "provider": provider_prefix, "timestamp": time.time()},
+        tags=tags
+    )
+
     try:
         response = completion(
             model=f"{provider_prefix}/{model_name}",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.2,
             max_tokens=1024,
-            timeout=60,
-            metadata=metadata
+            timeout=60
         )
-        # Fix: Access the first choice in the list
         return response.choices[0].message.content
     except Exception as e:
-        logger.error(f"Provider {provider_prefix} failed for model {model_name}: {e}")
+        logger.error(f"Provider {provider_prefix}/{model_name} failed: {e}")
         return None
 
-
+@observe()
 @time_logger
-def query_llm(prompt: str, nv_key: str, or_key: str, settings: dict, metadata: dict) -> Tuple[str, str]:
-    active_providers = []
+def query_llm(prompt: str, settings: dict, metadata: dict, tags: list) -> Tuple[str, str]:
+    from langfuse_config import get_providers
     
-    if settings["use_nvidia"]:
-        meta = {**metadata, "cost_1k": settings["nvidia_cost_1k"]}
-        active_providers.append((settings["nvidia_model"], "nvidia_nim", "NVIDIA_LLAMA", meta))
+    providers = get_providers(settings)
     
-    if settings["use_mistral_nvidia"]:
-        meta = {**metadata, "cost_1k": settings["mistral_cost_1k"]}
-        active_providers.append((settings["mistral_model"], "nvidia_nim", "NVIDIA_MISTRAL", meta))
-
-    if settings["use_nemotron_nvidia"]:
-        meta = {**metadata, "cost_1k": settings["nemotron_cost_1k"]}
-        active_providers.append((settings["nemotron_model"], "nvidia_nim", "NVIDIA_NEMOTRON", meta))
-
-    if settings["use_openrouter"]:
-        meta = {**metadata, "cost_1k": settings["openrouter_cost_1k"]}
-        active_providers.append((settings["openrouter_model"], "openrouter", "OPENROUTER", meta))
-
-    for model, prefix, label, meta_with_cost in active_providers:
-        logger.info(f"Orchestrator: Requesting {label}...")
-        answer = query_llm_provider(prompt, model, prefix, meta_with_cost)
-        if answer: 
+    if not providers:
+        return "Error: No providers configured.", "NONE"
+    
+    for model, prefix, label, cost in providers:
+        meta = {**metadata, "cost_per_1k_tokens": cost}
+        logger.info(f"Requesting {label} ({model})...")
+        answer = query_llm_provider(prompt, model, prefix, meta, tags)
+        
+        if answer:
+            langfuse_context.update_current_trace(
+                metadata={"successful_provider": label}
+            )
+            langfuse_context.flush()
             return answer, label
-        logger.warning(f"Orchestrator: {label} failed.")
-
-    logger.error("Orchestrator: All enabled providers failed.")
-    return "Error: All enabled LLM providers failed.", "NONE"
+    
+    return "Error: All enabled providers failed.", "NONE"

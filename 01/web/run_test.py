@@ -1,32 +1,48 @@
 import os
-import json
+import time
+from datetime import datetime
 from dotenv import load_dotenv
-from search import CourseRAGManager
-from core import build_prompt, query_llm
+import litellm
 
-def load_settings(filename="settings.json"):
-    with open(filename, 'r') as f:
-        return json.load(f)
+def run_test():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    env_path = os.path.abspath(os.path.join(current_dir, "..", "..", ".env"))
+    load_dotenv(dotenv_path=env_path)
 
-def main():
-    # 1. Setup
-    load_dotenv()
-    settings = load_settings()
-    nv_key = os.getenv("NVIDIA_API_KEY")
-    or_key = os.getenv("OPENROUTER_API_KEY")
+    model_id = "nvidia_nim/nvidia/nemotron-mini-4b-instruct"
+    litellm.model_cost[model_id] = {
+        "max_tokens": 4096, 
+        "input_cost_per_token": 0.0, 
+        "output_cost_per_token": 0.0
+    }
+
+    litellm.success_callback = ["langfuse"]
+    os.environ["LANGFUSE_PUBLIC_KEY"] = os.environ.get("LANGFUSE_PUBLIC_KEY")
+    os.environ["LANGFUSE_SECRET_KEY"] = os.environ.get("LANGFUSE_SECRET_KEY")
+    os.environ["LANGFUSE_HOST"] = "https://cloud.langfuse.com"
     
-    # 2. Retrieval
-    rag = CourseRAGManager(settings)
-    rag.connect_elasticsearch(settings.get("es_host", "http://localhost:9200"))
+    # Create a clean timestamp string
+    my_timestamp = datetime.now().strftime("%H:%M:%S")
+    trace_name = f"test_{my_timestamp}"
     
-    question = "How do I run docker?"
-    records = rag.search_faq(question)
+    print(f"Creating trace: {trace_name}")
     
-    # 3. Generation
-    prompt = build_prompt(question, records)
-    answer, source = query_llm(prompt, nv_key, or_key, settings)
+    response = litellm.completion(
+        model=model_id,
+        messages=[{"role": "user", "content": f"Test at {my_timestamp}"}],
+        mock_response=f"Response at {my_timestamp}",
+        metadata={
+            "trace_name": trace_name,
+            "tags": [f"time-{my_timestamp}"],
+            "trace_metadata": {
+                "ping_time": my_timestamp,
+                "unix_time": int(time.time())
+            }
+        }
+    )
     
-    print(f"\n[{source}] Answer: {answer}")
+    print(f"Done! Trace '{trace_name}' created at {my_timestamp}")
+    print("Check dashboard in 5-10 min: https://cloud.langfuse.com")
 
 if __name__ == "__main__":
-    main()
+    run_test()
