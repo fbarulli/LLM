@@ -1,12 +1,21 @@
 {
-    "use_nvidia": true,
+    "use_nvidia": false,
     "nvidia_model": "abacusai/dracarys-llama-3.1-70b-instruct",
-    "nvidia_url": "https://integrate.api.nvidia.com/v1/chat/completions",
+    "nvidia_cost_1k": 0.0009,
     
+    "use_mistral_nvidia": false,
+    "mistral_model": "mistralai/ministral-14b-instruct-2512",
+    "mistral_cost_1k": 0.0001,
+
+    "use_nemotron_nvidia": true,
+    "nemotron_model": "nvidia/nemotron-mini-4b-instruct",
+    "nemotron_cost_1k": 0.0001,
+
     "use_openrouter": false,
     "openrouter_model": "google/gemma-3n-e2b-it:free",
-    "openrouter_url": "https://openrouter.ai/api/v1/chat/completions",
+    "openrouter_cost_1k": 0.00,
     
+    "es_host": "http://localhost:9200",
     "search_size": 3,
     "tokenizer_encoding": "cl100k_base",
     "course_name": "machine-learning-zoomcamp"

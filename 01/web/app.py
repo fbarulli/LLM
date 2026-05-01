@@ -5,48 +5,42 @@ import os
 
 from core import (
     build_prompt, 
-    query_llm
+    query_llm,
+    load_settings, 
+    load_secure_keys 
 )
 from search import CourseRAGManager
 from logger_config import logger, time_logger
-# Assuming load_settings and load_secure_keys are in core.py or similar
-from core import load_settings, load_secure_keys 
 
-# 1. Configuration & Key Loading
 settings: dict = load_settings(filename="settings.json")
-# We now load both keys for the failover logic
+
 nv_key, or_key = load_secure_keys()
 
 if not nv_key and not or_key:
     logger.error("CRITICAL: No API keys found for NVIDIA or OpenRouter!")
 
-# 2. Initialize RAG Manager (from search.py)
 rag: CourseRAGManager = CourseRAGManager(settings=settings)
 
 try:
-    rag.connect_elasticsearch(host=settings.get("es_host", "http://localhost:9200"))
+    rag.connect_elasticsearch(host=settings["es_host"])
 except Exception as e:
     logger.error(f"Failed to connect to Elasticsearch on startup: {str(e)}")
 
-# 3. Setup Tokenizer
 try:
-    tokenizer_name: str = settings.get("tokenizer_encoding", "cl100k_base")
+    tokenizer_name: str = settings["tokenizer_encoding"]
     tokenizer: tiktoken.Encoding = tiktoken.get_encoding(tokenizer_name)
 except Exception:
-    logger.error("Failed to load tokenizer. Defaulting to cl100k_base.")
+    logger.error("Failed to load tokenizer from settings. Defaulting to cl100k_base.")
     tokenizer = tiktoken.get_encoding("cl100k_base")
 
 @time_logger
 def glass_box_agent(user_question: str) -> tuple[str, str, str]:
-    """Process question, invoke RAG, and route data with Failover LLM.
-    (i) user_question / (o) raw_context_output, answer, provider_info
-    """
     if not user_question.strip():
         return "Please enter a question.", "Please enter a question.", "None"
 
-    # --- Step 1: Retrieval ---
     try:
         records: list[dict] = rag.search_faq(query=user_question)
+        doc_ids = [hit.get("_id", "unknown") for hit in records]
         
         if records:
             raw_context_output: str = "\n\n".join([
@@ -57,26 +51,31 @@ def glass_box_agent(user_question: str) -> tuple[str, str, str]:
             ])
         else:
             raw_context_output = "No matching documents found in Elasticsearch!"
+            doc_ids = []
             
     except Exception:
         logger.error(f"Elasticsearch retrieval error:\n{traceback.format_exc()}")
         raw_context_output = "An error occurred retrieving documents from Elasticsearch."
         records = []
+        doc_ids = []
 
-    # --- Step 2: Generation (NVIDIA -> OpenRouter Failover) ---
     try:
-        # Prompt building (uses tiktoken internally as per your core.py)
         prompt: str = build_prompt(
             question=user_question, 
             records=records
         )
         
-        # Unified call that handles the failover logic
+        metadata = {
+            "document_ids": doc_ids,
+            "course": settings["course_name"]
+        }
+
         answer, provider_name = query_llm(
             prompt=prompt, 
             nv_key=nv_key, 
             or_key=or_key, 
-            settings=settings
+            settings=settings,
+            metadata=metadata
         )
         
         provider_info = f"Response provided by: {provider_name}"
@@ -86,10 +85,9 @@ def glass_box_agent(user_question: str) -> tuple[str, str, str]:
         logger.error(f"LLM Orchestration error:\n{traceback.format_exc()}")
         return raw_context_output, "An error occurred generating response.", "Error"
 
-# 4. Gradio UI Layout
 with gr.Blocks(title="Course RAG Assistant - Developer View") as demo:
     gr.Markdown("# Course FAQ Assistant")
-    gr.Markdown("Search & Generation powered by NVIDIA and OpenRouter Failover.")
+    gr.Markdown("Search & Generation powered by NVIDIA and OpenRouter.")
     
     with gr.Row():
         with gr.Column():
@@ -116,7 +114,6 @@ with gr.Blocks(title="Course RAG Assistant - Developer View") as demo:
                 interactive=False
             )
     
-    # Setup actions
     input_list = [user_input]
     output_list = [es_output, llm_output, provider_display]
 
@@ -124,8 +121,8 @@ with gr.Blocks(title="Course RAG Assistant - Developer View") as demo:
     user_input.submit(fn=glass_box_agent, inputs=input_list, outputs=output_list)
     
     gr.Markdown("---")
-    gr.Markdown("Check `pipeline_output.log` and `metrics.log` for execution durations and token usage.")
+    gr.Markdown(f"Course Context: {settings['course_name']}")
 
 if __name__ == "__main__":
-    logger.info("Starting local Gradio web server with failover logic...")
+    logger.info("Starting local Gradio web server...")
     demo.launch(server_name="127.0.0.1", server_port=7870)

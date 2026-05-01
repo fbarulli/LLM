@@ -1,2 +1,2 @@
-2026-05-01 11:09:12,677 [INFO] - Successfully connected to Elasticsearch cluster.
-2026-05-01 11:09:12,684 [INFO] - Found 3 matching FAQ records.
+2026-05-01 17:27:10,532 [INFO] - Successfully connected to Elasticsearch cluster.
+2026-05-01 17:27:10,868 [INFO] - Starting local Gradio web server...

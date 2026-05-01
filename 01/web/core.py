@@ -1,109 +1,89 @@
-import requests
+import json
+import os
+import litellm
 from typing import Optional, Tuple
+from litellm import completion
+from dotenv import load_dotenv
 from logger_config import logger, time_logger
+from prompt_manager import build_prompt
 
-def build_prompt(question: str, records: list) -> str:
-    """
-    Formats retrieved documents and queries into a full prompt string.
-    """
-    context_template: str = "Q: {question}\nA: {text}"
-    prompt_template: str = """
-You're a course teaching assistant. Answer the QUESTION based on the CONTEXT from the FAQ database.
-Use only the facts from the CONTEXT when answering the QUESTION.
+def track_usage(kwargs, response_obj, start_time, end_time):
+    usage = getattr(response_obj, 'usage', {})
+    model = kwargs["model"]
+    logger.info(f"LLM Success | Model: {model} | Tokens: {usage} | Latency: {end_time - start_time:.2f}s")
 
-QUESTION: {question}
+litellm.success_callback = [track_usage]
 
-CONTEXT:
-{context}
-""".strip()
-
+def load_settings(filename="settings.json"):
     try:
-        context_entries: list[str] = [
-            context_template.format(
-                question=hit['_source']['question'], 
-                text=hit['_source']['text']
-            ) 
-            for hit in records
-        ]
-        
-        context: str = "\n\n".join(context_entries)
-        prompt: str = prompt_template.format(question=question, context=context)
-        return prompt
-        
+        with open(filename, "r") as f:
+            settings = json.load(f)
+            return settings
     except Exception as e:
-        logger.error(f"Failed to build prompt template: {e}")
+        logger.error(f"Failed to load settings: {e}")
         raise
 
-@time_logger
-def query_nvidia(prompt: str, api_key: str, settings: dict) -> Optional[str]:
-    """Uses the exact integrate.api.nvidia.com URL from settings."""
-    url = settings["nvidia_url"]
-    model_name = settings["nvidia_model"]
+def load_secure_keys():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    env_path = os.path.join(current_dir, "..", "..", ".env")
     
-    headers = {
-        "Authorization": f"Bearer {api_key.strip()}",
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-    }
-
-    payload = {
-        "model": model_name,
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.70,
-        "max_tokens": 1024,
-        "stream": False
-    }
-
-    try:
-        response = requests.post(url, headers=headers, json=payload, timeout=60)
+    if os.path.exists(env_path):
+        load_dotenv(dotenv_path=env_path)
+    
+    os.environ["NVIDIA_NIM_API_KEY"] = os.getenv("NVIDIA_API_KEY", "")
+    os.environ["OPENROUTER_API_KEY"] = os.getenv("OPENROUTER_API_KEY", "")
+    os.environ["OR_SITE_URL"] = "http://localhost:3000"
+    
+    os.environ["LANGFUSE_PUBLIC_KEY"] = os.getenv("LANGFUSE_PUBLIC_KEY", "")
+    os.environ["LANGFUSE_SECRET_KEY"] = os.getenv("LANGFUSE_SECRET_KEY", "")
+    os.environ["LANGFUSE_HOST"] = os.getenv("LANGFUSE_HOST", "https://langfuse.com")
         
-        if response.status_code == 200:
-            return response.json()['choices'][0]['message']['content']
-        
-        logger.warning(f"NVIDIA Error {response.status_code}: {response.text[:100]}")
-        return None
-    except Exception as e:
-        logger.error(f"NVIDIA call failed: {e}")
-        return None
+    return os.environ["NVIDIA_NIM_API_KEY"], os.environ["OPENROUTER_API_KEY"]
 
 @time_logger
-def query_openrouter(prompt: str, api_key: str, settings: dict) -> Optional[str]:
-    """Uses the exact openrouter.ai/api/v1 URL from settings."""
-    url = settings["openrouter_url"]
-    model_name = settings["openrouter_model"]
-    
-    headers = {
-        "Authorization": f"Bearer {api_key.strip()}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:3000",
-        "Accept": "application/json"
-    }
-
-    data = {
-        "model": model_name,
-        "messages": [{"role": "user", "content": prompt}]
-    }
-
+def query_llm_provider(prompt: str, model_name: str, provider_prefix: str, metadata: dict) -> Optional[str]:
     try:
-        response = requests.post(url, headers=headers, json=data, timeout=30)
-        
-        if response.status_code == 200:
-            return response.json()['choices'][0]['message']['content']
-        
-        logger.error(f"OpenRouter Error {response.status_code}")
-        return None
+        response = completion(
+            model=f"{provider_prefix}/{model_name}",
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.2,
+            max_tokens=1024,
+            timeout=60,
+            metadata=metadata
+        )
+        # Fix: Access the first choice in the list
+        return response.choices[0].message.content
     except Exception as e:
-        logger.error(f"OpenRouter call failed: {e}")
+        logger.error(f"Provider {provider_prefix} failed for model {model_name}: {e}")
         return None
 
-def query_llm(prompt: str, nv_key: str, or_key: str, settings: dict) -> Tuple[str, str]:
-    """Orchestrator strictly following JSON toggle switches."""
-    if settings.get("use_nvidia"):
-        answer = query_nvidia(prompt, nv_key, settings)
-        if answer: return answer, "NVIDIA"
 
-    if settings.get("use_openrouter"):
-        answer = query_openrouter(prompt, or_key, settings)
-        if answer: return answer, "OpenRouter"
+@time_logger
+def query_llm(prompt: str, nv_key: str, or_key: str, settings: dict, metadata: dict) -> Tuple[str, str]:
+    active_providers = []
+    
+    if settings["use_nvidia"]:
+        meta = {**metadata, "cost_1k": settings["nvidia_cost_1k"]}
+        active_providers.append((settings["nvidia_model"], "nvidia_nim", "NVIDIA_LLAMA", meta))
+    
+    if settings["use_mistral_nvidia"]:
+        meta = {**metadata, "cost_1k": settings["mistral_cost_1k"]}
+        active_providers.append((settings["mistral_model"], "nvidia_nim", "NVIDIA_MISTRAL", meta))
 
+    if settings["use_nemotron_nvidia"]:
+        meta = {**metadata, "cost_1k": settings["nemotron_cost_1k"]}
+        active_providers.append((settings["nemotron_model"], "nvidia_nim", "NVIDIA_NEMOTRON", meta))
+
+    if settings["use_openrouter"]:
+        meta = {**metadata, "cost_1k": settings["openrouter_cost_1k"]}
+        active_providers.append((settings["openrouter_model"], "openrouter", "OPENROUTER", meta))
+
+    for model, prefix, label, meta_with_cost in active_providers:
+        logger.info(f"Orchestrator: Requesting {label}...")
+        answer = query_llm_provider(prompt, model, prefix, meta_with_cost)
+        if answer: 
+            return answer, label
+        logger.warning(f"Orchestrator: {label} failed.")
+
+    logger.error("Orchestrator: All enabled providers failed.")
     return "Error: All enabled LLM providers failed.", "NONE"

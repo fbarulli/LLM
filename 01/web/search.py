@@ -27,6 +27,9 @@ class CourseRAGManager:
         if not self.es_client:
             logger.error("Search attempted without active ES connection.")
             return []
+        
+        # Added log to track search entry and target index
+        logger.info(f"Starting ES search on index '{self.index_name}' for query: {query}")
             
         search_query = {
             "size": self.settings.get("search_size", 3),
