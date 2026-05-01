@@ -1,61 +1,10 @@
-import os
 import requests
-import tiktoken
-import json
-from pathlib import Path
-from dotenv import load_dotenv
-from elasticsearch import Elasticsearch
-from typing import Optional
-
-
+from typing import Optional, Tuple
 from logger_config import logger, time_logger
 
-def load_settings(filename: str) -> dict:
-    """Loads application parameters from an external JSON file.
-    (i) filename / (o) settings
+def build_prompt(question: str, records: list) -> str:
     """
-    path: Path = Path(__file__).resolve().parent / filename
-    
-    try:
-        with open(path, 'r') as f:
-            settings: dict = json.load(f)
-            logger.info(f"Loaded external settings from {filename}")
-            return settings
-    except FileNotFoundError:
-        logger.error(f"Configuration file not found: {filename}")
-        raise
-    except json.JSONDecodeError:
-        logger.error(f"Invalid JSON syntax in file: {filename}")
-        raise
-
-def load_secure_env() -> str:
-    """Recursively checks parent directories to find a .env file.
-    (i) None / (o) api_key
-    """
-    current: Path = Path(__file__).resolve().parent
-    
-    for _ in range(3):
-        env_path: Path = current / '.env'
-        if env_path.exists():
-            load_dotenv(dotenv_path=env_path)
-            api_key: Optional[str] = os.getenv("OPENROUTER_API_KEY")
-            
-            if not api_key:
-                logger.error("OPENROUTER_API_KEY is empty in the loaded .env file.")
-                raise ValueError("API key missing in environment file.")
-                
-            logger.info("Securely loaded environment variables.")
-            return api_key
-            
-        current = current.parent
-        
-    logger.error("Could not find a .env file up to 2 directories above.")
-    raise FileNotFoundError("Environment file not found.")
-
-@time_logger
-def build_prompt(question: str, records: list, tokenizer: tiktoken.Encoding) -> str:
-    """Formats retrieved documents and queries into a full prompt string.
-    (i) question, records, tokenizer / (o) prompt
+    Formats retrieved documents and queries into a full prompt string.
     """
     context_template: str = "Q: {question}\nA: {text}"
     prompt_template: str = """
@@ -79,124 +28,82 @@ CONTEXT:
         
         context: str = "\n\n".join(context_entries)
         prompt: str = prompt_template.format(question=question, context=context)
-        
-        token_count: int = len(tokenizer.encode(prompt))
-        logger.info(f"Prompt built. Length: {len(prompt)} chars | Tokens: {token_count}")
         return prompt
         
-    except Exception:
-        logger.error("Failed to build prompt template.")
+    except Exception as e:
+        logger.error(f"Failed to build prompt template: {e}")
         raise
 
-
 @time_logger
-def query_openrouter(prompt: str, api_key: str, model_name: str) -> str:
-    """Sends a payload request to the OpenRouter completion endpoint.
-    (i) prompt, api_key, model_name / (o) response_str
-    """
-    if not prompt:
-        return "Prompt was empty due to previous failures."
-        
-    headers: dict[str, str] = {
-        "Authorization": f"Bearer {api_key}",
+def query_nvidia(prompt: str, api_key: str, settings: dict) -> Optional[str]:
+    """Uses the exact integrate.api.nvidia.com URL from settings."""
+    url = settings["nvidia_url"]
+    model_name = settings["nvidia_model"]
+    
+    headers = {
+        "Authorization": f"Bearer {api_key.strip()}",
         "Content-Type": "application/json",
-        "HTTP-Referrer": "http://localhost:3000", 
+        "Accept": "application/json"
     }
 
-    data: dict = {
+    payload = {
+        "model": model_name,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.70,
+        "max_tokens": 1024,
+        "stream": False
+    }
+
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=60)
+        
+        if response.status_code == 200:
+            return response.json()['choices'][0]['message']['content']
+        
+        logger.warning(f"NVIDIA Error {response.status_code}: {response.text[:100]}")
+        return None
+    except Exception as e:
+        logger.error(f"NVIDIA call failed: {e}")
+        return None
+
+@time_logger
+def query_openrouter(prompt: str, api_key: str, settings: dict) -> Optional[str]:
+    """Uses the exact openrouter.ai/api/v1 URL from settings."""
+    url = settings["openrouter_url"]
+    model_name = settings["openrouter_model"]
+    
+    headers = {
+        "Authorization": f"Bearer {api_key.strip()}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "http://localhost:3000",
+        "Accept": "application/json"
+    }
+
+    data = {
         "model": model_name,
         "messages": [{"role": "user", "content": prompt}]
     }
 
     try:
-        response: requests.Response = requests.post(
-            url="https://openrouter.ai/api/v1/chat/completions",
-            headers=headers,
-            json=data,
-            timeout=30
-        )
+        response = requests.post(url, headers=headers, json=data, timeout=30)
         
-        if response.status_code != 200:
-            logger.error(f"OpenRouter API failed with code {response.status_code}. Raw response: {response.text}")
-            return f"Error: API returned status {response.status_code}"
+        if response.status_code == 200:
+            return response.json()['choices'][0]['message']['content']
         
-        if not response.text.strip():
-            logger.error("OpenRouter returned a 200 OK but the body was completely empty.")
-            return "Error: Server returned an empty response."
-
-        try:
-            json_data: dict = response.json()
-            answer: str = json_data['choices'][0]['message']['content']
-            usage: dict = json_data.get('usage', {})
-            logger.info(f"LLM Success! Total call tokens used: {usage.get('total_tokens', 'N/A')}")
-            return answer
-        except Exception as json_err:
-            logger.error(f"Failed to parse JSON despite 200 OK. Raw response content: {response.text}")
-            return f"Error: Invalid JSON response ({json_err})"
-            
+        logger.error(f"OpenRouter Error {response.status_code}")
+        return None
     except Exception as e:
-        logger.error(f"Fatal error during OpenRouter call: {str(e)}")
-        return "Error: Could not reach completion endpoint."
+        logger.error(f"OpenRouter call failed: {e}")
+        return None
 
+def query_llm(prompt: str, nv_key: str, or_key: str, settings: dict) -> Tuple[str, str]:
+    """Orchestrator strictly following JSON toggle switches."""
+    if settings.get("use_nvidia"):
+        answer = query_nvidia(prompt, nv_key, settings)
+        if answer: return answer, "NVIDIA"
 
-class CourseRAGManager:
-    """Manages state and connections for an Elasticsearch RAG pipeline."""
-    
-    def __init__(self, settings: dict):
-        """Initializes the manager with credentials and settings dictionary.
-        (i) settings / (o) None
-        """
-        self.settings: dict = settings
-        self.es_client: Optional[Elasticsearch] = None
-        self.index_name: str = self.settings.get("index_name", "course-questions")
-        
-    def connect_elasticsearch(self, host: str) -> None:
-        """Establishes a connection to the running Elasticsearch instance.
-        (i) host / (o) None
-        """
-        try:
-            self.es_client = Elasticsearch(host)
-            if self.es_client.ping():
-                logger.info("Successfully connected to Elasticsearch cluster.")
-            else:
-                logger.error("Elasticsearch is not responding to ping.")
-                self.es_client = None
-        except Exception as e:
-            logger.error(f"Failed to connect to Elasticsearch: {e}")
-            self.es_client = None
+    if settings.get("use_openrouter"):
+        answer = query_openrouter(prompt, or_key, settings)
+        if answer: return answer, "OpenRouter"
 
-    @time_logger
-    def search_faq(self, query: str) -> list[dict]:
-        """Performs a multi-match keyword search against document databases.
-        (i) query / (o) records
-        """
-        if not self.es_client:
-            logger.error("Search attempted without active ES connection.")
-            return []
-            
-        search_query: dict = {
-            "size": self.settings.get("search_size"),
-            "query": {
-                "bool": {
-                    "must": {
-                        "multi_match": {
-                            "query": query,
-                            "fields": ["question^4", "text"],
-                            "type": "best_fields"
-                        }
-                    },
-                    "filter": {
-                        "term": {"course": self.settings.get("course_name")}
-                    }
-                }
-            }
-        }
-        
-        try:
-            response: dict = self.es_client.search(index=self.index_name, body=search_query)
-            hits: list[dict] = response.get('hits', {}).get('hits', [])
-            logger.info(f"Found {len(hits)} matching FAQ records.")
-            return hits
-        except Exception as e:
-            logger.error(f"Elasticsearch querying failed: {e}")
-            return []
+    return "Error: All enabled LLM providers failed.", "NONE"

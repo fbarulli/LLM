@@ -1,14 +1,32 @@
-from core import CourseRAGManager, load_settings, load_secure_env
+import os
+import json
+from dotenv import load_dotenv
+from search import CourseRAGManager
+from core import build_prompt, query_llm
 
-settings = load_settings()
-api_key = load_secure_env()
+def load_settings(filename="settings.json"):
+    with open(filename, 'r') as f:
+        return json.load(f)
 
-rag = CourseRAGManager(api_key=api_key, settings=settings)
-rag.connect_elasticsearch()
+def main():
+    # 1. Setup
+    load_dotenv()
+    settings = load_settings()
+    nv_key = os.getenv("NVIDIA_API_KEY")
+    or_key = os.getenv("OPENROUTER_API_KEY")
+    
+    # 2. Retrieval
+    rag = CourseRAGManager(settings)
+    rag.connect_elasticsearch(settings.get("es_host", "http://localhost:9200"))
+    
+    question = "How do I run docker?"
+    records = rag.search_faq(question)
+    
+    # 3. Generation
+    prompt = build_prompt(question, records)
+    answer, source = query_llm(prompt, nv_key, or_key, settings)
+    
+    print(f"\n[{source}] Answer: {answer}")
 
-# Quick console test
-records = rag.search_faq("How do I run docker?")
-prompt = rag.build_prompt("How do I run docker?", records)
-answer = rag.query_openrouter(prompt)
-
-print(f"Test Answer: {answer}")
+if __name__ == "__main__":
+    main()

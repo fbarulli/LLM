@@ -1,5 +1,12 @@
 {
-    "llm_model": "google/gemma-3n-e2b-it:free",
+    "use_nvidia": true,
+    "nvidia_model": "abacusai/dracarys-llama-3.1-70b-instruct",
+    "nvidia_url": "https://integrate.api.nvidia.com/v1/chat/completions",
+    
+    "use_openrouter": false,
+    "openrouter_model": "google/gemma-3n-e2b-it:free",
+    "openrouter_url": "https://openrouter.ai/api/v1/chat/completions",
+    
     "search_size": 3,
     "tokenizer_encoding": "cl100k_base",
     "course_name": "machine-learning-zoomcamp"
