@@ -1,0 +1,8 @@
+{
+    "es_host": "http://localhost:9200",
+    "index_name": "course-questions",
+    "search_size": 10,
+    "boost_question": 4.0,
+    "boost_text": 1.0,
+    "search_type": "best_fields"
+}

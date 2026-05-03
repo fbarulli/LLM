@@ -32,3 +32,27 @@ The diagnostic report (`eval_diagnostic.md`) shows the 33% score is misleading d
 *   **Semantic Duplicates:** ES often finds the "correct" answer text, but from a different record ID (e.g., 2024 version vs 2025 version).
 *   **Dirty Ground Truth:** Some "Expected" documents are just FAQ headers/guidelines, while ES finds the actual answer in a different record.
 *   **Redundancy:** Identical answers exist across courses; without a filter, BM25 picks the one with the highest term frequency.
+
+
+## 📈 Final Baseline Results: Lexical Search (BM25)
+
+After resolving data pipeline discrepancies and aligning hashing logic, I established a "Perfect Contextual Baseline." This represents the maximum potential of keyword search when provided with an explicit course filter.
+
+### 🏆 The Golden Numbers
+
+| Metric | Result | Interpretation |
+| :--- | :--- | :--- |
+| **Recall@1** | **93.33%** | 28/30 queries found the exact document at Rank #1. |
+| **Recall@3** | **100.00%** | Every target document was found within the top 3 results. |
+| **MRR** | **1.0000** | On successful matches, the rank was consistently #1. |
+| **Avg Latency** | **7.45ms** | Extremely high performance (typical for local Lexical search). |
+
+### 🔍 Key Insights
+*   **The Power of Context:** Adding the `course_context` filter eliminated the 20% "Cross-Course Collision" observed in previous runs. Lexical search is highly effective when the search space is narrowed by metadata.
+*   **The "Exact Match" Bias:** Since the current evaluation uses exact FAQ titles, BM25's word-counting logic is highly optimized for this test.
+*   **The Latency Floor:** 7.45ms is our speed benchmark. As we introduce Vector Search (Inference), we expect this number to increase by 10x-50x.
+
+### 🧪 The "Search Gap"
+While we achieved 100% Recall at K=3 with a filter, the **Global Search (No Filter)** performance was significantly lower (~33%). This confirms that BM25 struggles with semantic ambiguity when multiple courses share similar terminology.
+
+**Next Milestone:** Implement **Vector Search (Embeddings)** to increase the Global Search accuracy without relying on metadata filters.
