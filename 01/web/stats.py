@@ -1,57 +1,57 @@
-import numpy as np
-import matplotlib.pyplot as plt
+import json
+import time
+import traceback
+from typing import List, Dict, Any
+from search import CourseRAGManager
+from config_manager import load_config
+from core import generate_document_id
+from langfuse.decorators import observe
 
-# Define characteristics
-labels = [
-    "Latency", 
-    "Budget", 
-    "Cost/Accuracy", 
-    "Compute", 
-    "Scalability", 
-    "Maintenance", 
-    "Security",
-    "Factual Fit"
-]
-num_vars = len(labels)
-angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-angles += angles[:1]
+class StatsCollector:
+    def __init__(self, config_path: str):
+        self.settings = load_config(config_path)
+        self.manager = CourseRAGManager(self.settings)
+        self.manager.connect_elasticsearch()
 
-# Scores (1 to 5 scale, 5 being best/easiest)
-cutoff = [5, 5, 5, 5, 5, 3, 5, 4] + [5]
-mmr    = [4, 4, 4, 3, 3, 3, 5, 3] + [4]
-rerank = [2, 3, 2, 1, 2, 5, 5, 5] + [2]
-agent  = [1, 1, 1, 1, 1, 2, 2, 5] + [1]
+    def _get_edit_distance(self, s1: str, s2: str) -> int:
+        return abs(len(s1) - len(s2)) # Simple fallback for diagnostic
 
-# BuPu_r inspired palette colors
-colors = ['#4d004b', '#810f7c', '#8c96c6', '#8c6bb1'] 
+    @observe()
+    def run_benchmark(self, eval_set: List[Dict], experiment_name: str) -> str:
+        results = []
+        k_values = [1, 3, 5, 10]
 
-# Create 2x2 grid
-fig, axs = plt.subplots(2, 2, figsize=(10, 10), subplot_kw=dict(polar=True))
-fig.tight_layout(pad=6.0)
+        for k in k_values:
+            for item in eval_set:
+                start = time.time()
+                hits = self.manager.search_faq(item["query"], override_size=k)
+                latency = (time.time() - start) * 1000
+                
+                top_hit = hits[0] if hits else None
+                found_id = top_hit["_id"] if top_hit else "NONE"
+                found_text = top_hit["_source"]["text"] if top_hit else ""
+                
+                results.append({
+                    "k": k,
+                    "query": item["query"],
+                    "query_len": len(item["query"]),
+                    "expected_course": item["course"],
+                    "found_course": top_hit["_source"]["course"] if top_hit else "NONE",
+                    "expected_id": item["expected_id"],
+                    "found_id": found_id,
+                    "success": item["expected_id"] in [h["_id"] for h in hits],
+                    "score": top_hit["_score"] if top_hit else 0.0,
+                    "latency_ms": round(latency, 2),
+                    "edit_distance": self._get_edit_distance(item["query"], found_text),
+                    "tokens_est": len(found_text) // 4
+                })
 
-methods = [
-    ("Cutoff Threshold", cutoff, colors[0]),
-    ("MMR", mmr, colors[1]),
-    ("Two-Stage Reranking", rerank, colors[2]),
-    ("Agentic / Adaptive", agent, colors[3])
-]
-
-for i, (title, scores, color) in enumerate(methods):
-    ax = axs[i // 2, i % 2]
-    
-    # Draw radar
-    ax.plot(angles, scores, linewidth=2, linestyle='solid', color=color)
-    ax.fill(angles, scores, color=color, alpha=0.3)
-    
-    # Grid lines and ticks
-    ax.set_xticks(angles[:-1])
-    ax.set_xticklabels(labels, color='black', size=8)
-    ax.set_rlabel_position(0)
-    ax.set_yticks([1, 2, 3, 4, 5])
-    ax.set_yticklabels(["1", "2", "3", "4", "5"], color="grey", size=7)
-    ax.set_ylim(0, 5)
-    
-    ax.set_title(title, size=12, color='black', y=1.2)
-
-plt.suptitle("Performance Octagons by Retrieval Method\n(Higher scores are more favorable)", size=16, y=1.02)
-plt.show()
+        output = {
+            "metadata": {"name": experiment_name, "settings": self.settings, "timestamp": time.time()},
+            "results": results
+        }
+        
+        filename = f"experiments/results/{experiment_name}.json"
+        with open(filename, "w") as f:
+            json.dump(output, f, indent=4)
+        return filename

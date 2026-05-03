@@ -1,0 +1,8 @@
+{
+    "es_host": "http://localhost:9200",
+    "course_name": "machine-learning-zoomcamp",
+    "search_size": 3,
+    "boost_question": 20.0,
+    "boost_text": 1.0,
+    "search_type": "best_fields"
+}

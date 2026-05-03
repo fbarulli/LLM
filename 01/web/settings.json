@@ -13,10 +13,6 @@
 
     "use_openrouter": false,
     "openrouter_model": "google/gemma-3n-e2b-it:free",
-    "openrouter_cost_1k": 0.00,
+    "openrouter_cost_1k": 0.00
     
-    "es_host": "http://localhost:9200",
-    "search_size": 3,
-    "tokenizer_encoding": "cl100k_base",
-    "course_name": "machine-learning-zoomcamp"
 }

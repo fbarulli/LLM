@@ -1,8 +1,27 @@
 import time
-from typing import Optional, Tuple
+import traceback
+import hashlib
+from typing import Optional, Tuple, Dict, Any
 from litellm import completion
 from logger_config import logger, time_logger
 from langfuse.decorators import observe, langfuse_context
+
+def generate_document_id(doc: Dict[str, Any]) -> str:
+    """
+    Creates a deterministic hash. 
+    Uses ONLY course, question, and a text snippet to ensure 100% match stability.
+    """
+    try:
+        # Strip and lower to eliminate mismatches from hidden characters or casing
+        course = str(doc['course']).strip().lower()
+        question = str(doc['question']).strip().lower()
+        text_snippet = str(doc['text']).strip().lower()[:50]
+        
+        combined = f"{course}-{question}-{text_snippet}"
+        return hashlib.md5(combined.encode()).hexdigest()
+    except KeyError as e:
+        logger.error(f"CRITICAL: Missing field {e} for ID generation:\n{traceback.format_exc()}")
+        raise
 
 @observe()
 @time_logger

@@ -1,59 +1,51 @@
-from typing import Optional, List, Dict
+import traceback
+from typing import List, Dict, Any, Optional
 from elasticsearch import Elasticsearch
 from logger_config import logger, time_logger
 
 class CourseRAGManager:
-    """Manages state and connections for an Elasticsearch RAG pipeline."""
-    
-    def __init__(self, settings: dict):
+    def __init__(self, settings: Dict[str, Any]):
         self.settings = settings
         self.es_client: Optional[Elasticsearch] = None
         self.index_name = self.settings.get("index_name", "course-questions")
         
-    def connect_elasticsearch(self, host: str = "http://localhost:9200") -> None:
+    def connect_elasticsearch(self) -> None:
+        host = self.settings.get("es_host", "http://localhost:9200")
         try:
             self.es_client = Elasticsearch(host)
-            if self.es_client.ping():
-                logger.info("Successfully connected to Elasticsearch cluster.")
-            else:
-                logger.error("Elasticsearch is not responding to ping.")
-                self.es_client = None
-        except Exception as e:
-            logger.error(f"Failed to connect to Elasticsearch: {e}")
-            self.es_client = None
+            if not self.es_client.ping():
+                raise ConnectionError("ES Ping failed")
+        except Exception:
+            logger.error(f"Connection failed: {traceback.format_exc()}")
+            raise
 
     @time_logger
-    def search_faq(self, query: str) -> List[Dict]:
-        if not self.es_client:
-            logger.error("Search attempted without active ES connection.")
-            return []
-        
-        # Added log to track search entry and target index
-        logger.info(f"Starting ES search on index '{self.index_name}' for query: {query}")
-            
+    def search_faq(self, query: str, override_size: int, course_context: Optional[str] = None) -> List[Dict]:
+        """Executes search with optional course filtering."""
         search_query = {
-            "size": self.settings.get("search_size", 3),
+            "size": override_size,
             "query": {
                 "bool": {
                     "must": {
                         "multi_match": {
                             "query": query,
-                            "fields": ["question^4", "text"],
-                            "type": "best_fields"
+                            "fields": [
+                                f"question^{self.settings.get('boost_question', 1)}",
+                                f"text^{self.settings.get('boost_text', 1)}"
+                            ],
+                            "type": self.settings.get("search_type", "best_fields")
                         }
-                    },
-                    "filter": {
-                        "term": {"course": self.settings.get("course_name")}
                     }
                 }
             }
         }
         
+        if course_context:
+            search_query["query"]["bool"]["filter"] = {"term": {"course": course_context}}
+            
         try:
             response = self.es_client.search(index=self.index_name, body=search_query)
-            hits = response.get('hits', {}).get('hits', [])
-            logger.info(f"Found {len(hits)} matching FAQ records.")
-            return hits
-        except Exception as e:
-            logger.error(f"Elasticsearch querying failed: {e}")
+            return response.get('hits', {}).get('hits', [])
+        except Exception:
+            logger.error(f"Search failed: {traceback.format_exc()}")
             return []
