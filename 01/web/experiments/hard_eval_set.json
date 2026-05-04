@@ -1,0 +1,332 @@
+[
+  {
+    "original_question": "When will the course start?",
+    "expected_id": "99e9b6dab2ba7735f46b9a336f9aa501",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "The purpose of this document is to capture frequently asked technical questions\nThe exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  \u201cOffice Hours",
+    "paraphrased_queries": [
+      "What's the scheduled start date for the course?",
+      "When does the course begin and what's the plan?",
+      "Can you tell me when the course is set to start?"
+    ]
+  },
+  {
+    "original_question": "What are the prerequisites for this course?",
+    "expected_id": "a0ec1082f599e540ff13544a97505e8a",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites",
+    "paraphrased_queries": [
+      "What do I need to know before taking this course?",
+      "Are there any specific requirements to enroll in this class?",
+      "What background knowledge is necessary for this course?"
+    ]
+  },
+  {
+    "original_question": "Can I still join the course after the start date?",
+    "expected_id": "2377feef9b2e4d76a9549965a756eb71",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "Yes, even if you don't register, you're still eligible to submit the homeworks.\nBe aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",
+    "paraphrased_queries": [
+      "Is it possible to enroll in the course after the initial start date?",
+      "Can I still sign up for the course even though it's already begun?",
+      "Are late registrations accepted for the course, or is it too late?"
+    ]
+  },
+  {
+    "original_question": "I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?",
+    "expected_id": "34a4df0dcbb490bdb6d22d297a371a2a",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest ",
+    "paraphrased_queries": [
+      "I signed up for the Data Engineering Bootcamp - when's the confirmation email?",
+      "Can I get a confirmation email for the Data Engineering Bootcamp registration?",
+      "When will I get the confirmation email after enrolling in the bootcamp?"
+    ]
+  },
+  {
+    "original_question": "What can I do before the course starts?",
+    "expected_id": "393ba6526e56a4e531413adaf596ff0f",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "You can start by installing and setting up all the dependencies and requirements:\nGoogle cloud account\nGoogle Cloud SDK\nPython 3 (installed with Anaconda)\nTerraform\nGit\nLook over the prerequisites and",
+    "paraphrased_queries": [
+      "What are the pre-course steps I need to take?",
+      "Is there anything I should do before the course begins?",
+      "What preparations should I make before the course starts?"
+    ]
+  },
+  {
+    "original_question": "how many Zoomcamps in a year?",
+    "expected_id": "6909becfe095edd157ab8ec1f7b3969c",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:\nData-Engineering (Jan - Apr)\nMLOps (May - Aug)\nMachine Learning (Sep - Jan)\nThere's only one Data-Engineering Zoom",
+    "paraphrased_queries": [
+      "How often does Zoomcamp take place throughout the year?",
+      "Are there multiple Zoomcamp sessions in a single year?",
+      "How many times does Zoomcamp happen annually?"
+    ]
+  },
+  {
+    "original_question": "Is the current cohort going to be different from the previous cohort?",
+    "expected_id": "f78886c65533b7890512718ab8dc5ea5",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow..",
+    "paraphrased_queries": [
+      "Will the new group be distinct from the one before it?",
+      "How will the current group compare to the previous one?",
+      "Are there any changes in store for the upcoming group?"
+    ]
+  },
+  {
+    "original_question": "Can I follow the course after it finishes?",
+    "expected_id": "d1eaabb6ca61fe0fbb8bd90baebadf1d",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.\nYou can also continue looking at the homeworks and continue preparing fo",
+    "paraphrased_queries": [
+      "What happens after the course is completed?",
+      "Can I still access the course material after it's over?",
+      "Do you offer any follow-up resources after the course ends?"
+    ]
+  },
+  {
+    "original_question": "Can I get support if I take the course in the self-paced mode?",
+    "expected_id": "73dcb8c55b4c89041ac13187d2461c37",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your ",
+    "paraphrased_queries": [
+      "What kind of help is available for self-paced course participants?",
+      "Do you offer support for students taking the course at their own pace?",
+      "Can I get assistance if I'm not in a traditional classroom setting?"
+    ]
+  },
+  {
+    "original_question": "Which playlist on YouTube should I refer to?",
+    "expected_id": "2f2d12e1e5812403024e0a9833ca9c4e",
+    "expected_course": "data-engineering-zoomcamp",
+    "expected_text": "All the main videos are stored in the Main \u201cDATA ENGINEERING\u201d playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you direct",
+    "paraphrased_queries": [
+      "What's the best YouTube playlist for me to check out?",
+      "Can you recommend a popular YouTube playlist for me?",
+      "Which YouTube playlist is a must-watch for music enthusiasts?"
+    ]
+  },
+  {
+    "original_question": "How do I sign up?",
+    "expected_id": "4de7809739211cb9919833bdc35ed25b",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "Machine Learning Zoomcamp FAQ\nThe purpose of this document is to capture frequently asked technical questions.\nWe did this for our data engineering course and it worked quite well. Check this document",
+    "paraphrased_queries": [
+      "What's the process for getting started?",
+      "Can you walk me through the registration process?",
+      "How do I create an account?"
+    ]
+  },
+  {
+    "original_question": "What if I miss a session?",
+    "expected_id": "1b7427b436153794176d21f0775105ab",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "Everything is recorded, so you won\u2019t miss anything. You will be able to ask your questions for office hours in advance and we will cover them during the live stream. Also, you can always ask questions",
+    "paraphrased_queries": [
+      "What happens if I have to skip a class?",
+      "What's the plan if I miss a meeting or session?",
+      "What if I'm unable to attend a scheduled session?"
+    ]
+  },
+  {
+    "original_question": "How much theory will you cover?",
+    "expected_id": "3d68f8246ed79b17b3a96d9b104e1a06",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "The bare minimum. The focus is more on practice, and we'll cover the theory only on the intuitive level.: https://mlbookcamp.com/article/python\nFor example, we won't derive the gradient update rule fo",
+    "paraphrased_queries": [
+      "What percentage of the course will be dedicated to theoretical concepts?",
+      "Can you give me an idea of the theoretical content?",
+      "How much of the material will be based on theory?"
+    ]
+  },
+  {
+    "original_question": "I don't know math. Can I take the course?",
+    "expected_id": "277936e1b42ed84367d905fb676b595d",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "Yes! We'll cover some linear algebra in the course, but in general, there will be very few formulas, mostly code.\nHere are some interesting videos covering linear algebra that you can already watch: M",
+    "paraphrased_queries": [
+      "I'm not great at math - can I still enroll in the class?",
+      "Do you offer math courses for people who struggle with the subject?",
+      "Is it possible to take a math course even if I'm not confident?"
+    ]
+  },
+  {
+    "original_question": "I filled the form, but haven't received a confirmation email. Is it normal?",
+    "expected_id": "b116b9c6279a2237efe851da11c9ce05",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "The process is automated now, so you should receive the email eventually. If you haven\u2019t, check your promotions tab in Gmail as well as spam.\nIf you unsubscribed from our newsletter, you won't get cou",
+    "paraphrased_queries": [
+      "I submitted the form, but haven't gotten a confirmation email yet - is that typical?",
+      "Should I be worried if I haven't received a confirmation email after submitting the form?",
+      "I just filled out the form, but no confirmation email has arrived - is this normal?"
+    ]
+  },
+  {
+    "original_question": "How long is the course?",
+    "expected_id": "70d5b6c1967a92688a74a25a38e9183e",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "Approximately 4 months, but may take more if you want to do some extra activities (an extra project, an article, etc)",
+    "paraphrased_queries": [
+      "What's the duration of the course?",
+      "How many hours does the course last?",
+      "What's the length of the course program?"
+    ]
+  },
+  {
+    "original_question": "How much time do I need for this course?",
+    "expected_id": "db95f52abbb744df0e4aa992b0f608ea",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "Around ~10 hours per week. Timur Kamaliev did a detailed analysis of how much time students of the previous cohort needed to spend on different modules and projects. Full article",
+    "paraphrased_queries": [
+      "What's the estimated time commitment for this course?",
+      "How long will it take to complete this course?",
+      "What's the typical time frame for finishing this course?"
+    ]
+  },
+  {
+    "original_question": "Will I get a certificate?",
+    "expected_id": "0e7bcc56990d97dc2b7ad75345acd312",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "Yes, if you finish at least 2 out of 3 projects and review 3 peers\u2019 Projects by the deadline, you will get a certificate. This is what it looks like: link. There\u2019s also a version without a robot: link",
+    "paraphrased_queries": [
+      "Do I receive a certificate after completing the course?",
+      "Will I get a certificate of completion at the end?",
+      "Can I expect a certificate once I finish the program?"
+    ]
+  },
+  {
+    "original_question": "Will I get a certificate if I missed the midterm project?",
+    "expected_id": "4d4c4dbf5ca295abbbd4adb3bc37685a",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "Yes, it's possible. See the previous answer.",
+    "paraphrased_queries": [
+      "Do I still get a certificate if I missed the midterm project?",
+      "Will I receive a certificate if I didn't complete the midterm project?",
+      "Can I still get a certificate even if I missed the midterm assignment?"
+    ]
+  },
+  {
+    "original_question": "How much Python should I know?",
+    "expected_id": "14aca485637bf99a5bad3f03b84d91c5",
+    "expected_course": "machine-learning-zoomcamp",
+    "expected_text": "Check this article. If you know everything in this article, you know enough. If you don\u2019t, read the article and join the coursIntroduction to Pythone too :)\nIntroduction to Python \u2013 Machine Learning B",
+    "paraphrased_queries": [
+      "What's the bare minimum I need to know about Python?",
+      "How much Python programming do I need to be proficient?",
+      "What's the essential knowledge I should have in Python?"
+    ]
+  },
+  {
+    "original_question": "Format for questions: [Problem title]",
+    "expected_id": "f241f512e9161835e9749408dcc2e17e",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "MLOps Zoomcamp FAQ\nThe purpose of this document is to capture frequently asked technical questions.\nWe did this for our data engineering course, and it worked quite well. Check this document for inspi",
+    "paraphrased_queries": [
+      "How do I structure a question about a specific problem?",
+      "What's the best way to format a question about a particular issue?",
+      "How can I write a clear and concise question about a specific topic?"
+    ]
+  },
+  {
+    "original_question": "What is the expected duration of this course or that for each module?",
+    "expected_id": "1333476331e4c04bd58f9dffc0f116e0",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "Approximately 3 months. For each module, about 1 week with possible deadline extensions (in total 6~9 weeks), 2 weeks for working on the capstone project and 1 week for peer review.",
+    "paraphrased_queries": [
+      "How long does each module take to complete in these courses?",
+      "What's the typical time frame for finishing each module?",
+      "Can you give me an idea of the module duration for each course?"
+    ]
+  },
+  {
+    "original_question": "What\u2019s the difference between the 2023 and 2022 course?",
+    "expected_id": "4f9b8d6ec2008843db3f7f63129fdeb8",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "The difference is the Orchestration and Monitoring modules. Those videos will be re-recorded. The rest should mostly be the same.\nAlso all of the homeworks will be changed for the 2023 cohort.",
+    "paraphrased_queries": [
+      "How do the 2023 and 2022 courses compare to each other?",
+      "What are the main changes between the 2023 and 2022 courses?",
+      "What's new in the 2023 course compared to the 2022 one?"
+    ]
+  },
+  {
+    "original_question": "Will there be a 2024 Cohort? When will the 2024 cohort start?",
+    "expected_id": "a60302f9270595d1b867f11cd02bc240",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "Yes, it will start in May 2024",
+    "paraphrased_queries": [
+      "Are you planning to offer a 2024 program or intake?",
+      "When does the 2024 program or course start accepting students?",
+      "Will there be a new intake or cohort in 2024?"
+    ]
+  },
+  {
+    "original_question": "What if my answer is not exactly the same as the choices presented?",
+    "expected_id": "034aac0f3684499f2ea87af8181c34de",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "Please choose the closest one to your answer. Also do not post your answer in the course slack channel.",
+    "paraphrased_queries": [
+      "What if my response doesn't match any of the given options exactly?",
+      "Can I provide an answer that's not listed among the choices?",
+      "How do I handle a response that doesn't fit the given choices?"
+    ]
+  },
+  {
+    "original_question": "Are we free to choose our own topics for the final project?",
+    "expected_id": "907b679740e3db31e30ae2577bf33605",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "Please pick up a problem you want to solve yourself. Potential datasets can be found on either Kaggle, Hugging Face, Google, AWS, or the UCI Machine Learning Datasets Repository.",
+    "paraphrased_queries": [
+      "Can we pick our own subjects for the final project?",
+      "Do we get to choose the topic for the final assignment?",
+      "Is it okay if we select our own project themes?"
+    ]
+  },
+  {
+    "original_question": "Can I still graduate when I didn\u2019t complete homework for week x?",
+    "expected_id": "40f25da4b28c1655554998eac3c00c53",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "In order to obtain the certificate, completion of the final capstone project is mandatory. The completion of weekly homework assignments is optional, but they can contribute to your overall progress a",
+    "paraphrased_queries": [
+      "Will I still be able to graduate if I missed a week's homework?",
+      "Can I still meet the graduation requirements if I'm behind on homework?",
+      "Am I in trouble for not finishing homework and still graduating?"
+    ]
+  },
+  {
+    "original_question": "For the final project, is it required to be put on the cloud?",
+    "expected_id": "c11a679b8a17d5b9dd0b2f84346de31b",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "You can get a few cloud points by using kubernetes even if you deploy it only locally. Or you can use local stack too to mimic AWS\nAdded by Ming Jun, Asked by Ben Pacheco, Answered by Alexey Grigorev",
+    "paraphrased_queries": [
+      "Do we need to host our final project online?",
+      "Is cloud hosting a requirement for the final project submission?",
+      "Can we keep our final project on our local computers?"
+    ]
+  },
+  {
+    "original_question": "Port-forwarding without Visual Studio",
+    "expected_id": "c2cf08a0332e42e6b4340a7bf2b36b66",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "For those who are not using VSCode (or other similar IDE), you can automate port-forwarding for Jupyter Notebook by adding the following line of code to your\n~/.ssh/config file (under the mlops-zoomca",
+    "paraphrased_queries": [
+      "How can I set up port forwarding without using Visual Studio?",
+      "Is there a way to forward ports without relying on Visual Studio?",
+      "Can I configure port forwarding in a Visual Studio-free environment?"
+    ]
+  },
+  {
+    "original_question": "Opening Jupyter in VSCode",
+    "expected_id": "7c64d2c1861076a701f548463dcd4007",
+    "expected_course": "mlops-zoomcamp",
+    "expected_text": "You can install the Jupyter extension to open notebooks in VSCode.\nAdded by Khubaib",
+    "paraphrased_queries": [
+      "How do I launch Jupyter notebooks from within VSCode?",
+      "Can I integrate Jupyter with VSCode for a smoother experience?",
+      "What's the process for opening Jupyter notebooks in VSCode?"
+    ]
+  }
+]

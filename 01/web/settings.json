@@ -1,3 +1,5 @@
+
+
 {
     "es_host": "http://localhost:9200",
     "index_name": "course-questions",
@@ -8,16 +10,17 @@
     "tokenizer_encoding": "cl100k_base",
     "course_name": "machine-learning-zoomcamp",
     "use_nvidia": true,
-    "nvidia_model": "abacusai/dracarys-llama-3.1-70b-instruct",
-    "nvidia_url": "https://integrate.api.nvidia.com/v1/chat/completions",
     "use_openrouter": false,
+    "nvidia_model": "meta/llama-3.1-8b-instruct",
+    "nvidia_url": "https://integrate.api.nvidia.com/v1/chat/completions",
     "openrouter_model": "google/gemma-3n-e2b-it:free",
     "openrouter_url": "https://openrouter.ai/api/v1/chat/completions",
+    "openrouter_cost_1k": 0,
     "llm_providers": [
         {
-            "model": "abacusai/dracarys-llama-3.1-70b-instruct",
+            "model": "meta/llama-3.1-8b-instruct",
             "prefix": "nvidia",
-            "label": "NVIDIA Llama 3.1 70B",
+            "label": "NVIDIA Llama 3.1 8B",
             "cost_per_1k_tokens": 0
         }
     ]
