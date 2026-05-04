@@ -7,104 +7,111 @@ from src.search import CourseRAGManager
 from src.config_manager import load_config
 from src.run_stats import get_eval_set
 import pandas as pd
-from datetime import datetime
+import os
 
-def ab_test(config_a_name, config_b_name, num_queries=20, k=3):
-    """
-    A/B test between two search configs.
-    Shows results side by side for human evaluation.
-    """
-    print("=" * 80)
-    print(f"A/B TEST: {config_a_name} vs {config_b_name}")
-    print(f"Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("=" * 80)
+web_root = '/home/admin/LLM/LLM/01/web'
+
+def run_ab_test(config_a, config_b, num_queries=10):
+    os.chdir(web_root)
     
-    # Load configs
-    settings_a = load_config(f"experiments/configs/{config_a_name}.json")
-    settings_b = load_config(f"experiments/configs/{config_b_name}.json")
+    eval_set = get_eval_set("documents.json", n_per_course=num_queries // 3)
+    
+    settings_a = load_config(f"experiments/configs/{config_a}.json")
+    settings_b = load_config(f"experiments/configs/{config_b}.json")
     
     manager_a = CourseRAGManager(settings_a)
     manager_b = CourseRAGManager(settings_b)
     manager_a.connect_elasticsearch()
     manager_b.connect_elasticsearch()
     
-    # Load eval set
-    eval_set = get_eval_set("documents.json", n_per_course=num_queries // 3)
-    
     results = []
-    
-    for i, item in enumerate(eval_set[:num_queries]):
-        query = item['query']
-        expected_course = item['course']
-        
-        # Run both configs
-        results_a = manager_a.search_faq(query, override_size=k, course_context=None)
-        results_b = manager_b.search_faq(query, override_size=k, course_context=None)
-        
-        # Extract top result info
-        top_a = results_a[0] if results_a else None
-        top_b = results_b[0] if results_b else None
+    for item in eval_set[:num_queries]:
+        res_a = manager_a.search_faq(item['query'], 3, None)
+        res_b = manager_b.search_faq(item['query'], 3, None)
         
         results.append({
-            'query_id': i + 1,
-            'query': query,
-            'expected_course': expected_course,
-            'config_a_course': top_a['_source']['course'] if top_a else 'NONE',
-            'config_a_question': top_a['_source']['question'][:80] if top_a else 'NONE',
-            'config_a_score': round(top_a['_score'], 2) if top_a else 0,
-            'config_b_course': top_b['_source']['course'] if top_b else 'NONE',
-            'config_b_question': top_b['_source']['question'][:80] if top_b else 'NONE',
-            'config_b_score': round(top_b['_score'], 2) if top_b else 0,
-            'winner': None  # To be filled by human/LLM
+            'query': item['query'][:60],
+            'expected_course': item['course'],
+            'config_a_answer': res_a[0]['_source']['question'][:80] if res_a else 'NONE',
+            'config_a_course': res_a[0]['_source']['course'] if res_a else 'NONE',
+            'config_a_score': round(res_a[0]['_score'], 2) if res_a else 0,
+            'config_b_answer': res_b[0]['_source']['question'][:80] if res_b else 'NONE',
+            'config_b_course': res_b[0]['_source']['course'] if res_b else 'NONE',
+            'config_b_score': round(res_b[0]['_score'], 2) if res_b else 0,
         })
     
-    # Display results for human judgment
     df = pd.DataFrame(results)
     
-    print("\n" + "=" * 80)
-    print("QUERY RESULTS - CHOOSE WINNER PER ROW")
+    # Calculate winners
+    a_wins = 0
+    b_wins = 0
+    ties = 0
+    
+    for _, row in df.iterrows():
+        if row['config_a_score'] > row['config_b_score']:
+            a_wins += 1
+        elif row['config_b_score'] > row['config_a_score']:
+            b_wins += 1
+        else:
+            ties += 1
+    
+    print("=" * 80)
+    print(f"A/B TEST: {config_a} vs {config_b}")
     print("=" * 80)
     
     for _, row in df.iterrows():
-        print(f"\n--- Query {row['query_id']}: {row['query']} ---")
-        print(f"Expected Course: {row['expected_course']}")
-        print(f"\n[A] {config_a_name}:")
-        print(f"    Course: {row['config_a_course']}")
-        print(f"    Answer: {row['config_a_question']}")
-        print(f"    Score: {row['config_a_score']}")
-        print(f"\n[B] {config_b_name}:")
-        print(f"    Course: {row['config_b_course']}")
-        print(f"    Answer: {row['config_b_question']}")
-        print(f"    Score: {row['config_b_score']}")
+        print(f"\nQ: {row['query']}")
+        print(f"Expected: {row['expected_course']}")
+        print(f"[A] {config_a}: {row['config_a_course']} (score: {row['config_a_score']})")
+        print(f"    {row['config_a_answer'][:60]}...")
+        print(f"[B] {config_b}: {row['config_b_course']} (score: {row['config_b_score']})")
+        print(f"    {row['config_b_answer'][:60]}...")
+        print("-" * 40)
     
     print("\n" + "=" * 80)
-    print("TO COLLECT RESULTS:")
-    print("Create a DataFrame and mark winners:")
-    print("df['winner'] = ['A', 'B', 'A', ...]  # per query")
-    print("Then run: df['winner'].value_counts()")
+    print("WINNER SUMMARY (by score only)")
     print("=" * 80)
+    print(f"Config A ({config_a}) wins: {a_wins}")
+    print(f"Config B ({config_b}) wins: {b_wins}")
+    print(f"Ties: {ties}")
+    
+    if a_wins > b_wins:
+        print(f"\n🏆 WINNER: {config_a}")
+    elif b_wins > a_wins:
+        print(f"\n🏆 WINNER: {config_b}")
+    else:
+        print(f"\n🤝 TIE")
     
     return df
 
-def calculate_ab_test_results(df):
-    """Calculate which config won more queries"""
-    if 'winner' not in df.columns:
-        print("No winners marked yet. Add 'winner' column with 'A' or 'B' per row")
-        return None
+def calculate_winners_from_df(df, config_a_name, config_b_name):
+    a_wins = 0
+    b_wins = 0
+    ties = 0
     
-    wins = df['winner'].value_counts()
-    total = len(df)
+    for _, row in df.iterrows():
+        if row['config_a_score'] > row['config_b_score']:
+            a_wins += 1
+        elif row['config_b_score'] > row['config_a_score']:
+            b_wins += 1
+        else:
+            ties += 1
     
-    print("\n=== A/B TEST RESULTS ===")
-    print(f"Total queries compared: {total}")
-    print(f"Config A wins: {wins.get('A', 0)} ({wins.get('A', 0)/total*100:.1f}%)")
-    print(f"Config B wins: {wins.get('B', 0)} ({wins.get('B', 0)/total*100:.1f}%)")
-    print(f"Ties: {wins.get('TIE', 0)} ({wins.get('TIE', 0)/total*100:.1f}%)")
+    print("=" * 40)
+    print("WINNER SUMMARY (by score only)")
+    print("=" * 40)
+    print(f"Config A ({config_a_name}) wins: {a_wins}")
+    print(f"Config B ({config_b_name}) wins: {b_wins}")
+    print(f"Ties: {ties}")
     
-    return wins
+    if a_wins > b_wins:
+        print(f"\n🏆 WINNER: {config_a_name}")
+    elif b_wins > a_wins:
+        print(f"\n🏆 WINNER: {config_b_name}")
+    else:
+        print(f"\n🤝 TIE")
+    
+    return {'A': a_wins, 'B': b_wins, 'TIE': ties}
 
-# Run A/B test between baseline and global_cross_fields
-df = ab_test("baseline_bm25", "global_cross_fields", num_queries=10, k=3)
-
-# After you manually mark winners, run:
-# calculate_ab_test_results(df)
+if __name__ == "__main__":
+    df = run_ab_test("baseline_bm25", "global_cross_fields", num_queries=10)
