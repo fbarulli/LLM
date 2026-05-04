@@ -2,7 +2,7 @@ import os
 import json
 import litellm
 from dotenv import load_dotenv
-from logger_config import logger
+from src.logger_config import logger
 
 # Register model costs once at module level
 for model_id, cost_info in {

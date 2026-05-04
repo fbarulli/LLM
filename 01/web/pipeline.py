@@ -5,10 +5,10 @@ import glob
 from elasticsearch import Elasticsearch
 
 # Responsibility: Orchestration & Automation
-from config_manager import load_config
-from ingest_data import transform_documents, setup_index_and_ingest
-from stats import StatsCollector
-from run_stats import get_eval_set
+from src.config_manager import load_config
+from src.ingest_data import transform_documents, setup_index_and_ingest
+from src.stats import StatsCollector
+from src.run_stats import get_eval_set
 
 def run_experiment(config_file: str, n_samples: int = 20):
     """Handles a single experiment execution."""
@@ -57,7 +57,7 @@ if __name__ == "__main__":
         with open(doc_path, "r") as f:
             raw_data = json.load(f)
             
-        from ingest_data import transform_documents, setup_index_and_ingest
+        from src.ingest_data import transform_documents, setup_index_and_ingest
         flattened = transform_documents(raw_data)
         setup_index_and_ingest(es_client, idx_name, flattened)
 

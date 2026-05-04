@@ -1,4 +1,4 @@
-from logger_config import logger
+from src.logger_config import logger
 
 def build_prompt(question: str, records: list) -> str:
     context_template: str = "Q: {question}\nA: {text}"

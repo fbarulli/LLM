@@ -4,9 +4,9 @@ import requests
 import traceback 
 from typing import List, Dict
 from elasticsearch import Elasticsearch
-from config_manager import load_config
-from core import generate_document_id 
-from logger_config import logger
+from src.config_manager import load_config
+from src.core import generate_document_id 
+from src.logger_config import logger
 
 
 
@@ -30,21 +30,25 @@ def fetch_raw_data(data_url: str) -> list:
         sys.exit(1)
 
 def transform_documents(raw_data: List[Dict]) -> List[Dict]:
-    """Flattens data and assigns IDs based on a clean structure."""
     flattened_records: List[Dict] = []
     for course in raw_data:
         course_name = course["course"]
         for doc in course["documents"]:
-            # Build the "Clean" doc to be hashed
+            # Remove any prefix like "Course - ", "Homework - ", "Office Hours - ", etc.
+            clean_question = doc["question"]
+            if " - " in clean_question:
+                clean_question = clean_question.split(" - ", 1)[1].strip()
+            
             new_doc = {
                 "text": doc["text"],
                 "section": doc.get("section", "General"),
-                "question": doc["question"],
+                "question": clean_question,
                 "course": course_name
             }
             new_doc["id"] = generate_document_id(new_doc)
             flattened_records.append(new_doc)
     return flattened_records
+
 
 def setup_index_and_ingest(es_client: Elasticsearch, index_name: str, records: List[Dict]):
     """Standardizes index creation and sequential ingestion."""

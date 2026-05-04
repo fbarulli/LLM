@@ -2,11 +2,11 @@ import gradio as gr
 import traceback
 import tiktoken
 import os
-from langfuse_config import load_settings, load_api_keys
-from core import query_llm
+from src.langfuse_config import load_settings, load_api_keys
+from src.core import query_llm
 from prompt_manager import build_prompt
-from search import CourseRAGManager
-from logger_config import logger, time_logger
+from src.search import CourseRAGManager
+from src.logger_config import logger, time_logger
 from langfuse.decorators import observe
 
 settings = load_settings(filename="settings.json")

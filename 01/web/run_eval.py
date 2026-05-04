@@ -1,9 +1,9 @@
 import json
 import traceback
 from typing import List, Dict
-from search import CourseRAGManager
-from config_manager import load_config
-from core import generate_document_id
+from src.search import CourseRAGManager
+from src.config_manager import load_config
+from src.core import generate_document_id
 from langfuse.decorators import observe, langfuse_context
 from typing import List, Dict, Any
 

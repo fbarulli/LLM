@@ -1,13 +1,11 @@
+# /home/admin/LLM/LLM/01/web/src/config_manager.py
+
 import json
 import traceback
 from typing import Dict, Any
-from logger_config import logger
+from src.logger_config import logger
 
 def load_config(filepath: str) -> Dict[str, Any]:
-    """
-    Loads a JSON config file. 
-    Crashes immediately if the file is missing or malformed.
-    """
     try:
         with open(filepath, 'r') as f:
             return json.load(f)

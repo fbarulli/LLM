@@ -3,7 +3,7 @@ import traceback
 import hashlib
 from typing import Optional, Tuple, Dict, Any
 from litellm import completion
-from logger_config import logger, time_logger
+from src.logger_config import logger, time_logger
 from langfuse.decorators import observe, langfuse_context
 
 def generate_document_id(doc: Dict[str, Any]) -> str:
@@ -50,7 +50,7 @@ def query_llm_provider(prompt: str, model_name: str, provider_prefix: str, metad
 @observe()
 @time_logger
 def query_llm(prompt: str, settings: dict, metadata: dict, tags: list) -> Tuple[str, str]:
-    from langfuse_config import get_providers
+    from src.langfuse_config import get_providers
     
     providers = get_providers(settings)
     

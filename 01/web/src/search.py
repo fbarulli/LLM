@@ -1,8 +1,10 @@
+# /home/admin/LLM/LLM/01/web/src/search.py
+
 import traceback
 import json
 from typing import List, Dict, Any, Optional
 from elasticsearch import Elasticsearch
-from logger_config import logger, time_logger
+from src.logger_config import logger, time_logger
 
 class CourseRAGManager:
     def __init__(self, settings: Dict[str, Any]):
@@ -22,7 +24,6 @@ class CourseRAGManager:
 
     @time_logger
     def search_faq(self, query: str, override_size: int, course_context: Optional[str] = None) -> List[Dict]:
-        """Diagnostic search function."""
         if not self.es_client:
             return []
 
@@ -37,7 +38,9 @@ class CourseRAGManager:
             }
         }
 
-        # --- THE TRUTH PRINTS ---
+        if "minimum_should_match" in self.settings:
+            mm_query["multi_match"]["minimum_should_match"] = self.settings["minimum_should_match"]
+
         print(f"\n🔍 [DEBUG] Query: '{query[:30]}...' | Context: {course_context}")
 
         if course_context:

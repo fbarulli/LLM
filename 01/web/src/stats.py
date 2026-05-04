@@ -3,9 +3,9 @@ import time
 import os
 import traceback
 from typing import List, Dict, Any
-from search import CourseRAGManager
-from config_manager import load_config
-from core import generate_document_id
+from src.search import CourseRAGManager
+from src.config_manager import load_config
+from src.core import generate_document_id
 from langfuse.decorators import observe
 
 class StatsCollector:
@@ -82,7 +82,7 @@ class StatsCollector:
 
         # --- ABSOLUTE PATH LOGIC ---
         # Ensure we always land in /web/experiments/results/
-        current_file_dir = os.path.dirname(os.path.abspath(__file__))
+        current_file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Go up to web root
         results_dir = os.path.join(current_file_dir, "experiments", "results")
         os.makedirs(results_dir, exist_ok=True)
         
