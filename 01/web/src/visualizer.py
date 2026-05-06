@@ -1,9 +1,8 @@
-# /home/admin/LLM/LLM/01/web/visualizer.py
-import traceback
 import os
 import json
 import glob
 import logging
+import traceback
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -17,13 +16,8 @@ logger = logging.getLogger("visualizer")
 
 class RAGVisualizer:
     def __init__(self, results_dir: str = None):
-        # Get the web root directory (parent of src)
         self.web_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        
-        if results_dir:
-            self.results_dir = results_dir
-        else:
-            self.results_dir = os.path.join(self.web_root, "experiments", "results")
+        self.results_dir = results_dir if results_dir else os.path.join(self.web_root, "experiments", "results")
 
     def get_experiment_registry(self) -> pd.DataFrame:
         search_pattern = os.path.join(self.results_dir, "*.json")
@@ -236,7 +230,6 @@ class RAGVisualizer:
         return df.groupby(['run_label', 'k', 'query_prefix'])['success'].mean().reset_index()
 
     def _get_dynamic_ylim(self, data: pd.Series, padding_factor: float = 0.2, min_padding: float = 0.05) -> tuple:
-        # Convert to numeric if needed
         if data.dtype == 'bool':
             data = data.astype(float)
         
@@ -304,7 +297,6 @@ class RAGVisualizer:
         
         sns.lineplot(data=unique_df, x='k', y='unique_courses', hue='run_label', marker='o', ax=axes[0])
         axes[0].set_title("Unique Courses in Top K Results")
-        # For integer counts, use min-1 to max+1
         y_min = unique_df['unique_courses'].min() - 1
         y_max = unique_df['unique_courses'].max() + 1
         axes[0].set_ylim(y_min, y_max)
@@ -314,7 +306,7 @@ class RAGVisualizer:
         
         sns.lineplot(data=entropy_df, x='k', y='entropy', hue='run_label', marker='o', ax=axes[1])
         axes[1].set_title("Course Distribution Entropy")
-        y_min, y_max = self._get_dynamic_ylim(entropy_df['entropy'], padding_factor=0.2)
+        y_min, y_max = self._get_dynamic_ylim(entropy_df['entropy'])
         axes[1].set_ylim(y_min, y_max)
         axes[1].set_ylabel("Entropy (bits)")
         axes[1].set_xlabel("K")
@@ -373,6 +365,109 @@ class RAGVisualizer:
         plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
         plt.tight_layout()
         plt.show()
+
+    def plot_answer_quality(self, df: pd.DataFrame):
+        """Plot faithfulness vs relevancy by config."""
+        quality_data = df[df['k'] == 5].copy()
+        
+        if 'faithful' not in quality_data.columns or 'relevant' not in quality_data.columns:
+            print("\n⚠️ No quality metrics found. Run add_quality_metrics.py first.")
+            print("   This adds 'faithful' and 'relevant' columns to your results.")
+            return
+        
+        quality_data = quality_data.dropna(subset=['faithful', 'relevant'])
+        
+        if quality_data.empty:
+            print("No quality metrics available.")
+            return
+        
+        summary = quality_data.groupby('run_label').agg({
+            'faithful': lambda x: (x == True).mean() if len(x) > 0 else 0,
+            'relevant': lambda x: (x == True).mean() if len(x) > 0 else 0
+        }).round(4) * 100
+        
+        summary.columns = ['Faithful %', 'Relevant %']
+        
+        print("\n" + "=" * 60)
+        print("📊 ANSWER QUALITY BY CONFIG")
+        print("=" * 60)
+        print(summary.to_string())
+        
+        fig, ax = plt.subplots(figsize=(12, 6))
+        summary.plot(kind='bar', ax=ax)
+        ax.set_title('Faithfulness vs Relevancy by Config', fontsize=14)
+        ax.set_ylabel('Percentage (%)')
+        ax.set_xlabel('Experiment Configuration')
+        ax.set_ylim(0, 105)
+        ax.legend(['Faithful (answer grounded in context)', 'Relevant (answers the question)'])
+        ax.grid(True, alpha=0.3)
+        
+        for container in ax.containers:
+            ax.bar_label(container, fmt='%.0f%%', padding=3)
+        
+        plt.tight_layout()
+        plt.show()
+        
+        return summary
+    
+    def plot_quality_gap(self, df: pd.DataFrame):
+            """Plot the gap between recall and answer quality."""
+            quality_data = df[df['k'] == 5].copy()
+            
+            if 'faithful' not in quality_data.columns or 'relevant' not in quality_data.columns:
+                print("\n⚠️ No quality metrics found. Run evaluate_quality.py first.")
+                print("   This adds 'faithful' and 'relevant' columns to your results.")
+                return
+            
+            summary = quality_data.groupby('run_label').agg({
+                'success': lambda x: (x == True).mean() if len(x) > 0 else 0,
+                'faithful': lambda x: (x == True).mean() if len(x) > 0 else 0,
+                'relevant': lambda x: (x == True).mean() if len(x) > 0 else 0
+            }).round(4) * 100
+            
+            summary.columns = ['Recall %', 'Faithful %', 'Relevant %']
+            summary['Gap (Recall - Relevant)'] = summary['Recall %'] - summary['Relevant %']
+            
+            print("\n" + "=" * 60)
+            print("📊 RETRIEVAL VS ANSWER QUALITY GAP")
+            print("=" * 60)
+            print(summary.to_string())
+            
+            fig, ax = plt.subplots(figsize=(12, 6))
+            summary[['Recall %', 'Relevant %']].plot(kind='bar', ax=ax)
+            ax.set_title('Recall vs Answer Quality by Config', fontsize=14)
+            ax.set_ylabel('Percentage (%)')
+            ax.set_ylim(0, 105)
+            ax.legend(['Recall (found correct doc)', 'Relevant (doc answers question)'])
+            ax.grid(True, alpha=0.3)
+            
+            for container in ax.containers:
+                ax.bar_label(container, fmt='%.0f%%', padding=3)
+            
+            plt.tight_layout()
+            plt.show()
+            
+            return summary
+
+    def get_quality_summary(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Return quality metrics summary table."""
+        if 'faithful' not in df.columns or 'relevant' not in df.columns:
+            return pd.DataFrame({'Error': ['No quality metrics found. Run add_quality_metrics.py first.']})
+        
+        quality_df = df[df['k'] == 5].copy()
+        quality_df = quality_df.dropna(subset=['faithful', 'relevant'])
+        
+        if quality_df.empty:
+            return pd.DataFrame({'Error': ['No quality metrics available.']})
+        
+        summary = quality_df.groupby('run_label').agg({
+            'faithful': lambda x: (x == True).mean(),
+            'relevant': lambda x: (x == True).mean(),
+            'success': 'mean'
+        }).round(4)
+        
+        summary.columns = ['Faithfulness', 'Relevancy', 'Recall@5']
+        return summary.sort_values('Recall@5', ascending=False)
 
     def get_summary_table(self, df: pd.DataFrame) -> pd.DataFrame:
         return df.groupby(['run_label', 'k'])['success'].mean().unstack()
@@ -443,6 +538,12 @@ def main():
     
     prefix_df = visualizer.compute_success_by_query_prefix(df)
     visualizer.plot_success_by_query_prefix(prefix_df)
+    
+    if 'faithful' in df.columns:
+        visualizer.plot_answer_quality(df)
+        quality_summary = visualizer.get_quality_summary(df)
+        print("\n=== Answer Quality Summary ===")
+        print(quality_summary.to_string())
     
     summary = visualizer.get_comprehensive_summary(df)
     print("\n=== Comprehensive Summary (K=5) ===")

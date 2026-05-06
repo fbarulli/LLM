@@ -3,7 +3,7 @@ import os
 from typing import List, Dict
 
 def get_hard_eval_set(filepath: str = "experiments/hard_eval_set.json") -> List[Dict]:
-    """Load hard eval set and flatten paraphrased queries into test list."""
+    """Load ALL paraphrased queries for full benchmark."""
     if not os.path.isabs(filepath):
         web_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         filepath = os.path.join(web_root, filepath)
@@ -20,4 +20,5 @@ def get_hard_eval_set(filepath: str = "experiments/hard_eval_set.json") -> List[
                 "expected_id": item['expected_id']
             })
     
+    print(f"📊 Loaded {len(test_queries)} test queries from {len(hard_eval)} original questions")
     return test_queries

@@ -1,0 +1,340 @@
+query,expected_course,found_course,found_question,found_answer,success,score
+What's the scheduled start date for the course?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I still join the course after the start date?,"Yes, even if you don't register, you're still eligible to submit the homeworks.
+Be aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",False,334.14804
+When does the course begin and what's the plan?,data-engineering-zoomcamp,data-engineering-zoomcamp,When will the course start?,"The purpose of this document is to capture frequently asked technical questions
+The exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  “Office Hours",True,223.9405
+Can you tell me when the course is set to start?,data-engineering-zoomcamp,data-engineering-zoomcamp,When will the course start?,"The purpose of this document is to capture frequently asked technical questions
+The exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  “Office Hours",True,298.92612
+What do I need to know before taking this course?,data-engineering-zoomcamp,data-engineering-zoomcamp,What can I do before the course starts?,"You can start by installing and setting up all the dependencies and requirements:
+Google cloud account
+Google Cloud SDK
+Python 3 (installed with Anaconda)
+Terraform
+Git
+Look over the prerequisites and",False,357.21417
+Are there any specific requirements to enroll in this class?,data-engineering-zoomcamp,data-engineering-zoomcamp,What are the prerequisites for this course?,GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites,True,157.2207
+What background knowledge is necessary for this course?,data-engineering-zoomcamp,data-engineering-zoomcamp,What are the prerequisites for this course?,GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites,True,279.43198
+Is it possible to enroll in the course after the initial start date?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I still join the course after the start date?,"Yes, even if you don't register, you're still eligible to submit the homeworks.
+Be aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",True,400.6081
+Can I still sign up for the course even though it's already begun?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I still join the course after the start date?,"Yes, even if you don't register, you're still eligible to submit the homeworks.
+Be aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",True,308.8561
+"Are late registrations accepted for the course, or is it too late?",data-engineering-zoomcamp,data-engineering-zoomcamp,Are late submissions of homework allowed?,"No, late submissions are not allowed. But if the form is still not closed and it’s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course pa",False,361.68115
+I signed up for the Data Engineering Bootcamp - when's the confirmation email?,data-engineering-zoomcamp,data-engineering-zoomcamp,I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?,You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest ,True,550.67163
+Can I get a confirmation email for the Data Engineering Bootcamp registration?,data-engineering-zoomcamp,data-engineering-zoomcamp,I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?,You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest ,True,568.51294
+When will I get the confirmation email after enrolling in the bootcamp?,data-engineering-zoomcamp,data-engineering-zoomcamp,I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?,You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest ,True,431.426
+What are the pre-course steps I need to take?,data-engineering-zoomcamp,data-engineering-zoomcamp,What are the prerequisites for this course?,GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites,False,255.78311
+Is there anything I should do before the course begins?,data-engineering-zoomcamp,data-engineering-zoomcamp,What can I do before the course starts?,"You can start by installing and setting up all the dependencies and requirements:
+Google cloud account
+Google Cloud SDK
+Python 3 (installed with Anaconda)
+Terraform
+Git
+Look over the prerequisites and",True,322.1486
+What preparations should I make before the course starts?,data-engineering-zoomcamp,data-engineering-zoomcamp,What can I do before the course starts?,"You can start by installing and setting up all the dependencies and requirements:
+Google cloud account
+Google Cloud SDK
+Python 3 (installed with Anaconda)
+Terraform
+Git
+Look over the prerequisites and",True,464.57788
+How often does Zoomcamp take place throughout the year?,data-engineering-zoomcamp,data-engineering-zoomcamp,how many Zoomcamps in a year?,"There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:
+Data-Engineering (Jan - Apr)
+MLOps (May - Aug)
+Machine Learning (Sep - Jan)
+There's only one Data-Engineering Zoom",True,191.93314
+Are there multiple Zoomcamp sessions in a single year?,data-engineering-zoomcamp,data-engineering-zoomcamp,how many Zoomcamps in a year?,"There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:
+Data-Engineering (Jan - Apr)
+MLOps (May - Aug)
+Machine Learning (Sep - Jan)
+There's only one Data-Engineering Zoom",True,235.78021
+How many times does Zoomcamp happen annually?,data-engineering-zoomcamp,data-engineering-zoomcamp,how many Zoomcamps in a year?,"There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:
+Data-Engineering (Jan - Apr)
+MLOps (May - Aug)
+Machine Learning (Sep - Jan)
+There's only one Data-Engineering Zoom",True,169.18123
+Will the new group be distinct from the one before it?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is the current cohort going to be different from the previous cohort?,"Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow..",True,186.31235
+How will the current group compare to the previous one?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is the current cohort going to be different from the previous cohort?,"Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow..",True,302.34503
+Are there any changes in store for the upcoming group?,data-engineering-zoomcamp,data-engineering-zoomcamp,Are we still using the NYC Trip data for January 2021? Or are we using the 2022 data?,"We will use the same data, as the project will essentially remain the same as last year’s. The data is available here",False,137.85281
+What happens after the course is completed?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course after it finishes?,"Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.
+You can also continue looking at the homeworks and continue preparing fo",True,179.11497
+Can I still access the course material after it's over?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I still join the course after the start date?,"Yes, even if you don't register, you're still eligible to submit the homeworks.
+Be aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",False,375.31616
+Do you offer any follow-up resources after the course ends?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course after it finishes?,"Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.
+You can also continue looking at the homeworks and continue preparing fo",True,300.49945
+What kind of help is available for self-paced course participants?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I get support if I take the course in the self-paced mode?,"Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your ",True,262.4714
+Do you offer support for students taking the course at their own pace?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I get support if I take the course in the self-paced mode?,"Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your ",True,179.71466
+Can I get assistance if I'm not in a traditional classroom setting?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I get support if I take the course in the self-paced mode?,"Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your ",True,262.52545
+What's the best YouTube playlist for me to check out?,data-engineering-zoomcamp,data-engineering-zoomcamp,Which playlist on YouTube should I refer to?,"All the main videos are stored in the Main “DATA ENGINEERING” playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you direct",True,298.14362
+Can you recommend a popular YouTube playlist for me?,data-engineering-zoomcamp,data-engineering-zoomcamp,Which playlist on YouTube should I refer to?,"All the main videos are stored in the Main “DATA ENGINEERING” playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you direct",True,268.4208
+Which YouTube playlist is a must-watch for music enthusiasts?,data-engineering-zoomcamp,data-engineering-zoomcamp,Which playlist on YouTube should I refer to?,"All the main videos are stored in the Main “DATA ENGINEERING” playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you direct",True,357.55917
+What's the process for getting started?,machine-learning-zoomcamp,machine-learning-zoomcamp,How to get started with Week 8?,TODO,False,104.443535
+Can you walk me through the registration process?,machine-learning-zoomcamp,machine-learning-zoomcamp,The course has already started. Can I still join it?,"Yes, you can. You won’t be able to submit some of the homeworks, but you can still take part in the course.
+In order to get a certificate, you need to submit 2 out of 3 course projects and review 3 pe",False,92.9558
+How do I create an account?,machine-learning-zoomcamp,machine-learning-zoomcamp,How do I sign up?,"Machine Learning Zoomcamp FAQ
+The purpose of this document is to capture frequently asked technical questions.
+We did this for our data engineering course and it worked quite well. Check this document",True,184.15323
+What happens if I have to skip a class?,machine-learning-zoomcamp,machine-learning-zoomcamp,Will I get a certificate if I missed the midterm project?,"Yes, it's possible. See the previous answer.",False,180.0751
+What's the plan if I miss a meeting or session?,machine-learning-zoomcamp,machine-learning-zoomcamp,What if I miss a session?,"Everything is recorded, so you won’t miss anything. You will be able to ask your questions for office hours in advance and we will cover them during the live stream. Also, you can always ask questions",True,489.73038
+What if I'm unable to attend a scheduled session?,machine-learning-zoomcamp,machine-learning-zoomcamp,What if I miss a session?,"Everything is recorded, so you won’t miss anything. You will be able to ask your questions for office hours in advance and we will cover them during the live stream. Also, you can always ask questions",True,353.32443
+What percentage of the course will be dedicated to theoretical concepts?,machine-learning-zoomcamp,machine-learning-zoomcamp,What are the deadlines in this course?,"For the 2023 cohort, you can see the deadlines here (it’s taken from the 2023 cohort page)",False,180.60213
+Can you give me an idea of the theoretical content?,machine-learning-zoomcamp,machine-learning-zoomcamp,I didn’t fully understand the ROC curve. Can I move on?,"It's a complex and abstract topic and it requires some time to understand. You can move on without fully understanding the concept.
+Nonetheless, it might be useful for you to rewatch the video, or eve",False,89.27249
+How much of the material will be based on theory?,machine-learning-zoomcamp,machine-learning-zoomcamp,How much theory will you cover?,"The bare minimum. The focus is more on practice, and we'll cover the theory only on the intuitive level.: https://mlbookcamp.com/article/python
+For example, we won't derive the gradient update rule fo",True,436.3195
+I'm not great at math - can I still enroll in the class?,machine-learning-zoomcamp,machine-learning-zoomcamp,I don't know math. Can I take the course?,"Yes! We'll cover some linear algebra in the course, but in general, there will be very few formulas, mostly code.
+Here are some interesting videos covering linear algebra that you can already watch: M",True,295.9838
+Do you offer math courses for people who struggle with the subject?,machine-learning-zoomcamp,machine-learning-zoomcamp,I don't know math. Can I take the course?,"Yes! We'll cover some linear algebra in the course, but in general, there will be very few formulas, mostly code.
+Here are some interesting videos covering linear algebra that you can already watch: M",True,163.14575
+Is it possible to take a math course even if I'm not confident?,machine-learning-zoomcamp,machine-learning-zoomcamp,I don't know math. Can I take the course?,"Yes! We'll cover some linear algebra in the course, but in general, there will be very few formulas, mostly code.
+Here are some interesting videos covering linear algebra that you can already watch: M",True,329.54147
+"I submitted the form, but haven't gotten a confirmation email yet - is that typical?",machine-learning-zoomcamp,machine-learning-zoomcamp,"I filled the form, but haven't received a confirmation email. Is it normal?","The process is automated now, so you should receive the email eventually. If you haven’t, check your promotions tab in Gmail as well as spam.
+If you unsubscribed from our newsletter, you won't get cou",True,637.03516
+Should I be worried if I haven't received a confirmation email after submitting the form?,machine-learning-zoomcamp,machine-learning-zoomcamp,"I filled the form, but haven't received a confirmation email. Is it normal?","The process is automated now, so you should receive the email eventually. If you haven’t, check your promotions tab in Gmail as well as spam.
+If you unsubscribed from our newsletter, you won't get cou",True,680.98413
+"I just filled out the form, but no confirmation email has arrived - is this normal?",machine-learning-zoomcamp,machine-learning-zoomcamp,"I filled the form, but haven't received a confirmation email. Is it normal?","The process is automated now, so you should receive the email eventually. If you haven’t, check your promotions tab in Gmail as well as spam.
+If you unsubscribed from our newsletter, you won't get cou",True,701.1085
+What's the duration of the course?,machine-learning-zoomcamp,machine-learning-zoomcamp,How long is the course?,"Approximately 4 months, but may take more if you want to do some extra activities (an extra project, an article, etc)",True,158.8446
+How many hours does the course last?,machine-learning-zoomcamp,machine-learning-zoomcamp,How long is the course?,"Approximately 4 months, but may take more if you want to do some extra activities (an extra project, an article, etc)",True,176.48163
+What's the length of the course program?,machine-learning-zoomcamp,machine-learning-zoomcamp,How long is the course?,"Approximately 4 months, but may take more if you want to do some extra activities (an extra project, an article, etc)",True,158.8446
+What's the estimated time commitment for this course?,machine-learning-zoomcamp,machine-learning-zoomcamp,How much time do I need for this course?,Around ~10 hours per week. Timur Kamaliev did a detailed analysis of how much time students of the previous cohort needed to spend on different modules and projects. Full article,True,292.76642
+How long will it take to complete this course?,machine-learning-zoomcamp,machine-learning-zoomcamp,How long is the course?,"Approximately 4 months, but may take more if you want to do some extra activities (an extra project, an article, etc)",False,269.94336
+What's the typical time frame for finishing this course?,machine-learning-zoomcamp,machine-learning-zoomcamp,How much time do I need for this course?,Around ~10 hours per week. Timur Kamaliev did a detailed analysis of how much time students of the previous cohort needed to spend on different modules and projects. Full article,True,292.76642
+Do I receive a certificate after completing the course?,machine-learning-zoomcamp,machine-learning-zoomcamp,Will I get a certificate if I missed the midterm project?,"Yes, it's possible. See the previous answer.",False,235.15639
+Will I get a certificate of completion at the end?,machine-learning-zoomcamp,machine-learning-zoomcamp,Will I get a certificate if I missed the midterm project?,"Yes, it's possible. See the previous answer.",False,385.23492
+Can I expect a certificate once I finish the program?,machine-learning-zoomcamp,machine-learning-zoomcamp,Will I get a certificate?,"Yes, if you finish at least 2 out of 3 projects and review 3 peers’ Projects by the deadline, you will get a certificate. This is what it looks like: link. There’s also a version without a robot: link",True,308.08917
+Do I still get a certificate if I missed the midterm project?,machine-learning-zoomcamp,machine-learning-zoomcamp,Will I get a certificate if I missed the midterm project?,"Yes, it's possible. See the previous answer.",True,730.8752
+Will I receive a certificate if I didn't complete the midterm project?,machine-learning-zoomcamp,machine-learning-zoomcamp,Will I get a certificate if I missed the midterm project?,"Yes, it's possible. See the previous answer.",True,633.44257
+Can I still get a certificate even if I missed the midterm assignment?,machine-learning-zoomcamp,machine-learning-zoomcamp,Will I get a certificate if I missed the midterm project?,"Yes, it's possible. See the previous answer.",True,663.2803
+What's the bare minimum I need to know about Python?,machine-learning-zoomcamp,machine-learning-zoomcamp,How much Python should I know?,"Check this article. If you know everything in this article, you know enough. If you don’t, read the article and join the coursIntroduction to Pythone too :)
+Introduction to Python – Machine Learning B",True,258.0926
+How much Python programming do I need to be proficient?,machine-learning-zoomcamp,machine-learning-zoomcamp,How much Python should I know?,"Check this article. If you know everything in this article, you know enough. If you don’t, read the article and join the coursIntroduction to Pythone too :)
+Introduction to Python – Machine Learning B",True,312.61087
+What's the essential knowledge I should have in Python?,machine-learning-zoomcamp,machine-learning-zoomcamp,How much Python should I know?,"Check this article. If you know everything in this article, you know enough. If you don’t, read the article and join the coursIntroduction to Pythone too :)
+Introduction to Python – Machine Learning B",True,230.74246
+How do I structure a question about a specific problem?,mlops-zoomcamp,mlops-zoomcamp,Problem title,"Problem description
+Solution description
+(optional) Added by Name",False,136.60574
+What's the best way to format a question about a particular issue?,mlops-zoomcamp,mlops-zoomcamp,Query Blocked,"I can only answer questions about Data Engineering, Machine Learning, and MLOps Zoomcamp courses. Please ask a course-related question.",False,0.0
+How can I write a clear and concise question about a specific topic?,mlops-zoomcamp,mlops-zoomcamp,Will there be a 2024 Cohort? When will the 2024 cohort start?,"Yes, it will start in May 2024",False,85.08558
+How long does each module take to complete in these courses?,mlops-zoomcamp,mlops-zoomcamp,What is the expected duration of this course or that for each module?,"Approximately 3 months. For each module, about 1 week with possible deadline extensions (in total 6~9 weeks), 2 weeks for working on the capstone project and 1 week for peer review.",True,152.49452
+What's the typical time frame for finishing each module?,mlops-zoomcamp,mlops-zoomcamp,What is the expected duration of this course or that for each module?,"Approximately 3 months. For each module, about 1 week with possible deadline extensions (in total 6~9 weeks), 2 weeks for working on the capstone project and 1 week for peer review.",True,215.7755
+Can you give me an idea of the module duration for each course?,mlops-zoomcamp,mlops-zoomcamp,What is the expected duration of this course or that for each module?,"Approximately 3 months. For each module, about 1 week with possible deadline extensions (in total 6~9 weeks), 2 weeks for working on the capstone project and 1 week for peer review.",True,433.62097
+How do the 2023 and 2022 courses compare to each other?,mlops-zoomcamp,mlops-zoomcamp,What’s the difference between the 2023 and 2022 course?,"The difference is the Orchestration and Monitoring modules. Those videos will be re-recorded. The rest should mostly be the same.
+Also all of the homeworks will be changed for the 2023 cohort.",True,312.3437
+What are the main changes between the 2023 and 2022 courses?,mlops-zoomcamp,mlops-zoomcamp,What’s the difference between the 2023 and 2022 course?,"The difference is the Orchestration and Monitoring modules. Those videos will be re-recorded. The rest should mostly be the same.
+Also all of the homeworks will be changed for the 2023 cohort.",True,450.08884
+What's new in the 2023 course compared to the 2022 one?,mlops-zoomcamp,mlops-zoomcamp,What’s the difference between the 2023 and 2022 course?,"The difference is the Orchestration and Monitoring modules. Those videos will be re-recorded. The rest should mostly be the same.
+Also all of the homeworks will be changed for the 2023 cohort.",True,375.58972
+Are you planning to offer a 2024 program or intake?,mlops-zoomcamp,mlops-zoomcamp,Will there be a 2024 Cohort? When will the 2024 cohort start?,"Yes, it will start in May 2024",True,196.42685
+When does the 2024 program or course start accepting students?,mlops-zoomcamp,mlops-zoomcamp,Will there be a 2024 Cohort? When will the 2024 cohort start?,"Yes, it will start in May 2024",True,308.69446
+Will there be a new intake or cohort in 2024?,mlops-zoomcamp,mlops-zoomcamp,Will there be a 2024 Cohort? When will the 2024 cohort start?,"Yes, it will start in May 2024",True,614.33887
+What if my response doesn't match any of the given options exactly?,mlops-zoomcamp,mlops-zoomcamp,What if my answer is not exactly the same as the choices presented?,Please choose the closest one to your answer. Also do not post your answer in the course slack channel.,True,334.95602
+Can I provide an answer that's not listed among the choices?,mlops-zoomcamp,mlops-zoomcamp,What if my answer is not exactly the same as the choices presented?,Please choose the closest one to your answer. Also do not post your answer in the course slack channel.,True,279.49042
+How do I handle a response that doesn't fit the given choices?,mlops-zoomcamp,mlops-zoomcamp,What if my answer is not exactly the same as the choices presented?,Please choose the closest one to your answer. Also do not post your answer in the course slack channel.,True,149.88797
+Can we pick our own subjects for the final project?,mlops-zoomcamp,mlops-zoomcamp,Are we free to choose our own topics for the final project?,"Please pick up a problem you want to solve yourself. Potential datasets can be found on either Kaggle, Hugging Face, Google, AWS, or the UCI Machine Learning Datasets Repository.",True,517.8059
+Do we get to choose the topic for the final assignment?,mlops-zoomcamp,mlops-zoomcamp,Are we free to choose our own topics for the final project?,"Please pick up a problem you want to solve yourself. Potential datasets can be found on either Kaggle, Hugging Face, Google, AWS, or the UCI Machine Learning Datasets Repository.",True,394.97162
+Is it okay if we select our own project themes?,mlops-zoomcamp,mlops-zoomcamp,Are we free to choose our own topics for the final project?,"Please pick up a problem you want to solve yourself. Potential datasets can be found on either Kaggle, Hugging Face, Google, AWS, or the UCI Machine Learning Datasets Repository.",True,357.53552
+Will I still be able to graduate if I missed a week's homework?,mlops-zoomcamp,mlops-zoomcamp,Can I still graduate when I didn’t complete homework for week x?,"In order to obtain the certificate, completion of the final capstone project is mandatory. The completion of weekly homework assignments is optional, but they can contribute to your overall progress a",True,388.3397
+Can I still meet the graduation requirements if I'm behind on homework?,mlops-zoomcamp,mlops-zoomcamp,Can I still graduate when I didn’t complete homework for week x?,"In order to obtain the certificate, completion of the final capstone project is mandatory. The completion of weekly homework assignments is optional, but they can contribute to your overall progress a",True,269.68936
+Am I in trouble for not finishing homework and still graduating?,mlops-zoomcamp,mlops-zoomcamp,Can I still graduate when I didn’t complete homework for week x?,"In order to obtain the certificate, completion of the final capstone project is mandatory. The completion of weekly homework assignments is optional, but they can contribute to your overall progress a",True,249.5123
+Do we need to host our final project online?,mlops-zoomcamp,mlops-zoomcamp,"For the final project, is it required to be put on the cloud?","You can get a few cloud points by using kubernetes even if you deploy it only locally. Or you can use local stack too to mimic AWS
+Added by Ming Jun, Asked by Ben Pacheco, Answered by Alexey Grigorev",True,178.00304
+Is cloud hosting a requirement for the final project submission?,mlops-zoomcamp,mlops-zoomcamp,"For the final project, is it required to be put on the cloud?","You can get a few cloud points by using kubernetes even if you deploy it only locally. Or you can use local stack too to mimic AWS
+Added by Ming Jun, Asked by Ben Pacheco, Answered by Alexey Grigorev",True,327.45712
+Can we keep our final project on our local computers?,mlops-zoomcamp,mlops-zoomcamp,"For the final project, is it required to be put on the cloud?","You can get a few cloud points by using kubernetes even if you deploy it only locally. Or you can use local stack too to mimic AWS
+Added by Ming Jun, Asked by Ben Pacheco, Answered by Alexey Grigorev",True,198.50038
+How can I set up port forwarding without using Visual Studio?,mlops-zoomcamp,mlops-zoomcamp,Port-forwarding without Visual Studio,"For those who are not using VSCode (or other similar IDE), you can automate port-forwarding for Jupyter Notebook by adding the following line of code to your
+~/.ssh/config file (under the mlops-zoomca",True,682.68604
+Is there a way to forward ports without relying on Visual Studio?,mlops-zoomcamp,mlops-zoomcamp,Port-forwarding without Visual Studio,"For those who are not using VSCode (or other similar IDE), you can automate port-forwarding for Jupyter Notebook by adding the following line of code to your
+~/.ssh/config file (under the mlops-zoomca",True,435.87173
+Can I configure port forwarding in a Visual Studio-free environment?,mlops-zoomcamp,mlops-zoomcamp,Port-forwarding without Visual Studio,"For those who are not using VSCode (or other similar IDE), you can automate port-forwarding for Jupyter Notebook by adding the following line of code to your
+~/.ssh/config file (under the mlops-zoomca",True,569.89087
+How do I launch Jupyter notebooks from within VSCode?,mlops-zoomcamp,mlops-zoomcamp,Opening Jupyter in VSCode,"You can install the Jupyter extension to open notebooks in VSCode.
+Added by Khubaib",True,250.63177
+Can I integrate Jupyter with VSCode for a smoother experience?,mlops-zoomcamp,mlops-zoomcamp,Opening Jupyter in VSCode,"You can install the Jupyter extension to open notebooks in VSCode.
+Added by Khubaib",True,250.63177
+What's the process for opening Jupyter notebooks in VSCode?,mlops-zoomcamp,mlops-zoomcamp,Opening Jupyter in VSCode,"You can install the Jupyter extension to open notebooks in VSCode.
+Added by Khubaib",True,442.1739
+When does the course begin?,data-engineering-zoomcamp,data-engineering-zoomcamp,When will the course start?,"The purpose of this document is to capture frequently asked technical questions
+The exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  “Office Hours",True,188.4097
+What's the start date for the course?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I still join the course after the start date?,"Yes, even if you don't register, you're still eligible to submit the homeworks.
+Be aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",False,334.14804
+When does the course's term begin?,data-engineering-zoomcamp,data-engineering-zoomcamp,When will the course start?,"The purpose of this document is to capture frequently asked technical questions
+The exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  “Office Hours",True,100.6267
+When does the course's first session start?,data-engineering-zoomcamp,data-engineering-zoomcamp,When will the course start?,"The purpose of this document is to capture frequently asked technical questions
+The exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  “Office Hours",True,211.14311
+When does the course's academic year commence?,data-engineering-zoomcamp,data-engineering-zoomcamp,how many Zoomcamps in a year?,"There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:
+Data-Engineering (Jan - Apr)
+MLOps (May - Aug)
+Machine Learning (Sep - Jan)
+There's only one Data-Engineering Zoom",False,141.39258
+What's required to take this course?,data-engineering-zoomcamp,data-engineering-zoomcamp,What are the prerequisites for this course?,GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites,True,161.55574
+What's needed for enrollment?,data-engineering-zoomcamp,data-engineering-zoomcamp,What are the prerequisites for this course?,GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites,True,48.974796
+What's the prerequisite checklist?,data-engineering-zoomcamp,data-engineering-zoomcamp,Where are the FAQ questions from the previous cohorts for the orchestration module?,"Prefect: https://docs.google.com/document/d/1K_LJ9RhAORQk3z4Qf_tfGQCDbu8wUWzru62IUscgiGU/edit?usp=sharing
+Airflow: https://docs.google.com/document/d/1-BwPAsyDH_mAsn8HH5z_eNYVyBMAtawJRjHHsjEKHyY/edit?",False,41.72802
+What's the prerequisite info?,data-engineering-zoomcamp,data-engineering-zoomcamp,Where are the FAQ questions from the previous cohorts for the orchestration module?,"Prefect: https://docs.google.com/document/d/1K_LJ9RhAORQk3z4Qf_tfGQCDbu8wUWzru62IUscgiGU/edit?usp=sharing
+Airflow: https://docs.google.com/document/d/1-BwPAsyDH_mAsn8HH5z_eNYVyBMAtawJRjHHsjEKHyY/edit?",False,41.72802
+What's the prerequisite setup?,data-engineering-zoomcamp,data-engineering-zoomcamp,when running the seed-kafka command after initial setup.,"Below I have listed some steps I took to rectify this and potentially other minor errors, in Windows:
+Use the git bash terminal in windows.
+Activate python venv from git bash: source .venv/Scripts/act",False,132.7382
+Is it too late to enroll?,data-engineering-zoomcamp,data-engineering-zoomcamp,Are late submissions of homework allowed?,"No, late submissions are not allowed. But if the form is still not closed and it’s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course pa",False,141.39258
+Can I catch up with the class?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course after it finishes?,"Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.
+You can also continue looking at the homeworks and continue preparing fo",False,151.51167
+Is the course open for late applicants?,data-engineering-zoomcamp,data-engineering-zoomcamp,Are late submissions of homework allowed?,"No, late submissions are not allowed. But if the form is still not closed and it’s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course pa",False,141.39258
+Is it possible to join after the start date?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I still join the course after the start date?,"Yes, even if you don't register, you're still eligible to submit the homeworks.
+Be aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",True,410.14374
+Is there a way to join after the course has begun?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I still join the course after the start date?,"Yes, even if you don't register, you're still eligible to submit the homeworks.
+Be aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",True,293.03955
+When can I expect the confirmation email?,data-engineering-zoomcamp,data-engineering-zoomcamp,I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?,You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest ,True,449.2673
+When will I get the confirmation email?,data-engineering-zoomcamp,data-engineering-zoomcamp,I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?,You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest ,True,299.54178
+When can I expect the email with confirmation?,data-engineering-zoomcamp,data-engineering-zoomcamp,I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?,You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest ,True,449.2673
+When will I receive the confirmation email?,data-engineering-zoomcamp,data-engineering-zoomcamp,I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?,You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest ,True,385.95297
+When can I expect the confirmation email to arrive?,data-engineering-zoomcamp,data-engineering-zoomcamp,I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?,You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest ,True,470.4264
+What's the prep for the course?,data-engineering-zoomcamp,data-engineering-zoomcamp,When will the course start?,"The purpose of this document is to capture frequently asked technical questions
+The exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  “Office Hours",False,158.8446
+What should I do before class?,data-engineering-zoomcamp,data-engineering-zoomcamp,What can I do before the course starts?,"You can start by installing and setting up all the dependencies and requirements:
+Google cloud account
+Google Cloud SDK
+Python 3 (installed with Anaconda)
+Terraform
+Git
+Look over the prerequisites and",True,281.274
+What's the course's start routine?,data-engineering-zoomcamp,data-engineering-zoomcamp,When will the course start?,"The purpose of this document is to capture frequently asked technical questions
+The exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  “Office Hours",False,146.04721
+What's the pre-course process?,data-engineering-zoomcamp,data-engineering-zoomcamp,When will the course start?,"The purpose of this document is to capture frequently asked technical questions
+The exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  “Office Hours",False,123.313805
+What should I do before the course begins?,data-engineering-zoomcamp,data-engineering-zoomcamp,What can I do before the course starts?,"You can start by installing and setting up all the dependencies and requirements:
+Google cloud account
+Google Cloud SDK
+Python 3 (installed with Anaconda)
+Terraform
+Git
+Look over the prerequisites and",True,387.9515
+How many Zoom camps are there in a year?,data-engineering-zoomcamp,data-engineering-zoomcamp,how many Zoomcamps in a year?,"There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:
+Data-Engineering (Jan - Apr)
+MLOps (May - Aug)
+Machine Learning (Sep - Jan)
+There's only one Data-Engineering Zoom",True,404.96143
+How frequently are Zoom camps held in a year?,data-engineering-zoomcamp,data-engineering-zoomcamp,how many Zoomcamps in a year?,"There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:
+Data-Engineering (Jan - Apr)
+MLOps (May - Aug)
+Machine Learning (Sep - Jan)
+There's only one Data-Engineering Zoom",True,286.32077
+What's the annual frequency of Zoom camps?,data-engineering-zoomcamp,data-engineering-zoomcamp,Besides the “Office Hour” which are the live zoom calls?,We will probably have some calls during the Capstone period to clear some questions but it will be announced in advance if that happens.,False,156.9058
+How many Zoom camps take place in a year?,data-engineering-zoomcamp,data-engineering-zoomcamp,how many Zoomcamps in a year?,"There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:
+Data-Engineering (Jan - Apr)
+MLOps (May - Aug)
+Machine Learning (Sep - Jan)
+There's only one Data-Engineering Zoom",True,404.96143
+How often do Zoom camps happen in a year?,data-engineering-zoomcamp,data-engineering-zoomcamp,how many Zoomcamps in a year?,"There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:
+Data-Engineering (Jan - Apr)
+MLOps (May - Aug)
+Machine Learning (Sep - Jan)
+There's only one Data-Engineering Zoom",True,286.32077
+How distinct will the current group be from the prior one?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is the current cohort going to be different from the previous cohort?,"Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow..",True,295.3706
+Will the new cohort vary from the previous one?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is the current cohort going to be different from the previous cohort?,"Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow..",True,364.10376
+What's the difference between the current cohort and the previous one?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is the current cohort going to be different from the previous cohort?,"Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow..",True,459.07706
+How unique is the current cohort compared to the previous one?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is the current cohort going to be different from the previous cohort?,"Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow..",True,487.3196
+What makes the current cohort different from the previous one?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is the current cohort going to be different from the previous cohort?,"Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow..",True,549.93555
+"After the course ends, can I keep learning?",data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course after it finishes?,"Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.
+You can also continue looking at the homeworks and continue preparing fo",True,299.8893
+Is it possible to continue with the course after it's over?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course after it finishes?,"Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.
+You can also continue looking at the homeworks and continue preparing fo",True,249.69391
+May I follow the course after it's complete?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course after it finishes?,"Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.
+You can also continue looking at the homeworks and continue preparing fo",True,350.69485
+Can I still access the course after it's finished?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I still join the course after the start date?,"Yes, even if you don't register, you're still eligible to submit the homeworks.
+Be aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",False,375.31616
+Is it okay to follow the course after it's done?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course after it finishes?,"Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.
+You can also continue looking at the homeworks and continue preparing fo",True,371.07837
+How can I get help if I choose the self-paced option?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I get support if I take the course in the self-paced mode?,"Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your ",True,528.9248
+What resources are available for support when taking the course in self-paced mode?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I get support if I take the course in the self-paced mode?,"Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your ",True,493.0846
+How can I access assistance if I opt for the self-paced course?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I get support if I take the course in the self-paced mode?,"Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your ",True,533.14685
+What kind of support can I expect if I enroll in the self-paced course?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I get support if I take the course in the self-paced mode?,"Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your ",True,646.29126
+How do I get help if I decide to learn at my own pace?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I get support if I take the course in the self-paced mode?,"Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your ",True,235.79248
+What's the best playlist on YouTube?,data-engineering-zoomcamp,data-engineering-zoomcamp,Which playlist on YouTube should I refer to?,"All the main videos are stored in the Main “DATA ENGINEERING” playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you direct",True,323.24982
+Which playlist would you suggest?,data-engineering-zoomcamp,data-engineering-zoomcamp,Which playlist on YouTube should I refer to?,"All the main videos are stored in the Main “DATA ENGINEERING” playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you direct",True,228.88348
+Could you recommend a playlist?,data-engineering-zoomcamp,data-engineering-zoomcamp,Which playlist on YouTube should I refer to?,"All the main videos are stored in the Main “DATA ENGINEERING” playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you direct",True,139.7451
+What's the go-to playlist?,data-engineering-zoomcamp,data-engineering-zoomcamp,Which playlist on YouTube should I refer to?,"All the main videos are stored in the Main “DATA ENGINEERING” playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you direct",True,169.46793
+What's the current hot playlist?,data-engineering-zoomcamp,data-engineering-zoomcamp,Which playlist on YouTube should I refer to?,"All the main videos are stored in the Main “DATA ENGINEERING” playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you direct",True,139.7451
+How much time weekly is needed for this course?,data-engineering-zoomcamp,data-engineering-zoomcamp,​​How many hours per week am I expected to spend on this  course?,"It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]
+You can also calculate it yourself using this data and th",True,163.51834
+What's the weekly time commitment for this course?,data-engineering-zoomcamp,data-engineering-zoomcamp,​​How many hours per week am I expected to spend on this  course?,"It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]
+You can also calculate it yourself using this data and th",True,125.96687
+How many hours per week should I dedicate to this course?,data-engineering-zoomcamp,data-engineering-zoomcamp,​​How many hours per week am I expected to spend on this  course?,"It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]
+You can also calculate it yourself using this data and th",True,591.6988
+How often should I dedicate time to this course each week?,data-engineering-zoomcamp,data-engineering-zoomcamp,​​How many hours per week am I expected to spend on this  course?,"It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]
+You can also calculate it yourself using this data and th",True,299.3935
+What's the weekly study plan for this course?,data-engineering-zoomcamp,data-engineering-zoomcamp,​​How many hours per week am I expected to spend on this  course?,"It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]
+You can also calculate it yourself using this data and th",True,125.96687
+How can I learn at my own speed and earn a certificate?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course in a self-paced mode and get a certificate?,"No, you can only get a certificate if you finish the course with a “live” cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submittin",True,284.04117
+What's the process for getting a certificate while I go at my own pace?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course in a self-paced mode and get a certificate?,"No, you can only get a certificate if you finish the course with a “live” cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submittin",True,212.00406
+How do I follow the course and get a certificate without a specific schedule?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course in a self-paced mode and get a certificate?,"No, you can only get a certificate if you finish the course with a “live” cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submittin",True,520.6083
+Is there a way to complete the course and get a certificate without a time limit?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course in a self-paced mode and get a certificate?,"No, you can only get a certificate if you finish the course with a “live” cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submittin",True,442.4523
+"Can I learn and get a certificate in a flexible, self-directed manner?",data-engineering-zoomcamp,data-engineering-zoomcamp,Can I follow the course in a self-paced mode and get a certificate?,"No, you can only get a certificate if you finish the course with a “live” cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submittin",True,526.0387
+"Could you provide the link for the video/zoom stream of the ""Office Hour""?",data-engineering-zoomcamp,data-engineering-zoomcamp,What is the video/zoom link to the stream for the “Office Hour” or workshop sessions?,"The zoom link is only published to instructors/presenters/TAs.
+Students participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video U",True,674.98157
+"What's the connection for the virtual ""Office Hour"" sessions?",data-engineering-zoomcamp,data-engineering-zoomcamp,What is the video/zoom link to the stream for the “Office Hour” or workshop sessions?,"The zoom link is only published to instructors/presenters/TAs.
+Students participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video U",True,399.7237
+"The video/zoom link for the workshop sessions, please.",data-engineering-zoomcamp,data-engineering-zoomcamp,What is the video/zoom link to the stream for the “Office Hour” or workshop sessions?,"The zoom link is only published to instructors/presenters/TAs.
+Students participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video U",True,564.3914
+"The stream link for the ""Office Hour"" and workshop sessions.",data-engineering-zoomcamp,data-engineering-zoomcamp,What is the video/zoom link to the stream for the “Office Hour” or workshop sessions?,"The zoom link is only published to instructors/presenters/TAs.
+Students participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video U",True,653.6604
+"The video/zoom connection for the ""Office Hour"" and workshop sessions.",data-engineering-zoomcamp,data-engineering-zoomcamp,What is the video/zoom link to the stream for the “Office Hour” or workshop sessions?,"The zoom link is only published to instructors/presenters/TAs.
+Students participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video U",True,663.0276
+"""Is the 'Office hours' session being recorded?""",data-engineering-zoomcamp,data-engineering-zoomcamp,"I can’t attend the “Office hours” / workshop, will it be recorded?",Yes! Every “Office Hours” will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want.,True,364.12695
+"""Could you tell me if 'Office hours' is being recorded?""",data-engineering-zoomcamp,data-engineering-zoomcamp,"I can’t attend the “Office hours” / workshop, will it be recorded?",Yes! Every “Office Hours” will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want.,True,337.04346
+"""Would you be able to record 'Office hours'?""",data-engineering-zoomcamp,data-engineering-zoomcamp,"I can’t attend the “Office hours” / workshop, will it be recorded?",Yes! Every “Office Hours” will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want.,True,278.31552
+"""Is there a plan to record 'Office hours'?""",data-engineering-zoomcamp,data-engineering-zoomcamp,"I can’t attend the “Office hours” / workshop, will it be recorded?",Yes! Every “Office Hours” will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want.,True,213.91028
+"""When will 'Office hours' be recorded?""",data-engineering-zoomcamp,data-engineering-zoomcamp,"I can’t attend the “Office hours” / workshop, will it be recorded?",Yes! Every “Office Hours” will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want.,True,489.33823
+When are my assignments due?,data-engineering-zoomcamp,data-engineering-zoomcamp,How is my capstone project going to be evaluated?,"Each submitted project will be evaluated by 3 (three) randomly assigned students that have also submitted the project.
+You will also be responsible for grading the projects from 3 fellow students your",False,84.00583
+When should I submit my projects?,data-engineering-zoomcamp,data-engineering-zoomcamp,"Should I use my local machine, GCP, or GitHub Codespaces for my environment?","You can set it up on your laptop or PC if you prefer to work locally from your laptop or PC.
+You might face some challenges, especially for Windows users. If you face cnd2
+If you prefer to work on the",False,211.04132
+What's the deadline for my homework?,data-engineering-zoomcamp,data-engineering-zoomcamp,What is the homework URL in the homework link?,"Answer: In short, it’s your repository on github, gitlab, bitbucket, etc
+In long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you",False,143.03397
+When do I need to turn in my assignments?,data-engineering-zoomcamp,data-engineering-zoomcamp,Do I need to delete my instance in Google Cloud?,"In this lecture, Alexey deleted his instance in Google Cloud. Do I have to do it?
+Nope. Do not delete your instance in Google Cloud platform. Otherwise, you have to do this twice for the week 1 readin",False,329.05988
+When are the due dates for my projects?,data-engineering-zoomcamp,data-engineering-zoomcamp,Pandas parsing dates with ‘read_csv’,"Pandas can interpret “string” column values as “datetime” directly when reading the CSV file using “pd.read_csv” using the parameter “parse_dates”, which for example can contain a list of column names",False,161.53828
+Is it okay to hand in homework late?,data-engineering-zoomcamp,data-engineering-zoomcamp,Are late submissions of homework allowed?,"No, late submissions are not allowed. But if the form is still not closed and it’s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course pa",True,228.43883
+Are there any exceptions to the homework deadline?,data-engineering-zoomcamp,data-engineering-zoomcamp,Are late submissions of homework allowed?,"No, late submissions are not allowed. But if the form is still not closed and it’s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course pa",True,165.94226
+When is it acceptable to submit homework after the deadline?,data-engineering-zoomcamp,data-engineering-zoomcamp,What is the homework URL in the homework link?,"Answer: In short, it’s your repository on github, gitlab, bitbucket, etc
+In long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you",False,187.98376
+Are there any policies regarding late homework submissions?,data-engineering-zoomcamp,data-engineering-zoomcamp,Are late submissions of homework allowed?,"No, late submissions are not allowed. But if the form is still not closed and it’s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course pa",True,460.89078
+When can I submit my homework after the deadline?,data-engineering-zoomcamp,data-engineering-zoomcamp,Can I still join the course after the start date?,"Yes, even if you don't register, you're still eligible to submit the homeworks.
+Be aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the las",False,216.11649
+Could you tell me the homework URL?,data-engineering-zoomcamp,data-engineering-zoomcamp,What is the homework URL in the homework link?,"Answer: In short, it’s your repository on github, gitlab, bitbucket, etc
+In long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you",True,246.3576
+What's the link for the homework assignment?,data-engineering-zoomcamp,data-engineering-zoomcamp,What is the homework URL in the homework link?,"Answer: In short, it’s your repository on github, gitlab, bitbucket, etc
+In long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you",True,293.96765
+Where can I find the homework URL?,data-engineering-zoomcamp,data-engineering-zoomcamp,What is the homework URL in the homework link?,"Answer: In short, it’s your repository on github, gitlab, bitbucket, etc
+In long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you",True,246.3576
+How do I access the homework link?,data-engineering-zoomcamp,data-engineering-zoomcamp,What is the homework URL in the homework link?,"Answer: In short, it’s your repository on github, gitlab, bitbucket, etc
+In long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you",True,253.98314
+What's the direct link to the homework assignment?,data-engineering-zoomcamp,data-engineering-zoomcamp,What is the homework URL in the homework link?,"Answer: In short, it’s your repository on github, gitlab, bitbucket, etc
+In long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you",True,293.96765
+How's the point system set up in this platform?,data-engineering-zoomcamp,data-engineering-zoomcamp,what is the system for points in the course management platform?,After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally ,True,272.62646
+Could you explain the point system in this course management tool?,data-engineering-zoomcamp,data-engineering-zoomcamp,what is the system for points in the course management platform?,After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally ,True,349.29294
+What are the rules for points in this platform's course management?,data-engineering-zoomcamp,data-engineering-zoomcamp,what is the system for points in the course management platform?,After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally ,True,481.60605
+How does the point system work in this platform for course management?,data-engineering-zoomcamp,data-engineering-zoomcamp,what is the system for points in the course management platform?,After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally ,True,503.885
+What are the details of the point system in this course management platform?,data-engineering-zoomcamp,data-engineering-zoomcamp,what is the system for points in the course management platform?,After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally ,True,558.42804
+"""I'm not on the leaderboard. How can I get there?""",data-engineering-zoomcamp,data-engineering-zoomcamp,I am not on the leaderboard / how do I know which one I am on the leaderboard?,"When you set up your account you are automatically assigned a random name such as “Lucid Elbakyan” for example. If you want to see what your Display name is.
+Go to the Homework submission link →  http",True,352.07733
+"""I can't find my spot on the leaderboard. Help?""",data-engineering-zoomcamp,data-engineering-zoomcamp,I am not on the leaderboard / how do I know which one I am on the leaderboard?,"When you set up your account you are automatically assigned a random name such as “Lucid Elbakyan” for example. If you want to see what your Display name is.
+Go to the Homework submission link →  http",True,288.86237
+"""I'm not seeing my name on the leaderboard. What's up?""",data-engineering-zoomcamp,data-engineering-zoomcamp,I am not on the leaderboard / how do I know which one I am on the leaderboard?,"When you set up your account you are automatically assigned a random name such as “Lucid Elbakyan” for example. If you want to see what your Display name is.
+Go to the Homework submission link →  http",True,256.32016
+"""I'm not sure if I'm on the leaderboard. How do I check?""",data-engineering-zoomcamp,data-engineering-zoomcamp,I am not on the leaderboard / how do I know which one I am on the leaderboard?,"When you set up your account you are automatically assigned a random name such as “Lucid Elbakyan” for example. If you want to see what your Display name is.
+Go to the Homework submission link →  http",True,397.0103
+"""I'm not on the leaderboard. How do I get there?""",data-engineering-zoomcamp,data-engineering-zoomcamp,I am not on the leaderboard / how do I know which one I am on the leaderboard?,"When you set up your account you are automatically assigned a random name such as “Lucid Elbakyan” for example. If you want to see what your Display name is.
+Go to the Homework submission link →  http",True,397.0103
+Which Python version should I use in 2024?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is Python 3.9 still the recommended version to use in 2024?,"Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]
+But Python 3.10 and 3.11 should work fine.",True,346.54352
+What's the recommended Python version for 2024?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is Python 3.9 still the recommended version to use in 2024?,"Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]
+But Python 3.10 and 3.11 should work fine.",True,408.5397
+Is Python 3.9 still the best choice for 2024?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is Python 3.9 still the recommended version to use in 2024?,"Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]
+But Python 3.10 and 3.11 should work fine.",True,458.55737
+What's the current recommendation for Python in 2024?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is Python 3.9 still the recommended version to use in 2024?,"Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]
+But Python 3.10 and 3.11 should work fine.",True,239.51692
+How should I update my Python version for 2024?,data-engineering-zoomcamp,data-engineering-zoomcamp,Is Python 3.9 still the recommended version to use in 2024?,"Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]
+But Python 3.10 and 3.11 should work fine.",True,258.32306

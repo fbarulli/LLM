@@ -1,0 +1,12 @@
+{
+    "es_host": "http://localhost:9200",
+    "index_name": "course-questions-vector",
+    "search_type": "vector",
+    "use_vector": true,
+    "use_cache": true,
+    "cache_threshold": 0.95,
+    "redis_host": "localhost",
+    "embedding_model": "all-MiniLM-L6-v2",
+    "boost_question": 1.0,
+    "boost_text": 1.0
+}

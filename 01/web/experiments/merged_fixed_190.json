@@ -1,0 +1,952 @@
+[
+  {
+    "query": "What's the scheduled start date for the course?",
+    "expected_id": "99e9b6dab2ba7735f46b9a336f9aa501",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When does the course begin and what's the plan?",
+    "expected_id": "99e9b6dab2ba7735f46b9a336f9aa501",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Can you tell me when the course is set to start?",
+    "expected_id": "99e9b6dab2ba7735f46b9a336f9aa501",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What do I need to know before taking this course?",
+    "expected_id": "a0ec1082f599e540ff13544a97505e8a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Are there any specific requirements to enroll in this class?",
+    "expected_id": "a0ec1082f599e540ff13544a97505e8a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What background knowledge is necessary for this course?",
+    "expected_id": "a0ec1082f599e540ff13544a97505e8a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is it possible to enroll in the course after the initial start date?",
+    "expected_id": "2377feef9b2e4d76a9549965a756eb71",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Can I still sign up for the course even though it's already begun?",
+    "expected_id": "2377feef9b2e4d76a9549965a756eb71",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Are late registrations accepted for the course, or is it too late?",
+    "expected_id": "2377feef9b2e4d76a9549965a756eb71",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "I signed up for the Data Engineering Bootcamp - when's the confirmation email?",
+    "expected_id": "34a4df0dcbb490bdb6d22d297a371a2a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Can I get a confirmation email for the Data Engineering Bootcamp registration?",
+    "expected_id": "34a4df0dcbb490bdb6d22d297a371a2a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When will I get the confirmation email after enrolling in the bootcamp?",
+    "expected_id": "34a4df0dcbb490bdb6d22d297a371a2a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What are the pre-course steps I need to take?",
+    "expected_id": "393ba6526e56a4e531413adaf596ff0f",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is there anything I should do before the course begins?",
+    "expected_id": "393ba6526e56a4e531413adaf596ff0f",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What preparations should I make before the course starts?",
+    "expected_id": "393ba6526e56a4e531413adaf596ff0f",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How often does Zoomcamp take place throughout the year?",
+    "expected_id": "6909becfe095edd157ab8ec1f7b3969c",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Are there multiple Zoomcamp sessions in a single year?",
+    "expected_id": "6909becfe095edd157ab8ec1f7b3969c",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How many times does Zoomcamp happen annually?",
+    "expected_id": "6909becfe095edd157ab8ec1f7b3969c",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Will the new group be distinct from the one before it?",
+    "expected_id": "f78886c65533b7890512718ab8dc5ea5",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How will the current group compare to the previous one?",
+    "expected_id": "f78886c65533b7890512718ab8dc5ea5",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Are there any changes in store for the upcoming group?",
+    "expected_id": "f78886c65533b7890512718ab8dc5ea5",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What happens after the course is completed?",
+    "expected_id": "d1eaabb6ca61fe0fbb8bd90baebadf1d",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Can I still access the course material after it's over?",
+    "expected_id": "d1eaabb6ca61fe0fbb8bd90baebadf1d",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Do you offer any follow-up resources after the course ends?",
+    "expected_id": "d1eaabb6ca61fe0fbb8bd90baebadf1d",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What kind of help is available for self-paced course participants?",
+    "expected_id": "73dcb8c55b4c89041ac13187d2461c37",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Do you offer support for students taking the course at their own pace?",
+    "expected_id": "73dcb8c55b4c89041ac13187d2461c37",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Can I get assistance if I'm not in a traditional classroom setting?",
+    "expected_id": "73dcb8c55b4c89041ac13187d2461c37",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the best YouTube playlist for me to check out?",
+    "expected_id": "2f2d12e1e5812403024e0a9833ca9c4e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Can you recommend a popular YouTube playlist for me?",
+    "expected_id": "2f2d12e1e5812403024e0a9833ca9c4e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Which YouTube playlist is a must-watch for music enthusiasts?",
+    "expected_id": "2f2d12e1e5812403024e0a9833ca9c4e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the process for getting started?",
+    "expected_id": "4de7809739211cb9919833bdc35ed25b",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Can you walk me through the registration process?",
+    "expected_id": "4de7809739211cb9919833bdc35ed25b",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "How do I create an account?",
+    "expected_id": "4de7809739211cb9919833bdc35ed25b",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What happens if I have to skip a class?",
+    "expected_id": "1b7427b436153794176d21f0775105ab",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What's the plan if I miss a meeting or session?",
+    "expected_id": "1b7427b436153794176d21f0775105ab",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What if I'm unable to attend a scheduled session?",
+    "expected_id": "1b7427b436153794176d21f0775105ab",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What percentage of the course will be dedicated to theoretical concepts?",
+    "expected_id": "3d68f8246ed79b17b3a96d9b104e1a06",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Can you give me an idea of the theoretical content?",
+    "expected_id": "3d68f8246ed79b17b3a96d9b104e1a06",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "How much of the material will be based on theory?",
+    "expected_id": "3d68f8246ed79b17b3a96d9b104e1a06",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "I'm not great at math - can I still enroll in the class?",
+    "expected_id": "277936e1b42ed84367d905fb676b595d",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Do you offer math courses for people who struggle with the subject?",
+    "expected_id": "277936e1b42ed84367d905fb676b595d",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Is it possible to take a math course even if I'm not confident?",
+    "expected_id": "277936e1b42ed84367d905fb676b595d",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "I submitted the form, but haven't gotten a confirmation email yet - is that typical?",
+    "expected_id": "b116b9c6279a2237efe851da11c9ce05",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Should I be worried if I haven't received a confirmation email after submitting the form?",
+    "expected_id": "b116b9c6279a2237efe851da11c9ce05",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "I just filled out the form, but no confirmation email has arrived - is this normal?",
+    "expected_id": "b116b9c6279a2237efe851da11c9ce05",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What's the duration of the course?",
+    "expected_id": "70d5b6c1967a92688a74a25a38e9183e",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "How many hours does the course last?",
+    "expected_id": "70d5b6c1967a92688a74a25a38e9183e",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What's the length of the course program?",
+    "expected_id": "70d5b6c1967a92688a74a25a38e9183e",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What's the estimated time commitment for this course?",
+    "expected_id": "db95f52abbb744df0e4aa992b0f608ea",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "How long will it take to complete this course?",
+    "expected_id": "db95f52abbb744df0e4aa992b0f608ea",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What's the typical time frame for finishing this course?",
+    "expected_id": "db95f52abbb744df0e4aa992b0f608ea",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Do I receive a certificate after completing the course?",
+    "expected_id": "0e7bcc56990d97dc2b7ad75345acd312",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Will I get a certificate of completion at the end?",
+    "expected_id": "0e7bcc56990d97dc2b7ad75345acd312",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Can I expect a certificate once I finish the program?",
+    "expected_id": "0e7bcc56990d97dc2b7ad75345acd312",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Do I still get a certificate if I missed the midterm project?",
+    "expected_id": "4d4c4dbf5ca295abbbd4adb3bc37685a",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Will I receive a certificate if I didn't complete the midterm project?",
+    "expected_id": "4d4c4dbf5ca295abbbd4adb3bc37685a",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "Can I still get a certificate even if I missed the midterm assignment?",
+    "expected_id": "4d4c4dbf5ca295abbbd4adb3bc37685a",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What's the bare minimum I need to know about Python?",
+    "expected_id": "14aca485637bf99a5bad3f03b84d91c5",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "How much Python programming do I need to be proficient?",
+    "expected_id": "14aca485637bf99a5bad3f03b84d91c5",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "What's the essential knowledge I should have in Python?",
+    "expected_id": "14aca485637bf99a5bad3f03b84d91c5",
+    "expected_course": "machine-learning-zoomcamp"
+  },
+  {
+    "query": "How do I structure a question about a specific problem?",
+    "expected_id": "f241f512e9161835e9749408dcc2e17e",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "What's the best way to format a question about a particular issue?",
+    "expected_id": "f241f512e9161835e9749408dcc2e17e",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "How can I write a clear and concise question about a specific topic?",
+    "expected_id": "f241f512e9161835e9749408dcc2e17e",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "How long does each module take to complete in these courses?",
+    "expected_id": "1333476331e4c04bd58f9dffc0f116e0",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "What's the typical time frame for finishing each module?",
+    "expected_id": "1333476331e4c04bd58f9dffc0f116e0",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Can you give me an idea of the module duration for each course?",
+    "expected_id": "1333476331e4c04bd58f9dffc0f116e0",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "How do the 2023 and 2022 courses compare to each other?",
+    "expected_id": "4f9b8d6ec2008843db3f7f63129fdeb8",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "What are the main changes between the 2023 and 2022 courses?",
+    "expected_id": "4f9b8d6ec2008843db3f7f63129fdeb8",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "What's new in the 2023 course compared to the 2022 one?",
+    "expected_id": "4f9b8d6ec2008843db3f7f63129fdeb8",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Are you planning to offer a 2024 program or intake?",
+    "expected_id": "a60302f9270595d1b867f11cd02bc240",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "When does the 2024 program or course start accepting students?",
+    "expected_id": "a60302f9270595d1b867f11cd02bc240",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Will there be a new intake or cohort in 2024?",
+    "expected_id": "a60302f9270595d1b867f11cd02bc240",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "What if my response doesn't match any of the given options exactly?",
+    "expected_id": "034aac0f3684499f2ea87af8181c34de",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Can I provide an answer that's not listed among the choices?",
+    "expected_id": "034aac0f3684499f2ea87af8181c34de",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "How do I handle a response that doesn't fit the given choices?",
+    "expected_id": "034aac0f3684499f2ea87af8181c34de",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Can we pick our own subjects for the final project?",
+    "expected_id": "907b679740e3db31e30ae2577bf33605",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Do we get to choose the topic for the final assignment?",
+    "expected_id": "907b679740e3db31e30ae2577bf33605",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Is it okay if we select our own project themes?",
+    "expected_id": "907b679740e3db31e30ae2577bf33605",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Will I still be able to graduate if I missed a week's homework?",
+    "expected_id": "40f25da4b28c1655554998eac3c00c53",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Can I still meet the graduation requirements if I'm behind on homework?",
+    "expected_id": "40f25da4b28c1655554998eac3c00c53",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Am I in trouble for not finishing homework and still graduating?",
+    "expected_id": "40f25da4b28c1655554998eac3c00c53",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Do we need to host our final project online?",
+    "expected_id": "c11a679b8a17d5b9dd0b2f84346de31b",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Is cloud hosting a requirement for the final project submission?",
+    "expected_id": "c11a679b8a17d5b9dd0b2f84346de31b",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Can we keep our final project on our local computers?",
+    "expected_id": "c11a679b8a17d5b9dd0b2f84346de31b",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "How can I set up port forwarding without using Visual Studio?",
+    "expected_id": "c2cf08a0332e42e6b4340a7bf2b36b66",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Is there a way to forward ports without relying on Visual Studio?",
+    "expected_id": "c2cf08a0332e42e6b4340a7bf2b36b66",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Can I configure port forwarding in a Visual Studio-free environment?",
+    "expected_id": "c2cf08a0332e42e6b4340a7bf2b36b66",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "How do I launch Jupyter notebooks from within VSCode?",
+    "expected_id": "7c64d2c1861076a701f548463dcd4007",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "Can I integrate Jupyter with VSCode for a smoother experience?",
+    "expected_id": "7c64d2c1861076a701f548463dcd4007",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "What's the process for opening Jupyter notebooks in VSCode?",
+    "expected_id": "7c64d2c1861076a701f548463dcd4007",
+    "expected_course": "mlops-zoomcamp"
+  },
+  {
+    "query": "When does the course begin?",
+    "expected_id": "99e9b6dab2ba7735f46b9a336f9aa501",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the start date for the course?",
+    "expected_id": "99e9b6dab2ba7735f46b9a336f9aa501",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When does the course's term begin?",
+    "expected_id": "99e9b6dab2ba7735f46b9a336f9aa501",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When does the course's first session start?",
+    "expected_id": "99e9b6dab2ba7735f46b9a336f9aa501",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When does the course's academic year commence?",
+    "expected_id": "99e9b6dab2ba7735f46b9a336f9aa501",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's required to take this course?",
+    "expected_id": "a0ec1082f599e540ff13544a97505e8a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's needed for enrollment?",
+    "expected_id": "a0ec1082f599e540ff13544a97505e8a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the prerequisite checklist?",
+    "expected_id": "a0ec1082f599e540ff13544a97505e8a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the prerequisite info?",
+    "expected_id": "a0ec1082f599e540ff13544a97505e8a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the prerequisite setup?",
+    "expected_id": "a0ec1082f599e540ff13544a97505e8a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is it too late to enroll?",
+    "expected_id": "2377feef9b2e4d76a9549965a756eb71",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Can I catch up with the class?",
+    "expected_id": "2377feef9b2e4d76a9549965a756eb71",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is the course open for late applicants?",
+    "expected_id": "2377feef9b2e4d76a9549965a756eb71",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is it possible to join after the start date?",
+    "expected_id": "2377feef9b2e4d76a9549965a756eb71",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is there a way to join after the course has begun?",
+    "expected_id": "2377feef9b2e4d76a9549965a756eb71",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When can I expect the confirmation email?",
+    "expected_id": "34a4df0dcbb490bdb6d22d297a371a2a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When will I get the confirmation email?",
+    "expected_id": "34a4df0dcbb490bdb6d22d297a371a2a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When can I expect the email with confirmation?",
+    "expected_id": "34a4df0dcbb490bdb6d22d297a371a2a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When will I receive the confirmation email?",
+    "expected_id": "34a4df0dcbb490bdb6d22d297a371a2a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When can I expect the confirmation email to arrive?",
+    "expected_id": "34a4df0dcbb490bdb6d22d297a371a2a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the prep for the course?",
+    "expected_id": "393ba6526e56a4e531413adaf596ff0f",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What should I do before class?",
+    "expected_id": "393ba6526e56a4e531413adaf596ff0f",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the course's start routine?",
+    "expected_id": "393ba6526e56a4e531413adaf596ff0f",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the pre-course process?",
+    "expected_id": "393ba6526e56a4e531413adaf596ff0f",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What should I do before the course begins?",
+    "expected_id": "393ba6526e56a4e531413adaf596ff0f",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How many Zoom camps are there in a year?",
+    "expected_id": "6909becfe095edd157ab8ec1f7b3969c",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How frequently are Zoom camps held in a year?",
+    "expected_id": "6909becfe095edd157ab8ec1f7b3969c",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the annual frequency of Zoom camps?",
+    "expected_id": "6909becfe095edd157ab8ec1f7b3969c",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How many Zoom camps take place in a year?",
+    "expected_id": "6909becfe095edd157ab8ec1f7b3969c",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How often do Zoom camps happen in a year?",
+    "expected_id": "6909becfe095edd157ab8ec1f7b3969c",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How distinct will the current group be from the prior one?",
+    "expected_id": "f78886c65533b7890512718ab8dc5ea5",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Will the new cohort vary from the previous one?",
+    "expected_id": "f78886c65533b7890512718ab8dc5ea5",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the difference between the current cohort and the previous one?",
+    "expected_id": "f78886c65533b7890512718ab8dc5ea5",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How unique is the current cohort compared to the previous one?",
+    "expected_id": "f78886c65533b7890512718ab8dc5ea5",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What makes the current cohort different from the previous one?",
+    "expected_id": "f78886c65533b7890512718ab8dc5ea5",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "After the course ends, can I keep learning?",
+    "expected_id": "d1eaabb6ca61fe0fbb8bd90baebadf1d",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is it possible to continue with the course after it's over?",
+    "expected_id": "d1eaabb6ca61fe0fbb8bd90baebadf1d",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "May I follow the course after it's complete?",
+    "expected_id": "d1eaabb6ca61fe0fbb8bd90baebadf1d",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Can I still access the course after it's finished?",
+    "expected_id": "d1eaabb6ca61fe0fbb8bd90baebadf1d",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is it okay to follow the course after it's done?",
+    "expected_id": "d1eaabb6ca61fe0fbb8bd90baebadf1d",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How can I get help if I choose the self-paced option?",
+    "expected_id": "73dcb8c55b4c89041ac13187d2461c37",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What resources are available for support when taking the course in self-paced mode?",
+    "expected_id": "73dcb8c55b4c89041ac13187d2461c37",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How can I access assistance if I opt for the self-paced course?",
+    "expected_id": "73dcb8c55b4c89041ac13187d2461c37",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What kind of support can I expect if I enroll in the self-paced course?",
+    "expected_id": "73dcb8c55b4c89041ac13187d2461c37",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How do I get help if I decide to learn at my own pace?",
+    "expected_id": "73dcb8c55b4c89041ac13187d2461c37",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the best playlist on YouTube?",
+    "expected_id": "2f2d12e1e5812403024e0a9833ca9c4e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Which playlist would you suggest?",
+    "expected_id": "2f2d12e1e5812403024e0a9833ca9c4e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Could you recommend a playlist?",
+    "expected_id": "2f2d12e1e5812403024e0a9833ca9c4e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the go-to playlist?",
+    "expected_id": "2f2d12e1e5812403024e0a9833ca9c4e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the current hot playlist?",
+    "expected_id": "2f2d12e1e5812403024e0a9833ca9c4e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How much time weekly is needed for this course?",
+    "expected_id": "eef02a01bdf52ba0cf1a08dd5ddc96dc",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the weekly time commitment for this course?",
+    "expected_id": "eef02a01bdf52ba0cf1a08dd5ddc96dc",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How many hours per week should I dedicate to this course?",
+    "expected_id": "eef02a01bdf52ba0cf1a08dd5ddc96dc",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How often should I dedicate time to this course each week?",
+    "expected_id": "eef02a01bdf52ba0cf1a08dd5ddc96dc",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the weekly study plan for this course?",
+    "expected_id": "eef02a01bdf52ba0cf1a08dd5ddc96dc",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How can I learn at my own speed and earn a certificate?",
+    "expected_id": "bf06d8f3436e7edb9dfdb75c55db9717",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the process for getting a certificate while I go at my own pace?",
+    "expected_id": "bf06d8f3436e7edb9dfdb75c55db9717",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How do I follow the course and get a certificate without a specific schedule?",
+    "expected_id": "bf06d8f3436e7edb9dfdb75c55db9717",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is there a way to complete the course and get a certificate without a time limit?",
+    "expected_id": "bf06d8f3436e7edb9dfdb75c55db9717",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Can I learn and get a certificate in a flexible, self-directed manner?",
+    "expected_id": "bf06d8f3436e7edb9dfdb75c55db9717",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Could you provide the link for the video/zoom stream of the \"Office Hour\"?",
+    "expected_id": "72ecab75a627dd66cee141e4bf1b4c9e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the connection for the virtual \"Office Hour\" sessions?",
+    "expected_id": "72ecab75a627dd66cee141e4bf1b4c9e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "The video/zoom link for the workshop sessions, please.",
+    "expected_id": "72ecab75a627dd66cee141e4bf1b4c9e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "The stream link for the \"Office Hour\" and workshop sessions.",
+    "expected_id": "72ecab75a627dd66cee141e4bf1b4c9e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "The video/zoom connection for the \"Office Hour\" and workshop sessions.",
+    "expected_id": "72ecab75a627dd66cee141e4bf1b4c9e",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"Is the 'Office hours' session being recorded?\"",
+    "expected_id": "8215ea1965818fb70c857a224a4eb5f0",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"Could you tell me if 'Office hours' is being recorded?\"",
+    "expected_id": "8215ea1965818fb70c857a224a4eb5f0",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"Would you be able to record 'Office hours'?\"",
+    "expected_id": "8215ea1965818fb70c857a224a4eb5f0",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"Is there a plan to record 'Office hours'?\"",
+    "expected_id": "8215ea1965818fb70c857a224a4eb5f0",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"When will 'Office hours' be recorded?\"",
+    "expected_id": "8215ea1965818fb70c857a224a4eb5f0",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When are my assignments due?",
+    "expected_id": "ed565fc18ec71eff46971fbd58840754",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When should I submit my projects?",
+    "expected_id": "ed565fc18ec71eff46971fbd58840754",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the deadline for my homework?",
+    "expected_id": "ed565fc18ec71eff46971fbd58840754",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When do I need to turn in my assignments?",
+    "expected_id": "ed565fc18ec71eff46971fbd58840754",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When are the due dates for my projects?",
+    "expected_id": "ed565fc18ec71eff46971fbd58840754",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is it okay to hand in homework late?",
+    "expected_id": "787109772f1bc4e1e127369bff2e6c35",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Are there any exceptions to the homework deadline?",
+    "expected_id": "787109772f1bc4e1e127369bff2e6c35",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When is it acceptable to submit homework after the deadline?",
+    "expected_id": "787109772f1bc4e1e127369bff2e6c35",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Are there any policies regarding late homework submissions?",
+    "expected_id": "787109772f1bc4e1e127369bff2e6c35",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "When can I submit my homework after the deadline?",
+    "expected_id": "787109772f1bc4e1e127369bff2e6c35",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Could you tell me the homework URL?",
+    "expected_id": "adb37dd0bd7f77100f47eb5d9d9fbec4",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the link for the homework assignment?",
+    "expected_id": "adb37dd0bd7f77100f47eb5d9d9fbec4",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Where can I find the homework URL?",
+    "expected_id": "adb37dd0bd7f77100f47eb5d9d9fbec4",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How do I access the homework link?",
+    "expected_id": "adb37dd0bd7f77100f47eb5d9d9fbec4",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the direct link to the homework assignment?",
+    "expected_id": "adb37dd0bd7f77100f47eb5d9d9fbec4",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How's the point system set up in this platform?",
+    "expected_id": "6c893f6bdaf8f08558e5a7ec0b881603",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Could you explain the point system in this course management tool?",
+    "expected_id": "6c893f6bdaf8f08558e5a7ec0b881603",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What are the rules for points in this platform's course management?",
+    "expected_id": "6c893f6bdaf8f08558e5a7ec0b881603",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How does the point system work in this platform for course management?",
+    "expected_id": "6c893f6bdaf8f08558e5a7ec0b881603",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What are the details of the point system in this course management platform?",
+    "expected_id": "6c893f6bdaf8f08558e5a7ec0b881603",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"I'm not on the leaderboard. How can I get there?\"",
+    "expected_id": "fafe00c19922efa3cb4411d4a5a5485a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"I can't find my spot on the leaderboard. Help?\"",
+    "expected_id": "fafe00c19922efa3cb4411d4a5a5485a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"I'm not seeing my name on the leaderboard. What's up?\"",
+    "expected_id": "fafe00c19922efa3cb4411d4a5a5485a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"I'm not sure if I'm on the leaderboard. How do I check?\"",
+    "expected_id": "fafe00c19922efa3cb4411d4a5a5485a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "\"I'm not on the leaderboard. How do I get there?\"",
+    "expected_id": "fafe00c19922efa3cb4411d4a5a5485a",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Which Python version should I use in 2024?",
+    "expected_id": "63ebfc814c46ab9b46563b8b3669488b",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the recommended Python version for 2024?",
+    "expected_id": "63ebfc814c46ab9b46563b8b3669488b",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "Is Python 3.9 still the best choice for 2024?",
+    "expected_id": "63ebfc814c46ab9b46563b8b3669488b",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "What's the current recommendation for Python in 2024?",
+    "expected_id": "63ebfc814c46ab9b46563b8b3669488b",
+    "expected_course": "data-engineering-zoomcamp"
+  },
+  {
+    "query": "How should I update my Python version for 2024?",
+    "expected_id": "63ebfc814c46ab9b46563b8b3669488b",
+    "expected_course": "data-engineering-zoomcamp"
+  }
+]

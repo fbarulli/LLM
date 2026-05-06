@@ -1,0 +1,602 @@
+[
+  {
+    "query": "When does the course begin?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "When will the course start?",
+    "expected_text": "The purpose of this document is to capture frequently asked technical questions\nThe exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  \u201cOffice Hours'' live.1\nSubscribe to course public Google Calendar (it works from Desktop only).\nRegister before the course starts using this link.\nJoin the course Telegram channel with announcements.\nDon\u2019t forget to register in DataTalks.Club's Slack and join the channel."
+  },
+  {
+    "query": "What's the start date for the course?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "When will the course start?",
+    "expected_text": "The purpose of this document is to capture frequently asked technical questions\nThe exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  \u201cOffice Hours'' live.1\nSubscribe to course public Google Calendar (it works from Desktop only).\nRegister before the course starts using this link.\nJoin the course Telegram channel with announcements.\nDon\u2019t forget to register in DataTalks.Club's Slack and join the channel."
+  },
+  {
+    "query": "When does the course's term begin?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "When will the course start?",
+    "expected_text": "The purpose of this document is to capture frequently asked technical questions\nThe exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  \u201cOffice Hours'' live.1\nSubscribe to course public Google Calendar (it works from Desktop only).\nRegister before the course starts using this link.\nJoin the course Telegram channel with announcements.\nDon\u2019t forget to register in DataTalks.Club's Slack and join the channel."
+  },
+  {
+    "query": "When does the course's first session start?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "When will the course start?",
+    "expected_text": "The purpose of this document is to capture frequently asked technical questions\nThe exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  \u201cOffice Hours'' live.1\nSubscribe to course public Google Calendar (it works from Desktop only).\nRegister before the course starts using this link.\nJoin the course Telegram channel with announcements.\nDon\u2019t forget to register in DataTalks.Club's Slack and join the channel."
+  },
+  {
+    "query": "When does the course's academic year commence?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "When will the course start?",
+    "expected_text": "The purpose of this document is to capture frequently asked technical questions\nThe exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  \u201cOffice Hours'' live.1\nSubscribe to course public Google Calendar (it works from Desktop only).\nRegister before the course starts using this link.\nJoin the course Telegram channel with announcements.\nDon\u2019t forget to register in DataTalks.Club's Slack and join the channel."
+  },
+  {
+    "query": "What's required to take this course?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are the prerequisites for this course?",
+    "expected_text": "GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites"
+  },
+  {
+    "query": "What's needed for enrollment?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are the prerequisites for this course?",
+    "expected_text": "GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites"
+  },
+  {
+    "query": "What's the prerequisite checklist?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are the prerequisites for this course?",
+    "expected_text": "GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites"
+  },
+  {
+    "query": "What's the prerequisite info?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are the prerequisites for this course?",
+    "expected_text": "GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites"
+  },
+  {
+    "query": "What's the prerequisite setup?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are the prerequisites for this course?",
+    "expected_text": "GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites"
+  },
+  {
+    "query": "Is it too late to enroll?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I still join the course after the start date?",
+    "expected_text": "Yes, even if you don't register, you're still eligible to submit the homeworks.\nBe aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the last minute."
+  },
+  {
+    "query": "Can I catch up with the class?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I still join the course after the start date?",
+    "expected_text": "Yes, even if you don't register, you're still eligible to submit the homeworks.\nBe aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the last minute."
+  },
+  {
+    "query": "Is the course open for late applicants?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I still join the course after the start date?",
+    "expected_text": "Yes, even if you don't register, you're still eligible to submit the homeworks.\nBe aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the last minute."
+  },
+  {
+    "query": "Is it possible to join after the start date?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I still join the course after the start date?",
+    "expected_text": "Yes, even if you don't register, you're still eligible to submit the homeworks.\nBe aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the last minute."
+  },
+  {
+    "query": "Is there a way to join after the course has begun?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I still join the course after the start date?",
+    "expected_text": "Yes, even if you don't register, you're still eligible to submit the homeworks.\nBe aware, however, that there will be deadlines for turning in the final projects. So don't leave everything for the last minute."
+  },
+  {
+    "query": "When can I expect the confirmation email?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?",
+    "expected_text": "You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest before the start date."
+  },
+  {
+    "query": "When will I get the confirmation email?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?",
+    "expected_text": "You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest before the start date."
+  },
+  {
+    "query": "When can I expect the email with confirmation?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?",
+    "expected_text": "You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest before the start date."
+  },
+  {
+    "query": "When will I receive the confirmation email?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?",
+    "expected_text": "You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest before the start date."
+  },
+  {
+    "query": "When can I expect the confirmation email to arrive?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I have registered for the Data Engineering Bootcamp. When can I expect to receive the confirmation email?",
+    "expected_text": "You don't need it. You're accepted. You can also just start learning and submitting homework without registering. It is not checked against any registered list. Registration is just to gauge interest before the start date."
+  },
+  {
+    "query": "What's the prep for the course?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What can I do before the course starts?",
+    "expected_text": "You can start by installing and setting up all the dependencies and requirements:\nGoogle cloud account\nGoogle Cloud SDK\nPython 3 (installed with Anaconda)\nTerraform\nGit\nLook over the prerequisites and syllabus to see if you are comfortable with these subjects."
+  },
+  {
+    "query": "What should I do before class?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What can I do before the course starts?",
+    "expected_text": "You can start by installing and setting up all the dependencies and requirements:\nGoogle cloud account\nGoogle Cloud SDK\nPython 3 (installed with Anaconda)\nTerraform\nGit\nLook over the prerequisites and syllabus to see if you are comfortable with these subjects."
+  },
+  {
+    "query": "What's the course's start routine?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What can I do before the course starts?",
+    "expected_text": "You can start by installing and setting up all the dependencies and requirements:\nGoogle cloud account\nGoogle Cloud SDK\nPython 3 (installed with Anaconda)\nTerraform\nGit\nLook over the prerequisites and syllabus to see if you are comfortable with these subjects."
+  },
+  {
+    "query": "What's the pre-course process?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What can I do before the course starts?",
+    "expected_text": "You can start by installing and setting up all the dependencies and requirements:\nGoogle cloud account\nGoogle Cloud SDK\nPython 3 (installed with Anaconda)\nTerraform\nGit\nLook over the prerequisites and syllabus to see if you are comfortable with these subjects."
+  },
+  {
+    "query": "What should I do before the course begins?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What can I do before the course starts?",
+    "expected_text": "You can start by installing and setting up all the dependencies and requirements:\nGoogle cloud account\nGoogle Cloud SDK\nPython 3 (installed with Anaconda)\nTerraform\nGit\nLook over the prerequisites and syllabus to see if you are comfortable with these subjects."
+  },
+  {
+    "query": "How many Zoom camps are there in a year?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "how many Zoomcamps in a year?",
+    "expected_text": "There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:\nData-Engineering (Jan - Apr)\nMLOps (May - Aug)\nMachine Learning (Sep - Jan)\nThere's only one Data-Engineering Zoomcamp \u201clive\u201d cohort per year, for the certification. Same as for the other Zoomcamps.\nThey follow pretty much the same schedule for each cohort per zoomcamp. For Data-Engineering it is (generally) from Jan-Apr of the year. If you\u2019re not interested in the Certificate, you can take any zoom camps at any time, at your own pace, out of sync with any \u201clive\u201d cohort."
+  },
+  {
+    "query": "How frequently are Zoom camps held in a year?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "how many Zoomcamps in a year?",
+    "expected_text": "There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:\nData-Engineering (Jan - Apr)\nMLOps (May - Aug)\nMachine Learning (Sep - Jan)\nThere's only one Data-Engineering Zoomcamp \u201clive\u201d cohort per year, for the certification. Same as for the other Zoomcamps.\nThey follow pretty much the same schedule for each cohort per zoomcamp. For Data-Engineering it is (generally) from Jan-Apr of the year. If you\u2019re not interested in the Certificate, you can take any zoom camps at any time, at your own pace, out of sync with any \u201clive\u201d cohort."
+  },
+  {
+    "query": "What's the annual frequency of Zoom camps?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "how many Zoomcamps in a year?",
+    "expected_text": "There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:\nData-Engineering (Jan - Apr)\nMLOps (May - Aug)\nMachine Learning (Sep - Jan)\nThere's only one Data-Engineering Zoomcamp \u201clive\u201d cohort per year, for the certification. Same as for the other Zoomcamps.\nThey follow pretty much the same schedule for each cohort per zoomcamp. For Data-Engineering it is (generally) from Jan-Apr of the year. If you\u2019re not interested in the Certificate, you can take any zoom camps at any time, at your own pace, out of sync with any \u201clive\u201d cohort."
+  },
+  {
+    "query": "How many Zoom camps take place in a year?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "how many Zoomcamps in a year?",
+    "expected_text": "There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:\nData-Engineering (Jan - Apr)\nMLOps (May - Aug)\nMachine Learning (Sep - Jan)\nThere's only one Data-Engineering Zoomcamp \u201clive\u201d cohort per year, for the certification. Same as for the other Zoomcamps.\nThey follow pretty much the same schedule for each cohort per zoomcamp. For Data-Engineering it is (generally) from Jan-Apr of the year. If you\u2019re not interested in the Certificate, you can take any zoom camps at any time, at your own pace, out of sync with any \u201clive\u201d cohort."
+  },
+  {
+    "query": "How often do Zoom camps happen in a year?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "how many Zoomcamps in a year?",
+    "expected_text": "There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:\nData-Engineering (Jan - Apr)\nMLOps (May - Aug)\nMachine Learning (Sep - Jan)\nThere's only one Data-Engineering Zoomcamp \u201clive\u201d cohort per year, for the certification. Same as for the other Zoomcamps.\nThey follow pretty much the same schedule for each cohort per zoomcamp. For Data-Engineering it is (generally) from Jan-Apr of the year. If you\u2019re not interested in the Certificate, you can take any zoom camps at any time, at your own pace, out of sync with any \u201clive\u201d cohort."
+  },
+  {
+    "query": "How distinct will the current group be from the prior one?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is the current cohort going to be different from the previous cohort?",
+    "expected_text": "Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow.."
+  },
+  {
+    "query": "Will the new cohort vary from the previous one?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is the current cohort going to be different from the previous cohort?",
+    "expected_text": "Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow.."
+  },
+  {
+    "query": "What's the difference between the current cohort and the previous one?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is the current cohort going to be different from the previous cohort?",
+    "expected_text": "Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow.."
+  },
+  {
+    "query": "How unique is the current cohort compared to the previous one?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is the current cohort going to be different from the previous cohort?",
+    "expected_text": "Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow.."
+  },
+  {
+    "query": "What makes the current cohort different from the previous one?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is the current cohort going to be different from the previous cohort?",
+    "expected_text": "Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow.."
+  },
+  {
+    "query": "After the course ends, can I keep learning?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course after it finishes?",
+    "expected_text": "Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.\nYou can also continue looking at the homeworks and continue preparing for the next cohort. I guess you can also start working on your final capstone project."
+  },
+  {
+    "query": "Is it possible to continue with the course after it's over?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course after it finishes?",
+    "expected_text": "Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.\nYou can also continue looking at the homeworks and continue preparing for the next cohort. I guess you can also start working on your final capstone project."
+  },
+  {
+    "query": "May I follow the course after it's complete?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course after it finishes?",
+    "expected_text": "Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.\nYou can also continue looking at the homeworks and continue preparing for the next cohort. I guess you can also start working on your final capstone project."
+  },
+  {
+    "query": "Can I still access the course after it's finished?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course after it finishes?",
+    "expected_text": "Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.\nYou can also continue looking at the homeworks and continue preparing for the next cohort. I guess you can also start working on your final capstone project."
+  },
+  {
+    "query": "Is it okay to follow the course after it's done?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course after it finishes?",
+    "expected_text": "Yes, we will keep all the materials after the course finishes, so you can follow the course at your own pace after it finishes.\nYou can also continue looking at the homeworks and continue preparing for the next cohort. I guess you can also start working on your final capstone project."
+  },
+  {
+    "query": "How can I get help if I choose the self-paced option?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I get support if I take the course in the self-paced mode?",
+    "expected_text": "Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your questions are already answered here.\nYou can also tag the bot @ZoomcampQABot to help you conduct the search, but don\u2019t rely on its answers 100%, it is pretty good though."
+  },
+  {
+    "query": "What resources are available for support when taking the course in self-paced mode?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I get support if I take the course in the self-paced mode?",
+    "expected_text": "Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your questions are already answered here.\nYou can also tag the bot @ZoomcampQABot to help you conduct the search, but don\u2019t rely on its answers 100%, it is pretty good though."
+  },
+  {
+    "query": "How can I access assistance if I opt for the self-paced course?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I get support if I take the course in the self-paced mode?",
+    "expected_text": "Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your questions are already answered here.\nYou can also tag the bot @ZoomcampQABot to help you conduct the search, but don\u2019t rely on its answers 100%, it is pretty good though."
+  },
+  {
+    "query": "What kind of support can I expect if I enroll in the self-paced course?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I get support if I take the course in the self-paced mode?",
+    "expected_text": "Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your questions are already answered here.\nYou can also tag the bot @ZoomcampQABot to help you conduct the search, but don\u2019t rely on its answers 100%, it is pretty good though."
+  },
+  {
+    "query": "How do I get help if I decide to learn at my own pace?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I get support if I take the course in the self-paced mode?",
+    "expected_text": "Yes, the slack channel remains open and you can ask questions there. But always sDocker containers exit code w search the channel first and second, check the FAQ (this document), most likely all your questions are already answered here.\nYou can also tag the bot @ZoomcampQABot to help you conduct the search, but don\u2019t rely on its answers 100%, it is pretty good though."
+  },
+  {
+    "query": "What's the best playlist on YouTube?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Which playlist on YouTube should I refer to?",
+    "expected_text": "All the main videos are stored in the Main \u201cDATA ENGINEERING\u201d playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you directly to the same playlist below.\nBelow is the MAIN PLAYLIST\u2019. And then you refer to the year specific playlist for additional videos for that year like for office hours videos etc. Also find this playlist pinned to the slack channel.\nh\nttps://youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&si=NspQhtZhZQs1B9F-"
+  },
+  {
+    "query": "Which playlist would you suggest?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Which playlist on YouTube should I refer to?",
+    "expected_text": "All the main videos are stored in the Main \u201cDATA ENGINEERING\u201d playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you directly to the same playlist below.\nBelow is the MAIN PLAYLIST\u2019. And then you refer to the year specific playlist for additional videos for that year like for office hours videos etc. Also find this playlist pinned to the slack channel.\nh\nttps://youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&si=NspQhtZhZQs1B9F-"
+  },
+  {
+    "query": "Could you recommend a playlist?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Which playlist on YouTube should I refer to?",
+    "expected_text": "All the main videos are stored in the Main \u201cDATA ENGINEERING\u201d playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you directly to the same playlist below.\nBelow is the MAIN PLAYLIST\u2019. And then you refer to the year specific playlist for additional videos for that year like for office hours videos etc. Also find this playlist pinned to the slack channel.\nh\nttps://youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&si=NspQhtZhZQs1B9F-"
+  },
+  {
+    "query": "What's the go-to playlist?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Which playlist on YouTube should I refer to?",
+    "expected_text": "All the main videos are stored in the Main \u201cDATA ENGINEERING\u201d playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you directly to the same playlist below.\nBelow is the MAIN PLAYLIST\u2019. And then you refer to the year specific playlist for additional videos for that year like for office hours videos etc. Also find this playlist pinned to the slack channel.\nh\nttps://youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&si=NspQhtZhZQs1B9F-"
+  },
+  {
+    "query": "What's the current hot playlist?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Which playlist on YouTube should I refer to?",
+    "expected_text": "All the main videos are stored in the Main \u201cDATA ENGINEERING\u201d playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you directly to the same playlist below.\nBelow is the MAIN PLAYLIST\u2019. And then you refer to the year specific playlist for additional videos for that year like for office hours videos etc. Also find this playlist pinned to the slack channel.\nh\nttps://youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&si=NspQhtZhZQs1B9F-"
+  },
+  {
+    "query": "How much time weekly is needed for this course?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "\u200b\u200bHow many hours per week am I expected to spend on this  course?",
+    "expected_text": "It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]\nYou can also calculate it yourself using this data and then update this answer."
+  },
+  {
+    "query": "What's the weekly time commitment for this course?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "\u200b\u200bHow many hours per week am I expected to spend on this  course?",
+    "expected_text": "It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]\nYou can also calculate it yourself using this data and then update this answer."
+  },
+  {
+    "query": "How many hours per week should I dedicate to this course?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "\u200b\u200bHow many hours per week am I expected to spend on this  course?",
+    "expected_text": "It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]\nYou can also calculate it yourself using this data and then update this answer."
+  },
+  {
+    "query": "How often should I dedicate time to this course each week?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "\u200b\u200bHow many hours per week am I expected to spend on this  course?",
+    "expected_text": "It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]\nYou can also calculate it yourself using this data and then update this answer."
+  },
+  {
+    "query": "What's the weekly study plan for this course?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "\u200b\u200bHow many hours per week am I expected to spend on this  course?",
+    "expected_text": "It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week. [source1] [source2]\nYou can also calculate it yourself using this data and then update this answer."
+  },
+  {
+    "query": "How can I learn at my own speed and earn a certificate?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course in a self-paced mode and get a certificate?",
+    "expected_text": "No, you can only get a certificate if you finish the course with a \u201clive\u201d cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submitting a project. You can only peer-review projects at the time the course is running."
+  },
+  {
+    "query": "What's the process for getting a certificate while I go at my own pace?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course in a self-paced mode and get a certificate?",
+    "expected_text": "No, you can only get a certificate if you finish the course with a \u201clive\u201d cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submitting a project. You can only peer-review projects at the time the course is running."
+  },
+  {
+    "query": "How do I follow the course and get a certificate without a specific schedule?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course in a self-paced mode and get a certificate?",
+    "expected_text": "No, you can only get a certificate if you finish the course with a \u201clive\u201d cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submitting a project. You can only peer-review projects at the time the course is running."
+  },
+  {
+    "query": "Is there a way to complete the course and get a certificate without a time limit?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course in a self-paced mode and get a certificate?",
+    "expected_text": "No, you can only get a certificate if you finish the course with a \u201clive\u201d cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submitting a project. You can only peer-review projects at the time the course is running."
+  },
+  {
+    "query": "Can I learn and get a certificate in a flexible, self-directed manner?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Can I follow the course in a self-paced mode and get a certificate?",
+    "expected_text": "No, you can only get a certificate if you finish the course with a \u201clive\u201d cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submitting a project. You can only peer-review projects at the time the course is running."
+  },
+  {
+    "query": "Could you provide the link for the video/zoom stream of the \"Office Hour\"?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the video/zoom link to the stream for the \u201cOffice Hour\u201d or workshop sessions?",
+    "expected_text": "The zoom link is only published to instructors/presenters/TAs.\nStudents participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video URL should be posted in the announcements channel on Telegram & Slack before it begins. Also, you will see it live on the DataTalksClub YouTube Channel.\nDon\u2019t post your questions in chat as it would be off-screen before the instructors/moderators have a chance to answer it if the room is very active."
+  },
+  {
+    "query": "What's the connection for the virtual \"Office Hour\" sessions?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the video/zoom link to the stream for the \u201cOffice Hour\u201d or workshop sessions?",
+    "expected_text": "The zoom link is only published to instructors/presenters/TAs.\nStudents participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video URL should be posted in the announcements channel on Telegram & Slack before it begins. Also, you will see it live on the DataTalksClub YouTube Channel.\nDon\u2019t post your questions in chat as it would be off-screen before the instructors/moderators have a chance to answer it if the room is very active."
+  },
+  {
+    "query": "The video/zoom link for the workshop sessions, please.",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the video/zoom link to the stream for the \u201cOffice Hour\u201d or workshop sessions?",
+    "expected_text": "The zoom link is only published to instructors/presenters/TAs.\nStudents participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video URL should be posted in the announcements channel on Telegram & Slack before it begins. Also, you will see it live on the DataTalksClub YouTube Channel.\nDon\u2019t post your questions in chat as it would be off-screen before the instructors/moderators have a chance to answer it if the room is very active."
+  },
+  {
+    "query": "The stream link for the \"Office Hour\" and workshop sessions.",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the video/zoom link to the stream for the \u201cOffice Hour\u201d or workshop sessions?",
+    "expected_text": "The zoom link is only published to instructors/presenters/TAs.\nStudents participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video URL should be posted in the announcements channel on Telegram & Slack before it begins. Also, you will see it live on the DataTalksClub YouTube Channel.\nDon\u2019t post your questions in chat as it would be off-screen before the instructors/moderators have a chance to answer it if the room is very active."
+  },
+  {
+    "query": "The video/zoom connection for the \"Office Hour\" and workshop sessions.",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the video/zoom link to the stream for the \u201cOffice Hour\u201d or workshop sessions?",
+    "expected_text": "The zoom link is only published to instructors/presenters/TAs.\nStudents participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video URL should be posted in the announcements channel on Telegram & Slack before it begins. Also, you will see it live on the DataTalksClub YouTube Channel.\nDon\u2019t post your questions in chat as it would be off-screen before the instructors/moderators have a chance to answer it if the room is very active."
+  },
+  {
+    "query": "\"Is the 'Office hours' session being recorded?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I can\u2019t attend the \u201cOffice hours\u201d / workshop, will it be recorded?",
+    "expected_text": "Yes! Every \u201cOffice Hours\u201d will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want."
+  },
+  {
+    "query": "\"Could you tell me if 'Office hours' is being recorded?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I can\u2019t attend the \u201cOffice hours\u201d / workshop, will it be recorded?",
+    "expected_text": "Yes! Every \u201cOffice Hours\u201d will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want."
+  },
+  {
+    "query": "\"Would you be able to record 'Office hours'?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I can\u2019t attend the \u201cOffice hours\u201d / workshop, will it be recorded?",
+    "expected_text": "Yes! Every \u201cOffice Hours\u201d will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want."
+  },
+  {
+    "query": "\"Is there a plan to record 'Office hours'?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I can\u2019t attend the \u201cOffice hours\u201d / workshop, will it be recorded?",
+    "expected_text": "Yes! Every \u201cOffice Hours\u201d will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want."
+  },
+  {
+    "query": "\"When will 'Office hours' be recorded?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I can\u2019t attend the \u201cOffice hours\u201d / workshop, will it be recorded?",
+    "expected_text": "Yes! Every \u201cOffice Hours\u201d will be recorded and available a few minutes after the live session is over; so you can view (or rewatch) whenever you want."
+  },
+  {
+    "query": "When are my assignments due?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are homework and project deadlines?",
+    "expected_text": "You can find the latest and up-to-date deadlines here: https://docs.google.com/spreadsheets/d/e/2PACX-1vQACMLuutV5rvXg5qICuJGL-yZqIV0FBD84CxPdC5eZHf8TfzB-CJT_3Mo7U7oGVTXmSihPgQxuuoku/pubhtml\nAlso, take note of Announcements from @Au-Tomator for any extensions or other news. Or, the form may also show the updated deadline, if Instructor(s) has updated it."
+  },
+  {
+    "query": "When should I submit my projects?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are homework and project deadlines?",
+    "expected_text": "You can find the latest and up-to-date deadlines here: https://docs.google.com/spreadsheets/d/e/2PACX-1vQACMLuutV5rvXg5qICuJGL-yZqIV0FBD84CxPdC5eZHf8TfzB-CJT_3Mo7U7oGVTXmSihPgQxuuoku/pubhtml\nAlso, take note of Announcements from @Au-Tomator for any extensions or other news. Or, the form may also show the updated deadline, if Instructor(s) has updated it."
+  },
+  {
+    "query": "What's the deadline for my homework?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are homework and project deadlines?",
+    "expected_text": "You can find the latest and up-to-date deadlines here: https://docs.google.com/spreadsheets/d/e/2PACX-1vQACMLuutV5rvXg5qICuJGL-yZqIV0FBD84CxPdC5eZHf8TfzB-CJT_3Mo7U7oGVTXmSihPgQxuuoku/pubhtml\nAlso, take note of Announcements from @Au-Tomator for any extensions or other news. Or, the form may also show the updated deadline, if Instructor(s) has updated it."
+  },
+  {
+    "query": "When do I need to turn in my assignments?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are homework and project deadlines?",
+    "expected_text": "You can find the latest and up-to-date deadlines here: https://docs.google.com/spreadsheets/d/e/2PACX-1vQACMLuutV5rvXg5qICuJGL-yZqIV0FBD84CxPdC5eZHf8TfzB-CJT_3Mo7U7oGVTXmSihPgQxuuoku/pubhtml\nAlso, take note of Announcements from @Au-Tomator for any extensions or other news. Or, the form may also show the updated deadline, if Instructor(s) has updated it."
+  },
+  {
+    "query": "When are the due dates for my projects?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What are homework and project deadlines?",
+    "expected_text": "You can find the latest and up-to-date deadlines here: https://docs.google.com/spreadsheets/d/e/2PACX-1vQACMLuutV5rvXg5qICuJGL-yZqIV0FBD84CxPdC5eZHf8TfzB-CJT_3Mo7U7oGVTXmSihPgQxuuoku/pubhtml\nAlso, take note of Announcements from @Au-Tomator for any extensions or other news. Or, the form may also show the updated deadline, if Instructor(s) has updated it."
+  },
+  {
+    "query": "Is it okay to hand in homework late?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Are late submissions of homework allowed?",
+    "expected_text": "No, late submissions are not allowed. But if the form is still not closed and it\u2019s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course page.y\nOlder news:[source1] [source2]"
+  },
+  {
+    "query": "Are there any exceptions to the homework deadline?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Are late submissions of homework allowed?",
+    "expected_text": "No, late submissions are not allowed. But if the form is still not closed and it\u2019s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course page.y\nOlder news:[source1] [source2]"
+  },
+  {
+    "query": "When is it acceptable to submit homework after the deadline?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Are late submissions of homework allowed?",
+    "expected_text": "No, late submissions are not allowed. But if the form is still not closed and it\u2019s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course page.y\nOlder news:[source1] [source2]"
+  },
+  {
+    "query": "Are there any policies regarding late homework submissions?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Are late submissions of homework allowed?",
+    "expected_text": "No, late submissions are not allowed. But if the form is still not closed and it\u2019s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course page.y\nOlder news:[source1] [source2]"
+  },
+  {
+    "query": "When can I submit my homework after the deadline?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Are late submissions of homework allowed?",
+    "expected_text": "No, late submissions are not allowed. But if the form is still not closed and it\u2019s after the due date, you can still submit the homework. confirm your submission by the date-timestamp on the Course page.y\nOlder news:[source1] [source2]"
+  },
+  {
+    "query": "Could you tell me the homework URL?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the homework URL in the homework link?",
+    "expected_text": "Answer: In short, it\u2019s your repository on github, gitlab, bitbucket, etc\nIn long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you went through the week and exercises."
+  },
+  {
+    "query": "What's the link for the homework assignment?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the homework URL in the homework link?",
+    "expected_text": "Answer: In short, it\u2019s your repository on github, gitlab, bitbucket, etc\nIn long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you went through the week and exercises."
+  },
+  {
+    "query": "Where can I find the homework URL?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the homework URL in the homework link?",
+    "expected_text": "Answer: In short, it\u2019s your repository on github, gitlab, bitbucket, etc\nIn long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you went through the week and exercises."
+  },
+  {
+    "query": "How do I access the homework link?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the homework URL in the homework link?",
+    "expected_text": "Answer: In short, it\u2019s your repository on github, gitlab, bitbucket, etc\nIn long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you went through the week and exercises."
+  },
+  {
+    "query": "What's the direct link to the homework assignment?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "What is the homework URL in the homework link?",
+    "expected_text": "Answer: In short, it\u2019s your repository on github, gitlab, bitbucket, etc\nIn long, your repository or any other location you have your code where a reasonable person would look at it and think yes, you went through the week and exercises."
+  },
+  {
+    "query": "How's the point system set up in this platform?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "what is the system for points in the course management platform?",
+    "expected_text": "After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally in the leaderboard you will find the sum of all points you\u2019ve earned - points for Homeworks, FAQs and Learning in Public. If homework is clear, others work as follows: if you submit something to FAQ, you get one point, for each learning in a public link you get one point.\n(https://datatalks-club.slack.com/archives/C01FABYF2RG/p1706846846359379?thread_ts=1706825019.546229&cid=C01FABYF2RG)"
+  },
+  {
+    "query": "Could you explain the point system in this course management tool?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "what is the system for points in the course management platform?",
+    "expected_text": "After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally in the leaderboard you will find the sum of all points you\u2019ve earned - points for Homeworks, FAQs and Learning in Public. If homework is clear, others work as follows: if you submit something to FAQ, you get one point, for each learning in a public link you get one point.\n(https://datatalks-club.slack.com/archives/C01FABYF2RG/p1706846846359379?thread_ts=1706825019.546229&cid=C01FABYF2RG)"
+  },
+  {
+    "query": "What are the rules for points in this platform's course management?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "what is the system for points in the course management platform?",
+    "expected_text": "After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally in the leaderboard you will find the sum of all points you\u2019ve earned - points for Homeworks, FAQs and Learning in Public. If homework is clear, others work as follows: if you submit something to FAQ, you get one point, for each learning in a public link you get one point.\n(https://datatalks-club.slack.com/archives/C01FABYF2RG/p1706846846359379?thread_ts=1706825019.546229&cid=C01FABYF2RG)"
+  },
+  {
+    "query": "How does the point system work in this platform for course management?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "what is the system for points in the course management platform?",
+    "expected_text": "After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally in the leaderboard you will find the sum of all points you\u2019ve earned - points for Homeworks, FAQs and Learning in Public. If homework is clear, others work as follows: if you submit something to FAQ, you get one point, for each learning in a public link you get one point.\n(https://datatalks-club.slack.com/archives/C01FABYF2RG/p1706846846359379?thread_ts=1706825019.546229&cid=C01FABYF2RG)"
+  },
+  {
+    "query": "What are the details of the point system in this course management platform?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "what is the system for points in the course management platform?",
+    "expected_text": "After you submit your homework it will be graded based on the amount of questions in a particular homework. You can see how many points you have right on the page of the homework up top. Additionally in the leaderboard you will find the sum of all points you\u2019ve earned - points for Homeworks, FAQs and Learning in Public. If homework is clear, others work as follows: if you submit something to FAQ, you get one point, for each learning in a public link you get one point.\n(https://datatalks-club.slack.com/archives/C01FABYF2RG/p1706846846359379?thread_ts=1706825019.546229&cid=C01FABYF2RG)"
+  },
+  {
+    "query": "\"I'm not on the leaderboard. How can I get there?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I am not on the leaderboard / how do I know which one I am on the leaderboard?",
+    "expected_text": "When you set up your account you are automatically assigned a random name such as \u201cLucid Elbakyan\u201d for example. If you want to see what your Display name is.\nGo to the Homework submission link \u2192  https://courses.datatalks.club/de-zoomcamp-2024/homework/hw2 - Log in > Click on \u2018Data Engineering Zoom Camp 2024\u2019 > click on \u2018Edit Course Profile\u2019 - your display name is here, you can also change it should you wish:"
+  },
+  {
+    "query": "\"I can't find my spot on the leaderboard. Help?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I am not on the leaderboard / how do I know which one I am on the leaderboard?",
+    "expected_text": "When you set up your account you are automatically assigned a random name such as \u201cLucid Elbakyan\u201d for example. If you want to see what your Display name is.\nGo to the Homework submission link \u2192  https://courses.datatalks.club/de-zoomcamp-2024/homework/hw2 - Log in > Click on \u2018Data Engineering Zoom Camp 2024\u2019 > click on \u2018Edit Course Profile\u2019 - your display name is here, you can also change it should you wish:"
+  },
+  {
+    "query": "\"I'm not seeing my name on the leaderboard. What's up?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I am not on the leaderboard / how do I know which one I am on the leaderboard?",
+    "expected_text": "When you set up your account you are automatically assigned a random name such as \u201cLucid Elbakyan\u201d for example. If you want to see what your Display name is.\nGo to the Homework submission link \u2192  https://courses.datatalks.club/de-zoomcamp-2024/homework/hw2 - Log in > Click on \u2018Data Engineering Zoom Camp 2024\u2019 > click on \u2018Edit Course Profile\u2019 - your display name is here, you can also change it should you wish:"
+  },
+  {
+    "query": "\"I'm not sure if I'm on the leaderboard. How do I check?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I am not on the leaderboard / how do I know which one I am on the leaderboard?",
+    "expected_text": "When you set up your account you are automatically assigned a random name such as \u201cLucid Elbakyan\u201d for example. If you want to see what your Display name is.\nGo to the Homework submission link \u2192  https://courses.datatalks.club/de-zoomcamp-2024/homework/hw2 - Log in > Click on \u2018Data Engineering Zoom Camp 2024\u2019 > click on \u2018Edit Course Profile\u2019 - your display name is here, you can also change it should you wish:"
+  },
+  {
+    "query": "\"I'm not on the leaderboard. How do I get there?\"",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "I am not on the leaderboard / how do I know which one I am on the leaderboard?",
+    "expected_text": "When you set up your account you are automatically assigned a random name such as \u201cLucid Elbakyan\u201d for example. If you want to see what your Display name is.\nGo to the Homework submission link \u2192  https://courses.datatalks.club/de-zoomcamp-2024/homework/hw2 - Log in > Click on \u2018Data Engineering Zoom Camp 2024\u2019 > click on \u2018Edit Course Profile\u2019 - your display name is here, you can also change it should you wish:"
+  },
+  {
+    "query": "Which Python version should I use in 2024?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is Python 3.9 still the recommended version to use in 2024?",
+    "expected_text": "Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]\nBut Python 3.10 and 3.11 should work fine."
+  },
+  {
+    "query": "What's the recommended Python version for 2024?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is Python 3.9 still the recommended version to use in 2024?",
+    "expected_text": "Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]\nBut Python 3.10 and 3.11 should work fine."
+  },
+  {
+    "query": "Is Python 3.9 still the best choice for 2024?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is Python 3.9 still the recommended version to use in 2024?",
+    "expected_text": "Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]\nBut Python 3.10 and 3.11 should work fine."
+  },
+  {
+    "query": "What's the current recommendation for Python in 2024?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is Python 3.9 still the recommended version to use in 2024?",
+    "expected_text": "Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]\nBut Python 3.10 and 3.11 should work fine."
+  },
+  {
+    "query": "How should I update my Python version for 2024?",
+    "expected_course": "data-engineering-zoomcamp",
+    "original_question": "Is Python 3.9 still the recommended version to use in 2024?",
+    "expected_text": "Yes, for simplicity (of troubleshooting against the recorded videos) and stability. [source]\nBut Python 3.10 and 3.11 should work fine."
+  }
+]

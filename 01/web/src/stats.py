@@ -77,7 +77,7 @@ class StatsCollector:
                     "score": top_hit["_score"] if top_hit else 0.0,
                     "latency_ms": round(latency, 2),
                     "edit_distance": self._get_edit_distance(item["query"], found_text),
-                    "tokens_est": len(found_text) // 4
+                    "tokens_est": len(found_text) // 4,
                 })
 
         # --- ABSOLUTE PATH LOGIC ---
@@ -108,3 +108,37 @@ class StatsCollector:
             raise
 
         return filename
+
+    def evaluate_answer_quality(self, query: str, response: str, context: str) -> Dict[str, bool]:
+        """Evaluate answer quality using fast LLM-as-Judge."""
+        import litellm
+        import json
+        import re
+        
+        prompt = f"""Rate if the RESPONSE answers the QUESTION (relevant) and is truthful to the CONTEXT (faithful).
+
+QUESTION: {query}
+CONTEXT: {context[:300]}
+RESPONSE: {response[:300]}
+
+Return JSON: {{"relevant": true/false, "faithful": true/false}}"""
+        
+        try:
+            result = litellm.completion(
+                model="nvidia_nim/nvidia/nemotron-mini-4b-instruct",
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0,
+                max_tokens=100
+            )
+            result_text = result.choices[0].message.content
+            json_match = re.search(r'\{.*\}', result_text, re.DOTALL)
+            if json_match:
+                parsed = json.loads(json_match.group())
+                return {
+                    'faithful': parsed.get('faithful', False),
+                    'relevant': parsed.get('relevant', False)
+                }
+        except Exception as e:
+            logger.warning(f"Answer quality evaluation failed: {e}")
+        
+        return {'faithful': False, 'relevant': False}
