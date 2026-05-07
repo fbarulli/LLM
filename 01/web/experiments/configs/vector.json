@@ -1,0 +1,8 @@
+{
+    "name": "Vector",
+    "es_host": "http://localhost:9200",
+    "index_name": "datatalks-faqs",
+    "search_type": "vector",
+    "use_vector": true,
+    "embedding_model": "all-MiniLM-L6-v2"
+}

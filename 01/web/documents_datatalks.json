@@ -1,0 +1,1705 @@
+[
+  {
+    "course": "datatalks-zoomcamp",
+    "documents": [
+      {
+        "text": "Pandas Series)? sort_order: 5",
+        "section": "Technical FAQ",
+        "question": "How to compute the quantile or percentile of Pandas DataFrame column (or",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "found. Error loading \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\fbgemm.dll\" or one of its dependencies.' sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "'In Windows OS: OSError: [WinError 126] The specified module could not be",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "entire Explanation column content in the LLM-as-judge section of the offline-rag-evaluation notebook sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "How set Pandas to show entire text content in a column. Useful to view the",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "could not translate host name \"postgres\" to address: No such host is known. How do I fix this issue?' sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "'OperationalError when running python prep.py: psycopg2. OperationalError:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "from the terminal? sort_order: 6",
+        "section": "Technical FAQ",
+        "question": "How can I remove all Docker containers, images, and volumes, and builds",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "submission (+1 or -1). When I submit text using the ask button, the buttons should be disabled if `st.session.submitted` is False. The issue is mainly with `st.session.submitted`, which gets reassigned to True again despite one feedback button being pressed.' sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "'Session State: I want the user to only be able to give feedback once per",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: \"streamlit\": executable file not found in $PATH: unknown. The app runs fine outside of docker-compose' sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "'Docker: When trying to run a streamlit app using docker-compose, I get:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "questions with the LLM' sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "'Evaluation: \"JSONDecodeError: Expecting value\" when generating ground-truth",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "v3.0.0 bet'' how to suppress?' sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "'Warning: ''model \"multi-qa-mpnet-base-dot-v1\" was made on sentence transformers",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "embeddings and the query vector? sort_order: 6",
+        "section": "Technical FAQ",
+        "question": "Why does cosine similarity reduce to a matrix multiplication between the",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "but normalization is emphasized in the homework? sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "Why was .dot(...) used directly to compute cosine similarity in the lesson,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "the confirmation email?' sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "'Course: I have registered for the LLM Zoomcamp. When can I expect to receive",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "sessions? sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "What is the video/zoom link to the stream for the \u201cOffice Hours\u201d or live/workshop",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "available (Y.Y GiB). My system has more than X.X GiB.' sort_order: 11",
+        "section": "Technical FAQ",
+        "question": "'WSL2: ResponseError: model requires more system memory (X.X GiB) than is",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "on the leaderboard?' sort_order: 5",
+        "section": "Technical FAQ",
+        "question": "'Leaderboard: I am not on the leaderboard / how do I know which one I am",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "capstone?' sort_order: 8",
+        "section": "Technical FAQ",
+        "question": "'Project: do I need an orchestration tool (Airflow, Mage, Kestra) for the",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "chunking strategy?' sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "'Project: my corpus is large (long PDFs, many paragraphs). What''s a good",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "my API keys?' sort_order: 11",
+        "section": "Technical FAQ",
+        "question": "'Project: what does \"reproducibility\" mean \u2014 do reviewers need access to",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "truth)?' sort_order: 9",
+        "section": "Technical FAQ",
+        "question": "'Project: how do I evaluate a recommender-style RAG (no obvious Q&A ground",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "based on my research. How can we estimate the number of OpenAI tokens asked in homework question 6?' sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "'OpenSource: I am using Groq, and it doesn''t provide a tokenizer library",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "others? sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "Can I use the workshop materials for my own projects or share them with",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "for url: [api.notion.com](https://api.notion.com/v1/search)' sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "'Notebook does not have secret access or 401 Client Error: Unauthorized",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "required for lancedb?' sort_order: 8",
+        "section": "Technical FAQ",
+        "question": "'Error: How to fix requests library only installs v2.28 instead of v2.32",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "`FileNotFoundError: Table notion_pages___homework does not exist. Please first call db.create_table(notion_pages___homework, data)`' sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "'There is an error when opening the table using `dbtable = db.open_table(\"notion_pages___homework\")`:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "does not exist. Please first call db.create_table(notion_pages___homework, data)' sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "'There is an error when running main(): FileNotFoundError: Table notion_pages___homework",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "asyncio.run() from Jupyter' sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "'Agents: \"RuntimeError: Already running asyncio in this thread\" when calling",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "using OpenAI''s Responses API on a non-OpenAI model' sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "'Agents: \"AttributeError: ''str'' object has no attribute ''output''\" when",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a number. Isn\u2019t float a number? sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "I passed a float to my tool, but got a validation error saying it expected",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "400 - {''error'': {''message'': \"Missing required parameter: ''tools[0].function''.\", ''type'': ''invalid_request_error'', ''param'': ''tools[0].function'', ''code'': ''missing_required_parameter''}}?' sort_order: 11",
+        "section": "Technical FAQ",
+        "question": "'I am using Azure OpenAI and I am still getting an error of Error code:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "to Report' sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "'ValueError: Incorrect item instead of a metric or metric preset was passed",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "HTTPConnection.request() got an unexpected keyword argument ''chunked''' sort_order: 25",
+        "section": "Technical FAQ",
+        "question": "'docker.errors.DockerException: Error while fetching server API version:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Evidently? sort_order: 29",
+        "section": "Technical FAQ",
+        "question": "Is it mandatory to use a reference dataset when generating a report with",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "port 5432 failed: FATAL: password authentication failed for user \"postgres\"' sort_order: 27",
+        "section": "Technical FAQ",
+        "question": "'psycopg.OperationalError: connection failed: connection to server at \"127.0.0.1\",",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "does not exist' sort_order: 23",
+        "section": "Technical FAQ",
+        "question": "'Grafana dashboard error after reset: db query error: pq: database \u201ctest\u201d",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Use a.empty, a.bool(), a.item(), a.any() or a.all()\u201d error when doing unit test that involves comparing two data frames?' sort_order: 21",
+        "section": "Technical FAQ",
+        "question": "'Why do I get a \u201cValueError: The truth value of a DataFrame is ambiguous.",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "kinesis sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "Get an error \u2018Unable to locate credentials\u2019 after running localstack with",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "after running an AWS CLI command sort_order: 5",
+        "section": "Technical FAQ",
+        "question": "Get an error \"<botocore.awsrequest.AWSRequest object at 0x7fbaf2666280>\"",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Docker Compose services?' sort_order: 20",
+        "section": "Technical FAQ",
+        "question": "'Why do I get a `ValueError: Invalid endpoint` error when using Boto3 with",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "object at 0x74c89c3562d0> type messages when listing or creating AWS S3 buckets with LocalStack?' sort_order: 15",
+        "section": "Technical FAQ",
+        "question": "'AWS CLI: Why do AWS CLI commands throw <botocore.awsrequest.AWSRequest",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "no attribute ''version_nodot''' sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "'Git: Commit with pre-commit hook raises error \u2018''PythonInfo'' object has",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "when running any aws command' sort_order: 19",
+        "section": "Technical FAQ",
+        "question": "'Error \"[Errno 13] Permission denied: ''/home/ubuntu/.aws/credentials''\"",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "yaml file sort_order: 9",
+        "section": "Technical FAQ",
+        "question": "In Powershell, Git commit raises utf-8 encoding error after creating pre-commit",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "allowed in this context\u201d' sort_order: 6",
+        "section": "Technical FAQ",
+        "question": "'Pre-commit: Triggers an error at every commit: \u201cmapping values are not",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "packages in the source code sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "Pytest error \u2018module not found\u2019 when using pre-commit hooks if using custom",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "code ''d'' for object of type ''str'']' sort_order: 14",
+        "section": "Technical FAQ",
+        "question": "'Error: Error while parsing arguments via CLI [ValueError: Unknown format",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "calling the PutObject operation: The AWS Access Key Id you provided does not exist in our records.\"' sort_order: 19",
+        "section": "Technical FAQ",
+        "question": "'Uploading to s3 fails with \"An error occurred (InvalidAccessKeyId) when",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "has no attribute ''MutableMapping'')' sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "'Pipenv installation not working (AttributeError: module ''collections''",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "should be created in the working directory of your docker file' sort_order: 35",
+        "section": "Technical FAQ",
+        "question": "'Homework/Question 6: Do not forget to specify that the folder output/yellow",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "parquet file. sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "Error index 311297 is out of bounds for axis 0 with size 131483 when loading",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "detected host platform (linux/arm64/v8) and no specific platform was requested' sort_order: 26",
+        "section": "Technical FAQ",
+        "question": "'WARNING: The requested image''s platform (linux/amd64) does not match the",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "to log the dict_vectorizer. If the error is after using pipelines, update the predict function as seen in the video.' sort_order: 23",
+        "section": "Technical FAQ",
+        "question": "'Solution: The notebook in the repo is missing some code, include the code",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "for a high volume dataset. sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "Fix Out of Memory error while orchestrating the workflow on a ML Pipeline",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "not login to ECR.' sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "'Docker: aws.exe: error: argument operation: Invalid choice \u2014 Docker can",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a Kestra task? sort_order: 26",
+        "section": "Technical FAQ",
+        "question": "How can I enable communication between Docker containers when invoked from",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "KeyError: \u2018rmse_LinearRegression\u2019' sort_order: 25",
+        "section": "Technical FAQ",
+        "question": "'Video 3.3.4: Training Metrics RMSE chart does not show due to the error:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "/.variables/{...}/output_1/object.joblib''`' sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "'Mage: Pipeline breaks with `[Errno 2] No such file or directory: ''/home/src/mage_data/{\u2026}",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "on the leaderboard?' sort_order: 24",
+        "section": "Technical FAQ",
+        "question": "'Leaderboard: I am not on the leaderboard / how do I know which one I am",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "connection to the MLflow server, why?' sort_order: 15",
+        "section": "Technical FAQ",
+        "question": "'Homework: I am getting conflicts on server ports and cannot establish a",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "The image manifest, config or layer media type for the source image ... is not supported.' sort_order: 25",
+        "section": "Technical FAQ",
+        "question": "'Error: creating Lambda Function (...): InvalidParameterValueException:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "playlist and homework for the mlops course?' sort_order: 13",
+        "section": "Technical FAQ",
+        "question": "'Homework: Is the due date for homework 20th May? How do I check the updated",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "platform?' sort_order: 22",
+        "section": "Technical FAQ",
+        "question": "'Homework and Leaderboard: what is the system for points in the course management",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "we use yellow taxi data, or green taxi data?' sort_order: 14",
+        "section": "Technical FAQ",
+        "question": "'Homework: Why is the experiment in question 6 taking so long to run? Should",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "I use any orchestrator I want? sort_order: 16",
+        "section": "Technical FAQ",
+        "question": "Homework 3, 2025 Cohort - Do I have to use MAGE as the orchestrator? Can",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "assignment?' sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "'Homework: where can I find the schedule and/or deadlines of each homework",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "for? Will there be a 202x cohort?' sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "'Cohort: I missed the current cohort, when is the next cohort scheduled",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "the terminal. Why? sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "pytest doesn't recognize my installed libraries, but the script works in",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Encoding sort_order: 34",
+        "section": "Technical FAQ",
+        "question": "Replacing NaNs for pickup location and drop off location with -1 for One-Hot",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "the AWS machine) sort_order: 43",
+        "section": "Technical FAQ",
+        "question": "Permission denied (publickey) Error (when you remove your public key on",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "X transformation fails) sort_order: 47",
+        "section": "Technical FAQ",
+        "question": "Zero elements in sparse matrix (AKA when dictionary vectorizer / categorical",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "using `mean_squared_error(..., squared=False)`. Why?' sort_order: 50",
+        "section": "Technical FAQ",
+        "question": "'I get `TypeError: got an unexpected keyword argument ''squared''` when",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "deadline? sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "Can I submit and update my project attempt multiple times before the final",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "find the file specified' sort_order: 28",
+        "section": "Technical FAQ",
+        "question": "'mlflow ui on Windows FileNotFoundError: [WinError 2] The system cannot",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "on Mlflow UI? sort_order: 47",
+        "section": "Technical FAQ",
+        "question": "When using Autologging, do I need to set a training parameter to track it",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "download? sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "Do we absolutely need to save data to disk? Can we use it directly from",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "without encountering the 'Invalid Host header' error during development or testing? sort_order: 20",
+        "section": "Technical FAQ",
+        "question": "How can I run MLflow on a remote server and access it from a different domain",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Launch' sort_order: 27",
+        "section": "Technical FAQ",
+        "question": "'TypeError: send_file() unexpected keyword ''max_age'' during MLflow UI",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "each direction. sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "Image size of 460x93139 pixels is too large. It must be less than 2^16 in",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "data to infer model signature: please ensure that autologging is enabled before constructing the dataset.' sort_order: 39",
+        "section": "Technical FAQ",
+        "question": "'WARNING mlflow.xgboost: Failed to infer model signature: could not sample",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "MLflow Tracking.' sort_order: 44",
+        "section": "Technical FAQ",
+        "question": "'WARNING: mlflow.sklearn: Failed to log training dataset information to",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "frequently within a minute of inactivity.' sort_order: 22",
+        "section": "Technical FAQ",
+        "question": "'SSH: Connection to AWS EC2 instance from local machine WSL getting terminated",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "though the upstream ingestion asset succeeded? sort_order: 5",
+        "section": "Technical FAQ",
+        "question": "Why do downstream Bruin assets fail with 'Table does not exist' error even",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "or duckdb installation? sort_order: 6",
+        "section": "Technical FAQ",
+        "question": "Why does my Bruin seed asset fail with a timeout error related to ingestr",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Ctrl+Z in Ubuntu, and how can it be fixed?' sort_order: 9",
+        "section": "Technical FAQ",
+        "question": "'Why does DuckDB show \u201cIO Error: Could not set lock on file\u201d after pressing",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "exist'' catalog error?' sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "'Bruin time_interval: Why does the first run fail with a ''table does not",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "DuckDB on Windows 10 / WSL Ubuntu 24.04' sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "'libduckdb.so: cannot open shared object file error when running Bruin with",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Timezone database not found' sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "'Bruin Python asset fails with ArrowInvalid: Cannot locate timezone ''UTC'':",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "from the Microsoft Store\"' sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "'PySpark on Windows: \"Python was not found; run without arguments to install",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "8 partitions instead sort_order: 20",
+        "section": "Technical FAQ",
+        "question": "Repartition the Dataframe to 6 partitions using df.repartition(6) - got",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "and how can I obtain a realistic maximum? sort_order: 32",
+        "section": "Technical FAQ",
+        "question": "Why does max(trip_distance) return extremely large values in Spark for yellow_tripdata_2023-11,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "[project] is not currently set. It can be set on a per-command basis by re-running your command with the [--project] flag.' sort_order: 17",
+        "section": "Technical FAQ",
+        "question": "'Dataproc: ERROR: (gcloud.dataproc.jobs.submit.pyspark) The required property",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "hours (e.g., tpep_pickup_datetime and tpep_dropoff_datetime)? sort_order: 23",
+        "section": "Technical FAQ",
+        "question": "How can I calculate the duration between two Spark timestamp columns in",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a Spark DataFrame with repartition? sort_order: 31",
+        "section": "Technical FAQ",
+        "question": "How many records are stored in each partition/parquet file when writing",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "for reading: No such file or directory' sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "'Following 5.2.1, I am getting an error - Head:cannot open \u2018taxi+_zone_lookup.csv\u2019",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "forwarding from VS code? sort_order: 21",
+        "section": "Technical FAQ",
+        "question": "Jupyter Notebook or SparkUI not loading properly at localhost after port",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "for Dataproc clusters when 'internal_ip_only' is set to 'true'. Enable Private Google Access on subnetwork 'default' or set 'internal_ip_only' to 'false'. sort_order: 26",
+        "section": "Technical FAQ",
+        "question": "Subnetwork 'default' does not support Private Google Access which is required",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "submitting jobs?' sort_order: 24",
+        "section": "Technical FAQ",
+        "question": "'Dataproc Qn: Is it essential to have a VM on GCP for running Dataproc and",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "access to the Google Cloud Storage bucket. Permission ''storage.objects.list'' denied on resource (or it may not exist).' sort_order: 18",
+        "section": "Technical FAQ",
+        "question": "'lServiceException: 401 Anonymous caller does not have storage.objects.list",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "heap memory' sort_order: 15",
+        "section": "Technical FAQ",
+        "question": "'MemoryManager: Total allocation exceeds 95.00% (1,020,054,720 bytes) of",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "as shown in the video?' sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "'Connecting from local Spark to GCS: Spark does not find my Google credentials",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "it to a numeric value? sort_order: 29",
+        "section": "Technical FAQ",
+        "question": "Why does casting TIMESTAMP_NTZ to BIGINT fail in Spark, and how can I convert",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "result from install script' sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "'Environment - Could not establish connection to \"MyServerName\": Got bad",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "why GCP' sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "'GCP for the course: free trial vs sandbox, paying, country restrictions,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "convert notebook to Python script (including uv integration)' sort_order: 16",
+        "section": "Technical FAQ",
+        "question": "'Jupyter: Install nbconvert, fix ''Failed to spawn'' nbconvert error, and",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "vs Codespaces, AWS alternative, OS support)' sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "'Environment: which OS / cloud / dev setup should I use? (local vs GCP VM",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "and how can I work around network blocks? sort_order: 8",
+        "section": "Technical FAQ",
+        "question": "Why does wget fail to download the CloudFront parquet file even with --no-check-certificate,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "5432 failed\u201d error when setting up Postgres connection in pgAdmin?' sort_order: 24",
+        "section": "Technical FAQ",
+        "question": "'How to fix \u201cconnection failed: connection to server at \"127.0.0.1\", port",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "no attribute 'execute'\" sort_order: 20",
+        "section": "Technical FAQ",
+        "question": "Python - SQLAlchemy - read_sql_query() throws \"'OptionEngine' object has",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Zone doesn''t exist' sort_order: 21",
+        "section": "Technical FAQ",
+        "question": "'SQL: SELECT * FROM zones_taxi WHERE Zone=''Astoria Zone''; Error Column",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "in Docker sort_order: 23",
+        "section": "Technical FAQ",
+        "question": "Postgres fails to start after upgrading from postgres:16 to postgres:18",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "order should I build and run the containers? sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "How do I ensure that the ingestion pipeline runs successfully and in what",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "auth, role does not exist, database does not exist, connection refused, port in use)' sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "'pgcli / Postgres: troubleshooting connection failures (FATAL: password",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "letters' sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "'RRPGCLI: Case sensitive use of \u201cQuotations\u201d around columns with capital",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "in MacBook Pro M2)' sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "'Postgres: \"Column does not exist\" but it actually does (Pyscopg2 error",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "100 rows. I ran again with the variable value specified but my table still has 100 rows in BQ.' sort_order: 21",
+        "section": "Technical FAQ",
+        "question": "'DBT: I ran dbt run without specifying variable which gave me a table of",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "which was not found\"' sort_order: 63",
+        "section": "Technical FAQ",
+        "question": "'dbt: relationships test fails with \"depends on a node named ''taxi_zone_lookup.csv''",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "(models/staging/schema.yml) 'NoneType' object is not iterable sort_order: 27",
+        "section": "Technical FAQ",
+        "question": "Compilation Error in test accepted_values_stg_green_tripdata_Payment_type__False___var_payment_type_values_",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "(and can I use a subfolder in my GitHub repo for the dbt project)? sort_order: 40",
+        "section": "Technical FAQ",
+        "question": "How do I migrate from a dbt Cloud managed repository to a GitHub repository",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "argument\"' sort_order: 52",
+        "section": "Technical FAQ",
+        "question": "'Join Error on LocationID: \"Unable to find common supertype for templated",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a valid dbt project. sort_order: 39",
+        "section": "Technical FAQ",
+        "question": "Could not parse the dbt project. Please check that the repository contains",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "(linux)' sort_order: 45",
+        "section": "Technical FAQ",
+        "question": "'VS Code: NoPermissions (FileSystemError): Error: EACCES: permission denied",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "depends on a source named ''staging.green_trip_external'' which was not found' sort_order: 26",
+        "section": "Technical FAQ",
+        "question": "'Compilation Error: Model ''model.my_new_project.stg_green_tripdata'' (models/staging/stg_green_tripdata.sql)",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "named ''<seed_name>'' which was not found (Production Environment)' sort_order: 33",
+        "section": "Technical FAQ",
+        "question": "'Compilation Error: Model ''<model_name>'' (<model_path>) depends on a node",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "named \u201cdbt_marts\u201d instead?' sort_order: 30",
+        "section": "Technical FAQ",
+        "question": "'DBT: Why changing the target schema to \u201cmarts\u201d actually creates a schema",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "though dbt is installed in a virtual environment sort_order: 61",
+        "section": "Technical FAQ",
+        "question": "Power user for dbt vscode extension keeps asking to install dbt core even",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "on a source named ''<a table name>'' which was not found' sort_order: 32",
+        "section": "Technical FAQ",
+        "question": "'Compilation Error: Model ''model.XXX'' (models/<model_path>/XXX.sql) depends",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "compilation errors or contact support if this error persists. sort_order: 17",
+        "section": "Technical FAQ",
+        "question": "Lineage is currently unavailable. Check that your project does not contain",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "in my Develop tab?' sort_order: 42",
+        "section": "Technical FAQ",
+        "question": "'Setup: I\u2019ve set Github and Bigquery to dbt successfully. Why nothing showed",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "false''` is not returning anything:' sort_order: 43",
+        "section": "Technical FAQ",
+        "question": "'DBT: Running `dbt run --models stg_green_tripdata --var ''is_test_run:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "data into GCS, you receive error Access Denied from the S3 bucket' sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "'Ingestion: When attempting to use the provided quick script to load trip",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "but Job still runs on old file? sort_order: 41",
+        "section": "Technical FAQ",
+        "question": "Made change to your modeling files and commit to your development branch,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Parquet column type mismatches, NULL handling)' sort_order: 51",
+        "section": "Technical FAQ",
+        "question": "'Schema and type errors when ingesting FHV data (timestamps fail to parse,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "model. sort_order: 20",
+        "section": "Technical FAQ",
+        "question": "BigQuery returns an error when I try to run the dm_monthly_zone_revenue.sql",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "denied (publickey)' sort_order: 8",
+        "section": "Technical FAQ",
+        "question": "'Errors when I start the server in dbt cloud: Failed to start server. Permission",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "with environment variables, I''m getting \"Credentials in profile \\\"PROFILE_NAME\\\", target: ''dev'', invalid: ''5432'' is not of type ''integer''\"' sort_order: 58",
+        "section": "Technical FAQ",
+        "question": "'When configuring the profiles.yml file for dbt-postgres with jinja templates",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "INT64 \u2014 casting failures on green tripdata' sort_order: 37",
+        "section": "Technical FAQ",
+        "question": "'\"Bad int64 value\" / Parquet column has type DOUBLE which does not match",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "digits, or dashes.' sort_order: 20",
+        "section": "Technical FAQ",
+        "question": "'GCP BQ: Invalid project ID. Project IDs must contain 6-63 lowercase letters,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "as integer columns in BigQuery' sort_order: 13",
+        "section": "Technical FAQ",
+        "question": "'BigQuery: Datetime columns in Parquet files created from Pandas show up",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "BigQuery says it's partitioned? sort_order: 26",
+        "section": "Technical FAQ",
+        "question": "Why does my partitioned table in BigQuery show as non-partitioned even though",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "with Apple M1 chip (arm architecture). sort_order: 28",
+        "section": "Technical FAQ",
+        "question": "GCP BQ ML - Export ML model to make predictions does not work for MacBook",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a batch pipeline? sort_order: 46",
+        "section": "Technical FAQ",
+        "question": "How do I structure a layered data warehouse (raw, clean, analytics) for",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "why do you get the same result with count(distinct(*))?' sort_order: 18",
+        "section": "Technical FAQ",
+        "question": "'GCP BQ: When querying two different tables, external and materialized,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "data into BigQuery? sort_order: 44",
+        "section": "Technical FAQ",
+        "question": "Why are there unexpected years in lpep_pickup_datetime after loading taxi",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "in Module 3 homework Q6?' sort_order: 33",
+        "section": "Technical FAQ",
+        "question": "'Homework: Qn 6: Did anyone get an exact match for one of the options given",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "BQ to GCS' sort_order: 27",
+        "section": "Technical FAQ",
+        "question": "'GCP BQ ML: Unable to run command (shown in video) to export ML model from",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "of bounds error' sort_order: 30",
+        "section": "Technical FAQ",
+        "question": "'Homework: Reading parquets from nyc.gov directly into pandas returns Out",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "how do I create them?' sort_order: 25",
+        "section": "Technical FAQ",
+        "question": "'BigQuery: native tables vs external tables \u2014 what''s the difference and",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "to BigQuery in Google Cloud:' sort_order: 17",
+        "section": "Technical FAQ",
+        "question": "'GCP BQ - Tip: Using Cloud Function to read csv.gz files from github directly",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "I expected' sort_order: 32",
+        "section": "Technical FAQ",
+        "question": "'Homework - Qn 5: The partitioned/clustered table isn\u2019t giving me the prediction",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "annotate it as TimestampType(MICROS) or TimestampType(MILLIS)' sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "'GCP BQ: Error Message in BigQuery: annotated as a valid Timestamp, please",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a native BigQuery table, but become chargeable with a WHERE filter or when using an external table? sort_order: 43",
+        "section": "Technical FAQ",
+        "question": "Why does the estimate of Bytes Processed for COUNT(*) stay at 0 bytes on",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "in BigQuery due to an invalid timestamp error that are added while appending data to the file in Google Cloud Storage' sort_order: 11",
+        "section": "Technical FAQ",
+        "question": "'GCP BQ: Unable to load data from external tables into a materialized table",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "column ''XYZ'' has type INT which does not match the target cpp_type DOUBLE. File: gs://path/to/some/blob.parquet' sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "'GCS Bucket - te table: Error while reading data, error message: Parquet",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "the users and times of executions? sort_order: 40",
+        "section": "Technical FAQ",
+        "question": "How can I estimate BigQuery query costs over a time window and identify",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "exist even after gradle build' sort_order: 17",
+        "section": "Technical FAQ",
+        "question": "'Java Kafka: <project_name>-1.0-SNAPSHOT.jar errors: package xxx does not",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.' sort_order: 16",
+        "section": "Technical FAQ",
+        "question": "'Python Kafka: ./spark-submit.sh streaming.py Error: py4j.protocol.Py4JJavaError:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "connection fails' sort_order: 15",
+        "section": "Technical FAQ",
+        "question": "'Python Kafka: ./spark-submit.sh streaming.py - How to check why Spark master",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "when consuming records from the Kafka/Redpanda topic? sort_order: 29",
+        "section": "Technical FAQ",
+        "question": "Why does the PyFlink streaming job fail with a JSON deserialization error",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "table returns no rows when queried? sort_order: 28",
+        "section": "Technical FAQ",
+        "question": "Why does the tumbling window job run successfully but the PostgreSQL sink",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "than the others.' sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "'Kafka homework Q3: There are options that support the scaling concept more",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "secs.\u2019 when running stream-example/producer.py' sort_order: 13",
+        "section": "Technical FAQ",
+        "question": "'Python Kafka: \u2018KafkaTimeoutError: Failed to update metadata after 60.0",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "table when query contains update/delete record' error sort_order: 27",
+        "section": "Technical FAQ",
+        "question": "PyFlink session window job fails with 'please declare primary key for sink",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Application has been killed. Reason: All masters are unresponsive! Giving up.' sort_order: 14",
+        "section": "Technical FAQ",
+        "question": "'Python Kafka: ./spark-submit.sh streaming.py - ERROR StandaloneSchedulerBackend:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "retrieved or no message sent' sort_order: 21",
+        "section": "Technical FAQ",
+        "question": "'Java Kafka: When running the producer/consumer/etc java scripts, no results",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "access denied for spark-3.3.1, repository does not exist or may require ''docker login'': denied: requested access to the resource is denied' sort_order: 11",
+        "section": "Technical FAQ",
+        "question": "'Docker: How to fix docker compose error: Error response from daemon: pull",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Permission denied (publickey).\u201d' sort_order: 24",
+        "section": "Technical FAQ",
+        "question": "'SSH error in VS Code - \u201cCould not establish connection to \"de-zoomcamp\":",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Permission denied (publickey)' sort_order: 23",
+        "section": "Technical FAQ",
+        "question": "'GCP VM: If you have lost SSH access to your machine due to lack of space.",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "done it indeed!' sort_order: 11",
+        "section": "Technical FAQ",
+        "question": "'Billing: Billing account has not been enabled for this project. But you\u2019ve",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "(e.g., to add a SSH key)' sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "'GCP: \"Failed to load\" when accessing Compute Engine\u2019s metadata section",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "exists' sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "'GCP: Project creation failed: HttpError accessing \u2026 Requested entity already",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "on Windows' sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "'GCP: \"The installer is unable to automatically update your system PATH\"",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "expect to receive the confirmation email?' sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "'Course: I have registered for the Data Engineering Bootcamp. When can I",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "recorded?' sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "'Office Hours: I can\u2019t attend the \u201cOffice hours\u201d / workshop, will it be",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "using a service account JSON key sort_order: 9",
+        "section": "Technical FAQ",
+        "question": "How to run a dbt-core project as an Airflow Task Group on Google Cloud Composer",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "and how can I fix it? sort_order: 17",
+        "section": "Technical FAQ",
+        "question": "Why might some API response fields be missing after a dlt pipeline run,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "in dlt, and when should I use each? sort_order: 13",
+        "section": "Technical FAQ",
+        "question": "What is the difference between rest_api_source({...}) and @dlt.resource",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "an empty list sort_order: 15",
+        "section": "Technical FAQ",
+        "question": "REST API pagination should start at page 1 and stop when the API returns",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "without the 'Could not find or install 'Python 3.13' path' error? sort_order: 13",
+        "section": "Technical FAQ",
+        "question": "How to configure and run a Python script in Kestra Docker on Windows 11",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "of separate flows? sort_order: 15",
+        "section": "Technical FAQ",
+        "question": "Why does Kestra support conditional branching within a single workflow instead",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Kestra workflow? sort_order: 14",
+        "section": "Technical FAQ",
+        "question": "Why are dataset row counts computed in PostgreSQL instead of within the",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "or downloadable in Kestra? sort_order: 19",
+        "section": "Technical FAQ",
+        "question": "Why must a file be declared again under outputFiles for it to be visible",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "is denied.' sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "'docker: Error response from daemon: mkdir C:\\Program Files\\Git\\var: Access",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "up in executions' sort_order: 25",
+        "section": "Technical FAQ",
+        "question": "'Kestra: Backfill showing getting executed but not getting results or showing",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "module? sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "Where are the FAQ questions from the previous cohorts for the orchestration",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "tasks fail? sort_order: 8",
+        "section": "Technical FAQ",
+        "question": "Why can a Kestra workflow show successful upstream tasks even when downstream",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "execution logs? sort_order: 16",
+        "section": "Technical FAQ",
+        "question": "Why can't row count questions in Homework 2 be answered directly from Kestra",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "page isn\u2019t working / 127.0.0.1 didn\u2019t send any data)' sort_order: 24",
+        "section": "Technical FAQ",
+        "question": "'GitHub Codespaces: ERR_EMPTY_RESPONSE when accessing Kestra in Docker (this",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "file system of a Linux distribution in WSL?' sort_order: 6",
+        "section": "Technical FAQ",
+        "question": "'Docker: Should I run docker commands from the windows file system or a",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "credentials error, dial unix /var/run/docker.sock)' sort_order: 24",
+        "section": "Technical FAQ",
+        "question": "'docker compose: installation problems (binary not found, exec format error,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "to address\" \u2014 hostname does not resolve' sort_order: 15",
+        "section": "Technical FAQ",
+        "question": "'docker compose: \"could not translate host name pgdatabase / pg-database",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "for linux, which are required to unpack datasets.' sort_order: 33",
+        "section": "Technical FAQ",
+        "question": "'Docker: Docker-compose takes infinitely long to install zip unzip packages",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "to compose' sort_order: 26",
+        "section": "Technical FAQ",
+        "question": "'Docker: Postgres container fails to launch with exit code (1) when attempting",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Is the Docker daemon running?' sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "'Docker: Cannot connect to Docker daemon at unix:///var/run/docker.sock.",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Linux (due to Nested virtualization).' sort_order: 16",
+        "section": "Technical FAQ",
+        "question": "'Docker: Cannot install docker on MacOS/Windows 11 VM running on top of",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "already in use' sort_order: 31",
+        "section": "Technical FAQ",
+        "question": "'Error: error starting userland proxy: listen tcp4 0.0.0.0:8080: bind: address",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "is already in use by container \"xxx\". You have to remove (or rename) that container to be able to reuse that name.' sort_order: 14",
+        "section": "Technical FAQ",
+        "question": "'Docker: Error response from daemon: Conflict. The container name \"pg-database\"",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "spaces, \"ny_taxi_postgres_data is empty\")' sort_order: 9",
+        "section": "Technical FAQ",
+        "question": "'docker on Windows: volume mount path syntax (Git Bash, MINGW, paths with",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "not change permissions / could not create / build context errors)' sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "'docker + Postgres: permission errors on the data directory (chown / could",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "denied to access \u2018storage.buckets.create\u2019' sort_order: 11",
+        "section": "Technical FAQ",
+        "question": "'stoTerraform - Error creating Bucket: googleapi: Error 403: Permission",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "conditionNotMet' sort_order: 14",
+        "section": "Technical FAQ",
+        "question": "'Terraform Error 412: Request violates constraint ''constraints/storage.uniformBucketLevelAccess'',",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Iraq) \u2013 Invalid provider registry host / Could not query available provider packages' sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "'Terraform: Could not reach provider registry in restricted region (e.g.,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "I get the keys (.json file)?' sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "'Terraform: Do I need to make another service account for Terraform before",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "oauth2: cannot fetch token: Post \"[oauth2.googleapis.com](https://oauth2.googleapis.com/token): dial tcp 172.217.163.42:443: i/o timeout' sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "'Terraform: Error: Post \"[storage.googleapis.com](https://storage.googleapis.com/storage/v1/b?alt=json&prettyPrint=false&project=coherent-ascent-379901):",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "no Terraform configuration files. You may begin working with Terraform immediately by creating Terraform configuration files.' sort_order: 9",
+        "section": "Technical FAQ",
+        "question": "'Terraform: Terraform initialized in an empty directory! The directory has",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "authentication scopes' sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "'Terraform - Error creating Dataset: googleapi: Error 403: Request had insufficient",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: \"gunicorn\": executable file not found in $PATH: unknown.' sort_order: 61",
+        "section": "Technical FAQ",
+        "question": "'docker: Error response from daemon: failed to create task for container:",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "found' sort_order: 36",
+        "section": "Technical FAQ",
+        "question": "'Installing waitress on Windows via GitBash: \u201cwaitress-serve\u201d command not",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "failed Reason: Resource handler returned message: \"The Launch Configuration creation operation is not available in your account. Use launch templates to create configuration templates for your Auto Scaling groups.\"' sort_order: 51",
+        "section": "Technical FAQ",
+        "question": "'Elastic Beanstalk \u2018eb create\u2019: ERROR Creating Auto Scaling launch configuration",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "start the container process' sort_order: 44",
+        "section": "Technical FAQ",
+        "question": "'Docker: Trying to run a docker image I built but it says it\u2019s unable to",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "nor ''asdf'' could be found to install Python.' sort_order: 55",
+        "section": "Technical FAQ",
+        "question": "'Fix warning: Python 3.12 was not found on your system\u2026 Neither ''pyenv''",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "mode (Running Docker on Windows in GitBash)' sort_order: 19",
+        "section": "Technical FAQ",
+        "question": "'Docker: The input device is not a TTY when running docker in interactive",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "proposed during the video' sort_order: 47",
+        "section": "Technical FAQ",
+        "question": "'AWS Elastic Beanstalk: I can\u2019t create the environment with the command",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "generic, and multicontainer Docker platforms.' sort_order: 41",
+        "section": "Technical FAQ",
+        "question": "'Error: NotSupportedError - You can use \"eb local\" only with preconfigured,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "gunicorn directly? sort_order: 59",
+        "section": "Technical FAQ",
+        "question": "Does it matter if we let the Python file create the server or if we run",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Notebook sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "Method to find the version of any installed Python libraries in Jupyter",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "on AWS. sort_order: 35",
+        "section": "Technical FAQ",
+        "question": "Completed creating the environment locally but could not find the environment",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "end closed connection without response''))' sort_order: 24",
+        "section": "Technical FAQ",
+        "question": "'ConnectionError: (''Connection aborted.'', RemoteDisconnected(''Remote",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "program or batch file.' sort_order: 21",
+        "section": "Technical FAQ",
+        "question": "'''pipenv'' is not recognized as an internal or external command, operable",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "common startup errors (uvicorn/fastapi) when deploying on a local port? sort_order: 63",
+        "section": "Technical FAQ",
+        "question": "How to run a FastAPI app for serving a Python pickle-based model and resolve",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "installing pipenv etc.' sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "'Errors related to the default environment: WSL, Ubuntu, proper Python version,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "experience sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "How to download CSV data via Jupyter NB and the Kaggle API, for one seamless",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "restarted my pc. Please, what is a possible solution? sort_order: 57",
+        "section": "Technical FAQ",
+        "question": "Pipenv is taking forever to lock file. I have deleted the lockfile, and",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "directory? sort_order: 46",
+        "section": "Technical FAQ",
+        "question": "How do I copy files from a different folder into a Docker container\u2019s working",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "of Gunicorn. After a few runs, suddenly the MLflow server fails to run.' sort_order: 34",
+        "section": "Technical FAQ",
+        "question": "'Conda environment: You are using Windows. You then use Waitress instead",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "error message is redacted to prevent data leaks.' sort_order: 21",
+        "section": "Technical FAQ",
+        "question": "'xgboost.core.XGBoostError: This app has encountered an error. The original",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "gunicorn directly? sort_order: 17",
+        "section": "Technical FAQ",
+        "question": "Does it matter if we let the Python file create the server or if we run",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "when there are nan (missing) values in the feature matrix? sort_order: 25",
+        "section": "Technical FAQ",
+        "question": "Why does DecisionTreeClassifier and DecisionTreeRegressor not throw an error",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "file in Pandas sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "How to ensure \"none\" values are not interpreted as NaN when reading a CSV",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "What does \"m\" mean? sort_order: 16",
+        "section": "Technical FAQ",
+        "question": "Why do CPU values for Kubernetes deployment.yaml look like \"100m\" and \"500m\"?",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "should I use an older kindest/node image? sort_order: 28",
+        "section": "Technical FAQ",
+        "question": "Why do I fail to create a cluster with Kind in Module 10 Kubernetes, and",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Aren\u2019t they arbitrary?' sort_order: 15",
+        "section": "Technical FAQ",
+        "question": "'Homework: In HW10 Q6 what does it mean \u201ccorrect value for CPU and memory\u201d?",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "program or batch file. (In Windows)' sort_order: 18",
+        "section": "Technical FAQ",
+        "question": "'''kind'' is not recognized as an internal or external command, operable",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Apple Silicon (potentially on M1 as well) sort_order: 25",
+        "section": "Technical FAQ",
+        "question": "Illegal instruction error when running tensorflow/serving image on Mac M2",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "for model deployment practice? sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "What tools are recommended for setting up a local Kubernetes environment",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "the right host or port? sort_order: 13",
+        "section": "Technical FAQ",
+        "question": "The connection to the server localhost:8080 was refused - did you specify",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "zero-downtime for model updates in production, taking startup latency and readiness probes into account? sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "How do you determine the minimum number of replicas needed to guarantee",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "to do any changes in my code to reflect it? sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "The homework instructions say Docker file has a new pipeline. Do I need",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "kwargs should be empty for `optimizer_experimental.Optimizer`' sort_order: 26",
+        "section": "Technical FAQ",
+        "question": "'Keras model *.h5 doesn\u2019t load. Error: weight_decay is not a valid argument,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "as REST API through APIGatewayService? sort_order: 14",
+        "section": "Technical FAQ",
+        "question": "How to use AWS Serverless Framework to deploy on AWS Lambda and expose it",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "2.2.0 as it may crash' sort_order: 18",
+        "section": "Technical FAQ",
+        "question": "'Error: A module that was compiled using NumPy 1.x cannot be run in NumPy",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "when running `python test.py`' sort_order: 28",
+        "section": "Technical FAQ",
+        "question": "'\"Unable to import module ''lambda_function'': No module named ''tensorflow''\"",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "(from versions: none)' sort_order: 17",
+        "section": "Technical FAQ",
+        "question": "'Error: Could not find a version that satisfies the requirement tflite_runtime",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "error when creating an AWS Lambda function from a Docker image? sort_order: 36",
+        "section": "Technical FAQ",
+        "question": "Why am I getting the 'image manifest, config or layer media type' not supported",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "program or batch file.' sort_order: 6",
+        "section": "Technical FAQ",
+        "question": "'Problem: ''ls'' is not recognized as an internal or external command, operable",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "of points? sort_order: 10",
+        "section": "Technical FAQ",
+        "question": "Does your mid term project need to use a neural network to get maximum number",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "about a solution? sort_order: 5",
+        "section": "Technical FAQ",
+        "question": "My dataset is too large and I can't load it in GitHub. Does anyone know",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "Can I do xyz? sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "What modules, topics, problem-sets should a midterm/capstone project cover?",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "and will my grade be reduced? sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "Can I submit a medical project for the final project if deployment is impossible,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "two peer reviews in the second capstone, right? sort_order: 7",
+        "section": "Technical FAQ",
+        "question": "I did the first two projects and skipped the last one so I wouldn't have",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "based on the total score you earn? sort_order: 9",
+        "section": "Technical FAQ",
+        "question": "Do you pass a project based on the average of everyone else\u2019s scores or",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "with C=0.0' sort_order: 8",
+        "section": "Technical FAQ",
+        "question": "'Homework Q6: Train a regularized logistic regression",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "set to 0.0 in labels with no predicted samples?' sort_order: 27",
+        "section": "Technical FAQ",
+        "question": "'How to address UndefinedMetricWarning: F-score is ill-defined and being",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "model? sort_order: 24",
+        "section": "Technical FAQ",
+        "question": "Why is accuracy not always the best metric for evaluating a classification",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "but the data contains only one class: 0' sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "'ValueError: This solver needs samples of at least 2 classes in the data,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "data into train/val/test? Is there a reason we wouldn't do this? Or is it the same either way? sort_order: 22",
+        "section": "Technical FAQ",
+        "question": "Isn't it easier to use DictVertorizer or get dummies before splitting the",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "score with the (binarized) price for the categorical variable that we have. Use the training set only.\" What is the second variable that we need to use to calculate the mutual information score?' sort_order: 16",
+        "section": "Technical FAQ",
+        "question": "'Homework: Could you please help me with HW3 Q3: \"Calculate the mutual information",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "is deprecated in 1.0 and will be removed in 1.2' sort_order: 9",
+        "section": "Technical FAQ",
+        "question": "'FutureWarning: Function get_feature_names is deprecated; get_feature_names",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "type of one-hot encodings:' sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "'pandas.get_dummies() and DictVectorizer(sparse=False) produce the same",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "mutual information score in the homework?' sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "'Homework: Why did we change the targets to binary format when calculating",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "directly sort_order: 5",
+        "section": "Technical FAQ",
+        "question": "Coloring the background of the pandas.DataFrame.corr correlation matrix",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a regression model? sort_order: 1",
+        "section": "Technical FAQ",
+        "question": "What is the best way to handle missing values in the dataset before training",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a GPU? sort_order: 29",
+        "section": "Technical FAQ",
+        "question": "How did I resolve the out of memory (OOM) issue when training my model on",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "images sort_order: 31",
+        "section": "Technical FAQ",
+        "question": "Using image_dataset_from_directory instead of ImageDataGenerator for loading",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "you compute the spatial output size? sort_order: 34",
+        "section": "Technical FAQ",
+        "question": "How many feature maps are produced by a PyTorch Conv2D layer, and how do",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a CNN/Flatten come from, and how can I determine it reliably? sort_order: 26",
+        "section": "Technical FAQ",
+        "question": "Where does the number of input features to the first Linear layer after",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "class mode and what is meant by the single probability predicted by a binary Keras model:' sort_order: 18",
+        "section": "Technical FAQ",
+        "question": "'How are numeric class labels determined in flow_from_directory using binary",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "the homework?' sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "'Homework: Why do I have different values of accuracy than the options in",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "in the capstone and competition, or are they considered to be \"too much help\"? sort_order: 32",
+        "section": "Technical FAQ",
+        "question": "Is use of libraries like [fast.ai](http://fast.ai/) or Huggingface allowed",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "profile? sort_order: 34",
+        "section": "Technical FAQ",
+        "question": "Any advice for adding the Machine Learning Zoomcamp experience to your LinkedIn",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "project directory? sort_order: 3",
+        "section": "Technical FAQ",
+        "question": "Is a train.py file necessary when you have a train.ipynb file in your midterm",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "with over a million rows? sort_order: 30",
+        "section": "Technical FAQ",
+        "question": "How can I work with very large datasets, e.g. the New York Yellow Taxi dataset,",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "image was built and unable to test successfully. What could be the problem?' sort_order: 33",
+        "section": "Technical FAQ",
+        "question": "'Docker: Flask image was built and tested successfully, but tensorflow serving",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "to go to the directory in Explorer to upload to GitHub, what command should you use? sort_order: 36",
+        "section": "Technical FAQ",
+        "question": "If you are working in the terminal on your computer in WSL and you want",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "a tail, I got the error \"FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead\". How can I bypass this?' sort_order: 26",
+        "section": "Technical FAQ",
+        "question": "'Matplotlib: When I plotted using Matplotlib to check if the median has",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "not be resolved. You likely have a mismatch in your sub-dependencies' sort_order: 13",
+        "section": "Technical FAQ",
+        "question": "'[pipenv.exceptions.ResolutionFailure]: Warning: Your dependencies could",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "to crunch on? sort_order: 4",
+        "section": "Technical FAQ",
+        "question": "Is there a way to serve up a form for users to enter data for the model",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "and modules? sort_order: 16",
+        "section": "Technical FAQ",
+        "question": "Where can I find all course materials and how can I keep track of lessons",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "I submit them? sort_order: 20",
+        "section": "Technical FAQ",
+        "question": "Can I share my answers of the Homework with the community to compare before",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "parse_xg_output; how to fix and switch to evals_result?' sort_order: 112",
+        "section": "Technical FAQ",
+        "question": "'ValueError: not enough values to unpack when parsing XGBoost output in",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "in Python' sort_order: 113",
+        "section": "Technical FAQ",
+        "question": "'MacOS: SSL certificate verification failed when reading a CSV from a URL",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "activate'' every time?' sort_order: 13",
+        "section": "Technical FAQ",
+        "question": "'Conda Environment Setup: Do we need to run ''conda create'' and ''conda",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "regularization sort_order: 12",
+        "section": "Technical FAQ",
+        "question": "Using Scikit-Learn for regression with and without",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "scenarios? sort_order: 21",
+        "section": "Technical FAQ",
+        "question": "Do we need to apply regularization techniques always? Or only in certain",
+        "course": "datatalks-zoomcamp"
+      },
+      {
+        "text": "any of the options. What should I do?' sort_order: 2",
+        "section": "Technical FAQ",
+        "question": "'Homework: The answer I get for one of the homework questions doesn''t match",
+        "course": "datatalks-zoomcamp"
+      }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+{
+    "name": "Hybrid",
+    "es_host": "http://localhost:9200",
+    "index_name": "datatalks-faqs",
+    "search_type": "hybrid",
+    "use_vector": true,
+    "embedding_model": "all-MiniLM-L6-v2",
+    "boost_question": 20.0,
+    "boost_text": 1.0
+}

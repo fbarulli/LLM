@@ -1,0 +1,10 @@
+{
+    "name": "${CONFIG_NAME}",
+    "es_host": "http://localhost:9200",
+    "index_name": "${ES_INDEX}",
+    "search_type": "${SEARCH_TYPE}",
+    "use_vector": ${USE_VECTOR},
+    "embedding_model": "all-MiniLM-L6-v2",
+    "boost_question": ${BOOST_QUESTION:-20.0},
+    "boost_text": ${BOOST_TEXT:-1.0}
+}
