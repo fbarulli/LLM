@@ -1,69 +1,133 @@
+#!/usr/bin/env python
+"""Main pipeline: test or benchmark DataTalks dataset."""
+
 import sys
-import os
 import json
-import glob
-from elasticsearch import Elasticsearch
+sys.path.insert(0, '/home/admin/LLM/LLM/01/web')
 
-# Responsibility: Orchestration & Automation
-from src.config_manager import load_config
-from src.ingest_data import transform_documents, setup_index_and_ingest
-from src.stats import StatsCollector
-from src.run_stats import get_eval_set
+from src.search import CourseRAGManager
+from src.core import generate_document_id
+from tqdm import tqdm
 
-def run_experiment(config_file: str, n_samples: int = 20):
-    """Handles a single experiment execution."""
-    # Derive name from filename (e.g., 'global_bm25.json' -> 'global_bm25')
-    experiment_name = os.path.basename(config_file).replace(".json", "")
-    settings = load_config(config_file)
+SEARCH_TYPES = {
+    "bm25": {"use_vector": False, "boost_question": 20.0, "boost_text": 1.0},
+    "vector": {"use_vector": True, "boost_question": 1.0, "boost_text": 1.0},
+    "hybrid": {"use_vector": True, "boost_question": 20.0, "boost_text": 1.0}
+}
+
+def load_documents():
+    with open('documents_datatalks.json', 'r') as f:
+        data = json.load(f)
+    return data[0]['documents']
+
+def load_eval_set(docs):
+    eval_set = []
+    for doc in docs:
+        doc_id = generate_document_id({
+            "text": doc['text'],
+            "question": doc['question'],
+            "course": "datatalks-zoomcamp"
+        })
+        eval_set.append({
+            "query": doc['question'],
+            "course": "datatalks-zoomcamp",
+            "expected_id": doc_id
+        })
+    return eval_set
+
+def run_benchmark(search_type, index_name, eval_set):
+    print(f"\n{'='*50}")
+    print(f"Benchmark: {search_type.upper()}")
+    print('='*50)
     
-    # 1. Sync Step (Optional: We re-index only for the first run or if forced)
-    # For automation, we'll skip re-indexing here to save time, 
-    # unless you explicitly pass the --reindex flag to the script.
+    config = SEARCH_TYPES[search_type]
+    settings = {
+        "es_host": "http://localhost:9200",
+        "index_name": index_name,
+        "search_type": search_type,
+        "use_vector": config["use_vector"],
+        "embedding_model": "all-MiniLM-L6-v2",
+        "boost_question": config["boost_question"],
+        "boost_text": config["boost_text"]
+    }
     
-    # 2. Benchmark
-    print(f"\n🧪 [RUNNING] Experiment: {experiment_name}")
-    doc_path = os.path.join(os.getcwd(), "documents.json")
-    eval_set = get_eval_set(doc_path, n_per_course=n_samples)
+    manager = CourseRAGManager(settings)
+    manager.connect_elasticsearch()
     
-    collector = StatsCollector(config_file)
-    result_file = collector.run_benchmark(eval_set, experiment_name)
-    print(f"✅ [FINISHED] {experiment_name} -> {result_file}")
+    correct = 0
+    for item in tqdm(eval_set, desc="Processing"):
+        results = manager.search_faq(item['query'], 5, item['course'])
+        if item['expected_id'] in [hit['_id'] for hit in results]:
+            correct += 1
+    
+    recall = correct / len(eval_set) * 100
+    print(f"Recall@5: {correct}/{len(eval_set)} = {recall:.1f}%")
+    return recall, correct
+
+def run_quick_test(docs, index_name):
+    print("=" * 60)
+    print("QUICK TEST: BM25 vs VECTOR vs HYBRID")
+    print("=" * 60)
+    
+    test_doc = docs[0]
+    query = test_doc['question']
+    expected_id = generate_document_id({
+        "text": test_doc['text'],
+        "question": query,
+        "course": "datatalks-zoomcamp"
+    })
+    
+    print(f"\nTest query: {query[:60]}...")
+    
+    for search_type in SEARCH_TYPES:
+        config = SEARCH_TYPES[search_type]
+        settings = {
+            "es_host": "http://localhost:9200",
+            "index_name": index_name,
+            "search_type": search_type,
+            "use_vector": config["use_vector"],
+            "embedding_model": "all-MiniLM-L6-v2"
+        }
+        
+        manager = CourseRAGManager(settings)
+        manager.connect_elasticsearch()
+        
+        results = manager.search_faq(query, 5, "datatalks-zoomcamp")
+        success = expected_id in [hit['_id'] for hit in results]
+        print(f"  {search_type.upper()}: {'✅' if success else '❌'}")
 
 if __name__ == "__main__":
-    # 1. Setup paths
-    config_dir = "experiments/configs"
-    config_files = glob.glob(os.path.join(config_dir, "*.json"))
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", choices=["quick", "full"], default="quick")
+    parser.add_argument("--index", default="datatalks-faqs")
+    parser.add_argument("--type", choices=list(SEARCH_TYPES.keys()))
     
-    if not config_files:
-        print(f"❌ No configs found in {config_dir}. Please create .json files there.")
-        sys.exit(1)
-
-    # 2. Handle Re-indexing for the whole batch if requested
-    if "--reindex" in sys.argv:
-        print("🔄 [GLOBAL] Re-indexing before starting batch...")
+    args = parser.parse_args()
+    
+    docs = load_documents()
+    print(f"📄 Documents: {len(docs)}")
+    
+    if args.mode == "quick":
+        run_quick_test(docs, args.index)
+    else:
+        eval_set = load_eval_set(docs)
+        print(f"📊 Eval set: {len(eval_set)} queries")
         
-        # FIX: Load the first actual file path from the list
-        first_config_path = config_files[0]
-        base_settings = load_config(first_config_path)
-        
-        # Fallback for index_name to prevent KeyError
-        idx_name = base_settings.get('index_name', base_settings.get('index', 'course-questions'))
-        es_host = base_settings.get('es_host', 'http://localhost:9200')
-        
-        es_client = Elasticsearch(es_host)
-        
-        # Load local ground truth
-        doc_path = os.path.join(os.getcwd(), "documents.json")
-        with open(doc_path, "r") as f:
-            raw_data = json.load(f)
+        if args.type:
+            recall, correct = run_benchmark(args.type, args.index, eval_set)
+        else:
+            results = {}
+            for search_type in SEARCH_TYPES:
+                recall, correct = run_benchmark(search_type, args.index, eval_set)
+                results[search_type] = recall
             
-        from src.ingest_data import transform_documents, setup_index_and_ingest
-        flattened = transform_documents(raw_data)
-        setup_index_and_ingest(es_client, idx_name, flattened)
-
-    # 3. Auto-run all configs found
-    print(f"🚀 Found {len(config_files)} experiments. Starting batch run...")
-    for config in sorted(config_files):
-        run_experiment(config, n_samples=20)
-
-    print("\n🏁 All experiments complete. Refresh your Notebook to see the Leaderboard!")
+            print("\n" + "=" * 60)
+            print("FINAL SUMMARY")
+            print("=" * 60)
+            for st, recall in results.items():
+                print(f"  {st.upper()}: {recall:.1f}%")
+            
+            with open('experiments/datatalks_full_benchmark.json', 'w') as f:
+                json.dump(results, f, indent=2)
+            print("\n✅ Saved to experiments/datatalks_full_benchmark.json")

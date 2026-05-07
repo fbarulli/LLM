@@ -17,7 +17,7 @@ logger = logging.getLogger("visualizer")
 class RAGVisualizer:
     def __init__(self, results_dir: str = None):
         self.web_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        self.results_dir = results_dir if results_dir else os.path.join(self.web_root, "experiments", "results")
+        self.results_dir = results_dir if results_dir else os.path.join(self.web_root, "database", "results")
 
     def get_experiment_registry(self) -> pd.DataFrame:
         search_pattern = os.path.join(self.results_dir, "*.json")

@@ -15,13 +15,11 @@ class StatsCollector:
     """
     
     def __init__(self, config_path: str):
-        # Fail-fast: config_manager will crash if path is wrong
         self.settings = load_config(config_path)
         self.manager = CourseRAGManager(self.settings)
         self.manager.connect_elasticsearch()
 
     def _get_edit_distance(self, s1: str, s2: str) -> int:
-        """Calculates literal gap between query and result."""
         try:
             from Levenshtein import distance
             return distance(s1, s2)
@@ -30,10 +28,6 @@ class StatsCollector:
 
     @observe()
     def run_benchmark(self, eval_set: List[Dict], experiment_name: str) -> str:
-        """
-        Executes a K-sweep across the eval set and saves results 
-        to an absolute path in experiments/results/.
-        """
         results = []
         k_values = [1, 3, 5, 10]
 
@@ -43,13 +37,10 @@ class StatsCollector:
             for item in eval_set:
                 start_time = time.time()
                 
-                # 1. Determine Context (Global vs Filtered)
-                # If 'global' is in the name, we pass None to disable the ES filter
                 context = None
                 if "global" not in experiment_name.lower():
                     context = item["course"]
 
-                # 2. Execute Search
                 hits = self.manager.search_faq(
                     query=item["query"], 
                     override_size=k, 
@@ -58,13 +49,11 @@ class StatsCollector:
                 
                 latency = (time.time() - start_time) * 1000
                 
-                # 3. Process Top Hit
                 top_hit = hits[0] if hits else None
                 found_id = top_hit["_id"] if top_hit else "NONE"
-                found_text = top_hit["_source"]["text"] if top_hit else ""
+                found_text = top_hit["_source"].get("answer", top_hit["_source"].get("text", "")) if top_hit else ""
                 found_course = top_hit["_source"]["course"] if top_hit else "NONE"
                 
-                # 4. Atomic Record Creation
                 results.append({
                     "k": k,
                     "query": item["query"],
@@ -77,13 +66,11 @@ class StatsCollector:
                     "score": top_hit["_score"] if top_hit else 0.0,
                     "latency_ms": round(latency, 2),
                     "edit_distance": self._get_edit_distance(item["query"], found_text),
-                    "tokens_est": len(found_text) // 4,
+                    "tokens_est": len(found_text) // 4
                 })
 
-        # --- ABSOLUTE PATH LOGIC ---
-        # Ensure we always land in /web/experiments/results/
-        current_file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Go up to web root
-        results_dir = os.path.join(current_file_dir, "experiments", "results")
+        current_file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        results_dir = os.path.join(current_file_dir, "database", "experiments", "results")
         os.makedirs(results_dir, exist_ok=True)
         
         filename = os.path.join(results_dir, f"{experiment_name}.json")
@@ -97,7 +84,6 @@ class StatsCollector:
             "results": results
         }
         
-        # Write to disk
         try:
             with open(filename, "w") as f:
                 json.dump(output_payload, f, indent=4)
@@ -108,37 +94,3 @@ class StatsCollector:
             raise
 
         return filename
-
-    def evaluate_answer_quality(self, query: str, response: str, context: str) -> Dict[str, bool]:
-        """Evaluate answer quality using fast LLM-as-Judge."""
-        import litellm
-        import json
-        import re
-        
-        prompt = f"""Rate if the RESPONSE answers the QUESTION (relevant) and is truthful to the CONTEXT (faithful).
-
-QUESTION: {query}
-CONTEXT: {context[:300]}
-RESPONSE: {response[:300]}
-
-Return JSON: {{"relevant": true/false, "faithful": true/false}}"""
-        
-        try:
-            result = litellm.completion(
-                model="nvidia_nim/nvidia/nemotron-mini-4b-instruct",
-                messages=[{"role": "user", "content": prompt}],
-                temperature=0,
-                max_tokens=100
-            )
-            result_text = result.choices[0].message.content
-            json_match = re.search(r'\{.*\}', result_text, re.DOTALL)
-            if json_match:
-                parsed = json.loads(json_match.group())
-                return {
-                    'faithful': parsed.get('faithful', False),
-                    'relevant': parsed.get('relevant', False)
-                }
-        except Exception as e:
-            logger.warning(f"Answer quality evaluation failed: {e}")
-        
-        return {'faithful': False, 'relevant': False}
