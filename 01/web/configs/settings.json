@@ -1,6 +1,6 @@
 {
     "es_host": "http://localhost:9200",
-    "index_name": "datatalks-faqs",
+    "index_name": "faqs_complete",
     "search_type": "vector",
     "use_vector": true,
     "use_evaluators": true,

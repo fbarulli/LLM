@@ -7,12 +7,40 @@ from src.logger_config import logger, time_logger
 from src.cache import SemanticCache
 from src.guardrails import guardrail_filter
 
+
 from llama_index.core import VectorStoreIndex, Settings
 from llama_index.core.schema import Document
 from llama_index.core.evaluation import FaithfulnessEvaluator, RelevancyEvaluator
 from llama_index.llms.litellm import LiteLLM
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.core.base.response.schema import Response
+
+
+from dotenv import load_dotenv
+load_dotenv('/home/admin/LLM/LLM/01/web/configs/.env')
+
+
+
+import time
+from functools import wraps
+
+def rate_limit(calls_per_minute=40):
+    min_interval = 60.0 / calls_per_minute
+    last_called = [0.0]
+    
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            elapsed = time.time() - last_called[0]
+            if elapsed < min_interval:
+                time.sleep(min_interval - elapsed)
+            last_called[0] = time.time()
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+
+
 
 class CourseRAGManager:
     def __init__(self, settings: Dict[str, Any]):
@@ -169,6 +197,7 @@ class CourseRAGManager:
         
         return results
     
+    @rate_limit(calls_per_minute=40)
     def evaluate_response(self, query: str, response_text: str, contexts: List[str]) -> Dict[str, Any]:
         """Use LlamaIndex evaluators to assess answer quality."""
         if not self.evaluator_faithfulness or not self.evaluator_relevancy:
@@ -204,6 +233,43 @@ class CourseRAGManager:
             "relevant": relevancy_result.passing if relevancy_result else None,
             "relevancy_score": getattr(relevancy_result, 'score', None),
         }
+    
+    
+    @rate_limit(calls_per_minute=40)
+    def evaluate_rag_triad(self, query: str, response_text: str, contexts: List[str]) -> Dict[str, Any]:
+            if not self.evaluator_faithfulness or not self.evaluator_relevancy:
+                self._init_evaluators()
+            
+            contexts_used = 0
+            for context in contexts:
+                context_sentences = context.split('.')[:2]
+                if any(sentence in response_text for sentence in context_sentences):
+                    contexts_used += 1
+            
+            utilization_rate = contexts_used / len(contexts) if contexts else 0
+            
+            faithfulness_result = self.evaluator_faithfulness.evaluate(
+                query=query,
+                response=response_text,
+                contexts=contexts
+            ) if self.evaluator_faithfulness else None
+            
+            relevancy_result = self.evaluator_relevancy.evaluate(
+                query=query,
+                response=response_text,
+                contexts=contexts
+            ) if self.evaluator_relevancy else None
+            
+            return {
+                'faithful': faithfulness_result.passing if faithfulness_result else None,
+                'faithfulness_score': getattr(faithfulness_result, 'score', None),
+                'relevant': relevancy_result.passing if relevancy_result else None,
+                'relevancy_score': getattr(relevancy_result, 'score', None),
+                'context_utilization_rate': utilization_rate,
+                'contexts_used': contexts_used,
+                'contexts_provided': len(contexts)
+            }
+    
     def _bm25_search(self, query: str, size: int, course_context: Optional[str]) -> List[Dict]:
         mm_query = {
             "multi_match": {
@@ -266,3 +332,163 @@ class CourseRAGManager:
                     final_hits.append(hit)
                     break
         return final_hits
+
+    def batch_search_faq(self, queries: List[str], k: int, course_context: str = None) -> List[List[Dict]]:
+        try:
+            batch_size = len(queries)
+            logger.info(f"Batch searching {batch_size} queries with k={k}")
+            
+            search_type = self.settings.get("search_type", "bm25")
+            if search_type == "bm25":
+                return self._batch_bm25_search(queries, k, course_context)
+            elif search_type == "vector":
+                return self._batch_vector_search(queries, k, course_context)
+            elif search_type == "hybrid":
+                return self._batch_hybrid_search(queries, k, course_context)
+            else:
+                raise ValueError(f"Unknown search_type: {search_type}")
+        except Exception as e:
+            logger.error(f"Batch search failed: {e}")
+            raise
+
+    def _batch_bm25_search(self, queries: List[str], k: int, course_context: str = None) -> List[List[Dict]]:
+        from elasticsearch.helpers import bulk
+        
+        search_body = []
+        for query in queries:
+            must_conditions = [
+                {
+                    "multi_match": {
+                        "query": query,
+                        "fields": ["question^20", "text^1", "course^10"],
+                        "type": "best_fields"
+                    }
+                }
+            ]
+            
+            if course_context:
+                must_conditions.append({
+                    "term": {"course": course_context}
+                })
+            
+            search_body.append({
+                "index": self.index_name
+            })
+            search_body.append({
+                "size": k,
+                "query": {
+                    "bool": {
+                        "must": must_conditions
+                    }
+                }
+            })
+        
+        response = self.es_client.msearch(body=search_body)
+        
+        results = []
+        for resp in response['responses']:
+            hits = resp['hits']['hits'] if 'hits' in resp and 'hits' in resp['hits'] else []
+            results.append(hits)
+        
+        return results
+
+    def _batch_vector_search(self, queries: List[str], k: int, course_context: str = None) -> List[List[Dict]]:
+        embeddings = []
+        for query in queries:
+            embedding = self.embedding_model.encode(query)
+            embeddings.append(embedding.tolist())
+        
+        search_body = []
+        for query, embedding in zip(queries, embeddings):
+            script_query = {
+                "script_score": {
+                    "query": {"match_all": {}},
+                    "script": {
+                        "source": "cosineSimilarity(params.query_vector, 'question_vector') + 1.0",
+                        "params": {"query_vector": embedding}
+                    }
+                }
+            }
+            
+            if course_context:
+                script_query["script_score"]["query"] = {
+                    "bool": {
+                        "filter": {"term": {"course": course_context}}
+                    }
+                }
+            
+            search_body.append({
+                "index": self.index_name
+            })
+            search_body.append({
+                "size": k,
+                "query": script_query
+            })
+        
+        response = self.es_client.msearch(body=search_body)
+        
+        results = []
+        for resp in response['responses']:
+            hits = resp['hits']['hits'] if 'hits' in resp and 'hits' in resp['hits'] else []
+            results.append(hits)
+        
+        return results
+
+    def _batch_hybrid_search(self, queries: List[str], k: int, course_context: str = None) -> List[List[Dict]]:
+        embeddings = []
+        for query in queries:
+            embedding = self.embedding_model.encode(query)
+            embeddings.append(embedding.tolist())
+        
+        search_body = []
+        for query, embedding in zip(queries, embeddings):
+            should_conditions = [
+                {
+                    "multi_match": {
+                        "query": query,
+                        "fields": ["question^20", "text^1", "course^10"],
+                        "boost": 1.0
+                    }
+                },
+                {
+                    "script_score": {
+                        "query": {"match_all": {}},
+                        "script": {
+                            "source": "cosineSimilarity(params.query_vector, 'question_vector') + 1.0",
+                            "params": {"query_vector": embedding}
+                        },
+                        "boost": 1.0
+                    }
+                }
+            ]
+            
+            filter_conditions = []
+            if course_context:
+                filter_conditions.append({"term": {"course": course_context}})
+            
+            query_obj = {
+                "size": k,
+                "query": {
+                    "bool": {
+                        "should": should_conditions,
+                        "filter": filter_conditions if filter_conditions else None
+                    }
+                }
+            }
+            
+            if not filter_conditions:
+                del query_obj["query"]["bool"]["filter"]
+            
+            search_body.append({
+                "index": self.index_name
+            })
+            search_body.append(query_obj)
+        
+        response = self.es_client.msearch(body=search_body)
+        
+        results = []
+        for resp in response['responses']:
+            hits = resp['hits']['hits'] if 'hits' in resp and 'hits' in resp['hits'] else []
+            results.append(hits)
+        
+        return results

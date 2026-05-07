@@ -1,8 +1,0 @@
-{
-    "name": "BM25 Default",
-    "es_host": "http://localhost:9200",
-    "index_name": "faqs_complete",
-    "search_type": "bm25",
-    "boost_question": 20.0,
-    "boost_text": 1.0
-}
