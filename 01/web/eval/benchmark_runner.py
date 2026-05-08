@@ -4,6 +4,7 @@ import json
 import time
 import logging
 import traceback
+import os
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 
@@ -23,22 +24,27 @@ class BenchmarkRunner:
         self.manager = CourseRAGManager(self.settings)
         self.manager.connect_elasticsearch()
         self.batch_size = batch_size
-        self.k_values = [1, 3, 5, 10]
-        self.top_k = max(self.k_values)
+        self.default_k_values = [1, 3, 5, 10]
+        self.default_top_k = max(self.default_k_values)
     
     def run_benchmark(self, k_values: List[int] = None) -> Dict[str, Any]:
-        if k_values:
-            self.k_values = k_values
-            self.top_k = max(self.k_values)
+        # Use provided k_values or fallback to default
+        if k_values is None:
+            k_values = self.default_k_values.copy()
+        top_k = max(k_values)
         
         eval_set = get_eval_set_from_es()
+        if not eval_set:
+            raise ValueError("Eval set is empty – cannot run benchmark.")
+        
         total_queries = len(eval_set)
-        logger.info(f"Running batch benchmark for '{self.settings.get('name')}' on {total_queries} queries with k={self.k_values}, batch_size={self.batch_size}")
+        logger.info(f"Running batch benchmark for '{self.settings.get('name')}' on {total_queries} queries with k={k_values}, batch_size={self.batch_size}")
         
         queries_data = []
-        for item in eval_set:
+        for idx, item in enumerate(eval_set):
             query = item['original_doc'].get('question', '')
             if not query:
+                logger.warning(f"Dropping eval set item {idx} – missing 'question' field")
                 continue
             queries_data.append({
                 'query': query,
@@ -46,8 +52,9 @@ class BenchmarkRunner:
                 'expected_id': item['expected_id']
             })
         
-        all_results = []
+        # Recompute total batches after filtering
         total_batches = (len(queries_data) + self.batch_size - 1) // self.batch_size
+        all_results = []
         
         for batch_idx in range(0, len(queries_data), self.batch_size):
             batch = queries_data[batch_idx:batch_idx + self.batch_size]
@@ -67,32 +74,56 @@ class BenchmarkRunner:
                 course_indices = [i for i, c in enumerate(courses) if c == course]
                 
                 if course_queries:
-                    hits_list = self.manager.batch_search_faq(course_queries, self.top_k, course)
-                    
-                    for idx, hits in zip(course_indices, hits_list):
-                        batch_results_by_course[idx] = hits
+                    try:
+                        hits_list = self.manager.batch_search_faq(course_queries, top_k, course)
+                        for idx_course, hits in zip(course_indices, hits_list):
+                            batch_results_by_course[idx_course] = hits
+                    except Exception as e:
+                        logger.error(f"Batch search failed for course {course}: {e}")
+                        # Continue with empty hits for those queries
+                        for idx_course in course_indices:
+                            batch_results_by_course[idx_course] = []
             
-            latency_ms = (time.time() - start_time) * 1000
+            # Total wall‑clock time for the whole batch (all courses)
+            batch_latency_ms = (time.time() - start_time) * 1000
             
             for idx, item in enumerate(batch):
                 hits = batch_results_by_course.get(idx, [])
-                hit_ids = [hit['_id'] for hit in hits]
-                top_hit = hits[0] if hits else None
                 expected_id = item['expected_id']
-                contexts = [hit['_source'].get('text', '') for hit in hits] if hits else []
                 
-                for k in self.k_values:
-                    success = expected_id in hit_ids[:k]
+                # Precompute full contexts and hit IDs (all retrieved docs up to top_k)
+                full_contexts = [hit['_source'].get('answer', '') for hit in hits]
+                hit_ids = [hit['_id'] for hit in hits]
+                
+                for k in k_values:
+                    # Take first k contexts/hits
+                    sliced_contexts = full_contexts[:k]
+                    sliced_hit_ids = hit_ids[:k]
+                    success = expected_id in sliced_hit_ids
+                    
+                    # Determine found_id: the ID of the matching document within first k, or "NONE"
+                    found_id = "NONE"
+                    if success:
+                        # Find the matching hit's ID (first occurrence)
+                        for i, hit_id in enumerate(sliced_hit_ids):
+                            if hit_id == expected_id:
+                                found_id = hit_id
+                                break
+                    else:
+                        # If not found, still record the top hit's ID? Original used hits[0] always.
+                        # To keep backward compatibility, we'll use the top hit's ID if any.
+                        found_id = hit_ids[0] if hit_ids else "NONE"
+                    
                     all_results.append({
                         'k': k,
                         'query': item['query'],
                         'expected_id': expected_id,
-                        'found_id': top_hit['_id'] if top_hit else 'NONE',
+                        'found_id': found_id,
                         'success': success,
-                        'score': top_hit['_score'] if top_hit else 0.0,
-                        'latency_ms': round(latency_ms / len(batch), 2),
-                        'found_course': top_hit['_source'].get('course', 'NONE') if top_hit else 'NONE',
-                        'contexts': contexts
+                        'score': hits[0]['_score'] if hits else 0.0,
+                        'latency_ms': round(batch_latency_ms / len(batch), 2),
+                        'found_course': hits[0]['_source'].get('course', 'NONE') if hits else 'NONE',
+                        'contexts': sliced_contexts
                     })
         
         output = {
@@ -102,7 +133,7 @@ class BenchmarkRunner:
                 'settings': self.settings,
                 'timestamp': datetime.now().isoformat(),
                 'total_queries': len(queries_data),
-                'k_values': self.k_values,
+                'k_values': k_values,
                 'batch_size': self.batch_size,
                 'total_batches': total_batches
             },
@@ -114,12 +145,8 @@ class BenchmarkRunner:
     def save_results(self, output: Dict[str, Any]) -> str:
         web_root = '/home/admin/LLM/LLM/01/web'
         results_dir = f'{web_root}/experiments/results'
-        
-        import os
         os.makedirs(results_dir, exist_ok=True)
-        
         filename = f'{results_dir}/{self.config_name}.json'
-        
         try:
             with open(filename, 'w') as f:
                 json.dump(output, f, indent=2)
@@ -135,5 +162,6 @@ class BenchmarkRunner:
 
 
 def run_benchmark(config_name: str, k_values: List[int] = None, batch_size: int = 50) -> str:
+    """Standalone convenience function (kept for backward compatibility)."""
     runner = BenchmarkRunner(config_name, batch_size=batch_size)
     return runner.run_and_save(k_values)

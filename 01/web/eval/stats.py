@@ -1,11 +1,14 @@
+import sys
+sys.path.insert(0, '/home/admin/LLM/LLM/01/web')
+
 import json
 import time
 import os
 import traceback
 from typing import List, Dict, Any
 from src.search import CourseRAGManager
-from src.config_manager import load_config
-from src.core import generate_document_id
+from src.config_manager import load_full_config  # fixed import
+from src.core_utils import generate_document_id  # fixed import
 from langfuse.decorators import observe
 
 class StatsCollector:
@@ -15,7 +18,7 @@ class StatsCollector:
     """
     
     def __init__(self, config_path: str):
-        self.settings = load_config(config_path)
+        self.settings = load_full_config(config_path)
         self.manager = CourseRAGManager(self.settings)
         self.manager.connect_elasticsearch()
 
