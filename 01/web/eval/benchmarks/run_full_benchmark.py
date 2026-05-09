@@ -1,5 +1,15 @@
 #!/usr/bin/env python
+"""
+eval/benchmarks/run_full_benchmark.py
+======================================
+Runs all retrieval configs: BM25 variants, vector (cosine/dot), hybrid weights,
+and Qdrant (cosine/dot/euclidean).
 
+Output: experiments/results/<config_name>.json
+
+Run:    uv run python eval/benchmarks/run_full_benchmark.py
+        uv run python eval/benchmarks/run_full_benchmark.py --config bm25_default
+"""
 import sys
 import os
 sys.path.insert(0, '/home/admin/LLM/LLM/01/web')
@@ -9,19 +19,27 @@ import json
 import argparse
 from typing import List, Dict, Any
 
-from eval.benchmark_runner import run_benchmark
-from eval.qdrant_benchmark_runner import run_qdrant_benchmark
-
+from eval.benchmarks.benchmark_runner import run_benchmark
+from eval.benchmarks.qdrant_benchmark_runner import run_qdrant_benchmark
 
 CONFIGS = {
-    'bm25_default': 'BM25 Default',
-    'bm25_balanced': 'BM25 Balanced',
-    'bm25_high_question': 'BM25 High Question',
-    'bm25_high_text': 'BM25 High Text',
-    'vector_default': 'Vector Default',
-    'hybrid_default': 'Hybrid Default',
+    # BM25 variants
+    'bm25_default': 'BM25 Default (q20/t1)',
+    'bm25_balanced': 'BM25 Balanced (q5/t5)',
+    'bm25_high_question': 'BM25 High Question (q50/t1)',
+    'bm25_high_text': 'BM25 High Text (q1/t10)',
+    # Vector variants
+    'vector_default': 'Vector Cosine',
+    'vector_dot': 'Vector Dot Product',
+    # Hybrid variants
+    'hybrid_default': 'Hybrid Default (50/50)',
     'hybrid_balanced': 'Hybrid Balanced',
-    'qdrant_default': 'Qdrant Vector Default',
+    'hybrid_vector_heavy': 'Hybrid Vector Heavy (70/30)',
+    'hybrid_bm25_heavy': 'Hybrid BM25 Heavy (30/70)',
+    # Qdrant variants
+    'qdrant_default': 'Qdrant Cosine',
+    'qdrant_dot': 'Qdrant Dot Product',
+    'qdrant_euclidean': 'Qdrant Euclidean',
 }
 
 
@@ -32,16 +50,15 @@ def run_all_benchmarks(batch_size: int = 50) -> List[Dict[str, Any]]:
     print("=" * 60)
     print("RUNNING FULL BENCHMARK - ALL CONFIGS")
     print("=" * 60)
-    print(f"Batch size: {batch_size}")
-    print(f"Configs to run: {len(CONFIGS)}\n")
+    print(f"Configs: {len(CONFIGS)}\n")
     
     for config_name, display_name in CONFIGS.items():
         start = time.time()
         print(f"[{config_name}] {display_name}...")
         
         try:
-            if config_name == 'qdrant_default':
-                filename = run_qdrant_benchmark(batch_size=batch_size)
+            if 'qdrant' in config_name:
+                filename = run_qdrant_benchmark(config_name, batch_size=batch_size)
             else:
                 filename = run_benchmark(config_name, batch_size=batch_size)
             
@@ -77,15 +94,13 @@ def run_all_benchmarks(batch_size: int = 50) -> List[Dict[str, Any]]:
     print("=" * 60)
     print("BENCHMARK SUMMARY")
     print("=" * 60)
-    print(f"Total time: {total_elapsed:.2f} seconds\n")
+    print(f"Total time: {total_elapsed:.2f}s\n")
     
     for r in results:
         if 'recall_at_5' in r:
-            print(f"  {r['display_name']:25}: {r['recall_at_5']}% ({r['time']}s)")
+            print(f"  {r['display_name']:35}: {r['recall_at_5']}% ({r['time']}s)")
         else:
-            print(f"  {r['display_name']:25}: FAILED")
-    
-    print("\nResults saved to: /home/admin/LLM/LLM/01/web/experiments/results/")
+            print(f"  {r['display_name']:35}: FAILED")
     
     return results
 
@@ -97,8 +112,8 @@ def run_single_benchmark(config_name: str, batch_size: int = 50) -> Dict[str, An
     print(f"Running {CONFIGS[config_name]}...")
     start = time.time()
     
-    if config_name == 'qdrant_default':
-        filename = run_qdrant_benchmark(batch_size=batch_size)
+    if 'qdrant' in config_name:
+        filename = run_qdrant_benchmark(config_name, batch_size=batch_size)
     else:
         filename = run_benchmark(config_name, batch_size=batch_size)
     
@@ -108,7 +123,6 @@ def run_single_benchmark(config_name: str, batch_size: int = 50) -> Dict[str, An
         data = json.load(f)
         total_queries = data['metadata']['total_queries']
         results_data = data['results']
-        
         recall_at_5 = sum(1 for r in results_data if r['k'] == 5 and r['success']) / total_queries * 100
     
     return {
@@ -121,14 +135,13 @@ def run_single_benchmark(config_name: str, batch_size: int = 50) -> Dict[str, An
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Run benchmarks for search configs')
+    parser = argparse.ArgumentParser()
     parser.add_argument('--config', type=str, help='Run only a specific config')
-    parser.add_argument('--batch-size', type=int, default=50, help='Batch size for ES queries')
-    
+    parser.add_argument('--batch-size', type=int, default=50)
     args = parser.parse_args()
     
     if args.config:
         result = run_single_benchmark(args.config, batch_size=args.batch_size)
-        print(f"\nResult: {result['display_name']} - Recall@5: {result['recall_at_5']}% in {result['time']}s")
+        print(f"\n{result['display_name']} - Recall@5: {result['recall_at_5']}% in {result['time']}s")
     else:
         run_all_benchmarks(batch_size=args.batch_size)

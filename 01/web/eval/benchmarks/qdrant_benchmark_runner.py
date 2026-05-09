@@ -20,9 +20,16 @@ from src.retrieval.qdrant import QdrantRetriever
 from eval.eval_set import get_eval_set_from_es
 
 
-def run_qdrant_benchmark(batch_size: int = 50) -> str:
+COLLECTION_MAP = {
+    'qdrant_default': 'faqs',
+    'qdrant_dot': 'faqs_dot', 
+    'qdrant_euclidean': 'faqs_euclidean',
+}
+
+def run_qdrant_benchmark(config_name: str = 'qdrant_default', batch_size: int = 50) -> str:
     """Run Qdrant benchmark and return the filename."""
-    retriever = QdrantRetriever(collection_name='faqs')
+    collection = COLLECTION_MAP.get(config_name, 'faqs')
+    retriever = QdrantRetriever(collection_name=collection)
     eval_set = get_eval_set_from_es()
     
     k_values = [1, 3, 5, 10]
@@ -67,8 +74,8 @@ def run_qdrant_benchmark(batch_size: int = 50) -> str:
 
     output = {
         'metadata': {
-            'name': 'Qdrant Vector Default',
-            'config_name': 'qdrant_default',
+            f'name': f'Qdrant {config_name}',
+            f'config_name': config_name,
             'retriever': 'qdrant',
             'collection': 'faqs',
             'timestamp': datetime.now().isoformat(),
@@ -80,7 +87,7 @@ def run_qdrant_benchmark(batch_size: int = 50) -> str:
 
     results_dir = 'experiments/results'
     os.makedirs(results_dir, exist_ok=True)
-    filename = f'{results_dir}/qdrant_default.json'
+    filename = f'{results_dir}/{config_name}.json'
     with open(filename, 'w') as f:
         json.dump(output, f, indent=2)
     

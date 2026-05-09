@@ -11,8 +11,8 @@ Run:    uv run python compare_retrievers.py
 """
 import json
 import os
-from eval.benchmark_runner import BenchmarkRunner
-from eval.qdrant_benchmark_runner import QdrantBenchmarkRunner
+from eval.benchmarks.benchmark_runner import BenchmarkRunner
+from eval.benchmarks.qdrant_benchmark_runner import QdrantBenchmarkRunner
 
 CONFIGS = [
     'bm25_default',
