@@ -1,5 +1,3 @@
-# /home/admin/LLM/LLM/01/web/eval/run_full_benchmark.py
-
 #!/usr/bin/env python
 
 import sys
@@ -12,6 +10,7 @@ import argparse
 from typing import List, Dict, Any
 
 from eval.benchmark_runner import run_benchmark
+from eval.qdrant_benchmark_runner import run_qdrant_benchmark
 
 
 CONFIGS = {
@@ -21,7 +20,8 @@ CONFIGS = {
     'bm25_high_text': 'BM25 High Text',
     'vector_default': 'Vector Default',
     'hybrid_default': 'Hybrid Default',
-    'hybrid_balanced': 'Hybrid Balanced'
+    'hybrid_balanced': 'Hybrid Balanced',
+    'qdrant_default': 'Qdrant Vector Default',
 }
 
 
@@ -40,7 +40,11 @@ def run_all_benchmarks(batch_size: int = 50) -> List[Dict[str, Any]]:
         print(f"[{config_name}] {display_name}...")
         
         try:
-            filename = run_benchmark(config_name, batch_size=batch_size)
+            if config_name == 'qdrant_default':
+                filename = run_qdrant_benchmark(batch_size=batch_size)
+            else:
+                filename = run_benchmark(config_name, batch_size=batch_size)
+            
             elapsed = time.time() - start
             
             with open(filename, 'r') as f:
@@ -58,10 +62,10 @@ def run_all_benchmarks(batch_size: int = 50) -> List[Dict[str, Any]]:
                 'file': filename
             })
             
-            print(f"  ✅ Done in {elapsed:.2f}s | Recall@5: {recall_at_5:.1f}%\n")
+            print(f"  Done in {elapsed:.2f}s | Recall@5: {recall_at_5:.1f}%\n")
             
         except Exception as e:
-            print(f"  ❌ Failed: {e}\n")
+            print(f"  Failed: {e}\n")
             results.append({
                 'config': config_name,
                 'display_name': display_name,
@@ -92,7 +96,12 @@ def run_single_benchmark(config_name: str, batch_size: int = 50) -> Dict[str, An
     
     print(f"Running {CONFIGS[config_name]}...")
     start = time.time()
-    filename = run_benchmark(config_name, batch_size=batch_size)
+    
+    if config_name == 'qdrant_default':
+        filename = run_qdrant_benchmark(batch_size=batch_size)
+    else:
+        filename = run_benchmark(config_name, batch_size=batch_size)
+    
     elapsed = time.time() - start
     
     with open(filename, 'r') as f:
