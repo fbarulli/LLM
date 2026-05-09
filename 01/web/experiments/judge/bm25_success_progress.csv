@@ -1,0 +1,94 @@
+subset,query,expected_id,found_id,judge_any_yes,judge_verdicts,judged_rank,reasoning,raw_response,raw_len,verdict_count_raw
+bm25_success,'Why do I get a “ValueError: The truth value of a DataFrame is ambiguous.,2eb2863faf,2eb2863faf,True,"['YES', 'NO', 'NO', 'NO', 'NO']",1,"Context 1 directly answers the question because it provides a solution to the error by suggesting a comparison method for DataFrames.
+
+Context 2 does not directly answer the question because it discusses a different error related to Boto3 and Docker Compose.
+
+Context 3 does not directly answer the question because it talks about certificate requirements for a course, which is unrelated to the error.
+
+Context 4 does not directly answer the question because it mentions a different error related to","Context 1 directly answers the question because it provides a solution to the error by suggesting a comparison method for DataFrames.
+
+Context 2 does not directly answer the question because it discusses a different error related to Boto3 and Docker Compose.
+
+Context 3 does not directly answer the question because it talks about certificate requirements for a course, which is unrelated to the error.
+
+Context 4 does not directly answer the question because it mentions a different error related to",720,10
+bm25_success,"'OpenSource: I am using Groq, and it doesn''t provide a tokenizer library",fe8fed31e6,fe8fed31e6,False,"['NO', 'NO', 'NO', 'NO', 'NO']",,"Context 1 does not directly answer the question because it provides information about a different library and model.
+Context 2 does not directly answer the question because it discusses the flexibility of using different LLM platforms.
+Context 3 does not directly answer the question because it provides unrelated information about modifying a JSON object.
+Context 4 does not directly answer the question because it discusses account setup and display names.
+Context 5 does not directly answer the qu","Context 1 does not directly answer the question because it provides information about a different library and model.
+Context 2 does not directly answer the question because it discusses the flexibility of using different LLM platforms.
+Context 3 does not directly answer the question because it provides unrelated information about modifying a JSON object.
+Context 4 does not directly answer the question because it discusses account setup and display names.
+Context 5 does not directly answer the qu",669,11
+bm25_success,Alternative way to convert Jupyter notebook to Python script (via jupytext),c2f39b0ef3,c2f39b0ef3,True,"['YES', 'NO', 'NO', 'NO', 'NO']",1,"Context 1 directly answers the question because it provides an alternative method to convert a Jupyter notebook to a Python script using Jupytext.
+
+Context 2 does not directly answer the question because it discusses a specific issue with running a Jupyter notebook and its solution, but does not provide information on converting a Jupyter notebook to a Python script.
+
+Context 3 does not directly answer the question because it mentions redefining a Python environment variable, but does not provid","Context 1 directly answers the question because it provides an alternative method to convert a Jupyter notebook to a Python script using Jupytext.
+
+Context 2 does not directly answer the question because it discusses a specific issue with running a Jupyter notebook and its solution, but does not provide information on converting a Jupyter notebook to a Python script.
+
+Context 3 does not directly answer the question because it mentions redefining a Python environment variable, but does not provid",1034,19
+bm25_success,'Ingestion: When attempting to use the provided quick script to load trip,6435e27634,6435e27634,True,"['YES', 'NO', 'NO', 'NO', 'YES']",1,"Context 1: This context provides a direct solution to the problem by offering an alternative method to download the trip data using the GitHub CLI, so it answers the question. 
+Context 2: This context discusses the topic and provides a solution, but it's more of a workaround and doesn't directly answer the question, so it doesn't answer the question.
+Context 3: This context is unrelated to the question and discusses a different issue, so it doesn't answer the question.
+Context 4: This context pr","Context 1: This context provides a direct solution to the problem by offering an alternative method to download the trip data using the GitHub CLI, so it answers the question. 
+Context 2: This context discusses the topic and provides a solution, but it's more of a workaround and doesn't directly answer the question, so it doesn't answer the question.
+Context 3: This context is unrelated to the question and discusses a different issue, so it doesn't answer the question.
+Context 4: This context pr",774,6
+bm25_success,"Docker - error during connect: In the default daemon configuration on Windows, the docker client must be run with elevated privileges",46dbe4810d,46dbe4810d,True,"['YES', 'NO', 'NO', 'NO', 'NO']",1,"Context 1 directly answers the question by providing specific steps to resolve the error on Windows based on the version.
+Context 2 does not directly answer the question, it provides additional troubleshooting steps.
+Context 3 does not directly answer the question, it provides a solution to a different error.
+Context 4 does not directly answer the question, it provides additional information on using WSL2 and troubleshooting steps.
+Context 5 does not directly answer the question, it provides a s","Context 1 directly answers the question by providing specific steps to resolve the error on Windows based on the version.
+Context 2 does not directly answer the question, it provides additional troubleshooting steps.
+Context 3 does not directly answer the question, it provides a solution to a different error.
+Context 4 does not directly answer the question, it provides additional information on using WSL2 and troubleshooting steps.
+Context 5 does not directly answer the question, it provides a s",562,9
+bm25_success,'Course: I have registered for the Data Engineering Bootcamp. When can I,52217fc51b,52217fc51b,False,"['NO', 'NO', 'NO', 'NO', 'NO']",,"Context 1 does not directly answer the question because it only mentions that registration was to gauge interest, but does not provide information on when the course starts.
+Context 2 does not directly answer the question because it discusses the availability of materials after the course finishes, but does not provide information on when the course starts.
+Context 3 does not directly answer the question because it provides information on preparing the environment, but does not provide informati","Context 1 does not directly answer the question because it only mentions that registration was to gauge interest, but does not provide information on when the course starts.
+Context 2 does not directly answer the question because it discusses the availability of materials after the course finishes, but does not provide information on when the course starts.
+Context 3 does not directly answer the question because it provides information on preparing the environment, but does not provide informati",895,15
+bm25_success,Multiline commands in Windows Powershell,2d292454ac,2d292454ac,True,"['YES', 'NO', 'NO', 'NO', 'NO']",1,"Context 1 directly answers the question because it provides instructions on how to use multiline commands in Windows PowerShell.
+
+Context 2 does not directly answer the question because it discusses a problem with a git commit command and its solution, which is unrelated to multiline commands in Windows PowerShell.
+
+Context 3 does not directly answer the question because it provides a solution to a problem with listing AWS S3 buckets, which is unrelated to multiline commands in Windows PowerShel","Context 1 directly answers the question because it provides instructions on how to use multiline commands in Windows PowerShell.
+
+Context 2 does not directly answer the question because it discusses a problem with a git commit command and its solution, which is unrelated to multiline commands in Windows PowerShell.
+
+Context 3 does not directly answer the question because it provides a solution to a problem with listing AWS S3 buckets, which is unrelated to multiline commands in Windows PowerShel",905,9
+bm25_success,Useful Resource for Missing Data Treatment,1c1a0016fc,1c1a0016fc,True,"['NO', 'NO', 'NO', 'YES', 'NO']",4,"Context 1: This context provides a resource for handling missing values in Python, but it does not directly answer a specific question.
+Context 2: This context discusses the tradeoffs of handling missing values before or after splitting data, but it does not directly answer a specific question.
+Context 3: This context explains the importance of not touching the test dataset, but it does not directly answer a specific question.
+Context 4: This context clarifies that a specific question only deals","Context 1: This context provides a resource for handling missing values in Python, but it does not directly answer a specific question.
+Context 2: This context discusses the tradeoffs of handling missing values before or after splitting data, but it does not directly answer a specific question.
+Context 3: This context explains the importance of not touching the test dataset, but it does not directly answer a specific question.
+Context 4: This context clarifies that a specific question only deals",735,10
+bm25_success,'Pre-commit: Triggers an error at every commit: “mapping values are not,cc6b6f1481,cc6b6f1481,True,"['YES', 'YES', 'NO', 'YES', 'NO']",1,"Context 1: This context directly answers the question by providing a solution to the pre-commit error, specifically mentioning the need to correct indentation in the `.pre-commit-config.yaml` file.
+
+Context 2: This context directly answers the question by providing a solution to the pre-commit error, specifically mentioning the need to set the version to `5.12.0` for the isort repo.
+
+Context 3: This context does not directly answer the question about pre-commit errors, but rather provides a solu","Context 1: This context directly answers the question by providing a solution to the pre-commit error, specifically mentioning the need to correct indentation in the `.pre-commit-config.yaml` file.
+
+Context 2: This context directly answers the question by providing a solution to the pre-commit error, specifically mentioning the need to set the version to `5.12.0` for the isort repo.
+
+Context 3: This context does not directly answer the question about pre-commit errors, but rather provides a solu",965,7
+bm25_success,Running out of space for AWS instance.,814a8657e2,814a8657e2,True,"['YES', 'NO', 'YES', 'NO', 'NO']",1,"Context 1 directly answers the question because it provides a specific command to free up space after removing Docker images.
+
+Context 2 does not directly answer the question because it discusses a solution for OOM errors on a GPU, which is unrelated to running out of space on an AWS instance.
+
+Context 3 directly answers the question because it provides a step-by-step solution to free up space on an AWS instance by removing unnecessary Docker images and running the `docker system prune` command.","Context 1 directly answers the question because it provides a specific command to free up space after removing Docker images.
+
+Context 2 does not directly answer the question because it discusses a solution for OOM errors on a GPU, which is unrelated to running out of space on an AWS instance.
+
+Context 3 directly answers the question because it provides a step-by-step solution to free up space on an AWS instance by removing unnecessary Docker images and running the `docker system prune` command.",897,8
+bm25_success,"'There is an error when opening the table using `dbtable = db.open_table(""notion_pages___homework"")`:",0407213397,0407213397,True,"['YES', 'YES', 'NO', 'NO', 'NO']",1,"Context 1 directly answers the question because it provides a specific reason for the error, implying that the solution is to change all instances of ""employee_handbook"" to ""homework"".
+Context 2 directly answers the question because it explicitly states to open the correct table, which is the solution to the error.
+Context 3 does not directly answer the question because it provides unrelated information about modifying a JSON object.
+Context 4 does not directly answer the question because it dis","Context 1 directly answers the question because it provides a specific reason for the error, implying that the solution is to change all instances of ""employee_handbook"" to ""homework"".
+Context 2 directly answers the question because it explicitly states to open the correct table, which is the solution to the error.
+Context 3 does not directly answer the question because it provides unrelated information about modifying a JSON object.
+Context 4 does not directly answer the question because it dis",727,8

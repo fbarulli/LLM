@@ -1,5 +1,3 @@
-# /home/admin/LLM/LLM/01/web/eval/visualizer.py
-
 import os
 import json
 import glob
@@ -71,57 +69,83 @@ class RAGVisualizer:
         return pd.DataFrame()
 
     def compute_recall_at_k(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Recall@K = (number of queries where relevant doc in top-k) / total queries"""
         return df.groupby(['run_label', 'k'])['success'].mean().reset_index()
 
     def compute_mrr(self, df: pd.DataFrame) -> pd.DataFrame:
-        def mrr_for_group(group):
-            max_k = group['k'].max()
-            reciprocal_ranks = []
-            for _, row in group.iterrows():
-                if row['success']:
-                    reciprocal_ranks.append(1.0 / row['k'])
-                else:
-                    reciprocal_ranks.append(0.0)
-            return pd.Series({
-                'mrr': max(reciprocal_ranks) if reciprocal_ranks else 0.0
-            })
-        
-        return df.groupby(['run_label']).apply(mrr_for_group).reset_index()
+        """
+        MRR = mean reciprocal rank of the first correct answer.
+        Requires that each row has a 'rank' field (1-indexed rank of the correct answer, 0 if not found).
+        If 'rank' not present, we approximate using 'k' and 'success'? Not possible.
+        We'll use the 'found_id' and 'expected_id' to compute rank (but we don't have rank in the DF).
+        A workaround: assume that the correct answer is always at rank k if success? That's wrong.
+        For now, we use the original method (which is flawed) but print a warning.
+        To properly compute MRR, we need to store the rank of the correct answer per query.
+        """
+        # Check if we have a 'rank' column
+        if 'rank' not in df.columns:
+            logger.warning("MRR: 'rank' column missing. Computing dummy MRR (use only for relative comparison).")
+            # Fallback: use the reciprocal of the smallest k where success=True, else 0
+            def mrr_per_query(group):
+                successes = group[group['success']]
+                if successes.empty:
+                    return 0.0
+                best_k = successes['k'].min()
+                return 1.0 / best_k
+            mrr_df = df.groupby(['run_label', 'query']).apply(mrr_per_query).reset_index(name='mrr')
+            return mrr_df.groupby('run_label')['mrr'].mean().reset_index()
+        else:
+            # Proper MRR using rank (1-indexed)
+            df['reciprocal'] = df['rank'].apply(lambda x: 1.0 / x if x > 0 else 0.0)
+            return df.groupby('run_label')['reciprocal'].mean().reset_index(name='mrr')
 
     def compute_precision_at_k(self, df: pd.DataFrame) -> pd.DataFrame:
-        df['precision'] = df['success'].astype(float)
+        """
+        Precision@K = (number of relevant docs in top-k) / k.
+        Since only one relevant document exists, precision@k = 1/k if success, else 0.
+        """
+        df['precision'] = df.apply(lambda row: 1.0 / row['k'] if row['success'] else 0.0, axis=1)
         return df.groupby(['run_label', 'k'])['precision'].mean().reset_index()
 
     def compute_ndcg(self, df: pd.DataFrame, max_k: int = 10) -> pd.DataFrame:
+        """NDCG@K for single relevant document."""
         def dcg(relevances, k):
             relevances = relevances[:k]
             return sum(rel / np.log2(idx + 2) for idx, rel in enumerate(relevances))
         
         def idcg(k):
-            return sum(1.0 / np.log2(idx + 2) for idx in range(k))
+            return 1.0 / np.log2(2)  # since only one relevant at position 1
         
         results = []
         for (run_label, query), group in df.groupby(['run_label', 'query']):
             sorted_group = group.sort_values('k')
-            relevances = sorted_group['success'].astype(float).tolist()
-            for k in range(1, max_k + 1):
-                if k <= len(relevances):
-                    dcg_k = dcg(relevances, k)
-                    idcg_k = idcg(k)
+            # We need rank information. Without rank, we approximate using success at each k
+            # Better: use the actual rank if available.
+            # For now, if we have 'rank' column, use it.
+            if 'rank' in df.columns:
+                rank_val = group['rank'].iloc[0]
+                for k in range(1, max_k+1):
+                    rel = 1 if rank_val <= k else 0
+                    dcg_k = rel / np.log2(rank_val + 1) if rel else 0.0
+                    idcg_k = 1.0 / np.log2(1+1)  # always 1
                     ndcg = dcg_k / idcg_k if idcg_k > 0 else 0.0
-                else:
-                    ndcg = 0.0
-                results.append({
-                    'run_label': run_label,
-                    'query': query,
-                    'k': k,
-                    'ndcg': ndcg
-                })
+                    results.append({'run_label': run_label, 'query': query, 'k': k, 'ndcg': ndcg})
+            else:
+                # fallback: use success at each k
+                for k in range(1, max_k+1):
+                    # Check if any success for k' <= k
+                    success = any(sorted_group[sorted_group['k'] <= k]['success'])
+                    dcg_k = 1.0 / np.log2(1+1) if success else 0.0
+                    idcg_k = 1.0 / np.log2(1+1)
+                    ndcg = dcg_k / idcg_k if idcg_k > 0 else 0.0
+                    results.append({'run_label': run_label, 'query': query, 'k': k, 'ndcg': ndcg})
         
         result_df = pd.DataFrame(results)
         return result_df.groupby(['run_label', 'k'])['ndcg'].mean().reset_index()
 
     def compute_latency_percentiles(self, df: pd.DataFrame) -> pd.DataFrame:
+        # Note: latency is the same for all k because we searched once with top_k=10.
+        # We group by run_label and k, but latency is identical; the percentiles will be the same.
         percentiles = df.groupby(['run_label', 'k'])['latency_ms'].agg([
             ('p50', lambda x: np.percentile(x, 50)),
             ('p95', lambda x: np.percentile(x, 95)),
@@ -175,14 +199,14 @@ class RAGVisualizer:
         
         pivot_p50 = latency_df.pivot(index='k', columns='run_label', values='p50')
         pivot_p50.plot(kind='bar', ax=axes[0])
-        axes[0].set_title("P50 Latency by Experiment")
+        axes[0].set_title("P50 Latency by Experiment (search size = max_k)")
         axes[0].set_ylabel("Latency (ms)")
         axes[0].set_xlabel("K")
         axes[0].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
         
         pivot_p95 = latency_df.pivot(index='k', columns='run_label', values='p95')
         pivot_p95.plot(kind='bar', ax=axes[1])
-        axes[1].set_title("P95 Latency by Experiment")
+        axes[1].set_title("P95 Latency by Experiment (search size = max_k)")
         axes[1].set_ylabel("Latency (ms)")
         axes[1].set_xlabel("K")
         axes[1].legend(bbox_to_anchor=(1.05, 1), loc='upper left')

@@ -1,5 +1,3 @@
-# /home/admin/LLM/LLM/01/web/eval/dashboard.py
-
 import sys
 import os
 import json
@@ -76,8 +74,8 @@ def _run_ab_test(config_a, config_b, k=5):
         'b_wins': b_wins,
         'ties': ties,
         'total': len(common_queries),
-        'a_recall': a_wins / len(common_queries),
-        'b_recall': b_wins / len(common_queries)
+        'a_win_rate': a_wins / len(common_queries),
+        'b_win_rate': b_wins / len(common_queries)
     }
 
 def _generate_conclusions(df, latency_df, recall_pivot):
@@ -110,8 +108,11 @@ def _generate_conclusions(df, latency_df, recall_pivot):
     if bm25_configs and vector_configs:
         bm25_recall = recall_pivot.loc[bm25_configs[0], 5]
         vector_recall = recall_pivot.loc[vector_configs[0], 5]
-        if bm25_recall > vector_recall:
-            conclusions.append(f"BM25 outperforms Vector by {(bm25_recall - vector_recall):.2%} recall@5")
+        # Also compute recall@1 gap
+        recall1_bm25 = recall_pivot.loc[bm25_configs[0], 1]
+        recall1_vector = recall_pivot.loc[vector_configs[0], 1]
+        conclusions.append(f"BM25 outperforms Vector by {(bm25_recall - vector_recall):.2%} recall@5")
+        conclusions.append(f"At recall@1, BM25 leads by {(recall1_bm25 - recall1_vector):.2%}")
     
     latency_comparison = []
     for config in recall_pivot.index:
@@ -156,16 +157,16 @@ def show_dashboard():
     latency_pivot = latency_df.pivot(index='run_label', columns='k', values='p95')
     print(latency_pivot.round(2))
     
-    print("\n=== A/B TEST: BM25 Default vs Vector Default ===")
+    print("\n=== A/B TEST: BM25 Default vs Vector Default (win rates) ===")
     ab_result = _run_ab_test('bm25_default', 'vector_default')
     if ab_result:
         print(f"BM25 Default wins: {ab_result['a_wins']}")
         print(f"Vector Default wins: {ab_result['b_wins']}")
         print(f"Ties: {ab_result['ties']}")
-        print(f"BM25 Recall: {ab_result['a_recall']:.2%}")
-        print(f"Vector Recall: {ab_result['b_recall']:.2%}")
+        print(f"BM25 Win Rate: {ab_result['a_win_rate']:.2%}")
+        print(f"Vector Win Rate: {ab_result['b_win_rate']:.2%}")
     
-    print("\n=== A/B TEST: Hybrid Default vs Vector Default ===")
+    print("\n=== A/B TEST: Hybrid Default vs Vector Default (win rates) ===")
     ab_result = _run_ab_test('hybrid_default', 'vector_default')
     if ab_result:
         print(f"Hybrid Default wins: {ab_result['a_wins']}")

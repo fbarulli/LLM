@@ -1,5 +1,3 @@
-# /home/admin/LLM/LLM/01/web/eval/eval_set.py
-
 import json
 import logging
 import traceback
@@ -10,6 +8,19 @@ from elasticsearch.exceptions import ConnectionError, NotFoundError
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 
+def clean_query(q: str) -> str:
+    """Remove common artifacts from eval set questions."""
+    q = q.strip()
+    # Remove surrounding quotes
+    if (q.startswith("'") and q.endswith("'")) or (q.startswith('"') and q.endswith('"')):
+        q = q[1:-1]
+    # Remove 'Course:' prefix (case‑insensitive)
+    if q.lower().startswith("course:"):
+        q = q[6:].lstrip()
+    # Remove stray leading colon or space
+    if q.startswith(':'):
+        q = q[1:].lstrip()
+    return q
 
 def _load_json_config(file_path: str) -> Dict[str, Any]:
     try:
@@ -21,7 +32,6 @@ def _load_json_config(file_path: str) -> Dict[str, Any]:
     except json.JSONDecodeError as e:
         logger.error(f"Invalid JSON in {file_path}: {e}")
         raise
-
 
 def get_eval_set_from_es() -> List[Dict[str, Any]]:
     web_root = '/home/admin/LLM/LLM/01/web'
@@ -42,7 +52,6 @@ def get_eval_set_from_es() -> List[Dict[str, Any]]:
     
     try:
         es = Elasticsearch(es_host)
-        
         if not es.ping():
             raise ConnectionError(f"Cannot connect to Elasticsearch at {es_host}")
         
@@ -54,12 +63,15 @@ def get_eval_set_from_es() -> List[Dict[str, Any]]:
         
         eval_set = []
         for hit in response['hits']['hits']:
+            original_doc = hit['_source'].copy()
+            if 'question' in original_doc:
+                original_doc['question'] = clean_query(original_doc['question'])
             eval_set.append({
                 'expected_id': hit['_id'],
-                'original_doc': hit['_source']
+                'original_doc': original_doc
             })
         
-        logger.info(f"Loaded {len(eval_set)} documents from index '{index_name}'")
+        logger.info(f"Loaded and cleaned {len(eval_set)} documents from index '{index_name}'")
         return eval_set
         
     except ConnectionError as e:
