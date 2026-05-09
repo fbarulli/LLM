@@ -1,0 +1,14 @@
+{
+  "natural_diversity": {
+    "description": "Shows 5 Q&A pairs then generates diverse queries for each",
+    "template": "You are helping create test queries for a course FAQ search engine.\n\nHere are 5 real FAQ entries from different courses:\n\n{qa_pairs}\n\nFor EACH of the 5 questions above, generate 3 alternative search queries a student might type.\n\nRules:\n1. SHORT (3-5 words): keyword search, typos allowed\n2. PROBLEM-FIRST: describe symptoms the student sees\n3. WRONG ANGLE: student doesn't know the real cause yet\n\nReturn ONLY a JSON object where keys are the FAQ question numbers (1-5) and values are arrays of 3 strings.\n\nExample format:\n{\n  \"1\": [\"query a\", \"query b\", \"query c\"],\n  \"2\": [\"query d\", \"query e\", \"query f\"],\n  \"3\": [\"query g\", \"query h\", \"query i\"],\n  \"4\": [\"query j\", \"query k\", \"query l\"],\n  \"5\": [\"query m\", \"query n\", \"query o\"]\n}"
+  },
+  "persona_based": {
+    "description": "Shows 5 Q&A pairs, generates persona-based queries for each",
+    "template": "Here are 5 FAQ entries from a course platform:\n\n{qa_pairs}\n\nFor EACH of the 5 questions above, generate 3 search queries from different students:\n1. A beginner who doesn't know course terminology\n2. A frustrated student describing symptoms they see\n3. A lazy student typing quick keywords (2-4 words)\n\nReturn ONLY a JSON object with keys 1-5, each containing an array of 3 strings.\n\nExample: {\"1\": [\"beginner q\", \"frustrated q\", \"lazy q\"], \"2\": [...]}"
+  },
+  "minimal": {
+    "description": "Shows 5 Q&A pairs, generates quick varied queries",
+    "template": "FAQ entries:\n\n{qa_pairs}\n\nFor EACH question (1-5), write 3 different search queries:\n1. Symptom-based: what they see going wrong\n2. Wrong-angle: searching from their last action\n3. Quick: terse keywords, 2-4 words\n\nReturn ONLY a JSON object: {\"1\": [\"q1\", \"q2\", \"q3\"], \"2\": [...]}"
+  }
+}
