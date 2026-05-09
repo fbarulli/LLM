@@ -2,35 +2,35 @@
   "metadata": {
     "description": "Test queries for retrieval evaluation",
     "model": "nvidia_nim/meta/llama-3.1-70b-instruct",
-    "generated_at": "2026-05-09T19:28:38.532297",
+    "generated_at": "2026-05-09T21:56:56.206260",
     "total_documents": 50,
-    "total_queries": 390,
+    "total_queries": 420,
     "batch_size": 5,
     "prompt_strategies": [
       "grounded_analyst",
       "creative_student",
       "chaos_monkey"
     ],
-    "generation_time_seconds": 868.3,
-    "errors": 4
+    "generation_time_seconds": 767.5,
+    "errors": 2
   },
   "queries": [
     {
       "prompt_results": {
         "grounded_analyst": [
-          "streamlit executable not found in docker-compose",
-          "docker-compose up streamlit error",
-          "streamlit not found in PATH docker-compose"
+          "docker-compose streamlit executable file not found",
+          "streamlit app not running in docker-compose",
+          "OCI runtime create failed in docker-compose"
         ],
         "creative_student": [
-          "streamlit app won't run with docker-compose, keeps giving me an error",
-          "docker-compose up fails with unknown error, streamlit not found",
-          "why can't I run my streamlit app using docker-compose?"
+          "docker-compose streamlit app won't run",
+          "why is streamlit not found in $PATH when running docker-compose",
+          "streamlit app runs fine outside of docker-compose but fails inside"
         ],
         "chaos_monkey": [
-          "streamlit app refuses to run due to shim task issues",
-          "container exec error even though PATH is correct",
-          "docker-compose fails to create task for streamlit container"
+          "my streamlit app doesn't work when i put it in a box",
+          "docker gives error when streamlit is run from inside",
+          "can't find streamlit file when using docker thing"
         ]
       },
       "original_question": "Docker: When trying to run a streamlit app using docker-compose, I get: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: \"streamlit\": executable file not found in $PATH: unknown. The app runs fine outside of docker-compose",
@@ -41,19 +41,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "jupyter kernel crashes with embedding",
-          "jupyter notebook runs out of memory",
-          "embedding model crashes jupyter kernel"
+          "jupyter kernel crashes with embedding model",
+          "jupyter notebook out of memory with ground-truth set",
+          "kernel crashes when loading embedding model in jupyter"
         ],
         "creative_student": [
-          "jupyter kernel keeps crashing when I try to embed data",
-          "embedding model causes jupyter notebook to run out of memory",
-          "why does my jupyter kernel crash when I try to load the ground-truth set?"
+          "jupyter kernel keeps crashing when loading ground-truth set",
+          "why does my jupyter notebook run out of memory when embedding a dataset",
+          "embedding model causes jupyter kernel to crash"
         ],
         "chaos_monkey": [
-          "kernel crashes when adding data to notebook",
-          "low RAM causes Jupyter to fail when loading models",
-          "embedding model causes out of memory error"
+          "jupyter is too heavy for my computer",
+          "kernel crashes when i try to embed the truth",
+          "small computers can't handle jupyter notebooks"
         ]
       },
       "original_question": "Evaluation: Jupyter kernel crashes when embedding the ground-truth set",
@@ -64,19 +64,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "missing packages for jupyter notebook",
-          "jupyter notebook dependencies",
-          "packages required for jupyter notebook"
+          "required packages for jupyter notebook",
+          "packages needed for starter jupyter notebook",
+          "installing dependencies for jupyter notebook"
         ],
         "creative_student": [
-          "jupyter notebook missing packages, can't run starter notebook",
-          "what dependencies do I need to install for the starter jupyter notebook?",
-          "jupyter notebook errors due to missing packages, how do I fix it?"
+          "starter jupyter notebook won't run due to missing packages",
+          "what dependencies are needed to run the teacher's jupyter notebook",
+          "jupyter notebook errors due to missing packages"
         ],
         "chaos_monkey": [
-          "Jupyter Notebook missing dependencies for starter code",
-          "packages needed to run teacher's Jupyter Notebook",
-          " Codespace environment lacks required libraries"
+          "i need more stuff to make the notebook work",
+          "starter notebook needs extra packages to run",
+          "what dependencies do i need for the starter notebook"
         ]
       },
       "original_question": "Other packages needed but not listed",
@@ -87,19 +87,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "python invalid start byte error",
-          "unicode decode error python",
-          "python utf-8 codec error"
+          "unicode decode error invalid start byte python",
+          "utf-8 codec can't decode byte in python",
+          "python pandas read csv invalid start byte"
         ],
         "creative_student": [
-          "python script fails with invalid start byte error, how to fix?",
-          "why am I getting a unicode decode error when reading csv file?",
-          "python pandas read_csv fails with utf-8 codec error"
+          "invalid start byte error when reading csv file",
+          "why does pandas throw a unicode decode error",
+          "utf-8 codec can't decode byte error when reading csv"
         ],
         "chaos_monkey": [
-          "pandas dataframe encoding fails with latin1",
-          "byte error when reading CSV into pandas",
-          "UnicodeDecodeError when writing to GCS"
+          "python is reading my file wrong",
+          "encoding error when reading data from the web",
+          "csv file has weird bytes in it"
         ]
       },
       "original_question": "Python: invalid start byte Error Message",
@@ -110,19 +110,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "wget not recognized as internal command",
-          "install wget on ubuntu",
-          "wget not found in system"
+          "wget not recognized as internal or external command",
+          "installing wget on ubuntu macos windows",
+          "wget installation for data download"
         ],
         "creative_student": [
-          "wget command not recognized, how do I install it?",
-          "why is wget not working on my system, no such file or directory error",
-          "how to fix wget is not recognized as an internal or external command error"
+          "wget command not recognized in terminal",
+          "why is wget not working on my system",
+          "no such file or directory error due to missing wget"
         ],
         "chaos_monkey": [
-          "output.csv.gz not found due to wget error",
-          "wget command not recognized on Windows",
-          "Ubuntu install fails due to missing wget package"
+          "i need to download something but my computer doesn't know what that is",
+          "how do i install the downloader thing",
+          "wget doesn't work on my windows computer"
         ]
       },
       "original_question": "wget is not recognized as an internal or external command",
@@ -133,19 +133,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "activate anaconda environment in bashrc",
+          "how to activate anaconda environment in bashrc",
           "conda init bash not working",
-          "anaconda environment not activated in unix shell"
+          "anaconda environment not activated after restart"
         ],
         "creative_student": [
-          "conda env not activating after restart",
-          "anaconda not working after closing terminal",
-          "how to make anaconda environment permanent"
+          "anaconda environment not activating after restart",
+          "conda init not working in bashrc",
+          "why is my anaconda environment not loading automatically"
         ],
         "chaos_monkey": [
-          "My Unix shell keeps forgetting about Anaconda",
-          "conda init doesn't seem to work when I restart my computer",
-          "Why does my .bashrc file not have any Anaconda stuff in it?"
+          "why conda doesn't recognize my .bashrc file",
+          "my shell doesn't see the anaconda environment after reboot",
+          "unix shell doesn't recognize anaconda path after restart"
         ]
       },
       "original_question": "Activating Anaconda env in .bashrc",
@@ -156,19 +156,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "dlt clickhouse connector",
-          "dlt starrocks integration",
-          "does dlt support clickhouse"
+          "does dlt support clickhouse",
+          "dlt connector for starrocks",
+          "integrating clickhouse with dlt"
         ],
         "creative_student": [
-          "does dlt support clickhouse",
-          "starrrocks integration with dlt",
-          "why cant i use clickhouse with dlt"
+          "does data loading tool support clickhouse",
+          "starrocks integration with data loading tool",
+          "how to connect clickhouse to data loading tool"
         ],
         "chaos_monkey": [
-          "Can DLT talk to those new columnar databases",
-          "Does DLT have a connector for that one database with the weird name",
-          "How do I get data from DLT into ClickHouse or something similar?"
+          "can DLT talk to databases that start with C or S",
+          "does DLT support popular OLAP databases",
+          "what databases can DLT connect to, specifically the ones I use"
         ]
       },
       "original_question": "Does DLT have connectors to ClickHouse or StarRocks?",
@@ -179,19 +179,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "terraform googleapi error 403",
-          "googleapi error insufficient authentication scopes",
+          "terraform googleapi error 403 insufficient authentication scopes",
+          "google application credentials not set terraform",
           "terraform dataset creation error 403"
         ],
         "creative_student": [
-          "terraform google api permission error",
-          "insufficient authentication scopes terraform",
-          "terraform dataset creation error 403"
+          "terraform googleapi error 403",
+          "insufficient authentication scopes in terraform",
+          "why is terraform giving me an access denied error"
         ],
         "chaos_monkey": [
-          "Terraform keeps saying I don't have permission to do anything",
-          "Error 403 when trying to create a dataset in Terraform",
-          "Why is Terraform so picky about authentication scopes?"
+          "terraform fails to create dataset due to permission issue",
+          "google dataset creation error with missing authentication scope",
+          "terraform dataset creation error, possibly due to network issue"
         ]
       },
       "original_question": "Terraform - Error creating Dataset: googleapi: Error 403: Request had insufficient authentication scopes",
@@ -202,19 +202,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "pandas mode returns series",
-          "why mode function returns multiple values",
-          "pandas mode function behavior"
+          "why pandas mode returns series",
+          "pandas mode function returns multiple values",
+          "how to get single value from pandas mode"
         ],
         "creative_student": [
           "why is mode returning multiple values",
           "pandas mode function not working as expected",
-          "how to get single mode value in pandas"
+          "how to get a single mode value in pandas"
         ],
         "chaos_monkey": [
-          "Why does my mode always return a bunch of values instead of just one",
-          "That pandas mode function is so weird, it always gives me a list",
-          "How do I get the mode function to just return a single number?"
+          "why pandas mode function gives me a list instead of one number",
+          "pandas mode returns multiple values but I only need one",
+          "what if I only want the first mode value in pandas series"
         ]
       },
       "original_question": "Homework Q5: Why the mode returns a Series instead of a single value?",
@@ -227,17 +227,17 @@
         "grounded_analyst": [
           "using dbt core with athena",
           "dbt athena adapter setup",
-          "dbt core athena tutorial"
+          "integrating dbt core with aws athena"
         ],
         "creative_student": [
-          "using dbt with aws athena",
-          "dbt core athena adapter not working",
-          "how to transform data in athena using dbt"
+          "using dbt core with athena",
+          "how to integrate dbt with aws athena",
+          "dbt athena adapter not working"
         ],
         "chaos_monkey": [
-          "I want to use dbt with that one AWS query engine",
-          "Can I use dbt-core with Amazon Athena?",
-          "How do I transform data in Athena using dbt?"
+          "how to use dbt for data transformation in Athena without dbt Cloud",
+          "running dbt on AWS Athena, any alternatives to dbt Cloud",
+          "Athena data transformation with dbt Core, any community solutions"
         ]
       },
       "original_question": "How to use dbt-core with Athena?",
@@ -248,19 +248,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "aws-cli get-login-password syntax error",
-          "aws ecr get-login --no-include-email invalid choice error",
-          "aws ecr get-login-password command not working"
+          "aws ecr get-login syntax error",
+          "aws-cli get-login-password error",
+          "aws ecr get-login --no-include-email invalid choice"
         ],
         "creative_student": [
-          "aws cli password command not working",
-          "getting invalid choice error in aws ecr",
-          "why is aws get login password returning an error"
+          "aws-cli password command not working",
+          "getting syntax error with ecr get-login",
+          "aws ecr login command throwing error"
         ],
         "chaos_monkey": [
-          "Docker password doesn't work even after updating my credentials",
-          "aws cli is giving me a password error for my ecr",
-          "Syntax error when trying to use the aws ecr get-login command"
+          "why does my aws login password look like an invalid choice",
+          "is ecr get-login broken when I use a certain email address",
+          "getting syntax error on aws get-login command with random string"
         ]
       },
       "original_question": "Getting a syntax error while trying to get the password from aws-cli",
@@ -271,19 +271,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "ollam RAG connection refused error",
-          "ollama serve command not working",
-          "restart ollama server for connection refused error"
+          "ollama server connection refused",
+          "ollama serve error",
+          "connection refused error in ollama"
         ],
         "creative_student": [
-          "connection refused error in ollama",
+          "connection refused error in ollam RAG",
           "ollama server not responding",
-          "why is my ollama notebook cell not working"
+          "why is ollam RAG not connecting"
         ],
         "chaos_monkey": [
-          "Ollama refuses to connect after updating my Jupyter notebook",
-          "Connection issue with the RAG homework prompt",
-          "Ollama RAG cell not responding even after rerunning the cell"
+          "ollama cell fails to connect after I made a sandwich",
+          "server refuses connection after jupyter restart",
+          "connection refused error after trying ollama RAG function on my friend's account"
         ]
       },
       "original_question": "Connection refused error on prompting the ollam RAG?",
@@ -294,19 +294,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "dbt target schema not creating correct schema",
-          "dbt marts schema not being created",
-          "dbt append custom schema to initial schema"
+          "dbt target schema marts",
+          "dbt custom schema naming convention",
+          "dbt generate schema name macro"
         ],
         "creative_student": [
           "dbt creating wrong schema name",
-          "why is dbt appending custom schema",
-          "dbt target schema not working as expected"
+          "target schema not working as expected in dbt",
+          "dbt schema naming issue"
         ],
         "chaos_monkey": [
-          "Why does dbt keep creating a schema named 'dbt_marts' instead of 'marts'?",
-          "Changing target schema in dbt doesn't seem to be working as expected",
-          "dbt is appending custom schema to my target schema"
+          "dbt creates a weird schema name when I set it to something nice",
+          "custom schema in dbt always has a prefix",
+          "mysterious behavior when setting target schema to just one word"
         ]
       },
       "original_question": "DBT: Why changing the target schema to \u201cmarts\u201d actually creates a schema named \u201cdbt_marts\u201d instead?",
@@ -317,19 +317,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "cloud alternatives with GPU support",
-          "free GPU hours on cloud platforms",
-          "cloud platforms with GPU quota"
+          "cloud alternatives with gpu support",
+          "free gpu hours cloud platforms",
+          "gpu cloud services for machine learning"
         ],
         "creative_student": [
-          "alternatives to cloud gpu",
-          "cloud platforms with free gpu hours",
-          "why is my cloud gpu quota not enough"
+          "alternatives to cloud GPU with free hours",
+          "options for cloud GPU with no costs",
+          "cloud GPU services with free tier"
         ],
         "chaos_monkey": [
-          "GPU cloud alternatives are not working due to quota issues",
-          "Free hours limit for GPU cloud services is unclear",
-          "How to avoid being billed separately for GPU cloud services"
+          "gpu acceleration free alternatives that also serve pizza",
+          "are there any free gpu resources available only on tuesdays",
+          "cloud services that also work on my old gaming laptop"
         ]
       },
       "original_question": "Cloud alternatives with GPU",
@@ -340,19 +340,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "docker image build error on Mac M1 silicon",
-          "could not open ld-linux-x86-64.so.2 on Mac M1",
-          "docker build error on M1 chipset"
+          "docker build error mac m1 silicon",
+          "docker image build failed mac m1",
+          "could not open ld-linux-x86-64.so.2 docker mac m1"
         ],
         "creative_student": [
-          "docker image build error on m1 mac",
-          "why is my docker build failing on mac",
-          "m1 silicon docker build issues"
+          "docker image build error on Mac M1",
+          "M1 silicon mac docker build issue",
+          "why can't I build docker image on Mac"
         ],
         "chaos_monkey": [
-          "Docker image build fails on Mac M1 silicon with ld-linux-x86-64.so.2 error",
-          "Error building Docker image on Mac due to missing ld-linux-x86-64.so.2 file",
-          "Mac M1 chipset is causing issues with Docker image build"
+          "docker fails on my m1 macbook because of a library file",
+          "building docker images with an arm64 processor produces a strange error",
+          "is there a problem with the new mac silicon chip and docker"
         ]
       },
       "original_question": "Error building Docker images on Mac with M1 silicon",
@@ -364,18 +364,18 @@
       "prompt_results": {
         "grounded_analyst": [
           "homework result not exact",
-          "closest option in homework",
-          "homework result tolerance"
+          "closest option homework result",
+          "homework result approximation"
         ],
         "creative_student": [
-          "Why is my homework answer not matching exactly?",
-          "Homework results are way off, what's going on?",
-          "Can't get the right answer on my homework, help!"
+          "why is my homework answer not exact",
+          "homework result is close but not exact",
+          "can't get exact result in homework"
         ],
         "chaos_monkey": [
-          "Why is my answer key not working?",
-          "I'm getting the wrong results, what's wrong with the options?",
-          "My homework isn't matching the solution, is it a bug?"
+          "my grades are all wrong",
+          "assignment scores aren't adding up",
+          "I'm not getting the right points for homework"
         ]
       },
       "original_question": "Homework: I\u2019m not getting the exact result",
@@ -386,19 +386,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "docker error access denied",
-          "docker bash access is denied",
-          "docker wsl2 permission issue"
+          "docker access denied mkdir",
+          "docker error response from daemon access is denied",
+          "docker wsl2 access denied"
         ],
         "creative_student": [
-          "Docker keeps giving me an access denied error",
-          "Can't run Docker command, getting weird error",
-          "Access is denied when running Docker, what's wrong?"
+          "docker command gives access denied error",
+          "can't run docker due to permission issue",
+          "access denied when running docker command"
         ],
         "chaos_monkey": [
-          "That thing with the containers won't start, it just gives me a mkdir error",
-          "WSL is broken, how do I fix it?",
-          "Why does my Docker command think I'm running it from a Git folder?"
+          "my containerization software is broken",
+          "docker is giving me permission errors",
+          "my virtual environment won't start with admin"
         ]
       },
       "original_question": "docker: Error response from daemon: mkdir C:\\Program Files\\Git\\var: Access is denied.",
@@ -409,19 +409,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "normalize pandas dataframe column",
+          "normalize vectors pandas dataframe",
           "pandas series vector normalization",
           "vector normalization in pandas"
         ],
         "creative_student": [
-          "How do I make my vectors the same length in Pandas?",
-          "Pandas DataFrame column has weird vector lengths",
-          "Why are my vectors so different in my DataFrame?"
+          "normalizing vectors in pandas dataframe",
+          "how to scale vectors in pandas series",
+          "why can't i normalize vectors in pandas"
         ],
         "chaos_monkey": [
-          "How do I make my vectors the same size?",
-          "I'm trying to normalize my data, but it's not working, what's the formula?",
-          "What's the best way to scale my column vectors?"
+          "scaling down really big numbers in pandas",
+          "pandas dataframe column is too big",
+          "reducing size of vectors in data frame"
         ]
       },
       "original_question": "How to normalize vectors in a Pandas DataFrame column (or Pandas Series)?",
@@ -432,19 +432,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "get_feature_names deprecated",
-          "function get_feature_names is deprecated",
-          "get_feature_names_out replacement"
+          "get_feature_names deprecated scikit-learn",
+          "futurewarning get_feature_names",
+          "get_feature_names_out scikit-learn"
         ],
         "creative_student": [
-          "Why is scikit-learn giving me a FutureWarning?",
-          "What's going on with this get_feature_names error?",
-          "Function is deprecated, what do I use instead?"
+          "get_feature_names is deprecated warning",
+          "future warning when using get_feature_names",
+          "how to fix get_feature_names deprecation warning"
         ],
         "chaos_monkey": [
-          "Why is my code giving me a warning about a function being removed?",
-          "I'm getting a FutureWarning, how do I fix it?",
-          "What's the replacement for get_feature_names, is it deprecated?"
+          "deprecated warning for something in scikit learn",
+          "function name changed in newer library version",
+          "old method not working in new library"
         ]
       },
       "original_question": "FutureWarning: Function get_feature_names is deprecated; get_feature_names is deprecated in 1.0 and will be removed in 1.2",
@@ -455,19 +455,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "ssh could not resolve hostname",
+          "ssh could not resolve hostname linux",
           "ssh name or service not known",
           "ssh config file location"
         ],
         "creative_student": [
-          "Why won't SSH connect to my linux server?",
-          "SSH says it can't resolve the hostname, what's wrong?",
-          "Can't SSH into my server, getting weird error message"
+          "ssh connection failed with unknown hostname",
+          "can't connect to linux via ssh",
+          "ssh error says hostname not found"
         ],
         "chaos_monkey": [
-          "Why can't my computer find the linux server?",
-          "I'm getting a name resolution error, what's wrong with my config?",
-          "How do I fix my SSH connection, it says it can't resolve the hostname"
+          "can't connect to server with weird hostname error",
+          "SSH config file not working",
+          "linux not recognizing my username"
         ]
       },
       "original_question": "SSH Error: ssh: Could not resolve hostname linux: Name or service not known",
@@ -478,19 +478,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Keras Sequential vs Functional model differences",
-          "What is the difference between Sequential and Functional model modes in Keras",
-          "Keras Sequential model API vs Functional API"
+          "Keras Sequential vs Functional model modes",
+          "How to choose between Sequential and Functional models in Keras",
+          "Understanding Sequential model API in Keras"
         ],
         "creative_student": [
-          "why is my keras model not working as expected",
-          "can't get sequential model to work in tensorflow",
-          "keras model not recognizing layers"
+          "Why can't I just add layers in Keras?",
+          "How do I make a model with multiple layers in Keras?",
+          "What's the difference between these two model modes in Keras?"
         ],
         "chaos_monkey": [
-          "why does my neural network keep adding layers in a weird order",
-          "can't get keras to stack layers in a straight line",
-          "how do I make my deep learning model go in a straight line"
+          "Keras seems to be ignoring my layer order",
+          "Empty model isn't adding layers as expected",
+          "Sequential model API is giving different results than manual layer stacking"
         ]
       },
       "original_question": "Sequential vs. Functional Model Modes in Keras (TF2)",
@@ -501,19 +501,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "VS Code pytest not recognizing installed libraries",
-          "Pytest not finding installed packages in VS Code",
-          "Why is pytest not working in VS Code but works in terminal"
+          "Pytest not recognizing installed libraries in VS Code",
+          "VS Code using different Python interpreter than terminal",
+          "Pytest not seeing packages in virtual environment"
         ],
         "creative_student": [
-          "pytest not recognizing installed packages in vs code",
-          "why is my python script working in terminal but not in vs code",
-          "vs code not seeing python libraries"
+          "Why is pytest saying my libraries aren't installed?",
+          "VS Code isn't recognizing my virtual environment, what's going on?",
+          "How do I get pytest to see my installed packages in VS Code?"
         ],
         "chaos_monkey": [
-          "VS Code thinks my packages are invisible",
-          "why does my terminal know about my libraries but VS Code doesn't",
-          "can't get pytest to see my virtual environment"
+          "VS Code doesn't recognize packages even though I installed them",
+          "Why does my script work in terminal but not in VS Code",
+          "Pytest can't find my virtual environment packages in VS Code"
         ]
       },
       "original_question": "pytest doesn't recognize my installed libraries, but the script works in the terminal. Why?",
@@ -524,19 +524,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Can I use Scikit-Learn LinearRegression for this week's assignment",
-          "Is Scikit-Learn LinearRegression allowed in this week's task",
-          "Using Scikit-Learn LinearRegression in this week's project"
+          "Using LinearRegression from Scikit-Learn this week",
+          "Is LinearRegression from Scikit-Learn allowed this week",
+          "Can I use Scikit-Learn LinearRegression for this assignment"
         ],
         "creative_student": [
-          "can i use linear regression for this assignment",
-          "is scikit-learn allowed in this course",
-          "using linear regression in this week's project"
+          "Can I use Scikit-Learn for this assignment?",
+          "Is LinearRegression from Scikit-Learn allowed this week?",
+          "Will I get in trouble if I use Scikit-Learn for this?"
         ],
         "chaos_monkey": [
-          "can I use scikit learn for this week's homework",
-          "is linear regression allowed in this course",
-          "can I use a different library for this week's project"
+          "Can I use a different library for linear regression",
+          "Is Scikit-Learn compatible with our project",
+          "Do we need to implement linear regression from scratch"
         ]
       },
       "original_question": "Can I use LinearRegression from Scikit-Learn for this week?",
@@ -547,19 +547,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Grafana chart not updating with new data",
-          "Why is my Grafana chart not refreshing",
-          "How to update Grafana chart in real-time"
+          "Grafana chart not updating",
+          "How to update Grafana chart in real time",
+          "Grafana chart refresh interval not working"
         ],
         "creative_student": [
-          "grafana charts not updating in real time",
-          "why are my grafana charts not refreshing",
-          "grafana not showing live data"
+          "Why isn't my Grafana chart updating?",
+          "How do I get my Grafana chart to refresh automatically?",
+          "Why is my Grafana chart stuck on old data?"
         ],
         "chaos_monkey": [
-          "grafana charts are stuck in time",
-          "why does my dashboard only show old data",
-          "grafana not updating with new data"
+          "Grafana charts are not updating with new data",
+          "Metric generation script not updating Grafana dashboard",
+          "Timezone setting is affecting Grafana chart updates"
         ]
       },
       "original_question": "The chart in Grafana doesn\u2019t get updates",
@@ -570,19 +570,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Which model and DictVectorizer to use for homework Q6",
-          "Homework Q6 model and DictVectorizer selection",
-          "What model and DictVectorizer should I use for question 6"
+          "Homework Q6 model and dict vectorizer",
+          "Which model and DictVectorizer to use for question 6",
+          "Model2.bin and dv.bin usage in homework Q6"
         ],
         "creative_student": [
-          "which model should i use for homework question 6",
-          "what dict vectorizer should i use for this assignment",
-          "homework question 6 model and vectorizer confusion"
+          "What model and vectorizer should I use for question 6?",
+          "Which dict vectorizer do I need for homework question 6?",
+          "What's the correct model for homework question 6?"
         ],
         "chaos_monkey": [
-          "which magic files do I need for question 6",
-          "what are the secret model and dict vectorizer files",
-          "where can I find the hidden model and dict vectorizer files"
+          "Which model file should I use for homework question 6",
+          "Is DictVectorizer required for question 6",
+          "Why is the image svizor/zoomcamp-model:3.10.12-slim required for question 6"
         ]
       },
       "original_question": "Homework Q6: Which model and dict vectorizer to use?",
@@ -593,15 +593,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "HPA instance not running correctly",
+          "HPA instance not running properly",
           "Metrics Server installation issues",
-          "Kubernetes HPA instance troubleshooting"
+          "Kubernetes HPA troubleshooting"
         ],
-        "creative_student": [],
+        "creative_student": [
+          "my HPA instance is malfunctioning",
+          "why won't my HPA run correctly",
+          "HPA instance not working as expected"
+        ],
         "chaos_monkey": [
-          "my container manager is malfunctioning",
-          "the metrics server won't run, is my yaml file wrong?",
-          "why won't my kubernetes stuff work after updating?"
+          "Docker can't connect to magic server",
+          "The Kubernetes thing is broken, how do I fix it?",
+          "App doesn't run, maybe something is blocking the server"
         ]
       },
       "original_question": "HPA instance doesn\u2019t run properly (easier solution)",
@@ -612,15 +616,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Kitchenware Classification Competition dataset format",
-          "Image dataset generator for competition",
-          "Converting dataset layout for competition"
+          "Kitchenware Classification dataset layout",
+          "Dino vs dragon dataset generator",
+          "Kaggle dataset generator script"
         ],
-        "creative_student": [],
+        "creative_student": [
+          "can't find the right dataset layout for kitchenware classification",
+          "kitchenware competition dataset not in the right format",
+          "how to get the correct dataset layout for kitchenware classification"
+        ],
         "chaos_monkey": [
-          "can you make a dataset like we did in the dinosaur lesson but for kitchen stuff?",
-          "i need a script to make my dataset look like the one we used in class",
-          "how do i convert my dataset to the format used in the dino vs dragon lesson?"
+          "How to recreate dinosaur dataset but for kitchen stuff",
+          "Lesson dataset generator doesn't work with pots and pans",
+          "Why dino dataset converter doesn't work with cups and saucers"
         ]
       },
       "original_question": "Kitchenware Classification Competition Dataset Generator",
@@ -631,15 +639,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "OpenAI API quota exceeded error",
-          "RateLimitError 429 solution",
-          "Insufficient quota error in OpenAI"
+          "OpenAI API rate limit error",
+          "Error code 429 OpenAI",
+          "Insufficient quota OpenAI API"
         ],
-        "creative_student": [],
+        "creative_student": [
+          "OpenAI API keeps giving me a rate limit error",
+          "why am I getting a 429 error from OpenAI",
+          "OpenAI quota exceeded, what do I do"
+        ],
         "chaos_monkey": [
-          "my ai model keeps saying i've exceeded my limits, what limits?",
-          "why does my openai api keep giving me an error about being too slow?",
-          "what does it mean when my openai account says i've exceeded my quota?"
+          "OpenAI stopped working, maybe I need to pay?",
+          "Why can't I talk to OpenAI anymore?",
+          "Chatbot broke and won't answer my questions"
         ]
       },
       "original_question": "OpenAI: Error: RateLimitError: Error code: 429 -",
@@ -650,15 +662,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Definition of cosine similarity",
-          "Measuring similarity between documents",
-          "Cosine similarity in text analysis"
+          "Cosine similarity measure",
+          "Text analysis similarity metric",
+          "Vector similarity calculation"
         ],
-        "creative_student": [],
+        "creative_student": [
+          "what is the meaning of cosine similarity in text analysis",
+          "how does cosine similarity measure document similarity",
+          "cosine similarity explanation needed"
+        ],
         "chaos_monkey": [
-          "how do i calculate how similar two pieces of text are?",
-          "what's the best way to measure the similarity between two documents?",
-          "can you explain the concept of vector similarity in text analysis?"
+          "Is cosine similarity like how similar my documents are?",
+          "How to compare two vectors in text analysis",
+          "What is this 'cosine' thing and how does it compare words?"
         ]
       },
       "original_question": "What is the cosine similarity?",
@@ -670,14 +686,18 @@
       "prompt_results": {
         "grounded_analyst": [
           "RMSE stops improving meaning",
-          "Interpreting RMSE plateau",
-          "RMSE convergence in n_estimators"
+          "RMSE plateau explanation",
+          "n_estimators and RMSE relationship"
         ],
-        "creative_student": [],
+        "creative_student": [
+          "RMSE value not improving, what does it mean",
+          "why did my RMSE stop decreasing",
+          "RMSE not getting better, what's going on"
+        ],
         "chaos_monkey": [
-          "my error rate isn't getting any better, is that a problem?",
-          "what does it mean when my model's error rate stops decreasing?",
-          "should i be concerned if my model's error rate plateaus?"
+          "Why RMSE went up then down, what's going on?",
+          "How to know when RMSE is done improving",
+          "What's the number when RMSE stops getting better?"
         ]
       },
       "original_question": "Homework Q3: What does it mean that RMSE stops improving?",
@@ -688,15 +708,15 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "what is launching the tracking server locally in mlflow",
-          "mlflow local tracking server",
-          "mlflow server for remote hosting"
+          "what is local tracking server in mlflow",
+          "mlflow server for remote hosting",
+          "mlflow local tracking server setup"
         ],
         "creative_student": [],
         "chaos_monkey": [
-          "My laptop is running multiple MLflow servers, how do I connect them to a central hub?",
-          "I'm having trouble with my colleagues' laptops, they can't connect to my ML server",
-          "What's the point of running a server on my machine if I'm working alone?"
+          "Why does my machine need a server for my team to collaborate?",
+          "Can I track work progress on my own laptop without sharing?",
+          "What if I don't want my colleagues connecting to my laptop?"
         ]
       },
       "original_question": "What does launching the tracking server locally mean?",
@@ -707,15 +727,15 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "features to use for homework Q5",
-          "selecting features for model training",
-          "training model with specific features"
+          "features to train model for homework q5",
+          "selecting features for machine learning model",
+          "training model with subset of features"
         ],
         "creative_student": [],
         "chaos_monkey": [
-          "How do I compare the accuracy of my model with and without the features I trained it with?",
-          "I'm trying to remove features one by one, but my model's accuracy isn't changing",
-          "Do I need to train my model with all the features at once, or can I add them one by one?"
+          "Is feature reduction always better for models?",
+          "Will removing households improve accuracy on its own?",
+          "Why can't we just compare the models using only the most important features?"
         ]
       },
       "original_question": "Features for homework: Q5",
@@ -726,15 +746,15 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "is kserve required",
-          "kserve module necessity",
-          "do i need to use kserve"
+          "is kserving required",
+          "kserving vs kubernetes",
+          "do i need kserving"
         ],
         "creative_student": [],
         "chaos_monkey": [
-          "Is KServe required for Kubernetes deployment?",
-          "What's the difference between KServe and Kubernetes, do I need both?",
-          "Can I use KServe instead of Kubernetes for deployment?"
+          "Does the old way still work for containers?",
+          "Is KServe required for some Kubernetes features?",
+          "Why do we need two separate things for deployment?"
         ]
       },
       "original_question": "Is the KServe module required?",
@@ -751,9 +771,9 @@
         ],
         "creative_student": [],
         "chaos_monkey": [
-          "Can I use a toy dataset for my project, or do I need something more complex?",
-          "How do I know if my dataset is big enough for the project?",
-          "Can I use a dataset with less than 100 rows if I really want to?"
+          "Can I use my personal data collection project?",
+          "Are toy datasets never acceptable?",
+          "Do smaller datasets still demonstrate the full pipeline?"
         ]
       },
       "original_question": "What datasets are acceptable for projects?",
@@ -764,15 +784,15 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "bruin time interval first run error",
-          "resolving table does not exist catalog error",
-          "materialization strategy error in bruin"
+          "bruin time interval materialization error",
+          "table does not exist error in bruin",
+          "resolving catalog error in bruin"
         ],
         "creative_student": [],
         "chaos_monkey": [
-          "Why does my database table keep getting deleted when I try to load data?",
-          "I'm getting a catalog error when I try to load data into my table",
-          "How do I create a table that won't get deleted when I run my asset?"
+          "How do I create a table before running the materialization strategy?",
+          "Can I just ignore the catalog error and continue?",
+          "Why does the materialization strategy delete the table?"
         ]
       },
       "original_question": "Bruin time_interval: Why does the first run fail with a 'table does not exist' catalog error?",
@@ -783,12 +803,16 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Powershell git commit utf-8 encoding error",
-          "pre-commit yaml utf-8 encoding issue",
-          "git commit error utf-8 codec"
+          "powershell git commit utf-8 encoding error",
+          "pre-commit yaml file encoding issue",
+          "utf-8 codec error in powershell git commit"
         ],
         "creative_student": [],
-        "chaos_monkey": []
+        "chaos_monkey": [
+          "docker thinks my yaml is in a different language",
+          "bash thing wont read my file after adding yaml",
+          "why wont windows talk to my git commits"
+        ]
       },
       "original_question": "In Powershell, Git commit raises utf-8 encoding error after creating pre-commit yaml file",
       "expected_id": "226f8425c4",
@@ -798,12 +822,16 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Docker container entry point for scoring script",
-          "bash entry point in Dockerfile",
-          "Docker ENTRYPOINT for bash script"
+          "docker container entry point for scoring script",
+          "entry point for running script in docker",
+          "docker entry point for bash script"
         ],
         "creative_student": [],
-        "chaos_monkey": []
+        "chaos_monkey": [
+          "that thing with the containers wont start",
+          "running my scoring script in a box is hard",
+          "what bash command makes my docker work"
+        ]
       },
       "original_question": "Homework/Question 6: Entry point for running scoring script in Docker container",
       "expected_id": "d00a9ac4ba",
@@ -813,12 +841,16 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "2024 vs 2023 course cohort differences",
-          "Cohort changes in 2024 course",
-          "What's new in 2024 course cohort"
+          "difference between 2023 and 2024 course cohort",
+          "2024 course cohort changes",
+          "what's new in 2024 course cohort"
         ],
         "creative_student": [],
-        "chaos_monkey": []
+        "chaos_monkey": [
+          "will there be robots in the new class",
+          "is the course the same this year as last",
+          "did they fix the thing with the videos"
+        ]
       },
       "original_question": "Cohort: What\u2019s the difference between the 2024 and 2023 course?",
       "expected_id": "99c8a70fdf",
@@ -828,12 +860,16 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Is system design included in the course",
-          "Course content system design",
-          "System design module in the course"
+          "is system design included in the course",
+          "system design module in the course",
+          "does the course cover system design"
         ],
         "creative_student": [],
-        "chaos_monkey": []
+        "chaos_monkey": [
+          "i want to learn about making systems big",
+          "does this course have big picture thinking",
+          "why no system design module thingy"
+        ]
       },
       "original_question": "Is system design included?",
       "expected_id": "9198d40c17",
@@ -843,12 +879,16 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "Inverting variables with low ROC AUC scores",
-          "Negating variables for better model performance",
-          "Improving feature importance by inverting variables"
+          "inverting variables with low roc auc scores",
+          "negating variables with low threshold",
+          "improving model performance with variable inversion"
         ],
         "creative_student": [],
-        "chaos_monkey": []
+        "chaos_monkey": [
+          "make the numbers bigger for good model",
+          "when to flip the features upside down",
+          "negate to participate in model party"
+        ]
       },
       "original_question": "What is the use of inverting or negating the variables less than the threshold?",
       "expected_id": "6a8dccc107",
@@ -858,19 +898,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "importing csv file into jupyter notebook",
           "how to download csv file in jupyter notebook",
-          "using pandas to read csv file from url"
+          "loading csv file directly into pandas dataframe",
+          "jupyter notebook download file from url"
         ],
         "creative_student": [
-          "how to load csv file in jupyter notebook",
-          "can't download file in python notebook",
-          "jupyter notebook csv file not downloading"
+          "How do I get data from a website into my Jupyter notebook?",
+          "Can't download csv file into my notebook, what's the easiest way?",
+          "Stuck trying to import data from a URL into pandas"
         ],
         "chaos_monkey": [
-          "My notebook is blocking me from downloading files",
-          "How do I access external data without leaving Jupyter?",
-          "Is it possible to download a file without using pandas?"
+          "importing data with a broken pandas",
+          "trying to read a url but getting errors",
+          "giving pandas a url but it's not working"
         ]
       },
       "original_question": "Downloading a csv file inside notebook",
@@ -881,19 +921,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "homework answer does not match any option",
-          "what to do if homework answer is not among options",
-          "selecting closest answer in homework"
+          "homework answer doesn't match options",
+          "different answer options in homework",
+          "homework answer not matching any choice"
         ],
         "creative_student": [
-          "homework answer not matching any options",
-          "why is my homework answer different from choices",
-          "homework question answer doesn't match any choice"
+          "Why don't my homework answers match the options?",
+          "Homework question answer doesn't match any of the choices, what do I do?",
+          "Frustrated that my answer isn't one of the options on the homework"
         ],
         "chaos_monkey": [
-          "The homework options are wrong, what can I do?",
-          "Why do the homework answers change depending on the computer?",
-          "How do I deal with homework options that don't match my results?"
+          "homework answer is not on the list",
+          "closest answer is not in the options",
+          "options don't include my exact answer"
         ]
       },
       "original_question": "Homework: The answer I get for one of the homework questions doesn't match any of the options. What should I do?",
@@ -904,19 +944,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "docker pull command explanation",
-          "how docker pull works",
-          "docker pull public image"
+          "docker pull command not working",
+          "docker pull public image",
+          "docker pull image from repository"
         ],
         "creative_student": [
-          "docker pull not working",
-          "can't pull docker image",
-          "docker pull command not fetching image"
+          "Why won't Docker pull work?",
+          "Having trouble pulling a Docker image, any ideas?",
+          "Docker pull command not working, what's going on?"
         ],
         "chaos_monkey": [
-          "The container thing won't pull images",
-          "How do I download a Docker image if it's not public?",
-          "Docker pull is not working, is it because of my OS?"
+          "cannot fetch public image",
+          "docker repository not found",
+          "pulling postgres image fails"
         ]
       },
       "original_question": "Docker: docker pull dbpage",
@@ -929,17 +969,17 @@
         "grounded_analyst": [
           "pgadmin create server dialog missing",
           "pgadmin register server instead of create",
-          "new pgadmin version create server issue"
+          "pgadmin new version create server issue"
         ],
         "creative_student": [
-          "pgadmin create server dialog not showing",
-          "why can't i create a server in pgadmin",
-          "pgadmin create server option missing"
+          "Can't find create server dialog in pgAdmin",
+          "pgAdmin not showing create server option, help!",
+          "Why is the create server dialog missing in pgAdmin?"
         ],
         "chaos_monkey": [
-          "pgAdmin is not showing the create server option",
-          "How do I create a new server in pgAdmin if the dialog is missing?",
-          "pgAdmin has changed, how do I register a server now?"
+          "pgadmin won't let me add server",
+          "pgadmin server dialog not visible",
+          "registering server in pgadmin"
         ]
       },
       "original_question": "pgAdmin: Create server dialog does not appear",
@@ -951,18 +991,18 @@
       "prompt_results": {
         "grounded_analyst": [
           "enable private google access on subnetwork",
-          "dataproc internal ip only error",
-          "resolve private google access error in dataproc"
+          "dataproc internal ip only issue",
+          "google cloud private google access subnetwork"
         ],
         "creative_student": [
-          "dataproc cluster internal ip only error",
-          "google cloud dataproc private google access issue",
-          "why is dataproc cluster creation failing"
+          "Dataproc cluster setup error, what's going on?",
+          "Getting an error about Private Google Access in Google Cloud",
+          "Can't set up Dataproc cluster due to subnetwork issue"
         ],
         "chaos_monkey": [
-          "Dataproc is complaining about a subnet issue",
-          "How do I enable Private Google Access for my VPC?",
-          "Why does my Dataproc cluster need Private Google Access?"
+          "dataproc needs private access but it's not enabled",
+          "setting dataproc to internal ip only not working",
+          "enabling private access for dataproc"
         ]
       },
       "original_question": "Subnetwork 'default' does not support Private Google Access which is required for Dataproc clusters when 'internal_ip_only' is set to 'true'. Enable Private Google Access on subnetwork 'default' or set 'internal_ip_only' to 'false'.",
@@ -973,19 +1013,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "confluent-kafka installation for python avro example",
-          "fastavro installation for producer.py",
-          "python avro dependencies for streaming example"
+          "python avro example dependencies",
+          "install confluent-kafka fastavro",
+          "producer.py script dependencies"
         ],
         "creative_student": [
-          "python script won't run, what's wrong with dependencies",
-          "can't install requirements for streaming example",
-          "producer.py script not working due to missing packages"
+          "Why can't I install the dependencies for the Python streaming example?",
+          "Error when running producer.py script",
+          "Can't get the avro example to work in Python"
         ],
         "chaos_monkey": [
-          "why is python producer.py not running with uv",
-          "fastavro not installing with pip",
-          "confluent-kafka dependency not found in python"
+          "pip install doesn't work for streaming example",
+          "conda activation breaks python script",
+          "why does my avro example need a virtual environment?"
         ]
       },
       "original_question": "Streaming: installing dependencies for the Python avro example (producer.py)",
@@ -996,19 +1036,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "is capstone project solo or group",
-          "capstone project team size",
-          "individual or team capstone project"
+          "is capstone a group project",
+          "capstone project solo or group",
+          "capstone project team size"
         ],
         "creative_student": [
-          "do I need to find a team for the final project",
-          "is the capstone a team effort",
-          "can I work alone on the capstone"
+          "Do I need to find a partner for the capstone project?",
+          "Is the capstone project individual or group work?",
+          "Can I work alone on the final project?"
         ],
         "chaos_monkey": [
-          "can I work in a team for the final project",
-          "do I need to collaborate with others for the capstone",
-          "is the capstone a group assignment"
+          "Do we have to work alone on the capstone or can we collaborate?",
+          "Is the project individual or team-based?",
+          "Can I invite friends to help me with my capstone?"
         ]
       },
       "original_question": "Is it a group project?",
@@ -1019,19 +1059,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "update mage version in UI",
-          "mage version update instructions",
-          "changing mage version after container start"
+          "mage version update in UI",
+          "update mage version in container",
+          "mage version change in UI"
         ],
         "creative_student": [
-          "mage version updated but I don't know what to do",
-          "container shows new mage version, how do I update",
-          "should I update mage version in the UI"
+          "Mage version changed unexpectedly in UI",
+          "How do I update the mage version without breaking my work?",
+          "What do I do when the mage version changes automatically?"
         ],
         "chaos_monkey": [
-          "mage version not updating in container",
-          "how to downgrade mage version in ui",
-          "why is mage version changing automatically"
+          "Container says new version available, what do I do?",
+          "Can I update my project without messing things up?",
+          "Mage UI shows new version, how do I update?"
         ]
       },
       "original_question": "Mage updated in UI",
@@ -1042,19 +1082,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "finding my leaderboard display name",
-          "how to locate myself on leaderboard",
-          "leaderboard display name and certificate name"
+          "find myself on leaderboard",
+          "leaderboard display name",
+          "change leaderboard display name"
         ],
         "creative_student": [
-          "where is my name on the leaderboard",
-          "can't find myself on the leaderboard",
-          "how do I check my leaderboard ranking"
+          "How do I find my name on the leaderboard?",
+          "Can't find my display name on the leaderboard",
+          "Why isn't my name showing up on the leaderboard?"
         ],
         "chaos_monkey": [
-          "how to find my username on the leaderboard",
-          "why is my name not on the leaderboard",
-          "how to change my leaderboard display name"
+          "How do I see my leaderboard rank on the course site?",
+          "My name is not showing up on the leaderboard, help",
+          "Where is my leaderboard display name?"
         ]
       },
       "original_question": "Leaderboard: how do I find myself on the leaderboard?",
@@ -1065,19 +1105,19 @@
     {
       "prompt_results": {
         "grounded_analyst": [
-          "lost SSH access to GCP VM due to space",
+          "lost SSH access to GCP VM",
           "Permission denied publickey GCP VM",
-          "recovering SSH access to GCP VM after space issue"
+          "GCP VM out of space SSH access"
         ],
         "creative_student": [
-          "lost access to GCP VM due to space issues",
-          "permission denied when trying to access VM",
-          "can't connect to GCP VM, permission denied error"
+          "Lost SSH access to GCP VM due to disk space issues",
+          "Permission denied error when trying to access GCP VM",
+          "Can't connect to GCP VM because of space constraints"
         ],
         "chaos_monkey": [
-          "gcp vm disk full cannot ssh",
-          "ssh permission denied due to disk space",
-          "how to free up disk space on gcp vm"
+          "VM connection refused due to disk space issue",
+          "Permission denied on SSH to GCP VM due to size",
+          "No space left on device, GCP SSH access denied"
         ]
       },
       "original_question": "GCP VM: If you have lost SSH access to your machine due to lack of space. Permission denied (publickey)",

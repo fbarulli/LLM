@@ -16,55 +16,63 @@ eval/
 ├── judges/             ← LLM-as-judge: context sufficiency
 ├── benchmarks/         ← retrieval evaluation: BM25, vector, hybrid, Qdrant
 ├── generation/         ← test query generation (3 prompt strategies)
-├── analysis/           ← dashboard, A/B tests, visualizations
-└── shared.py           ← llm_call, run_sequential (rate-limit pacing)
+├── analysis/           ← dashboard, A/B tests, plots, significance tests
+└── (shared.py)         ← llm_call, run_sequential (rate-limit pacing)
     │
     ▼
-gen/                    ← answer generation (planned)
+gen/                    ← CAG: Cache-Augmented Generation (planned)
 ```
 
 ---
 
-## What We've Built
-
-### 1. Data Cleaning Pipeline (`data_cleaning/`)
+## Data Cleaning (`data_cleaning/`)
 
 | Step | File | Description |
 |------|------|-------------|
 | Download | `download.py` | Pulls FAQ markdown from DataTalksClub/faq (4 courses) |
-| Parse | `parse.py` | Extracts `id`, `question`, `answer`, `course`, `section` from frontmatter |
+| Parse | `parse.py` | Extracts `id`, `question`, `answer`, `course`, `section` from markdown |
 | Clean | (in `parse.py`) | Removes `<{IMAGE:...}>`, markdown headers, HTML, Jinja2 macros |
-| Extract Metadata | `extract_metadata.py` | Saves image references to `metadata/images.json` for future use |
+| Extract Metadata | `extract_metadata.py` | Saves image references to `metadata/images.json` |
 | Deduplicate | `dedup.py` | 95% similarity threshold on normalized text — removed 3 duplicates |
 | Ingest (ES) | `ingest.py` | ES `faqs_complete` index with `question_vector` (384-dim dense_vector) |
 | Ingest (Qdrant) | `ingest_qdrant.py` | Qdrant `faqs` collection with cosine similarity |
-| Train/Test Split | `train_test_split.py` | 80/20 split by course (preserved for future holdout use) |
+| Train/Test Split | `train_test_split.py` | 80/20 split by course |
 
 **Output:** 1150 clean, deduplicated documents in both ES and Qdrant.
 
-### 2. Retrieval Methods
+---
+
+## Retrieval Methods
 
 | Method | Backend | Description |
 |--------|---------|-------------|
 | BM25 | Elasticsearch | Lexical search with configurable question/text boosting |
 | Vector | Elasticsearch | Cosine similarity on `question_vector` (all-MiniLM-L6-v2) |
-| Hybrid | Elasticsearch | RRF fusion of BM25 + vector |
+| Hybrid | Elasticsearch | RRF or linear weighted fusion of BM25 + vector |
 | Qdrant Vector | Qdrant | Cosine similarity on same embeddings |
+| Cross-encoder Rerank | ES + CrossEncoder | Retrieve 20, rerank to 10 with cross-encoder/ms-marco-MiniLM-L-6-v2 |
 
-**Configurations tested:** `bm25_default`, `bm25_balanced`, `bm25_high_question`, `bm25_high_text`, `vector_default`, `hybrid_default`, `hybrid_balanced`, `qdrant_default`
+### Configurations Tested
 
-### 3. LLM-as-Judge Context Sufficiency (`eval/judges/`)
+| Config | Type | Details |
+|--------|------|---------|
+| `bm25_default` | BM25 | question^20, answer^1 |
+| `bm25_balanced` | BM25 | question^5, answer^5 |
+| `bm25_high_text` | BM25 | question^1, answer^10 |
+| `vector_cosine` | Vector | Cosine similarity |
+| `hybrid_rrf` | Hybrid | Reciprocal Rank Fusion (k=60) |
+| `hybrid_50_50` | Hybrid | Linear 50% BM25 + 50% vector |
+| `hybrid_70_30_vec` | Hybrid | Linear 30% BM25 + 70% vector |
+| `hybrid_30_70_vec` | Hybrid | Linear 70% BM25 + 30% vector |
+| `qdrant_cosine` | Qdrant | Cosine distance |
+| `vector_reranked` | Rerank | Vector + cross-encoder rerank |
+| `bm25_reranked` | Rerank | BM25 + cross-encoder rerank |
 
-Evaluates whether retrieved contexts contain enough information to answer a question.
+---
 
-- **Model:** NVIDIA Llama 3.1 70B
-- **Prompt:** Context delimiters (`<context_i>`), few-shot examples, reasoning before JSON
-- **Output:** `judge_any_yes`, `judge_verdicts`, `judged_rank`, `reasoning`
-- **Results:** Saved incrementally to `experiments/judge/<subset>_progress.csv`
+## Test Query Generation (`eval/generation/`)
 
-### 4. Test Query Generation (`eval/generation/`)
-
-Three prompt strategies to stress-test retrieval:
+Three LLM prompt strategies generate rephrased queries from existing FAQ entries:
 
 | Strategy | Style | Temperature |
 |----------|-------|-------------|
@@ -72,76 +80,107 @@ Three prompt strategies to stress-test retrieval:
 | `creative_student` | Natural frustration, symptom descriptions | 0.7 |
 | `chaos_monkey` | Wrong angles, abstract, unexpected connections | 0.7 |
 
-- Shows 3 Q&A pairs per LLM call
-- Model sees both question AND answer to generate realistic rephrased queries
-- Prompts stored in `eval/generation/prompts.json`
+- Model: NVIDIA Llama 3.1 70B
+- Batch size: 5 FAQ entries per LLM call
+- Output: `experiments/eval_queries.json` — 390 queries across 50 documents
 
-### 5. Evaluation Framework (`eval/benchmarks/` + `eval/analysis/`)
+---
 
-**Metrics:**
-- Recall@K (1, 3, 5, 10)
-- MRR (Mean Reciprocal Rank)
-- Precision@K
-- Latency percentiles (P50, P95, P99)
-- A/B testing between configs
+## Evaluation Results
 
-**Running evaluations:**
+### Retrieval Performance (390 Generated Queries)
+
+| Retriever | Hit | R@1 | R@5 | MRR | NDCG | Fail | P50ms | P95ms |
+|-----------|-----|-----|-----|-----|------|------|-------|-------|
+| bm25_default | 82.82% | 53.85% | 75.13% | 0.6357 | 0.6822 | 67 | 5.4 | 6.5 |
+| bm25_balanced | 90.26% | 66.92% | 87.44% | 0.7607 | 0.7960 | 38 | 5.3 | 6.3 |
+| bm25_high_text | 81.03% | 55.38% | 76.67% | 0.6441 | 0.6846 | 74 | 5.4 | 6.4 |
+| vector_cosine | 93.59% | 66.67% | 87.69% | 0.7574 | 0.8006 | 25 | 19.3 | 24.2 |
+| qdrant_cosine | 93.59% | 66.67% | 87.69% | 0.7574 | 0.8006 | 25 | 20.3 | 24.1 |
+| hybrid_rrf | 91.79% | 59.74% | 85.38% | 0.7048 | 0.7564 | 32 | 30.3 | 35.2 |
+| hybrid_50_50 | 92.05% | 60.51% | 86.92% | 0.7221 | 0.7710 | 31 | 30.4 | 35.2 |
+| **hybrid_70_30_vec** | **93.85%** | 66.67% | **90.26%** | **0.7609** | **0.8042** | **24** | 30.6 | 35.6 |
+| hybrid_30_70_vec | 90.26% | 53.85% | 85.90% | 0.6750 | 0.7313 | 38 | 30.1 | 35.0 |
+| vector_reranked | 91.79% | 61.54% | 84.36% | 0.7156 | 0.7644 | 32 | 580.8 | 700.2 |
+| bm25_reranked | 84.87% | 59.74% | 80.26% | 0.6859 | 0.7255 | 59 | 578.3 | 688.8 |
+
+### Per-Strategy Breakdown (best config: hybrid_70_30_vec)
+
+| Strategy | Hit | R@5 | MRR |
+|----------|-----|-----|-----|
+| grounded_analyst | 97.33% | 96.00% | 0.8516 |
+| creative_student | 99.05% | 95.24% | 0.7660 |
+| chaos_monkey | 85.93% | 80.00% | 0.6562 |
+
+### Per-Course Breakdown (best config: hybrid_70_30_vec)
+
+| Course | R@5 |
+|--------|------|
+| de-zoomcamp | 91.67% |
+| llm-zoomcamp | 98.67% |
+| ml-zoomcamp | 83.33% |
+| mlops-zoomcamp | 92.16% |
+
+---
+
+## Key Findings
+
+1. **Best overall: `hybrid_70_30_vec`** — 90.26% R@5, 0.8042 NDCG, 24 failures
+2. **BM25 balanced is the fastest** — 5.3ms P50 vs 30.6ms for hybrid (5.8x faster), with only 2.82% lower R@5
+3. **Cross-encoder reranking HURTS** — loses 3-4% R@5 and costs 30x more latency
+4. **chaos_monkey queries are hardest** — 80% R@5 vs 96% for grounded/creative
+5. **ml-zoomcamp is the hardest course** — 83% R@5 vs 99% for llm-zoomcamp
+6. **Qdrant and ES vector perform identically** — same embeddings, same results
+7. **Zero cross-course contamination** — course filters are working perfectly
+
+---
+
+## Running Evaluations
+
 ```bash
-# Full benchmark
+# Full benchmark (self-retrieval)
 uv run python eval/benchmarks/run_full_benchmark.py
 
 # Single config
-uv run python eval/benchmarks/run_full_benchmark.py --config qdrant_default
+uv run python eval/benchmarks/run_full_benchmark.py --config bm25_default
 
-# Qdrant-specific eval suite
-uv run python eval/benchmarks/qdrant_evaluation.py
-```
+# Generated query evaluation (all configs)
+uv run python eval/benchmarks/test_variations.py
 
-### 6. Rate-Limit Handling (`eval/judges/shared.py`)
+# Dashboard with plots (notebook)
+from eval.analysis.dashboard import show_dashboard
+show_dashboard()
 
-- **`run_sequential`**: Fixed gap between calls, 60s wait on 429/504 errors
-- **Consistent pacing**: 3-second gap by default
-- **Granular output**: Shows status (✓/✗), elapsed time, and wait periods
+# A/B comparison
+uv run python eval/analysis/variations_ab_test.py --a bm25_balanced --b hybrid_70_30_vec
 
----
-
-## Current State of the Repo
-
-```
-eval/
-├── generation/
-│   ├── generate_test_queries.py   # Batch query generation (3 strategies × 3 docs)
-│   ├── test_gen.py                # Single-doc test with full transparency
-│   └── prompts.json               # 3 prompt templates
-├── judges/
-│   ├── run_judge.py               # Context sufficiency evaluation
-│   ├── calibrate_judge.py         # Model calibration (can it say NO?)
-│   ├── classify_failures.py       # Failure analysis
-│   └── shared.py                  # llm_call, run_sequential, parse_verdicts
-├── benchmarks/
-│   ├── benchmark_runner.py        # ES benchmark runner
-│   ├── qdrant_benchmark_runner.py # Qdrant benchmark runner
-│   ├── qdrant_evaluation.py       # Qdrant eval suite (5 tests)
-│   ├── run_full_benchmark.py      # Run all configs
-│   ├── compare_retrievers.py      # Side-by-side comparison
-│   └── test_holdout.py            # Holdout test with train/test split
-├── analysis/
-│   ├── dashboard.py               # Main dashboard with conclusions
-│   ├── visualizer.py              # matplotlib/seaborn plots
-│   └── ab_test.py, stats.py       # Statistical analysis
-└── shared.py                      # Shared utilities (deprecated, use judges/shared.py)
+# Save plots to files
+uv run python eval/analysis/visualizer.py
 ```
 
 ---
 
-## Key Decisions Made
+## Project Structure
 
-1. **No query truncation** — full questions sent to judge (max_tokens=2000)
-2. **Answers shown during generation** — model uses answer context to generate better rephrased queries
-3. **Qdrant as primary vector store** — cleaner API, same embeddings
-4. **60s wait on rate limits** — simpler than adaptive gap adjustment
-5. **Dedup by question+answer similarity (95%)** — keeps cross-course variations
-6. **Images extracted to metadata** — removed from answer text for cleaner retrieval
+```
+.
+├── configs/                    # Search configs, ES settings, API keys
+├── data_cleaning/              # Data pipeline (download → ingest)
+├── eval/
+│   ├── judges/                 # Context sufficiency evaluation
+│   ├── benchmarks/             # Retrieval performance tests
+│   ├── generation/             # Test query generation
+│   └── analysis/               # Dashboard, A/B tests, plots
+├── experiments/
+│   ├── results/                # Benchmark output JSON files
+│   ├── judge/                  # Judge progress CSVs
+│   ├── plots/                  # Saved visualization PNGs
+│   └── eval_queries.json       # Generated test queries
+├── gen/                        # CAG pipeline (planned)
+├── src/                        # Core application code
+│   └── retrieval/              # BM25, vector, hybrid, Qdrant retrievers
+└── docker-compose*.yaml        # ES, Qdrant, and app containers
+```
 
 ---
 
@@ -149,8 +188,12 @@ eval/
 
 | Step | Status |
 |------|--------|
-| Generate full test query set (60+ docs) | Ready to run |
-| Run all retrievers against generated queries | Pending |
-| Compare hit rates across retrievers | Pending |
-| Answer generation pipeline (`gen/`) | Planned |
-| Answer quality judging | Planned |
+| Data cleaning & ingestion | ✅ Complete |
+| Context sufficiency judge | ✅ Complete |
+| Test query generation (3 strategies) | ✅ Complete |
+| BM25, vector, hybrid, Qdrant benchmarks | ✅ Complete |
+| Cross-encoder reranking evaluation | ✅ Complete |
+| Per-strategy / per-course breakdown | ✅ Complete |
+| A/B testing with McNemar significance | ✅ Complete |
+| Dashboard with inline plots | ✅ Complete |
+| CAG pipeline (`gen/`) | 📋 Planned |

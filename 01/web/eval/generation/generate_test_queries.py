@@ -112,14 +112,14 @@ def clean_json(raw: str) -> dict:
         return {}
 
 
-async def call_llm_with_retry(prompt, max_retries=MAX_RETRIES):
+async def call_llm_with_retry(prompt, max_retries=MAX_RETRIES, temperature=0.7):
     """Call LLM with retry logic for rate limits."""
     for attempt in range(max_retries):
         try:
             response = await acompletion(
                 model=MODEL,
                 messages=[{"role": "user", "content": prompt}],
-                temperature=0.7,
+                temperature=temperature,
                 max_tokens=500,
             )
             return response.choices[0].message.content.strip()
@@ -137,13 +137,15 @@ async def call_llm_with_retry(prompt, max_retries=MAX_RETRIES):
     return "{}"
 
 
-async def generate_batch(docs: list, prompt_name: str, template: str) -> list:
+async def generate_batch(docs: list, prompt_name: str, info: dict) -> list:
     """Generate queries for one batch using one prompt strategy."""
+    template = info['template']
+    temperature = info.get('temperature', 0.7)
     qa_pairs = build_qa_pairs(docs)
     prompt = template.format(qa_pairs=qa_pairs)
     
     try:
-        raw = await call_llm_with_retry(prompt)
+        raw = await call_llm_with_retry(prompt, temperature=temperature)
         result = clean_json(raw)
 
         output = []
@@ -204,7 +206,7 @@ async def main():
         
         for prompt_name, info in prompts.items():
             call_start = time.time()
-            results = await generate_batch(batch, prompt_name, info['template'])
+            results = await generate_batch(batch, prompt_name, info)
             call_elapsed = time.time() - call_start
             
             all_results.extend(results)

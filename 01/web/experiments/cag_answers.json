@@ -1,0 +1,202 @@
+{
+  "metadata": {
+    "model": "nvidia_nim/meta/llama-3.1-70b-instruct",
+    "total": 32,
+    "generated": 24,
+    "failed": 0
+  },
+  "answers": {
+    "c493aa6b92": {
+      "question": "Why can't row count questions in Homework 2 be answered directly from Kestra execution logs?",
+      "original_answer": "- Kestra orchestrates workflows but does not automatically aggregate dataset-level metrics such as total row counts across multiple executions.\n- Questions involving total rows for a full year or specific months require querying the target database after ingestion.\n- In Homework 2, accurate row coun",
+      "generated_answer": "Kestra execution logs cannot be used to directly answer row count questions in Homework 2 because Kestra does not automatically aggregate dataset-level metrics such as total row counts across multiple executions. Instead, accurate row counts require querying the target database after ingestion, which was done using SQL queries against PostgreSQL tables populated by the Kestra flows.",
+      "course": "de-zoomcamp"
+    },
+    "316180784f": {
+      "question": "Course: How many hours per week am I expected to spend on this course?",
+      "original_answer": "It depends on your background and previous experience with modules. It is expected to require about 5 - 15 hours per week.\n\nYou can also calculate it yourself using this data and then update this answer.",
+      "generated_answer": "You are expected to spend around 5-15 hours per week on this course, depending on your background and previous experience with the modules.",
+      "course": "de-zoomcamp"
+    },
+    "1ba19ed6a0": {
+      "question": "Git Bash: Backslash as an escape character in Git Bash for Windows",
+      "original_answer": "For those who wish to use the backslash as an escape character in Git Bash for Windows, type the following in the terminal:\n\n``bash\nbash.escapeChar=\\\n`\n\n(Note: There is no need to include this in your .bashrc` file.)",
+      "generated_answer": "To use the backslash as an escape character in Git Bash for Windows, type `bash bash.escapeChar=\\ ` in the terminal.",
+      "course": "de-zoomcamp"
+    },
+    "7cbadfe131": {
+      "question": "GCP BQ - Tip: Using Cloud Function to read csv.gz files from github directly to BigQuery in Google Cloud:",
+      "original_answer": "There are multiple benefits of using Cloud Functions to automate tasks in Google Cloud.\n\nUse the following Cloud Function Python script to load files directly into BigQuery. Set your project ID, dataset ID, and table ID accordingly.\n\n``python\nimport tempfile\nimport requests\nimport logging\nfrom googl",
+      "generated_answer": "Based on the provided FAQ, the question is about using Cloud Functions to read csv.gz files from GitHub directly to BigQuery in Google Cloud. The answer is to use the provided Cloud Function Python script, which loads files directly into BigQuery by setting the project ID, dataset ID, and table ID accordingly.",
+      "course": "de-zoomcamp"
+    },
+    "1b727dde32": {
+      "question": "Docker: Docker not installable on Ubuntu",
+      "original_answer": "On some versions of Ubuntu, the snap command can be used to install Docker.\n\n``bash\nsudo snap install docker\n``",
+      "generated_answer": "To install Docker on Ubuntu, use the snap command: `sudo snap install docker`.",
+      "course": "de-zoomcamp"
+    },
+    "30dcc71db8": {
+      "question": "How can I back up and restore PostgreSQL data stored in a Docker volume?",
+      "original_answer": "Method 1: Docker volume backup\n\nList Docker volumes:\n\n``bash\ndocker volume ls\n`\n\nBackup while the container is running:\n\n`bash\ndocker run --rm \\\n    -v ny_taxi_postgres_data:/data \\\n    -v $(pwd):/backup \\\n    ubuntu tar czf /backup/postgres_backup.tar.gz /data\n`\n\nRestore:\n\n`bash\ndocker run --rm \\\n ",
+      "generated_answer": "There are three methods to back up and restore PostgreSQL data stored in a Docker volume:\n\n1. **Docker volume backup**: \n   - List Docker volumes: `docker volume ls`\n   - Backup: `docker run --rm -v ny_taxi_postgres_data:/data -v $(pwd):/backup ubuntu tar czf /backup/postgres_backup.tar.gz /data`\n   - Restore: `docker run --rm -v ny_taxi_postgres_data:/data -v $(pwd):/backup ubuntu tar xzf /backup/postgres_backup.tar.gz -C /`\n\n2. **Using pg_dump**:\n   - Backup: `docker exec -t postgres_container pg_dump -U root -d ny_taxi > ny_taxi_backup.sql`\n   - Restore: `docker exec -i postgres_container psql -U root -d ny_taxi < ny_taxi_backup.sql`\n\n3. **Copying the host directory** (when using a host-mounted directory in docker-compose.yaml):\n   - Backup: `cp -r ./ny_taxi_postgres_data ./ny_taxi_postgres_data_backup`",
+      "course": "de-zoomcamp"
+    },
+    "2d8b16c2a0": {
+      "question": "Course - Can I still join the course after the start date?",
+      "original_answer": "Yes, even if you don't register, you're still eligible to submit the homeworks as long as the form is still open and accepting submissions.\n\nBe aware, however, that there will be deadlines for turning in the final projects. So don't leave everything to the last minute.",
+      "generated_answer": "Yes, you can still join the course after the start date. You can submit homework as long as the form is open, but be aware of the deadlines for the final projects.",
+      "course": "mlops-zoomcamp"
+    },
+    "69d122f12e": {
+      "question": "Certificate: Can I follow the course in a self-paced mode and get a certificate?",
+      "original_answer": "No, you can only get a certificate if you finish the course with a \"live\" cohort.\n\nWe don't award certificates for the self-paced mode. The reason is you need to peer-review 3 capstone(s) after submitting your project.\n\nYou can only peer-review projects at the time the course is running; after the f",
+      "generated_answer": "No, you cannot get a certificate if you follow the course in a self-paced mode. Certificates are only awarded to students who complete the course with a \"live\" cohort, as this allows for peer-review of capstone projects.",
+      "course": "llm-zoomcamp"
+    },
+    "17be084780": {
+      "question": "Google Looker Studio: you have used up your 30-day trial",
+      "original_answer": "When accessing Looker Studio through the Google Cloud Project console, you may be prompted to subscribe to the Pro version and receive the following errors:\n\nInstead, navigate to https://lookerstudio.google.com/navigation/reporting which will take you to the free version.",
+      "generated_answer": "To resolve the issue, navigate to https://lookerstudio.google.com/navigation/reporting to access the free version of Google Looker Studio.",
+      "course": "de-zoomcamp"
+    },
+    "4277a9cb86": {
+      "question": "Postgres: \"Column does not exist\" but it actually does (Pyscopg2 error in MacBook Pro M2)",
+      "original_answer": "In join queries, if you mention the column name directly or enclose it in single quotes, you'll encounter an error saying \"column does not exist\".\n\nSolution: Enclose the column names in double quotes, and it will work correctly.",
+      "generated_answer": "To resolve the \"Column does not exist\" error in Postgres with Pyscopg2 on a MacBook Pro M2, enclose the column names in double quotes in your join queries.",
+      "course": "de-zoomcamp"
+    },
+    "c207b8614e": {
+      "question": "Course: Can I get support if I take the course in the self-paced mode?",
+      "original_answer": "Yes, the Slack channel remains open and you can ask questions there. However, always search the channel first and check the FAQ, as most likely your questions are already answered here.\n\nYou can also tag the bot @ZoomcampQABot to help you conduct the search, but don\u2019t rely on its answers 100%.",
+      "generated_answer": "Yes, you can get support in self-paced mode through the Slack channel. Before asking, please search the channel and check the FAQ, and you can also use the @ZoomcampQABot to assist with your search.",
+      "course": "de-zoomcamp"
+    },
+    "5b5d82a924": {
+      "question": "Homework: dlt Exercise 3 - Merge a generator concerns",
+      "original_answer": "After loading, you should have a total of 8 records, and ID 3 should have age 33.\n\nQuestion: Calculate the sum of ages of all the people loaded as described above.\n\n- The sum of all eight records' respective ages is too big to be in the choices.\n- You need to first filter out the people whose occupa",
+      "generated_answer": "To calculate the sum of ages of all the people loaded, first filter out the people whose occupation is equal to None. Then, sum up the ages of the remaining people.",
+      "course": "de-zoomcamp"
+    },
+    "2442e32be2": {
+      "question": "When should I use merge instead of append?",
+      "original_answer": "Use merge when existing data can be updated. If a record with the same primary key already exists, it will be updated. If it does not exist, it will be inserted.\n\nCommon use cases:\n- Order status updates\n- User profile changes\n- CDC-based data processing\n\n``yaml\nmaterialization:\ntype: merge\nprimary_",
+      "generated_answer": "You should use merge instead of append when existing data can be updated, such as in cases of order status updates, user profile changes, or CDC-based data processing, where a record with the same primary key may already exist and needs to be updated.",
+      "course": "de-zoomcamp"
+    },
+    "1d2222e38a": {
+      "question": "CREATE TABLE has columns with duplicate name locationid.",
+      "original_answer": "This error could result if you are using a SELECT * query without specifying the table names.\n\nExample:\n\n``sql\nWITH dim_zones AS (\n  SELECT * FROM engaged-cosine-374921.dbt_victoria_mola.dim_zones\n  WHERE borough != 'Unknown'\n),\nfhv AS (\n  SELECT * FROM engaged-cosine-374921.dbt_victoria_mola.stg_fh",
+      "generated_answer": "To resolve the error, replace `SELECT *` with `SELECT fhv.*` to avoid duplicate column names.",
+      "course": "de-zoomcamp"
+    },
+    "66ccbb7da0": {
+      "question": "How can I remove all Docker containers, images, and volumes, and builds from the terminal?",
+      "original_answer": "1. Delete all containers (including running ones):\n\n``bash\ndocker rm -f $(docker ps -aq)\n`\n\n2. Remove all images:\n\n`bash\ndocker rmi -f $(docker images -q)\n`\n\n3. Delete all volumes:\n\n`bash\ndocker volume rm $(docker volume ls -q)\n``",
+      "generated_answer": "To remove all Docker containers, images, and volumes from the terminal, follow these steps:\n\n1. Delete all containers: `docker rm -f $(docker ps -aq)`\n2. Remove all images: `docker rmi -f $(docker images -q)`\n3. Delete all volumes: `docker volume rm $(docker volume ls -q)`\n\nNote: These commands will also remove running containers and builds.",
+      "course": "llm-zoomcamp"
+    },
+    "5beafdd0c8": {
+      "question": "I passed a float to my tool, but got a validation error saying it expected a number. Isn\u2019t float a number?",
+      "original_answer": "Yes \u2014 in Python, float is a numeric type. But when working with FastMCP, tool inputs are validated against JSON Schema, which uses the term \"number\" to represent any numeric value (integers or floats).\n\nThe important thing is not the type you use in Python, but whether the JSON you send matches the ",
+      "generated_answer": "In JSON Schema, \"number\" represents any numeric value, including both integers and floats. To resolve the validation error, ensure the value you pass matches the JSON type declared in the tool's schema, rather than the Python type.",
+      "course": "llm-zoomcamp"
+    },
+    "f3a92e7c81": {
+      "question": "minsearch: SyntaxError \"invalid character\" when running my downloaded copy",
+      "original_answer": "``\nSyntaxError: invalid character '\u00b7' (U+00B7)\n`\n\nYou probably saved the GitHub HTML page instead of the raw Python file. Either:\n\n- Use the \"Raw\" button on GitHub, or download from the raw.githubusercontent.com URL.\n- Or just install from PyPI \u2014 it's the recommended path:\n\n`bash\npip install -U mins",
+      "generated_answer": "You're getting a SyntaxError \"invalid character\" when running your downloaded copy of minsearch. This is likely because you saved the GitHub HTML page instead of the raw Python file. To fix this, you can either use the \"Raw\" button on GitHub or download from the raw.githubusercontent.com URL. Alternatively, you can install minsearch directly from PyPI using `pip install -U minsearch` or `uv add minsearch`.",
+      "course": "llm-zoomcamp"
+    },
+    "d5fc98925d": {
+      "question": "Do we submit 2 projects, what does attempt 1 and 2 mean?",
+      "original_answer": "You only need to submit one project. If the submission at the first attempt fails, you can improve it and re-submit during the attempt#2 submission window.\n\n- If you want to submit two projects for the experience and exposure, you must use different datasets and problem statements.\n- If you can\u2019t ma",
+      "generated_answer": "You only need to submit one project. \"Attempt 1\" and \"Attempt 2\" refer to the submission windows, allowing you to resubmit an improved project if the first attempt fails.",
+      "course": "llm-zoomcamp"
+    },
+    "ee43413718": {
+      "question": "OpenSource: Can I use Groq instead of OpenAI?",
+      "original_answer": "You can use any LLM platform for your experiments and your project. The homework is designed so that you don\u2019t need access to any paid services and can complete it locally. However, you will need to adjust the code for that platform. Refer to their documentation pages.",
+      "generated_answer": "Yes, you can use Groq instead of OpenAI, but you will need to adjust the code according to Groq's documentation.",
+      "course": "llm-zoomcamp"
+    },
+    "e95bfafc0e": {
+      "question": "There is an error when running main(): FileNotFoundError: Table notion_pages___homework does not exist. Please first call db.create_table(notion_pages___homework, data)",
+      "original_answer": "Make sure you open the correct table in line 3:\n\n``python\ndbtable = db.open_table(\"notion_pages___homework\")\n``",
+      "generated_answer": "To resolve the FileNotFoundError, ensure that you have opened the correct table by calling `db.open_table(\"notion_pages___homework\")` before running `main()`.",
+      "course": "llm-zoomcamp"
+    },
+    "f2458f5a26": {
+      "question": "Docker: Docker-Compose deprecated",
+      "original_answer": "Docker Compose v1 is deprecated from April 2023 onwards. More information on why v2 is better can be found in this blog post:\n\nNew Docker Compose V2 and V1 Deprecation",
+      "generated_answer": "Docker Compose v1 is deprecated from April 2023 onwards.",
+      "course": "mlops-zoomcamp"
+    },
+    "c842475338": {
+      "question": "Homework: Just found this course, can I still submit homeworks?",
+      "original_answer": "To clarify on late homework submissions:\n\n- You cannot submit after the homework is scored, as the form is closed.\n- Once the form is closed (i.e., scored), no further submissions are possible.\n- You can check your code against the solution by reviewing the homework.md file.\n\nIf the due date has pas",
+      "generated_answer": "You can still submit homework if the form is still \"Open/Submittable\", but it will be considered a late submission. Make sure to click the Update button to save any changes. However, if the form is closed (i.e., scored), no further submissions are possible.",
+      "course": "mlops-zoomcamp"
+    },
+    "b7bd817c2a": {
+      "question": "Homework 3, 2025 Cohort - Do I have to use MAGE as the orchestrator? Can I use any orchestrator I want?",
+      "original_answer": "You do not have to use MAGE or any specific orchestrator; it is totally up to you.",
+      "generated_answer": "No, you do not have to use MAGE as the orchestrator. You can choose any orchestrator you want for Homework 3.",
+      "course": "mlops-zoomcamp"
+    },
+    "5c4e6ef8ca": {
+      "question": "No RMSE value in the options",
+      "original_answer": "The evaluation RMSE I get doesn\u2019t figure within the options!\n\nIf you\u2019re evaluating the model on the entire February data, try to filter outliers using the same technique you used on the train data (0 \u2264 duration \u2264 60) and you\u2019ll get an RMSE which is (approximately) in the options. Also, don\u2019t forget ",
+      "generated_answer": "If you're not seeing the expected RMSE value in the options, try the following: \n\n1. Filter outliers in the February data using the same technique as the train data (0 \u2264 duration \u2264 60).\n2. Convert columns' data types to str before using the DictVectorizer.\n3. Alternatively, filter on null values by replacing them with -1, in addition to filtering outliers.\n4. Round the RMSE value to 2 decimal points using the .round(2) method.",
+      "course": "mlops-zoomcamp"
+    },
+    "0a545e0e4c": {
+      "question": "Viewing SQLite Data Raw & Deleting Experiments Manually",
+      "original_answer": "All the experiment and other tracking information in MLflow are stored in an SQLite database provided while initiating the mlflow ui command. This database can be inspected using PyCharm\u2019s Database tab by selecting the SQLite database type.\n\nOnce the connection is created, the tables can be queried ",
+      "generated_answer": "To view SQLite data raw and delete experiments manually, you can use PyCharm's Database tab by selecting the SQLite database type. This allows you to query and inspect the tables using standard SQL, and also delete experiments manually if needed.",
+      "course": "mlops-zoomcamp"
+    },
+    "47c771de0d": {
+      "question": "wget not working",
+      "original_answer": "Problem\n\nUsing the wget command to download either data or Python scripts on Windows, I am using the notebook provided by Visual Studio and despite having a Python virtual environment, it did not recognize the pip command.\n\nSolution\n\n- Use python -m pip, this applies to any other command as well, e.",
+      "generated_answer": "If wget is not working, try using `python -m wget` instead. This is because the virtual environment in Visual Studio may not recognize the command directly.",
+      "course": "mlops-zoomcamp"
+    },
+    "e53752c5b7": {
+      "question": "If you are working in the terminal on your computer in WSL and you want to go to the directory in Explorer to upload to GitHub, what command should you use?",
+      "original_answer": "Use the following command:\n\n``bash\nexplorer.exe .\n``\n\nThis command opens the current directory in Windows Explorer.\n\nAlternatively, you can sync through VSCode to GitHub.",
+      "generated_answer": "To open the current directory in Windows Explorer from WSL, use the command: ``bash explorer.exe .``",
+      "course": "ml-zoomcamp"
+    },
+    "8af59cb98f": {
+      "question": "Homework: The answer I get for one of the homework questions doesn't match any of the options. What should I do?",
+      "original_answer": "That's normal. We all have different environments: our computers have different versions of OS and different versions of libraries - even different versions of Python.\n\nIf your answer doesn't match the options, just select the option that's closest to your answer.\n\nIf your answer value lies in betwe",
+      "generated_answer": "If your homework answer doesn't match any of the options, select the option that's closest to your answer. If your answer value lies in between two options, choose the option that is more than your value.",
+      "course": "ml-zoomcamp"
+    },
+    "edf4b7b73e": {
+      "question": "Do I need any special hardware?",
+      "original_answer": "For the classical Machine Learning part, all you need is a working laptop with an internet connection. The Deep Learning part is more resource intensive \u2014 for that, use any cloud GPU service (Google Colab, AWS, GCP, etc.).",
+      "generated_answer": "No, you don't need any special hardware for the classical Machine Learning part, just a laptop with an internet connection. However, for the Deep Learning part, you'll need to use a cloud GPU service.",
+      "course": "ml-zoomcamp"
+    },
+    "f067a2c8e6": {
+      "question": "Command aws ecr get-login --no-include-email returns \u201caws: error: argument operation: Invalid choice\u2026\u201d",
+      "original_answer": "The error occurs because the aws ecr get-login command is deprecated.\n\nInstead, use the following command to authenticate Docker to an ECR registry:\n\n``bash\naws ecr get-login-password --region  | docker login --username AWS --password-stdin .dkr.ecr..amazonaws.com\n`\n\nReplace  with your AWS region an",
+      "generated_answer": "The error \"aws: error: argument operation: Invalid choice\u2026\" occurs because the `aws ecr get-login` command is deprecated. To authenticate Docker to an ECR registry, use the following command instead:\n\n```bash\naws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <account_id>.dkr.ecr.<region>.amazonaws.com\n```\n\nReplace `<region>` with your AWS region and `<account_id>` with your account ID.",
+      "course": "ml-zoomcamp"
+    },
+    "f969361ef4": {
+      "question": "Homework: Could you please help me with HW3 Q3: \"Calculate the mutual information score with the (binarized) price for the categorical variable that we have. Use the training set only.\" What is the second variable that we need to use to calculate the mutual information score?",
+      "original_answer": "You need to calculate the mutual information score between the binarized price (above_average) variable and ocean_proximity, the only original categorical variable in the dataset.",
+      "generated_answer": "To calculate the mutual information score, the second variable you need to use is 'ocean_proximity', the original categorical variable in the dataset, in conjunction with the binarized price (above_average) variable.",
+      "course": "ml-zoomcamp"
+    },
+    "6d91bd8f56": {
+      "question": "Docker: Trying to run a docker image I built but it says it\u2019s unable to start the container process",
+      "original_answer": "Ensure that you used pipenv to install the necessary modules including gunicorn. Follow these steps:\n\n1. Use pipenv shell to enter the virtual environment.\n2. Build and run your Docker image.\n\nMake sure all dependencies are correctly specified in your Pipfile.",
+      "generated_answer": "To resolve the issue of being unable to start the container process when running a Docker image you built, ensure you used pipenv to install the necessary modules, including gunicorn. Enter the virtual environment using 'pipenv shell', then build and run your Docker image, making sure all dependencies are correctly specified in your Pipfile.",
+      "course": "ml-zoomcamp"
+    }
+  }
+}
