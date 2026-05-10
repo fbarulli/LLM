@@ -182,6 +182,60 @@ uv run python eval/analysis/visualizer.py
 └── docker-compose*.yaml        # ES, Qdrant, and app containers
 ```
 
+# RAG Evaluation Pipeline — Zoomcamp FAQ Search
+
+## Final Results (bge-base 768d, open search, no course filter)
+
+| Config | R@1 | R@5 | P50ms |
+|--------|-----|-----|-------|
+| BM25 (q^5+a^5) | 58.3% | 79.0% | 5.0ms |
+| ES kNN (bge-base 768d) | 60.2% | 81.9% | 6.7ms |
+| Qdrant (bge-base 768d) | 60.7% | 82.4% | 4.8ms |
+| **Hybrid: BM25 + Qdrant** | **61.9%** | **86.9%** | **9.8ms** |
+| Hybrid: BM25 + ES kNN | 61.7% | 86.7% | 11.7ms |
+
+**Winner: BM25 (q^5+a^5) + Qdrant (bge-base 768d) with RRF fusion — 86.9% R@5**
+
+### Model Comparison (Qdrant only)
+
+| Model | Dims | R@5 | Enc(ms) |
+|-------|------|-----|---------|
+| bge-small-en-v1.5 | 384 | 80.0% | 41ms |
+| e5-small-v2 | 384 | 78.3% | 37ms |
+| **bge-base-en-v1.5** | **768** | **82.4%** | 122ms |
+| e5-base-v2 | 768 | 81.7% | 124ms |
+
+### Per-Strategy (best config)
+
+| Strategy | R@5 | Notes |
+|----------|-----|-------|
+| grounded_analyst | 96% | Technical, precise queries |
+| creative_student | 95% | Natural frustration, symptom-based |
+| chaos_monkey | 80% | Wrong angles, high temperature |
+
+### Per-Course (best config)
+
+| Course | R@5 | Docs |
+|--------|-----|------|
+| llm-zoomcamp | 100% | 79 |
+| de-zoomcamp | 89% | 393 |
+| mlops-zoomcamp | 85% | 245 |
+| ml-zoomcamp | 82% | 433 |
+
+---
+
+## Key Findings
+
+1. **86.9% R@5 open search** — no course filter, real-world performance
+2. **BM25 + vector hybrid** adds 7.9% over BM25 alone
+3. **bge-base 768d** beats bge-small 384d by 2.4% but encodes 3x slower
+4. **E5 models underperformed** BGE on full retrieval despite higher single-query similarity
+5. **Three-way hybrid is WORSE** than two-way — more sources add noise
+6. **Cross-encoder reranking hurts** — loses 3-4% R@5 and costs 30x more latency
+7. **chaos_monkey queries are the bottleneck** — 80% vs 96% for other strategies
+8. **ml-zoomcamp is the hardest course** — 82% R@5 with 433 docs
+9. **BM25 searching answer fields** closes the vocabulary gap — question^5 + answer^5 is optimal
+
 ---
 
 ## Next Steps
@@ -189,11 +243,13 @@ uv run python eval/analysis/visualizer.py
 | Step | Status |
 |------|--------|
 | Data cleaning & ingestion | ✅ Complete |
-| Context sufficiency judge | ✅ Complete |
 | Test query generation (3 strategies) | ✅ Complete |
 | BM25, vector, hybrid, Qdrant benchmarks | ✅ Complete |
+| Embedding model comparison (4 models) | ✅ Complete |
 | Cross-encoder reranking evaluation | ✅ Complete |
 | Per-strategy / per-course breakdown | ✅ Complete |
-| A/B testing with McNemar significance | ✅ Complete |
+| Failure deep-dive analysis | ✅ Complete |
+| A/B testing with significance | ✅ Complete |
 | Dashboard with inline plots | ✅ Complete |
-| CAG pipeline (`gen/`) | 📋 Planned |
+| CAG pipeline (32 answers generated) | 📋 In progress |
+| Scale CAG to all 1140 FAQs | 📋 Planned |

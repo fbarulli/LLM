@@ -138,7 +138,7 @@ def make_bm25(es, boost_q, boost_t):
     def search(query, size, course=None):
         q = {'multi_match': {'query': query, 'fields': [f'question^{boost_q}', f'answer^{boost_t}'], 'type': 'best_fields'}}
         body = {'size': size, 'query': {'bool': {'must': q, 'filter': {'term': {'course': course}}}} if course else q}
-        return [h['_source'] for h in es.search(index=ES_INDEX, body=body)['hits']['hits']]
+        return [h['_source'] for h in es.search(index=ES_INDEX, **body)['hits']['hits']]
     return search
 
 
