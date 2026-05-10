@@ -253,3 +253,97 @@ uv run python eval/analysis/visualizer.py
 | Dashboard with inline plots | ✅ Complete |
 | CAG pipeline (32 answers generated) | 📋 In progress |
 | Scale CAG to all 1140 FAQs | 📋 Planned |
+
+
+
+
+## Course Routing Strategy
+
+The FAQ bot is deployed across course-specific Slack channels. When a question comes from `#de-zoomcamp`, we automatically apply a course filter — this is not keyword guessing, it's known context from the channel.
+
+**This gives us 92.4% R@5 at 9.9ms** — up from 86.9% open search.
+
+| Scenario | R@5 | How |
+|----------|-----|-----|
+| Open search (unknown course) | 86.9% | No filter, cross-course retrieval |
+| **Slack channel (known course)** | **92.4%** | Course filter from channel context |
+| Keyword-based smart routing | 85.2% | Not recommended — keywords cause wrong routes |
+
+**Bottom line:** Don't guess the course. If you know it (Slack channel), filter. If you don't, search open.
+
+---
+
+## Final Results (bge-base 768d, BM25 + Qdrant RRF)
+
+| Config | R@1 | R@5 | P50ms | Use Case |
+|--------|-----|-----|-------|----------|
+| Open search | 61.9% | 86.9% | 9.8ms | Unknown context |
+| **Course filter** | — | **92.4%** | **9.9ms** | **Slack channels** |
+
+### Model Comparison (Qdrant only)
+
+| Model | Dims | R@5 | Enc(ms) |
+|-------|------|-----|---------|
+| bge-small-en-v1.5 | 384 | 80.0% | 41ms |
+| e5-small-v2 | 384 | 78.3% | 37ms |
+| **bge-base-en-v1.5** | **768** | **82.4%** | 122ms |
+| e5-base-v2 | 768 | 81.7% | 124ms |
+
+### Per-Strategy (open search, best config)
+
+| Strategy | R@5 | Notes |
+|----------|-----|-------|
+| grounded_analyst | 98.7% | Technical, precise queries |
+| creative_student | 92.5% | Natural frustration, symptom-based |
+| chaos_monkey | 71.3% | Wrong angles, high temperature — acceptable loss |
+
+### Per-Course (open search, best config)
+
+| Course | R@5 | Docs |
+|--------|-----|------|
+| llm-zoomcamp | 100% | 79 |
+| de-zoomcamp | 89% | 392 |
+| mlops-zoomcamp | 85% | 243 |
+| ml-zoomcamp | 82% | 426 |
+
+### Signal Quality (keyword routing — not recommended)
+
+| Course | Correct | Missed | Wrong |
+|--------|---------|--------|-------|
+| de-zoomcamp | 70 | 62 | 0 |
+| llm-zoomcamp | 12 | 63 | 6 |
+| ml-zoomcamp | 32 | 111 | 4 |
+| mlops-zoomcamp | 28 | 31 | 1 |
+
+Keyword-based routing has 11 wrong routes that hurt more than the 142 correct routes help. Don't use it.
+
+---
+
+## Key Findings
+
+1. **92.4% R@5 with course filter** — deploy to Slack channels for free 5.5% gain
+2. **86.9% R@5 open search** — real-world performance without context
+3. **bge-base 768d** beats bge-small 384d by 2.4% but encodes 3x slower
+4. **BM25 + Qdrant RRF** is the optimal config — three-way hybrid adds noise
+5. **Cross-encoder reranking hurts** — loses 3-4% R@5, 30x slower
+6. **17 of 20 tools appear in 3+ courses** — open search is the right default
+7. **chaos_monkey is the bottleneck** — 71% vs 99% for grounded queries
+8. **Keyword routing can't work** — shared vocabulary across courses means wrong routes are inevitable
+
+---
+
+## Next Steps
+
+| Step | Status |
+|------|--------|
+| Data cleaning & ingestion (1140 docs) | ✅ Complete |
+| Test query generation (420 queries, 3 strategies) | ✅ Complete |
+| BM25, vector, hybrid benchmarking (11 configs) | ✅ Complete |
+| Embedding model comparison (4 models) | ✅ Complete |
+| Cross-encoder reranking | ✅ Complete |
+| Smart routing evaluation (keyword + semantic) | ✅ Complete |
+| Per-strategy / per-course breakdown | ✅ Complete |
+| Failure deep-dive analysis | ✅ Complete |
+| Dashboard with inline plots | ✅ Complete |
+| CAG pipeline (32/1140 answers) | 📋 In progress |
+| Deploy to Slack with course filter | 📋 Planned |
