@@ -77,12 +77,23 @@ for i, tq in enumerate(test_queries):
         by_sub[s]['baseline'] += 1
     
     # ── HyDE: generate fake answer, embed that ───────────────────────────────
-    try:
-        response = completion(model=MODEL, messages=[{"role":"user","content":HYDE_PROMPT.format(query=tq['query'])}], temperature=0.3, max_tokens=150)
-        fake_answer = response.choices[0].message.content.strip()
-    except Exception as e:
-        logger.warning(f"  [{i+1}] HyDE generation failed: {e}")
-        fake_answer = ""
+    fake_answer = ""
+    for attempt in range(3):
+        try:
+            response = completion(model=MODEL, messages=[{"role":"user","content":HYDE_PROMPT.format(query=tq['query'])}], temperature=0.3, max_tokens=150)
+            fake_answer = response.choices[0].message.content.strip()
+            break
+        except Exception as e:
+            msg = str(e)
+            if '429' in msg or '502' in msg or '504' in msg:
+                wait = 60 * (attempt + 1)
+                logger.warning(f"  [{i+1}] Rate limit, waiting {wait}s...")
+                time.sleep(wait)
+            else:
+                logger.warning(f"  [{i+1}] HyDE failed: {e}")
+                break
+    
+    if not fake_answer:
         hyde_skipped += 1
     
     if fake_answer:

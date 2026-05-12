@@ -474,3 +474,22 @@ Overall R@5 on Topic 0: 83.3% (lower than 89.5% overall)
 2. **Finish CAG scaling** — complete the 1140 and fix RAGAS token limit
 3. **Slack integration** — capture the free 5.5% course-filter gain
 4. **Query cache** — before further embedding model experiments
+---
+
+## HyDE Evaluation (Hypothetical Document Embeddings)
+
+Tested on 23 short queries (<8 words) from Topic 0 failures.
+
+| Approach | R@5 | Median Latency | vs Baseline |
+|----------|-----|----------------|-------------|
+| Baseline (direct embed) | 87.0% | 82ms | — |
+| Answer embedding | 87.0% | 1448ms | No improvement |
+| Query rewriting (3x) | 87.0% | 917ms | No improvement |
+| Hybrid RRF | 87.0% | <1ms | No improvement |
+
+**Conclusion**: HyDE does not help for this dataset. The remaining failures are genuinely ambiguous short queries, not vocabulary mismatches. The 3 queries that fail all methods:
+- "how to prevent multicollinearity in linear regression"
+- "correlating numerical and categorical data"  
+- "docker model not updating"
+
+These are queries where multiple similar FAQs exist, making exact matching inherently difficult.
