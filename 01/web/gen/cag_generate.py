@@ -128,7 +128,7 @@ async def main():
         if answer:
             answers[doc['es_id']] = {
                 'question': doc['question'],
-                'original_answer': doc['answer'][:300],
+                'original_answer': doc['answer'],
                 'generated_answer': answer,
                 'course': doc['course'],
             }

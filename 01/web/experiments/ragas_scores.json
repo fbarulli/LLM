@@ -1,0 +1,738 @@
+{
+  "metadata": {
+    "count": 120,
+    "timestamp": "2026-05-12T13:21:15.631001"
+  },
+  "scores": {
+    "c493aa6b92": {
+      "faithfulness": 0.4,
+      "factual_correctness": 0.6
+    },
+    "316180784f": {
+      "faithfulness": 1.0,
+      "factual_correctness": 1.0
+    },
+    "1ba19ed6a0": {
+      "faithfulness": 0.5,
+      "factual_correctness": 0.4
+    },
+    "7cbadfe131": {
+      "faithfulness": 0.5,
+      "factual_correctness": 0.57
+    },
+    "1b727dde32": {
+      "faithfulness": 0.6666666666666666,
+      "factual_correctness": 1.0
+    },
+    "30dcc71db8": {
+      "faithfulness": 1.0,
+      "factual_correctness": 0.43
+    },
+    "2d8b16c2a0": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": NaN
+    },
+    "69d122f12e": {
+      "faithfulness": 1.0,
+      "factual_correctness": 0.67
+    },
+    "17be084780": {
+      "faithfulness": 1.0,
+      "factual_correctness": 0.67
+    },
+    "4277a9cb86": {
+      "faithfulness": 0.5,
+      "factual_correctness": 0.8
+    },
+    "c207b8614e": {
+      "faithfulness": 1.0,
+      "factual_correctness": 0.8
+    },
+    "5b5d82a924": {
+      "faithfulness": 0.3333333333333333,
+      "factual_correctness": 0.0
+    },
+    "2442e32be2": {
+      "faithfulness": 1.0,
+      "factual_correctness": 0.93
+    },
+    "1d2222e38a": {
+      "faithfulness": 0.6666666666666666,
+      "factual_correctness": 0.33
+    },
+    "66ccbb7da0": {
+      "faithfulness": 1.0,
+      "factual_correctness": 0.91
+    },
+    "5beafdd0c8": {
+      "faithfulness": 1.0,
+      "factual_correctness": 1.0
+    },
+    "f3a92e7c81": {
+      "faithfulness": 0.6666666666666666,
+      "factual_correctness": 0.75
+    },
+    "d5fc98925d": {
+      "faithfulness": 0.25,
+      "factual_correctness": 0.75
+    },
+    "ee43413718": {
+      "faithfulness": 1.0,
+      "factual_correctness": 0.5
+    },
+    "e95bfafc0e": {
+      "faithfulness": 0.0,
+      "factual_correctness": 0.8
+    },
+    "16099520dd": {
+      "faithfulness": 0.6,
+      "noise_sensitivity": 0.0
+    },
+    "84301e35dd": {
+      "faithfulness": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "a3eeeaa3ac": {
+      "faithfulness": 0.3333333333333333,
+      "noise_sensitivity": 0.0
+    },
+    "ebcd9b6783": {
+      "faithfulness": 0.75,
+      "noise_sensitivity": 0.0
+    },
+    "b4c8ac5a0c": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "69052b9af2": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "eecebb4f2f": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "ac12e26845": {
+      "faithfulness": 0.8,
+      "noise_sensitivity": 0.16666666666666666
+    },
+    "025c1ba06b": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "dda62d0ef0": {
+      "factual_correctness": 0.86,
+      "semantic_similarity": 0.0
+    },
+    "7deae3a8eb": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "3ce6d0445f": {
+      "faithfulness": 0.75,
+      "noise_sensitivity": 0.0
+    },
+    "513410225e": {
+      "factual_correctness": 0.8,
+      "semantic_similarity": 0.0
+    },
+    "950192cbcc": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": NaN
+    },
+    "79e44b9c07": {
+      "factual_correctness": 0.67,
+      "semantic_similarity": 0.0
+    },
+    "db53f69d74": {
+      "faithfulness": 0.6,
+      "noise_sensitivity": 0.0
+    },
+    "16711f1a2f": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "25b0348672": {
+      "faithfulness": 0.3333333333333333,
+      "noise_sensitivity": 0.0
+    },
+    "f969361ef4": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "bbced12feb": {
+      "faithfulness": 0.8,
+      "noise_sensitivity": 0.0
+    },
+    "b4a5d32d6b": {
+      "faithfulness": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "4693802714": {
+      "faithfulness": 0.8,
+      "noise_sensitivity": 0.0
+    },
+    "250d8d1c81": {
+      "faithfulness": 0.5,
+      "noise_sensitivity": 0.0
+    },
+    "d850a0e7ea": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "59ad389756": {
+      "factual_correctness": 0.73,
+      "semantic_similarity": 0.0
+    },
+    "02ff7e82ce": {
+      "faithfulness": NaN,
+      "noise_sensitivity": 0.0
+    },
+    "e5c67e3439": {
+      "faithfulness": 0.6,
+      "noise_sensitivity": 0.6
+    },
+    "d99433c04b": {
+      "faithfulness": 0.4,
+      "noise_sensitivity": 0.1111111111111111
+    },
+    "dce5e4842c": {
+      "faithfulness": 0.5,
+      "noise_sensitivity": 0.0
+    },
+    "690948b58d": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "cc4481d2fa": {
+      "faithfulness": 0.2,
+      "noise_sensitivity": 0.0
+    },
+    "0655982228": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "21e010f826": {
+      "factual_correctness": 0.93,
+      "semantic_similarity": 0.0
+    },
+    "b943770904": {
+      "faithfulness": 0.125,
+      "noise_sensitivity": 0.0
+    },
+    "778635395f": {
+      "faithfulness": 0.5,
+      "noise_sensitivity": 0.0
+    },
+    "5e953f0e8e": {
+      "faithfulness": 1.0,
+      "noise_sensitivity": 0.0
+    },
+    "8af59cb98f": {
+      "factual_correctness": 0.5,
+      "semantic_similarity": 0.0
+    },
+    "fe8fed31e6": {
+      "faithfulness": 0.3333333333333333,
+      "noise_sensitivity": 0.0
+    },
+    "3e621509d2": {
+      "faithfulness": 0.25,
+      "noise_sensitivity": 0.0
+    },
+    "f2458f5a26": {
+      "factual_correctness": 0.8,
+      "semantic_similarity": 0.0
+    },
+    "c842475338": {
+      "factual_correctness": 0.6,
+      "semantic_similarity": 0.0
+    },
+    "b7bd817c2a": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "5c4e6ef8ca": {
+      "factual_correctness": 0.62,
+      "semantic_similarity": 0.0
+    },
+    "0a545e0e4c": {
+      "factual_correctness": 0.62,
+      "semantic_similarity": 0.0
+    },
+    "47c771de0d": {
+      "factual_correctness": 0.6,
+      "semantic_similarity": 0.0
+    },
+    "e53752c5b7": {
+      "factual_correctness": 0.0,
+      "semantic_similarity": 0.0
+    },
+    "edf4b7b73e": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "f067a2c8e6": {
+      "factual_correctness": 0.86,
+      "semantic_similarity": 0.0
+    },
+    "6d91bd8f56": {
+      "factual_correctness": 0.77,
+      "semantic_similarity": 0.0
+    },
+    "e7015b4263": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "7bff88dbd7": {
+      "factual_correctness": NaN,
+      "semantic_similarity": 0.0
+    },
+    "e08b9c753f": {
+      "factual_correctness": 0.86,
+      "semantic_similarity": 0.0
+    },
+    "5a1a61b6a8": {
+      "factual_correctness": 0.89,
+      "semantic_similarity": 0.0
+    },
+    "a950fda271": {
+      "factual_correctness": 0.2,
+      "semantic_similarity": 0.0
+    },
+    "f29d45f419": {
+      "factual_correctness": 0.89,
+      "semantic_similarity": 0.0
+    },
+    "d2add610e3": {
+      "factual_correctness": 0.64,
+      "semantic_similarity": 0.0
+    },
+    "664833c280": {
+      "factual_correctness": 0.8,
+      "semantic_similarity": 0.0
+    },
+    "bd56924fcb": {
+      "factual_correctness": 0.86,
+      "semantic_similarity": 0.0
+    },
+    "fd607affe5": {
+      "factual_correctness": 0.67,
+      "semantic_similarity": 0.0
+    },
+    "e43abaa421": {
+      "factual_correctness": NaN,
+      "semantic_similarity": 0.0
+    },
+    "16481ac8f7": {
+      "factual_correctness": 0.57,
+      "semantic_similarity": 0.0
+    },
+    "3d51ece7b9": {
+      "factual_correctness": 0.38,
+      "semantic_similarity": 0.0
+    },
+    "0cc94bef66": {
+      "factual_correctness": 0.73,
+      "semantic_similarity": 0.0
+    },
+    "4dbd2eea47": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "742e16e6bc": {
+      "factual_correctness": 0.57,
+      "semantic_similarity": 0.0
+    },
+    "5b1d465332": {
+      "factual_correctness": 0.44,
+      "semantic_similarity": 0.0
+    },
+    "d5328f1899": {
+      "factual_correctness": 0.93,
+      "semantic_similarity": 0.0
+    },
+    "55fac499b0": {
+      "factual_correctness": 0.9,
+      "semantic_similarity": 0.0
+    },
+    "46dbe4810d": {
+      "factual_correctness": 0.75,
+      "semantic_similarity": 0.0
+    },
+    "0cfd7f7ed6": {
+      "factual_correctness": 0.42,
+      "semantic_similarity": 0.0
+    },
+    "917b0b0fb5": {
+      "factual_correctness": 0.75,
+      "semantic_similarity": 0.0
+    },
+    "14cc6e2060": {
+      "factual_correctness": 0.73,
+      "semantic_similarity": 0.0
+    },
+    "0beb2b5df7": {
+      "factual_correctness": 0.29,
+      "semantic_similarity": 0.0
+    },
+    "26ff32cb35": {
+      "factual_correctness": 0.1,
+      "semantic_similarity": 0.0
+    },
+    "5b4c133384": {
+      "factual_correctness": 0.4,
+      "semantic_similarity": 0.0
+    },
+    "a1f6167da1": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "99658f8d80": {
+      "factual_correctness": 0.8,
+      "semantic_similarity": 0.0
+    },
+    "f04da64de9": {
+      "factual_correctness": 0.67,
+      "semantic_similarity": 0.0
+    },
+    "d4ec58fd16": {
+      "factual_correctness": 0.5,
+      "semantic_similarity": 0.0
+    },
+    "df2ca336d5": {
+      "factual_correctness": 0.75,
+      "semantic_similarity": 0.0
+    },
+    "e5b8322bee": {
+      "factual_correctness": 0.8,
+      "semantic_similarity": 0.0
+    },
+    "c81e613d5a": {
+      "factual_correctness": 0.89,
+      "semantic_similarity": 0.0
+    },
+    "ef01c39d63": {
+      "factual_correctness": 0.4,
+      "semantic_similarity": 0.0
+    },
+    "3cc457b0de": {
+      "factual_correctness": 0.57,
+      "semantic_similarity": 0.0
+    },
+    "05727a95dd": {
+      "factual_correctness": 0.8,
+      "semantic_similarity": 0.0
+    },
+    "a411de5004": {
+      "factual_correctness": 0.86,
+      "semantic_similarity": 0.0
+    },
+    "f5c9c1b46d": {
+      "factual_correctness": 0.67,
+      "semantic_similarity": 0.0
+    },
+    "390f2bec4a": {
+      "factual_correctness": 0.62,
+      "semantic_similarity": 0.0
+    },
+    "b3bb998ae2": {
+      "factual_correctness": 0.63,
+      "semantic_similarity": 0.0
+    },
+    "b2c1c1d0ec": {
+      "factual_correctness": 0.67,
+      "semantic_similarity": 0.0
+    },
+    "eb759226aa": {
+      "factual_correctness": 0.31,
+      "semantic_similarity": 0.0
+    },
+    "2763850d3e": {
+      "factual_correctness": 0.8,
+      "semantic_similarity": 0.0
+    },
+    "fa58733a98": {
+      "factual_correctness": 0.75,
+      "semantic_similarity": 0.0
+    },
+    "06775a8677": {
+      "factual_correctness": 0.88,
+      "semantic_similarity": 0.0
+    },
+    "8bfd81c403": {
+      "factual_correctness": 0.8,
+      "semantic_similarity": 0.0
+    },
+    "a5a8a6ac39": {
+      "factual_correctness": 0.89,
+      "semantic_similarity": 0.0
+    },
+    "33184c75bd": {
+      "factual_correctness": 0.75,
+      "semantic_similarity": 0.0
+    },
+    "24c64415c0": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "8ab8329fea": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "53afe4bee2": {
+      "factual_correctness": 0.5,
+      "semantic_similarity": 0.0
+    },
+    "b92da7c113": {
+      "factual_correctness": 0.36,
+      "semantic_similarity": 0.0
+    },
+    "721f9e0c29": {
+      "factual_correctness": 0.89,
+      "semantic_similarity": 0.0
+    },
+    "bc90da941d": {
+      "factual_correctness": 0.67,
+      "semantic_similarity": 0.0
+    },
+    "b72ed00c7b": {
+      "factual_correctness": 0.6,
+      "semantic_similarity": 0.0
+    },
+    "55c0047f8b": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "5db9bca6a9": {
+      "factual_correctness": 0.33,
+      "semantic_similarity": 0.0
+    },
+    "61b908fe84": {
+      "factual_correctness": 0.57,
+      "semantic_similarity": 0.0
+    },
+    "1ba58ae0e0": {
+      "factual_correctness": 0.75,
+      "semantic_similarity": 0.0
+    },
+    "cdbabdd71a": {
+      "factual_correctness": 0.44,
+      "semantic_similarity": 0.0
+    },
+    "1700cb2bd4": {
+      "factual_correctness": 0.18,
+      "semantic_similarity": 0.0
+    },
+    "b7ff18706c": {
+      "factual_correctness": 0.4,
+      "semantic_similarity": 0.0
+    },
+    "a4c1f2e983": {
+      "factual_correctness": 0.33,
+      "semantic_similarity": 0.0
+    },
+    "1b03f3dadf": {
+      "factual_correctness": 0.8,
+      "semantic_similarity": 0.0
+    },
+    "381dfe5145": {
+      "factual_correctness": 0.86,
+      "semantic_similarity": 0.0
+    },
+    "d3c860aa46": {
+      "factual_correctness": 0.67,
+      "semantic_similarity": 0.0
+    },
+    "7cec1857a9": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "fee87c684a": {
+      "factual_correctness": 0.43,
+      "semantic_similarity": 0.0
+    },
+    "66d3c42dd4": {
+      "factual_correctness": 0.67,
+      "semantic_similarity": 0.0
+    },
+    "c549d24645": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "aa8c30b777": {
+      "factual_correctness": 0.0,
+      "semantic_similarity": 0.0
+    },
+    "577dfed594": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "c2c5634e36": {
+      "factual_correctness": 0.89,
+      "semantic_similarity": 0.0
+    },
+    "58586a16a6": {
+      "factual_correctness": 0.86,
+      "semantic_similarity": 0.0
+    },
+    "0d6dc0d041": {
+      "factual_correctness": 0.5,
+      "semantic_similarity": 0.0
+    },
+    "5baf3e8a5e": {
+      "factual_correctness": 0.92,
+      "semantic_similarity": 0.0
+    },
+    "51bc7e280d": {
+      "factual_correctness": 0.6,
+      "semantic_similarity": 0.0
+    },
+    "1c7bfa9357": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    },
+    "99bb0ceeb6": {
+      "factual_correctness": 0.86,
+      "semantic_similarity": 0.0
+    },
+    "5849afe5f6": {
+      "factual_correctness": 0.57,
+      "semantic_similarity": 0.0
+    },
+    "bfafa427b3": {
+      "factual_correctness": 0.86,
+      "semantic_similarity": 0.0
+    },
+    "a71d2105aa": {
+      "factual_correctness": 0.91,
+      "semantic_similarity": 0.0
+    },
+    "2d05496ddf": {
+      "factual_correctness": 1.0,
+      "semantic_similarity": 0.0
+    }
+  },
+  "completed": [
+    "c493aa6b92",
+    "316180784f",
+    "1ba19ed6a0",
+    "7cbadfe131",
+    "1b727dde32",
+    "30dcc71db8",
+    "2d8b16c2a0",
+    "69d122f12e",
+    "17be084780",
+    "4277a9cb86",
+    "c207b8614e",
+    "5b5d82a924",
+    "2442e32be2",
+    "1d2222e38a",
+    "66ccbb7da0",
+    "5beafdd0c8",
+    "f3a92e7c81",
+    "d5fc98925d",
+    "ee43413718",
+    "e95bfafc0e",
+    "f2458f5a26",
+    "c842475338",
+    "b7bd817c2a",
+    "5c4e6ef8ca",
+    "0a545e0e4c",
+    "47c771de0d",
+    "e53752c5b7",
+    "8af59cb98f",
+    "edf4b7b73e",
+    "f067a2c8e6",
+    "f969361ef4",
+    "6d91bd8f56",
+    "e7015b4263",
+    "7bff88dbd7",
+    "e08b9c753f",
+    "5a1a61b6a8",
+    "a950fda271",
+    "f29d45f419",
+    "d2add610e3",
+    "664833c280",
+    "bd56924fcb",
+    "fd607affe5",
+    "e43abaa421",
+    "16481ac8f7",
+    "21e010f826",
+    "3d51ece7b9",
+    "0cc94bef66",
+    "4dbd2eea47",
+    "742e16e6bc",
+    "5b1d465332",
+    "d5328f1899",
+    "55fac499b0",
+    "46dbe4810d",
+    "0cfd7f7ed6",
+    "917b0b0fb5",
+    "14cc6e2060",
+    "0beb2b5df7",
+    "26ff32cb35",
+    "5b4c133384",
+    "a1f6167da1",
+    "99658f8d80",
+    "f04da64de9",
+    "d4ec58fd16",
+    "df2ca336d5",
+    "e5b8322bee",
+    "c81e613d5a",
+    "ef01c39d63",
+    "3cc457b0de",
+    "05727a95dd",
+    "a411de5004",
+    "f5c9c1b46d",
+    "390f2bec4a",
+    "b3bb998ae2",
+    "b2c1c1d0ec",
+    "eb759226aa",
+    "2763850d3e",
+    "fa58733a98",
+    "06775a8677",
+    "8bfd81c403",
+    "a5a8a6ac39",
+    "513410225e",
+    "dda62d0ef0",
+    "33184c75bd",
+    "24c64415c0",
+    "8ab8329fea",
+    "53afe4bee2",
+    "b92da7c113",
+    "721f9e0c29",
+    "bc90da941d",
+    "59ad389756",
+    "b72ed00c7b",
+    "55c0047f8b",
+    "5db9bca6a9",
+    "61b908fe84",
+    "1ba58ae0e0",
+    "cdbabdd71a",
+    "1700cb2bd4",
+    "b7ff18706c",
+    "a4c1f2e983",
+    "1b03f3dadf",
+    "381dfe5145",
+    "d3c860aa46",
+    "7cec1857a9",
+    "fee87c684a",
+    "79e44b9c07",
+    "66d3c42dd4",
+    "c549d24645",
+    "aa8c30b777",
+    "577dfed594",
+    "c2c5634e36",
+    "58586a16a6",
+    "0d6dc0d041",
+    "5baf3e8a5e",
+    "51bc7e280d",
+    "1c7bfa9357",
+    "99bb0ceeb6",
+    "5849afe5f6",
+    "bfafa427b3",
+    "a71d2105aa",
+    "2d05496ddf"
+  ]
+}

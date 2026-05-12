@@ -1,17 +1,15 @@
 """
 gen/ragas_eval.py
 =================
-RAGAS evaluation of CAG answers. Runs when milestones reached.
-Logs to Langfuse.
+RAGAS evaluation: FactualCorrectness + SemanticSimilarity.
+Incremental saving. Resumes from last completed.
 
 Run:    uv run python gen/ragas_eval.py --force
 """
-import sys, os, argparse
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-import json, logging
+import sys, os, json, logging, time, random, numpy as np
 from datetime import datetime
 from dotenv import load_dotenv
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 load_dotenv('configs/.env')
 os.environ["NVIDIA_NIM_API_KEY"] = os.getenv("NVIDIA_API_KEY")
@@ -21,7 +19,8 @@ load_api_keys()
 
 from langfuse import Langfuse
 from ragas import evaluate, EvaluationDataset, SingleTurnSample
-from ragas.metrics import Faithfulness, FactualCorrectness
+from ragas.metrics import FactualCorrectness, SemanticSimilarity
+from ragas.run_config import RunConfig
 from openai import OpenAI
 from ragas.llms import llm_factory
 
@@ -29,101 +28,103 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(me
 logger = logging.getLogger(__name__)
 
 CAG_FILE = 'experiments/cag_answers.json'
-MILESTONES = [100, 200, 500, 1140]
-LAST_MILESTONE_FILE = 'experiments/.ragas_last_milestone'
+OUTPUT = 'experiments/ragas_scores.json'
+MODEL = "meta/llama-3.1-8b-instruct"
+BATCH_SIZE = 10
+
+nvidia_client = OpenAI(api_key=os.getenv("NVIDIA_API_KEY"), base_url="https://integrate.api.nvidia.com/v1")
+evaluator_llm = llm_factory(model=MODEL, client=nvidia_client)
+evaluator_llm.model_args = {"max_tokens": 2048}
+run_config = RunConfig(max_workers=4, max_retries=3, timeout=120)
+
+METRICS = [FactualCorrectness()]
 
 
-def get_last_milestone():
-    if os.path.exists(LAST_MILESTONE_FILE):
-        with open(LAST_MILESTONE_FILE) as f:
-            return int(f.read().strip())
-    return 0
+def load_progress():
+    if os.path.exists(OUTPUT):
+        with open(OUTPUT) as f:
+            data = json.load(f)
+        return data.get('scores', {}), data.get('completed', [])
+    return {}, []
 
 
-def set_last_milestone(value):
-    with open(LAST_MILESTONE_FILE, 'w') as f:
-        f.write(str(value))
+def save_progress(scores, completed):
+    with open(OUTPUT, 'w') as f:
+        json.dump({
+            'metadata': {'count': len(completed), 'timestamp': datetime.now().isoformat()},
+            'scores': scores, 'completed': completed,
+        }, f, indent=2)
 
 
-def main(force=False):
+def extract_score(score_dict, key):
+    val = score_dict.get(key)
+    if val is not None:
+        if isinstance(val, list): val = val[0] if val else 0.0
+        return float(val)
+    matching = [k for k in score_dict if key in k.lower().replace(' ', '_')]
+    if matching:
+        val = score_dict[matching[0]]
+        if isinstance(val, list): val = val[0] if val else 0.0
+        return float(val)
+    return 0.0
+
+
+def main():
     with open(CAG_FILE) as f:
         cag = json.load(f)['answers']
-    count = len(cag)
-
-    last = get_last_milestone()
-    current_milestone = None
-    for m in MILESTONES:
-        if count >= m and m > last:
-            current_milestone = m
-            break
-
-    if not force and not current_milestone:
-        logger.info(f"CAG at {count}. No new milestone (last: {last}). Next: {[m for m in MILESTONES if m > last]}")
+    
+    scores, completed = load_progress()
+    pending = [(qid, cag[qid]) for qid in cag if qid not in completed]
+    
+    logger.info(f"CAG: {len(cag)} | Done: {len(completed)} | Pending: {len(pending)}")
+    
+    if not pending:
+        logger.info("All done!")
         return
-
-    eval_count = min(count, current_milestone if not force else count)
-
-    # NVIDIA NIM via OpenAI-compatible client
-    nvidia_client = OpenAI(
-        api_key=os.getenv("NVIDIA_API_KEY"),
-        base_url="https://integrate.api.nvidia.com/v1",
-    )
-    evaluator_llm = llm_factory(
-        model="meta/llama-3.1-70b-instruct",
-        client=nvidia_client,
-    )
-
-    cag_items = list(cag.items())[:eval_count]
-    samples = [
-        SingleTurnSample(
-            user_input=answer['question'],
-            response=answer['generated_answer'],
-            reference=answer.get('original_answer', ''),
-            retrieved_contexts=[answer.get('original_answer', '')],
-        )
-        for qid, answer in cag_items
-    ]
-
-    logger.info(f"Running RAGAS on {len(samples)} answers...")
-
-    results = evaluate(
-        dataset=EvaluationDataset(samples=samples),
-        metrics=[Faithfulness(llm=evaluator_llm), FactualCorrectness(llm=evaluator_llm)],
-        llm=evaluator_llm,
-    )
-
-    # Log to Langfuse
+    
+    for i in range(0, len(pending), BATCH_SIZE):
+        batch = pending[i:i + BATCH_SIZE]
+        
+        samples = []
+        ids = []
+        for qid, answer in batch:
+            samples.append(SingleTurnSample(
+                user_input=answer['question'],
+                response=answer['generated_answer'],
+                reference=answer.get('original_answer', ''),
+            ))
+            ids.append(qid)
+        
+        dataset = EvaluationDataset(samples=samples)
+        result = evaluate(dataset=dataset, metrics=METRICS, llm=evaluator_llm, run_config=run_config)
+        
+        for j, qid in enumerate(ids):
+            score_dict = result.scores[j] if j < len(result.scores) else {}
+            scores[qid] = {
+                'factual_correctness': extract_score(score_dict, 'factual_correctness'),
+                'semantic_similarity': extract_score(score_dict, 'semantic_similarity'),
+            }
+            completed.append(qid)
+        
+        save_progress(scores, completed)
+        logger.info(f"  Batch {i//BATCH_SIZE+1}/{(len(pending)+BATCH_SIZE-1)//BATCH_SIZE} done")
+    
+    # Summary
+    fc = [s['factual_correctness'] for s in scores.values() if s.get('factual_correctness', 0) > 0]
+    ss = [s['semantic_similarity'] for s in scores.values() if s.get('semantic_similarity', 0) > 0]
+    
+    if fc:
+        logger.info(f"FactualCorrectness: mean={np.mean(fc):.3f} p50={np.median(fc):.2f}")
+    if ss:
+        logger.info(f"SemanticSimilarity: mean={np.mean(ss):.3f} p50={np.median(ss):.2f}")
+    
     langfuse = Langfuse()
-    trace = langfuse.trace(
-        name=f"RAGAS_milestone_{eval_count}",
-        metadata={'cag_count': count, 'samples': len(samples), 'milestone': current_milestone},
-    )
-
-    for metric_name, values in results.items():
-        if hasattr(values, 'mean'):
-            mean_val = float(values.mean())
-            trace.span(name=f"metric_{metric_name}", output={'mean': mean_val})
-            print(f"  {metric_name:<30}: {mean_val:.4f}")
-
-    trace.update(output={'status': 'complete'})
+    trace = langfuse.trace(name="RAGAS", metadata={'total': len(scores), 'model': MODEL})
+    if fc: trace.span(name="factual_correctness", output={'mean': float(np.mean(fc))})
+    if ss: trace.span(name="semantic_similarity", output={'mean': float(np.mean(ss))})
     langfuse.flush()
-
-    if current_milestone:
-        set_last_milestone(current_milestone)
-
-    output = {
-        'cag_count': count, 'samples': len(samples), 'milestone': current_milestone,
-        'timestamp': datetime.now().isoformat(),
-        'metrics': {k: float(v.mean()) if hasattr(v, 'mean') else str(v) for k, v in results.items()},
-    }
-    with open(f'experiments/ragas_{count}.json', 'w') as f:
-        json.dump(output, f, indent=2, default=str)
-
-    logger.info(f"Done. Langfuse: {trace.id}")
+    logger.info("Done")
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--force', action='store_true')
-    args = parser.parse_args()
-    main(force=args.force)
+    main()

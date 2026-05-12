@@ -346,4 +346,131 @@ Keyword-based routing has 11 wrong routes that hurt more than the 142 correct ro
 | Failure deep-dive analysis | ✅ Complete |
 | Dashboard with inline plots | ✅ Complete |
 | CAG pipeline (32/1140 answers) | 📋 In progress |
-| Deploy to Slack with course filter | 📋 Planned |
+
+
+
+---
+
+## EDA & Clustering Findings
+
+### Data Distribution
+- **1140 questions** across 4 courses (ML: 426, DE: 392, MLOps: 243, LLM: 79)
+- **17 of 20 tools** appear in 3+ courses (Docker, Python, Jupyter, WSL, Git)
+- **Course-specific tools**: BigQuery (DE), Kafka (DE), Grafana (MLOps)
+
+### BERTopic Clusters (20 topics)
+| Cluster | Size | Category |
+|---------|------|----------|
+| Topic 0 | 304 | HW/MLflow/misc — catch-all, needs sub-clustering |
+| Topic 1 | 92 | Python/pipenv/dependencies |
+| Topic 2 | 75 | Docker/containers |
+| Topic 3 | 64 | BigQuery/Spark/parquet |
+| Topic 5 | 47 | Course logistics (start dates, prerequisites) |
+| Topic 8 | 26 | Kestra (DE-specific) |
+| Topic 16 | 13 | Certificates |
+
+### Problematic Query Patterns
+**12 failures from 72 Topic 0 test queries:**
+
+1. **Vocabulary mismatch (Vector search)**: Casual queries ("turn words into numbers") don't match formal FAQ titles ("What are embeddings?")
+2. **Homework-specific questions (Leaderboard)**: Specific dlt homework questions return generic BigQuery results
+3. **Too casual (tf serving)**: "illegal instruction wth?!" finds the right answer at rank 3, not rank 1
+4. **Multiple similar FAQs (Taxi data)**: "import NYC taxi data" returns taxi-related FAQs but the wrong one
+
+### Retrieval Performance by Query Strategy
+| Strategy | R@5 | Description |
+|----------|-----|-------------|
+| grounded_analyst | 98.7% | Technical, precise queries |
+| creative_student | 92.5% | Natural frustration, symptom-based |
+| chaos_monkey | 71.3% | Wrong angles, high temperature — acceptable loss |
+
+### Course Filter Impact
+| Mode | R@5 | Use Case |
+|------|-----|----------|
+| Open search | 86.9% | Unknown course context |
+| Course filter | 92.4% | Slack channel context |
+| Smart routing | 85.2% | Keyword-based — not recommended |
+
+Course filter adds 5.5% for free when deployed to Slack channels.
+
+
+
+---
+
+## RAGAS Evaluation (CAG Quality)
+
+**152 CAG answers scored with FactualCorrectness (8B model)**
+
+| Metric | Value |
+|--------|-------|
+| Samples scored | 152 / 929 |
+| Mean FactualCorrectness | 0.713 |
+| Model used | meta/llama-3.1-8b-instruct |
+| Reference | Full original FAQ answer (no truncation) |
+| Per-sample latency | ~9-17s |
+
+**Key findings:**
+- CAG answers preserve ~71% of factual content from the original FAQ
+- The 8B evaluator hits max_tokens limits on long references (>2000 chars)
+
+
+---
+
+## Topic Analysis (BERTopic)
+
+**20 semantic topics discovered across 1140 questions.**
+
+| Topic | R@5 | Notes |
+|-------|-----|-------|
+| Course logistics | 100% | Easy — well-covered |
+| Docker/containers | 87.9% | Good |
+| Python/pipenv | 89.7% | Good |
+| **Vector search/embeddings** | **66.7%** | Hardest — technical vocabulary mismatch |
+| **Leaderboard/scoring** | **66.7%** | Hardest — homework-specific questions |
+
+**Topic 0 sub-clusters (304 questions):**
+1. Vector search/embeddings theory — 38 questions
+2. Python errors/memory — 63 questions
+3. Homework/data ingestion — 73 questions
+4. Hardware/Mac/GPU — 58 questions
+5. Leaderboard/homework scoring — 72 questions
+
+Overall R@5 on Topic 0: 83.3% (lower than 89.5% overall)
+
+
+---
+
+## Gaps & Next Steps
+
+### Immediate
+| Gap | Priority | Impact |
+|-----|----------|--------|
+| CAG scaling (152/1140 scored) | High | Foundation for production |
+| Fix RAGAS max_tokens limit on long references | High | Cleaner scores |
+| End-to-end RAG quality metric | Medium | Combined retrieve+generate eval |
+
+### Retrieval
+| Gap | Priority | Impact |
+|-----|----------|--------|
+| Fix vocabulary mismatch (Vector search @ 66.7%) | High | Query expansion, HyDE, synonyms |
+| Sub-cluster Topic 0 and benchmark per sub-topic | Medium | Find where failures live |
+| Test OpenAI/Cohere embeddings vs bge-base | Low | Latency vs quality tradeoff |
+
+### Evaluation
+| Gap | Priority | Impact |
+|-----|----------|--------|
+| Human evaluation (50-question spot check) | Medium | Validate 0.713 FC = real quality |
+| Latency budget analysis (BM25 vs Hybrid tradeoff) | Low | Document decision framework |
+
+### Production
+| Gap | Priority | Impact |
+|-----|----------|--------|
+| Slack integration (capture 92.4% course-filter) | High | 5.5% gain for free |
+| Query cache (FAQ answers are static) | Medium | Near-zero latency on repeats |
+| Drift detection / monitoring | Medium | Know when quality degrades |
+
+### Priority Order
+1. **Query expansion / HyDE** — fix the 66.7% vocabulary gap (highest retrieval upside)
+2. **Finish CAG scaling** — complete the 1140 and fix RAGAS token limit
+3. **Slack integration** — capture the free 5.5% course-filter gain
+4. **Query cache** — before further embedding model experiments
