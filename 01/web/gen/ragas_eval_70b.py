@@ -99,7 +99,7 @@ for i, (qid, answer) in enumerate(pending):
                 'timestamp': datetime.now().isoformat(),
             }, f, indent=2)
         
-        time.sleep(2)  # Light pacing
+        time.sleep(5)  # Light pacing
         
     except Exception as e:
         logger.error(f"  [{i+1}] failed: {e}")

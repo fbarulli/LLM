@@ -41,7 +41,7 @@ def load_all_docs():
     all_docs = []
     offset = 0
     while True:
-        results = client.scroll(collection_name='faqs', limit=200, offset=offset, with_payload=True)
+        results = client.scroll(collection_name='faqs_bge_base_en_v1.5', limit=200, offset=offset, with_payload=True)
         points, next_offset = results
         if not points:
             break
