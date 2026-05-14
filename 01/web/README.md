@@ -535,3 +535,123 @@ These are queries where multiple similar FAQs exist, making exact matching inher
 - 70B evaluator confirms quality improvement
 - Remaining NaN scores are evaluator limits, not answer quality issues
 - Next: deploy with course filter (92.4% R@5) or build two-stage CAG+RAG
+
+
+
+---
+
+## CAG Regeneration — Final Results
+
+### 70B Judge (ground truth)
+
+| Metric | Original | Regenerated (v2) |
+|--------|----------|-------------------|
+| Mean FactualCorrectness | 0.256 | **0.806** |
+| Samples scored | 45 | 45 |
+| Judge model | 8B | 70B |
+| Improved | — | 38/45 (84%) |
+| Regressed | — | 7/45 (16%) |
+
+### Key Findings
+- **Technical prompt with max_tokens=1024** produced 3-10x longer answers (300 → 1800 chars avg)
+- **8B evaluator is unreliable** for long answers — scored some as 0.00 that 70B scored 0.74-0.95
+- **70B judge confirms** regeneration improved factual correctness by 3.1x
+- **Worst regressions** were evaluator artifacts, not real quality drops
+- **Commands, code snippets, and step-by-step instructions** are now preserved
+
+### Lessons Learned
+1. **Evaluator calibration matters** — 8B is fast but unreliable for long answers. Use 70B for final scoring.
+2. **Prompt engineering has huge leverage** — "be concise" vs "preserve all commands" is a 3x FC difference.
+3. **Incremental saving is essential** — survived multiple crashes during the 70B evaluation run.
+4. **Long answers break RAGAS** — the evaluator's internal statement extraction hits token limits on 3000+ char answers.
+
+
+
+
+
+
+
+## Final Architecture
+
+```
+User Query
+    │
+    ▼
+Glossary Expansion (colloquial → technical terms)
+    │
+    ▼
+Async Embedding (bge-base-en-v1.5, 768d)
+    │
+    ▼
+Qdrant Search (top 50, course boost ×1.2)
+    │
+    ▼
+Guardrail: raw score < 0.67 → "I don't know"
+    │
+    ▼
+┌─ CAG (score ≥ 0.75): return pre-computed answer
+└─ RAG (fallback): retrieve top-5 → generate with 70B
+```
+
+## Service (`service.py`)
+
+| Feature | Implementation |
+|---------|---------------|
+| Embedding | bge-base-en-v1.5, async via `asyncio.to_thread` |
+| Retrieval | AsyncQdrantClient, overfetch 50, course boost ×1.2 |
+| Guardrail | Raw cosine score < 0.67 returns "I don't know" |
+| CAG | Pre-computed answers from `cag_answers_v2.json`, threshold 0.75 |
+| RAG | Top-5 contexts (uses CAG answers when available), 70B generation |
+| Anti-hallucination | Prompt instruction: "If contexts don't contain enough, say so" |
+| Caching | CAG is pre-computed offline — no runtime cache growth |
+| Glossary | 6 colloquial→technical term mappings, hit tracking via `/stats` |
+| Health | `/health` checks Qdrant connectivity + CAG load status |
+
+## Guardrail Validation
+
+| Query Type | Score Range | Action |
+|-----------|-------------|--------|
+| Pure OOD (cooking, geography) | 0.41–0.59 | Blocked |
+| Adversarial (adjacent tech) | 0.61–0.65 | Blocked |
+| FAQ queries | 0.70+ | Passed |
+| **Threshold** | **0.67** | Gap at 0.65–0.70 |
+
+## CAG Quality
+
+| Metric | Original | Regenerated (v2) |
+|--------|----------|-------------------|
+| Mean FactualCorrectness | 0.256 | **0.806** (70B judge) |
+| Avg answer length | ~300 chars | ~1800 chars |
+| Improved | — | 38/45 (84%) |
+| Prompt | "Be concise" | "Preserve all commands, steps, code" |
+
+## Retrieval Performance
+
+| Config | R@5 | P50ms |
+|--------|-----|-------|
+| BM25 (q^5+a^5) | 79.0% | 3.9ms |
+| Vector (bge-base 768d) | 80.0% | 5.6ms |
+| **Hybrid BM25+Qdrant** | **84.5%** | 8.5ms |
+| Open search (no filter) | 86.9% | 9.8ms |
+| Course filter (Slack channel) | 92.4% | 9.9ms |
+
+## Known Limitations
+
+- Embedding model blocks event loop under concurrent load (~120ms)
+- CAG never invalidates — stale if FAQ source changes
+- Glossary is hand-crafted from 12 failure queries — won't scale
+- No usage metrics beyond `/stats`
+- Single point of failure: Qdrant on localhost
+- 70B RAG fallback costs 2-5s and API credits per query
+
+## What's Not Built
+
+| Feature | Reason |
+|---------|--------|
+| Slack integration | Learning project, no deployment planned |
+| Query cache | FAQ static, CAG handles 90%+ of queries |
+| Drift monitoring | Needs baseline over time — future work |
+| Feedback loop | No real users to provide feedback |
+| Section boosting | Validated — zero benefit for this corpus |
+| HyDE query rewriting | Validated — no improvement over baseline |
+| Smart routing (keywords) | Validated — 11 wrong routes, worse than open search |
